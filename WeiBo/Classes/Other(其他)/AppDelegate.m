@@ -19,13 +19,31 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
 
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
-    
-    
     [self.window makeKeyAndVisible];
     
     
-    CJNewfeatureViewController *newVc = [[CJNewfeatureViewController alloc] init];
-    self.window.rootViewController = newVc;
+    // 取出沙盒中版本数据
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    NSString *lastVersion = [defaults stringForKey:@"VersionCode"];
+    
+    // 取出当前版本数据
+    NSString *currentVersion = [NSBundle mainBundle].infoDictionary[@"CFBundleVersion"];
+    
+    NSLog(@"lastVersion:%@--currentVersion:%@",lastVersion,currentVersion);
+    
+    // 判断是否为新版本
+    if ([currentVersion isEqualToString:lastVersion]) { // 非第一次运行 非版本
+        
+        self.window.rootViewController = [[CJTabBarController alloc] init];
+        
+    }   else{ // 旧版本
+    
+        self.window.rootViewController = [[CJNewfeatureViewController alloc] init];
+        
+        [defaults setObject:currentVersion forKey:@"VersionCode"];
+        [defaults synchronize];
+    }
+    
     return YES;
 }
 

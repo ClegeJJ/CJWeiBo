@@ -129,7 +129,7 @@
     
     checkbox.bounds = (CGRect){CGPointZero , CGSizeMake(200, 50)};
     
-    checkbox.selected = NO;
+    checkbox.selected = YES;
     
     checkbox.titleEdgeInsets = UIEdgeInsetsMake(0, 10, 0, 0);
     
