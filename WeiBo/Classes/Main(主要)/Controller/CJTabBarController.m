@@ -12,7 +12,7 @@
 #import "CJDiscoverViewController.h"
 #import "CJMeViewController.h"
 #import "CJMessageViewController.h"
-
+#import "CJNavigationController.h"
 
 @interface CJTabBarController () <CJTabBarDelegate>
 
@@ -75,8 +75,9 @@
     
     // 首页
     CJHomeViewController *homeVC = [[CJHomeViewController alloc] init];
+    homeVC.tabBarItem.badgeValue = @"10";
     [self setUpChildViewControllerWithChildVc:homeVC Title:@"首页" image:@"tabbar_home" selectedImage:@"tabbar_home_selected"];
-
+    
     // 消息
     CJMessageViewController *messageVC = [[CJMessageViewController alloc] init];
     [self setUpChildViewControllerWithChildVc:messageVC Title:@"消息" image:@"tabbar_message_center" selectedImage:@"tabbar_message_center_selected"];
@@ -110,7 +111,7 @@
     childVc.tabBarItem.selectedImage = [[UIImage imageWithName:selectedImageName] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
     
     
-    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:childVc];
+    CJNavigationController *nav = [[CJNavigationController alloc] initWithRootViewController:childVc];
     [self addChildViewController:nav];
     
     

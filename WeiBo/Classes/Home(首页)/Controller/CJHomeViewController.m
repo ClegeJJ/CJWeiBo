@@ -7,7 +7,7 @@
 //
 
 #import "CJHomeViewController.h"
-
+#import "UIBarButtonItem+CJ.h"
 @interface CJHomeViewController ()
 
 @end
@@ -16,9 +16,33 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+//
+//    UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
+//    [button setBackgroundImage:[UIImage imageWithName:@"navigationbar_friendsearch"] forState:UIControlStateNormal];
+//    [button setBackgroundImage:[UIImage imageWithName:@"navigationbar_friendsearch_highlighted"] forState:UIControlStateHighlighted];
+//    button.bounds = (CGRect){CGPointZero,button.currentBackgroundImage.size};
+    
+    // 设置左边按钮
+    self.navigationItem.leftBarButtonItem = [UIBarButtonItem itemWithImage:@"navigationbar_friendsearch" highImage:@"navigationbar_friendsearch_highlighted" target:self action:@selector(findFriend)];
+
+    // 设置右边按钮
+    self.navigationItem.rightBarButtonItem = [UIBarButtonItem itemWithImage:@"navigationbar_pop" highImage:@"navigationbar_pop_highlighted" target:self action:@selector(pop)];
+    
+}
+
+- (void)findFriend
+{
+
+    NSLog(@"findFriend");
 
 }
 
+- (void)pop
+{
+
+    NSLog(@"pop");
+
+}
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {

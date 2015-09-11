@@ -18,6 +18,13 @@
 #define kHeight [UIScreen mainScreen].bounds.size.height
 
 
-// 2.获得RGB颜色
+// 1.获得RGB颜色
 #define CJColor(r, g, b) [UIColor colorWithRed:(r)/255.0 green:(g)/255.0 blue:(b)/255.0 alpha:1.0]
+#endif
+
+// 2.自定义Log
+#ifdef DEBUG
+#define CJLog(...) NSLog(__VA_ARGS__)
+#else
+#define CJLog(...)
 #endif

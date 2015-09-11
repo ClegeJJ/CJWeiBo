@@ -8,6 +8,7 @@
 
 #import "CJDiscoverViewController.h"
 
+#import "CJSearchBar.h"
 @interface CJDiscoverViewController ()
 
 @end
@@ -17,17 +18,12 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
     
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+
+    CJSearchBar *searchbar = [[CJSearchBar alloc] initWithFrame:CGRectMake(0, 0, 100, 30)];
+    self.navigationItem.titleView = searchbar;
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
 
 #pragma mark - Table view data source
 
