@@ -225,6 +225,7 @@
 		F033A83E1BA0554D00417D4D /* tabbar_slider@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F033A7711BA0554D00417D4D /* tabbar_slider@2x.png */; };
 		F033A8421BA0578A00417D4D /* UIImage+MJ.m in Sources */ = {isa = PBXBuildFile; fileRef = F033A8411BA0578A00417D4D /* UIImage+MJ.m */; };
 		F059E3921BA10F6500BC1C25 /* CJTabBarButton.m in Sources */ = {isa = PBXBuildFile; fileRef = F059E3911BA10F6500BC1C25 /* CJTabBarButton.m */; };
+		F088116E1BA2C74800A05B49 /* CJNewfeatureViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F088116D1BA2C74800A05B49 /* CJNewfeatureViewController.m */; };
 		F09735FF1BA286750046A288 /* UIBarButtonItem+CJ.m in Sources */ = {isa = PBXBuildFile; fileRef = F09735FE1BA286750046A288 /* UIBarButtonItem+CJ.m */; };
 		F09736021BA297C20046A288 /* CJSearchBar.m in Sources */ = {isa = PBXBuildFile; fileRef = F09736011BA297C20046A288 /* CJSearchBar.m */; };
 		F09736051BA2B3AD0046A288 /* CJTitleButton.m in Sources */ = {isa = PBXBuildFile; fileRef = F09736041BA2B3AD0046A288 /* CJTitleButton.m */; };
@@ -475,6 +476,8 @@
 		F033A8441BA05C8C00417D4D /* CJ.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CJ.pch; sourceTree = "<group>"; };
 		F059E3901BA10F6500BC1C25 /* CJTabBarButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CJTabBarButton.h; sourceTree = "<group>"; };
 		F059E3911BA10F6500BC1C25 /* CJTabBarButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CJTabBarButton.m; sourceTree = "<group>"; };
+		F088116C1BA2C74800A05B49 /* CJNewfeatureViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CJNewfeatureViewController.h; sourceTree = "<group>"; };
+		F088116D1BA2C74800A05B49 /* CJNewfeatureViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CJNewfeatureViewController.m; sourceTree = "<group>"; };
 		F09735FD1BA286750046A288 /* UIBarButtonItem+CJ.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIBarButtonItem+CJ.h"; sourceTree = "<group>"; };
 		F09735FE1BA286750046A288 /* UIBarButtonItem+CJ.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIBarButtonItem+CJ.m"; sourceTree = "<group>"; };
 		F09736001BA297C20046A288 /* CJSearchBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CJSearchBar.h; sourceTree = "<group>"; };
@@ -556,6 +559,7 @@
 		F033A65E1BA0374A00417D4D /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				F08811621BA2C4B200A05B49 /* Newfeature(新特性) */,
 				F033A66B1BA0374A00417D4D /* Main(主要) */,
 				F033A6651BA0374A00417D4D /* Home(首页) */,
 				F033A65F1BA0374A00417D4D /* Discover(广场) */,
@@ -1075,6 +1079,39 @@
 			path = Category;
 			sourceTree = "<group>";
 		};
+		F08811621BA2C4B200A05B49 /* Newfeature(新特性) */ = {
+			isa = PBXGroup;
+			children = (
+				F08811631BA2C4B200A05B49 /* Controller */,
+				F08811661BA2C4B200A05B49 /* Model */,
+				F08811671BA2C4B200A05B49 /* View */,
+			);
+			path = "Newfeature(新特性)";
+			sourceTree = "<group>";
+		};
+		F08811631BA2C4B200A05B49 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				F088116C1BA2C74800A05B49 /* CJNewfeatureViewController.h */,
+				F088116D1BA2C74800A05B49 /* CJNewfeatureViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		F08811661BA2C4B200A05B49 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		F08811671BA2C4B200A05B49 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1389,6 +1426,7 @@
 				F0FFBC601BA17CC80059BFD3 /* CJBadegButton.m in Sources */,
 				F033A68D1BA0374A00417D4D /* CJMeViewController.m in Sources */,
 				F033A6901BA0374A00417D4D /* main.m in Sources */,
+				F088116E1BA2C74800A05B49 /* CJNewfeatureViewController.m in Sources */,
 				F09735FF1BA286750046A288 /* UIBarButtonItem+CJ.m in Sources */,
 				F09736021BA297C20046A288 /* CJSearchBar.m in Sources */,
 				F033A6941BA04CD800417D4D /* CJTabBar.m in Sources */,

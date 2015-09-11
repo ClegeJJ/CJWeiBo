@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "CJTabBarController.h"
+#import "CJNewfeatureViewController.h"
 @interface AppDelegate ()
 
 @end
@@ -22,8 +23,9 @@
     
     [self.window makeKeyAndVisible];
     
-    CJTabBarController *tabVc = [[CJTabBarController alloc] init];
-    self.window.rootViewController = tabVc;
+    
+    CJNewfeatureViewController *newVc = [[CJNewfeatureViewController alloc] init];
+    self.window.rootViewController = newVc;
     return YES;
 }
 

@@ -56,7 +56,6 @@
 {
     
     _item = item;
-    
     // 调用KVO方法设置初始值
     [self observeValueForKeyPath:nil ofObject:nil change:nil context:nil];
     
@@ -71,10 +70,8 @@
 }
 
 
-
 - (void)dealloc
 {
-
     [self.item removeObserver:self forKeyPath:@"image"];
     [self.item removeObserver:self forKeyPath:@"selectedImage"];
     [self.item removeObserver:self forKeyPath:@"title"];

@@ -114,7 +114,6 @@
     CJNavigationController *nav = [[CJNavigationController alloc] initWithRootViewController:childVc];
     [self addChildViewController:nav];
     
-    
     [self.myTabBar addTabBarButtonWithItem:childVc.tabBarItem];
 }
 
