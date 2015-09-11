@@ -19,8 +19,8 @@
     [super viewDidLoad];
     
     
-
-    CJSearchBar *searchbar = [[CJSearchBar alloc] initWithFrame:CGRectMake(0, 0, 100, 30)];
+    // 设置顶部搜索框
+    CJSearchBar *searchbar = [[CJSearchBar alloc] initWithFrame:CGRectMake(0, 0, 300, 30)];
     self.navigationItem.titleView = searchbar;
 }
 

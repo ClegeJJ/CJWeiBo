@@ -17,25 +17,27 @@
 
 + (void)initialize
 {
-
+    // 设置导航栏主题
     [self setupNavTheme];
     
+    // 设置导航栏按钮主题
     [self setupTabBarItemTheme];
 
 }
 
+// 设置导航栏主题
 + (void)setupNavTheme
 {
     UINavigationBar *navBar = [UINavigationBar appearance];
     
     NSMutableDictionary *textAttri = [NSMutableDictionary dictionary];
     textAttri[NSFontAttributeName] = [UIFont boldSystemFontOfSize:19];
-    textAttri[NSForegroundColorAttributeName] = [UIColor colorWithWhite:0.400 alpha:1.000];
+    textAttri[NSForegroundColorAttributeName] = navButtonColor;
     [navBar setTitleTextAttributes:textAttri];
 
 }
 
-
+// 设置导航栏按钮主题
 + (void)setupTabBarItemTheme
 {
     UIBarButtonItem *item = [UIBarButtonItem appearance];
@@ -45,16 +47,15 @@
     textAttri[NSForegroundColorAttributeName] = [UIColor orangeColor];
     
     
-    
-//    [item setBackgroundImage:[UIImage imageWithName:@"navigationbar_button_background"] forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
-//    [item setBackgroundImage:[UIImage imageWithName:@"navigationbar_button_background_pushed"] forState:UIControlStateHighlighted barMetrics:UIBarMetricsDefault];
-//    [item setBackgroundImage:[UIImage imageWithName:@"navigationbar_button_background_disable"] forState:UIControlStateDisabled barMetrics:UIBarMetricsDefault];
-    
     [item setTitleTextAttributes:textAttri forState:UIControlStateNormal];
 
 
 
 }
+
+/**
+ *  拦截所有的Push操作
+ */
 - (void)pushViewController:(UIViewController *)viewController animated:(BOOL)animated
 {
 

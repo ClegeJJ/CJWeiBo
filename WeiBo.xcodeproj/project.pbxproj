@@ -227,6 +227,7 @@
 		F059E3921BA10F6500BC1C25 /* CJTabBarButton.m in Sources */ = {isa = PBXBuildFile; fileRef = F059E3911BA10F6500BC1C25 /* CJTabBarButton.m */; };
 		F09735FF1BA286750046A288 /* UIBarButtonItem+CJ.m in Sources */ = {isa = PBXBuildFile; fileRef = F09735FE1BA286750046A288 /* UIBarButtonItem+CJ.m */; };
 		F09736021BA297C20046A288 /* CJSearchBar.m in Sources */ = {isa = PBXBuildFile; fileRef = F09736011BA297C20046A288 /* CJSearchBar.m */; };
+		F09736051BA2B3AD0046A288 /* CJTitleButton.m in Sources */ = {isa = PBXBuildFile; fileRef = F09736041BA2B3AD0046A288 /* CJTitleButton.m */; };
 		F0A817801BA25710003C7773 /* CJNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = F0A8177F1BA25710003C7773 /* CJNavigationController.m */; };
 		F0FFBC601BA17CC80059BFD3 /* CJBadegButton.m in Sources */ = {isa = PBXBuildFile; fileRef = F0FFBC5F1BA17CC80059BFD3 /* CJBadegButton.m */; };
 /* End PBXBuildFile section */
@@ -478,6 +479,8 @@
 		F09735FE1BA286750046A288 /* UIBarButtonItem+CJ.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIBarButtonItem+CJ.m"; sourceTree = "<group>"; };
 		F09736001BA297C20046A288 /* CJSearchBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CJSearchBar.h; sourceTree = "<group>"; };
 		F09736011BA297C20046A288 /* CJSearchBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CJSearchBar.m; sourceTree = "<group>"; };
+		F09736031BA2B3AD0046A288 /* CJTitleButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CJTitleButton.h; sourceTree = "<group>"; };
+		F09736041BA2B3AD0046A288 /* CJTitleButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CJTitleButton.m; sourceTree = "<group>"; };
 		F0A8177E1BA25710003C7773 /* CJNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CJNavigationController.h; sourceTree = "<group>"; };
 		F0A8177F1BA25710003C7773 /* CJNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CJNavigationController.m; sourceTree = "<group>"; };
 		F0FFBC5E1BA17CC80059BFD3 /* CJBadegButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CJBadegButton.h; sourceTree = "<group>"; };
@@ -554,8 +557,8 @@
 			isa = PBXGroup;
 			children = (
 				F033A66B1BA0374A00417D4D /* Main(主要) */,
-				F033A65F1BA0374A00417D4D /* Discover(广场) */,
 				F033A6651BA0374A00417D4D /* Home(首页) */,
+				F033A65F1BA0374A00417D4D /* Discover(广场) */,
 				F033A6771BA0374A00417D4D /* Me(我) */,
 				F033A67D1BA0374A00417D4D /* Message(消息) */,
 				F033A6831BA0374A00417D4D /* Other(其他) */,
@@ -629,6 +632,8 @@
 		F033A66A1BA0374A00417D4D /* View */ = {
 			isa = PBXGroup;
 			children = (
+				F09736031BA2B3AD0046A288 /* CJTitleButton.h */,
+				F09736041BA2B3AD0046A288 /* CJTitleButton.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1388,6 +1393,7 @@
 				F09736021BA297C20046A288 /* CJSearchBar.m in Sources */,
 				F033A6941BA04CD800417D4D /* CJTabBar.m in Sources */,
 				F059E3921BA10F6500BC1C25 /* CJTabBarButton.m in Sources */,
+				F09736051BA2B3AD0046A288 /* CJTitleButton.m in Sources */,
 				F033A6881BA0374A00417D4D /* CJHomeViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

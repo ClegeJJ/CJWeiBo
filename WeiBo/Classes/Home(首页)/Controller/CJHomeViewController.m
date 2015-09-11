@@ -7,7 +7,10 @@
 //
 
 #import "CJHomeViewController.h"
+
 #import "UIBarButtonItem+CJ.h"
+
+#import "CJTitleButton.h"
 @interface CJHomeViewController ()
 
 @end
@@ -16,11 +19,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-//
-//    UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
-//    [button setBackgroundImage:[UIImage imageWithName:@"navigationbar_friendsearch"] forState:UIControlStateNormal];
-//    [button setBackgroundImage:[UIImage imageWithName:@"navigationbar_friendsearch_highlighted"] forState:UIControlStateHighlighted];
-//    button.bounds = (CGRect){CGPointZero,button.currentBackgroundImage.size};
     
     // 设置左边按钮
     self.navigationItem.leftBarButtonItem = [UIBarButtonItem itemWithImage:@"navigationbar_friendsearch" highImage:@"navigationbar_friendsearch_highlighted" target:self action:@selector(findFriend)];
@@ -28,21 +26,64 @@
     // 设置右边按钮
     self.navigationItem.rightBarButtonItem = [UIBarButtonItem itemWithImage:@"navigationbar_pop" highImage:@"navigationbar_pop_highlighted" target:self action:@selector(pop)];
     
+    // 设置中间按钮
+    CJTitleButton *titleButton = [CJTitleButton buttonWithType:UIButtonTypeCustom];
+    
+    // 设置箭头图片
+    [titleButton setImage:[UIImage imageWithName:@"navigationbar_arrow_down"] forState:UIControlStateNormal];
+    
+    // 设置选中图片
+    [titleButton setImage:[UIImage imageWithName:@"navigationbar_arrow_up"] forState:UIControlStateSelected];
+    
+    // 设置宽高
+    titleButton.bounds = CGRectMake(0, 0, 110, 40);
+    
+    // 设置标题
+    [titleButton setTitle:@"哈哈哈哈" forState:UIControlStateNormal];
+    
+    // 添加点击事件
+    [titleButton addTarget:self action:@selector(titleButtonClick:) forControlEvents:UIControlEventTouchUpInside];
+    self.navigationItem.titleView = titleButton;
 }
 
+
+/**
+ *  导航栏左边按钮点击时调用
+ */
 - (void)findFriend
 {
 
     NSLog(@"findFriend");
 
 }
-
+/**
+ *  导航栏右边按钮点击时调用
+ */
 - (void)pop
 {
 
     NSLog(@"pop");
 
 }
+
+/**
+ *  导航栏中间按钮点击时调用
+ */
+- (void)titleButtonClick:(CJTitleButton *)titleButton
+{
+    if (titleButton.selected) { // 选中状态
+    
+        titleButton.selected = NO;
+    
+    }else{  // 普通状态
+    
+        titleButton.selected = YES;
+        
+    }
+
+
+}
+
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
