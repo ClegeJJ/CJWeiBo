@@ -12,9 +12,9 @@
 
 #import "CJAccount.h"
 
-#import "CJNewfeatureViewController.h"
+#import "CJLaunchTool.h"
 
-#import "CJTabBarController.h"
+#import "CJAccountTool.h"
 
 @interface CJOAuthViewController () <UIWebViewDelegate>
 
@@ -106,38 +106,10 @@
           CJAccount *account = [[CJAccount alloc] initWithDict:responseObject];
           
           // 5.存储模型数据
-          NSString *documentPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject];
-          // 拼接文件路径
-          NSString *filePaht = [documentPath stringByAppendingPathComponent:@"account.data"];
-          // 存储授权信息
-          [NSKeyedArchiver archiveRootObject:account toFile:filePaht];
+          [CJAccountTool saveAccount:account];
         
-          /*
-           
-           1.用户注销了 ---- 不显示新特性
-           2.授权过期 版本未升级 --- 不显示新特性
-           */
-          
-          // 取出沙盒中上次存储的版本数据
-          NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-          NSString *lastVersion = [defaults stringForKey:@"VersionCode"];
-          
-          // 取出当前版本数据
-          NSString *currentVersion = [NSBundle mainBundle].infoDictionary[@"CFBundleVersion"];
-          
-          // 3.判断是否为新版本
-          if ([currentVersion isEqualToString:lastVersion]) { // 非第一次运行 非版本
-              
-              self.view.window.rootViewController = [[CJTabBarController alloc] init];
-              
-          }   else{ // 旧版本
-              
-              self.view.window.rootViewController = [[CJNewfeatureViewController alloc] init];
-              
-              [defaults setObject:currentVersion forKey:@"VersionCode"];
-              [defaults synchronize];
-          }
-          
+          // 6.选择要跳转的控制器
+          [CJLaunchTool chooseRootViewController];
           
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         

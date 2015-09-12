@@ -18,6 +18,7 @@
 
 @property (nonatomic, assign) long long uid;
 
+@property (nonatomic, strong) NSDate *expires_time; // 过期时间
 
 - (instancetype)initWithDict:(NSDictionary *)dict;
 + (instancetype)accountWithDict:(NSDictionary *)dict;

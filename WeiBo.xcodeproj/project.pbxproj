@@ -235,6 +235,8 @@
 		F04C0E421BA3D3DD0029282B /* AFURLSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F04C0E391BA3D3DD0029282B /* AFURLSessionManager.m */; };
 		F04C0E481BA3D4750029282B /* CJOAuthViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F04C0E471BA3D4750029282B /* CJOAuthViewController.m */; };
 		F04C0E4B1BA411A50029282B /* CJAccount.m in Sources */ = {isa = PBXBuildFile; fileRef = F04C0E4A1BA411A50029282B /* CJAccount.m */; };
+		F04C0E4E1BA446550029282B /* CJLaunchTool.m in Sources */ = {isa = PBXBuildFile; fileRef = F04C0E4D1BA446550029282B /* CJLaunchTool.m */; };
+		F04C0E521BA448DD0029282B /* CJAccountTool.m in Sources */ = {isa = PBXBuildFile; fileRef = F04C0E511BA448DD0029282B /* CJAccountTool.m */; };
 		F059E3921BA10F6500BC1C25 /* CJTabBarButton.m in Sources */ = {isa = PBXBuildFile; fileRef = F059E3911BA10F6500BC1C25 /* CJTabBarButton.m */; };
 		F088116E1BA2C74800A05B49 /* CJNewfeatureViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F088116D1BA2C74800A05B49 /* CJNewfeatureViewController.m */; };
 		F09735FF1BA286750046A288 /* UIBarButtonItem+CJ.m in Sources */ = {isa = PBXBuildFile; fileRef = F09735FE1BA286750046A288 /* UIBarButtonItem+CJ.m */; };
@@ -508,6 +510,10 @@
 		F04C0E471BA3D4750029282B /* CJOAuthViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CJOAuthViewController.m; sourceTree = "<group>"; };
 		F04C0E491BA411A50029282B /* CJAccount.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CJAccount.h; sourceTree = "<group>"; };
 		F04C0E4A1BA411A50029282B /* CJAccount.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CJAccount.m; sourceTree = "<group>"; };
+		F04C0E4C1BA446540029282B /* CJLaunchTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CJLaunchTool.h; sourceTree = "<group>"; };
+		F04C0E4D1BA446550029282B /* CJLaunchTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CJLaunchTool.m; sourceTree = "<group>"; };
+		F04C0E501BA448DD0029282B /* CJAccountTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CJAccountTool.h; sourceTree = "<group>"; };
+		F04C0E511BA448DD0029282B /* CJAccountTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CJAccountTool.m; sourceTree = "<group>"; };
 		F059E3901BA10F6500BC1C25 /* CJTabBarButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CJTabBarButton.h; sourceTree = "<group>"; };
 		F059E3911BA10F6500BC1C25 /* CJTabBarButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CJTabBarButton.m; sourceTree = "<group>"; };
 		F088116C1BA2C74800A05B49 /* CJNewfeatureViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CJNewfeatureViewController.h; sourceTree = "<group>"; };
@@ -778,6 +784,8 @@
 				F033A83F1BA0577B00417D4D /* Category */,
 				F033A6841BA0374A00417D4D /* AppDelegate.h */,
 				F033A6851BA0374A00417D4D /* AppDelegate.m */,
+				F04C0E4C1BA446540029282B /* CJLaunchTool.h */,
+				F04C0E4D1BA446550029282B /* CJLaunchTool.m */,
 				F033A6861BA0374A00417D4D /* main.m */,
 			);
 			path = "Other(其他)";
@@ -1152,6 +1160,7 @@
 		F04C0E431BA3D3FE0029282B /* OAuth(授权) */ = {
 			isa = PBXGroup;
 			children = (
+				F04C0E4F1BA448CC0029282B /* Tool */,
 				F04C0E441BA3D3FE0029282B /* Controller */,
 				F04C0E451BA3D3FE0029282B /* Model */,
 			);
@@ -1174,6 +1183,15 @@
 				F04C0E4A1BA411A50029282B /* CJAccount.m */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		F04C0E4F1BA448CC0029282B /* Tool */ = {
+			isa = PBXGroup;
+			children = (
+				F04C0E501BA448DD0029282B /* CJAccountTool.h */,
+				F04C0E511BA448DD0029282B /* CJAccountTool.m */,
+			);
+			path = Tool;
 			sourceTree = "<group>";
 		};
 		F08811621BA2C4B200A05B49 /* Newfeature(新特性) */ = {
@@ -1522,9 +1540,11 @@
 				F04C0E3D1BA3D3DD0029282B /* AFNetworkReachabilityManager.m in Sources */,
 				F033A6891BA0374A00417D4D /* CJTabBarController.m in Sources */,
 				F033A6871BA0374A00417D4D /* CJDiscoverViewController.m in Sources */,
+				F04C0E521BA448DD0029282B /* CJAccountTool.m in Sources */,
 				F04C0E481BA3D4750029282B /* CJOAuthViewController.m in Sources */,
 				F033A68F1BA0374A00417D4D /* AppDelegate.m in Sources */,
 				F0A817801BA25710003C7773 /* CJNavigationController.m in Sources */,
+				F04C0E4E1BA446550029282B /* CJLaunchTool.m in Sources */,
 				F04C0E3E1BA3D3DD0029282B /* AFSecurityPolicy.m in Sources */,
 				F033A68E1BA0374A00417D4D /* CJMessageViewController.m in Sources */,
 				F0FFBC601BA17CC80059BFD3 /* CJBadegButton.m in Sources */,

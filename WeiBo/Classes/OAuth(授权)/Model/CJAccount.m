@@ -37,6 +37,7 @@
     if (self == [super init]) {
         
         self.access_token = [aDecoder decodeObjectForKey:@"access_token"];
+        self.expires_time = [aDecoder decodeObjectForKey:@"expires_time"];
         self.expires_in = [aDecoder decodeInt64ForKey:@"expires_in"];
         self.remind_in = [aDecoder decodeInt64ForKey:@"remind_in"];
         self.uid = [aDecoder decodeInt64ForKey:@"uid"];
@@ -50,6 +51,7 @@
 {
     
     [aCoder encodeObject:self.access_token forKey:@"access_token"];
+    [aCoder encodeObject:self.expires_time forKey:@"expires_time"];
     [aCoder encodeInt64:self.remind_in forKey:@"remind_in"];
     [aCoder encodeInt64:self.expires_in forKey:@"expires_in"];
     [aCoder encodeInt64:self.uid forKey:@"uid"];

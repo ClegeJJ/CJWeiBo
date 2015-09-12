@@ -41,7 +41,7 @@
     UIScrollView *scrollView = [[UIScrollView alloc] initWithFrame:self.view.bounds];
     
     
-    
+    // 滑动视图宽高
     CGFloat imageW = scrollView.frame.size.width;
     CGFloat imageH = scrollView.frame.size.height;
     
@@ -84,6 +84,9 @@
     
 }
 
+/**
+ *  设置最后一张图片上的子控件
+ */
 - (void)setupLastImageView:(UIImageView *)imageView
 {
 
