@@ -16,6 +16,8 @@
 
 #import "CJAccountTool.h"
 
+#import "MBProgressHUD+MJ.h"
+
 @interface CJOAuthViewController () <UIWebViewDelegate>
 
 @end
@@ -69,6 +71,28 @@
     }
     return YES;
 }
+/**
+ * 开始加载会调用
+ */
+- (void)webViewDidStartLoad:(UIWebView *)webView
+{
+    [MBProgressHUD showMessage:@"杰哥正在帮你加载中..."];
+}
+
+/**
+ * 完成加载会调用
+ */
+- (void)webViewDidFinishLoad:(UIWebView *)webView
+{
+
+    [MBProgressHUD hideHUD];
+}
+
+- (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error
+{
+
+    [MBProgressHUD hideHUD];
+}
 
 /**
  *  发送POST请求给新浪
@@ -111,9 +135,12 @@
           // 6.选择要跳转的控制器
           [CJLaunchTool chooseRootViewController];
           
+          // 7.隐藏弹窗
+          [MBProgressHUD hideHUD];
+          
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         
-        NSLog(@"请求失败:%@",error);
+        [MBProgressHUD hideHUD];
         
     }];
     

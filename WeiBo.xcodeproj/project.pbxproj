@@ -237,6 +237,9 @@
 		F04C0E4B1BA411A50029282B /* CJAccount.m in Sources */ = {isa = PBXBuildFile; fileRef = F04C0E4A1BA411A50029282B /* CJAccount.m */; };
 		F04C0E4E1BA446550029282B /* CJLaunchTool.m in Sources */ = {isa = PBXBuildFile; fileRef = F04C0E4D1BA446550029282B /* CJLaunchTool.m */; };
 		F04C0E521BA448DD0029282B /* CJAccountTool.m in Sources */ = {isa = PBXBuildFile; fileRef = F04C0E511BA448DD0029282B /* CJAccountTool.m */; };
+		F04C0E591BA457A00029282B /* MBProgressHUD+MJ.m in Sources */ = {isa = PBXBuildFile; fileRef = F04C0E551BA457A00029282B /* MBProgressHUD+MJ.m */; };
+		F04C0E5A1BA457A00029282B /* MBProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = F04C0E561BA457A00029282B /* MBProgressHUD.bundle */; };
+		F04C0E5B1BA457A00029282B /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = F04C0E581BA457A00029282B /* MBProgressHUD.m */; };
 		F059E3921BA10F6500BC1C25 /* CJTabBarButton.m in Sources */ = {isa = PBXBuildFile; fileRef = F059E3911BA10F6500BC1C25 /* CJTabBarButton.m */; };
 		F088116E1BA2C74800A05B49 /* CJNewfeatureViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F088116D1BA2C74800A05B49 /* CJNewfeatureViewController.m */; };
 		F09735FF1BA286750046A288 /* UIBarButtonItem+CJ.m in Sources */ = {isa = PBXBuildFile; fileRef = F09735FE1BA286750046A288 /* UIBarButtonItem+CJ.m */; };
@@ -514,6 +517,11 @@
 		F04C0E4D1BA446550029282B /* CJLaunchTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CJLaunchTool.m; sourceTree = "<group>"; };
 		F04C0E501BA448DD0029282B /* CJAccountTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CJAccountTool.h; sourceTree = "<group>"; };
 		F04C0E511BA448DD0029282B /* CJAccountTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CJAccountTool.m; sourceTree = "<group>"; };
+		F04C0E541BA457A00029282B /* MBProgressHUD+MJ.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MBProgressHUD+MJ.h"; sourceTree = "<group>"; };
+		F04C0E551BA457A00029282B /* MBProgressHUD+MJ.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MBProgressHUD+MJ.m"; sourceTree = "<group>"; };
+		F04C0E561BA457A00029282B /* MBProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = MBProgressHUD.bundle; sourceTree = "<group>"; };
+		F04C0E571BA457A00029282B /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
+		F04C0E581BA457A00029282B /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
 		F059E3901BA10F6500BC1C25 /* CJTabBarButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CJTabBarButton.h; sourceTree = "<group>"; };
 		F059E3911BA10F6500BC1C25 /* CJTabBarButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CJTabBarButton.m; sourceTree = "<group>"; };
 		F088116C1BA2C74800A05B49 /* CJNewfeatureViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CJNewfeatureViewController.h; sourceTree = "<group>"; };
@@ -1126,6 +1134,7 @@
 		F04C0E251BA3D3DD0029282B /* Lib */ = {
 			isa = PBXGroup;
 			children = (
+				F04C0E531BA457A00029282B /* MBProgressHUD */,
 				F04C0E261BA3D3DD0029282B /* AFNetworking */,
 			);
 			path = Lib;
@@ -1192,6 +1201,18 @@
 				F04C0E511BA448DD0029282B /* CJAccountTool.m */,
 			);
 			path = Tool;
+			sourceTree = "<group>";
+		};
+		F04C0E531BA457A00029282B /* MBProgressHUD */ = {
+			isa = PBXGroup;
+			children = (
+				F04C0E541BA457A00029282B /* MBProgressHUD+MJ.h */,
+				F04C0E551BA457A00029282B /* MBProgressHUD+MJ.m */,
+				F04C0E561BA457A00029282B /* MBProgressHUD.bundle */,
+				F04C0E571BA457A00029282B /* MBProgressHUD.h */,
+				F04C0E581BA457A00029282B /* MBProgressHUD.m */,
+			);
+			path = MBProgressHUD;
 			sourceTree = "<group>";
 		};
 		F08811621BA2C4B200A05B49 /* Newfeature(新特性) */ = {
@@ -1373,6 +1394,7 @@
 				F033A8261BA0554D00417D4D /* tabbar_discover@2x.png in Resources */,
 				F033A7731BA0554D00417D4D /* NoNetwork_EN.htm in Resources */,
 				F033A8081BA0554D00417D4D /* common_card_middle_background_highlighted_os7@2x.png in Resources */,
+				F04C0E5A1BA457A00029282B /* MBProgressHUD.bundle in Resources */,
 				F033A7D41BA0554D00417D4D /* navigationbar_more_highlighted@2x.png in Resources */,
 				F033A7861BA0554D00417D4D /* common_button_red_highlighted.png in Resources */,
 				F033A7BB1BA0554D00417D4D /* navigationbar_background@2x.png in Resources */,
@@ -1538,6 +1560,7 @@
 				F033A8421BA0578A00417D4D /* UIImage+MJ.m in Sources */,
 				F04C0E3C1BA3D3DD0029282B /* AFHTTPSessionManager.m in Sources */,
 				F04C0E3D1BA3D3DD0029282B /* AFNetworkReachabilityManager.m in Sources */,
+				F04C0E591BA457A00029282B /* MBProgressHUD+MJ.m in Sources */,
 				F033A6891BA0374A00417D4D /* CJTabBarController.m in Sources */,
 				F033A6871BA0374A00417D4D /* CJDiscoverViewController.m in Sources */,
 				F04C0E521BA448DD0029282B /* CJAccountTool.m in Sources */,
@@ -1553,6 +1576,7 @@
 				F033A6901BA0374A00417D4D /* main.m in Sources */,
 				F088116E1BA2C74800A05B49 /* CJNewfeatureViewController.m in Sources */,
 				F09735FF1BA286750046A288 /* UIBarButtonItem+CJ.m in Sources */,
+				F04C0E5B1BA457A00029282B /* MBProgressHUD.m in Sources */,
 				F09736021BA297C20046A288 /* CJSearchBar.m in Sources */,
 				F033A6941BA04CD800417D4D /* CJTabBar.m in Sources */,
 				F059E3921BA10F6500BC1C25 /* CJTabBarButton.m in Sources */,
