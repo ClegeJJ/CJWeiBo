@@ -9,6 +9,8 @@
 #import "AppDelegate.h"
 #import "CJTabBarController.h"
 #import "CJNewfeatureViewController.h"
+#import "CJOAuthViewController.h"
+#import "CJAccount.h"
 @interface AppDelegate ()
 
 @end
@@ -21,28 +23,44 @@
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     [self.window makeKeyAndVisible];
     
+    // 先取出授权文件路径
+    NSString *documentPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject];
+    // 拼接文件路径
+    NSString *filePaht = [documentPath stringByAppendingPathComponent:@"account.data"];
+    // 1.取出授权帐号模型
+    CJAccount *account = [NSKeyedUnarchiver unarchiveObjectWithFile:filePaht];
+
     
-    // 取出沙盒中版本数据
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    NSString *lastVersion = [defaults stringForKey:@"VersionCode"];
-    
-    // 取出当前版本数据
-    NSString *currentVersion = [NSBundle mainBundle].infoDictionary[@"CFBundleVersion"];
-    
-    NSLog(@"lastVersion:%@--currentVersion:%@",lastVersion,currentVersion);
-    
-    // 判断是否为新版本
-    if ([currentVersion isEqualToString:lastVersion]) { // 非第一次运行 非版本
+    // 2.判断有无存储授权帐号信息
+    if (account) { // 有授权过
         
-        self.window.rootViewController = [[CJTabBarController alloc] init];
+        // 取出沙盒中上次版本数据
+        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+        NSString *lastVersion = [defaults stringForKey:@"VersionCode"];
         
-    }   else{ // 旧版本
+        // 取出当前版本数据
+        NSString *currentVersion = [NSBundle mainBundle].infoDictionary[@"CFBundleVersion"];
+        
+        // 3.判断是否为新版本
+        if ([currentVersion isEqualToString:lastVersion]) { // 非第一次运行 非版本
+            
+            self.window.rootViewController = [[CJTabBarController alloc] init];
+            
+        }   else{ // 旧版本
+            
+            self.window.rootViewController = [[CJNewfeatureViewController alloc] init];
+            
+            [defaults setObject:currentVersion forKey:@"VersionCode"];
+            [defaults synchronize];
+        }
+
+        
+    } else { // 未授权
     
-        self.window.rootViewController = [[CJNewfeatureViewController alloc] init];
+        self.window.rootViewController = [[CJOAuthViewController alloc] init];
         
-        [defaults setObject:currentVersion forKey:@"VersionCode"];
-        [defaults synchronize];
     }
+    
     
     return YES;
 }
