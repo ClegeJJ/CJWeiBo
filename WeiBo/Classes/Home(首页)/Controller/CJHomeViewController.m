@@ -20,11 +20,15 @@
 
 #import "CJAccountTool.h"
 
+#import "CJUser.h"
 
+#import "CJStatus.h"
+
+#import "MJExtension.h"
 
 @interface CJHomeViewController ()
 
-@property (nonatomic ,strong) NSArray *statuses; // 所有微博
+@property (nonatomic ,strong) NSArray *allStatus; // 所有微博
 
 
 @end
@@ -53,14 +57,15 @@
     NSMutableDictionary *parameters = [NSMutableDictionary dictionary];
     parameters[@"access_token"] = [CJAccountTool account].access_token;
     
-//    parameters[@"count"] = @1;
+//    parameters[@"count"] = @2;
     // 3.发送GET请求 获取微博数据
     
     [mgr GET:@"https://api.weibo.com/2/statuses/home_timeline.json" parameters:parameters
       success:^(AFHTTPRequestOperation *operation, id responseObject) {
-          
-          self.statuses = responseObject[@"statuses"];
-//          CJLog(@"%@",self.statuses);
+
+          // 将字典数组转为模型数组(里面放的就是IWStatus模型)
+          self.allStatus = [CJStatus objectArrayWithKeyValuesArray:responseObject[@"statuses"]];
+
           [self.tableView reloadData];
           
       } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
@@ -143,12 +148,10 @@
 
 #pragma mark - Table view data source
 
-
-
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 
     
-    return self.statuses.count;
+    return self.allStatus.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -162,20 +165,19 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:ID];
         
     }
-
-    NSDictionary *status = self.statuses[indexPath.row];
+    // 取出对应行的微博模型数据
+    CJStatus *status = self.allStatus[indexPath.row];
 
     // 正文
-    cell.textLabel.text = status[@"text"];
+    cell.textLabel.text = status.text;
     
     
     // 昵称
-    NSDictionary *user = status[@"user"];
-    cell.detailTextLabel.text = user[@"name"];
+    CJUser *user = status.user;
+    cell.detailTextLabel.text = user.name;
     
     // 头像
-    NSString *iconUrl = user[@"profile_image_url"];
-    
+    NSString *iconUrl = user.profile_image_url;
     [cell.imageView sd_setImageWithURL:[NSURL URLWithString:iconUrl]];
     
 
