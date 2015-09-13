@@ -23,9 +23,9 @@
     CJAccount *account = [NSKeyedUnarchiver unarchiveObjectWithFile:CJFilePath];
     NSDate *now = [NSDate date];
 
-    if ([now compare:account.expires_time] == NSOrderedAscending) {  // 升序 右边的秒数大 没过期
+    if ([now compare:account.expires_time] == NSOrderedAscending) {  // 升序 右边的秒数大 授权没过期
         return account;
-    }else { // 现在的时间大 过期了
+    }else { // 现在的时间大 授权过期了
         return nil;
     }
 
@@ -37,7 +37,6 @@
     NSDate *now = [NSDate date];
     
     account.expires_time = [now dateByAddingTimeInterval:account.expires_in];
-    CJLog(@"%@",account.expires_time);
     
     [NSKeyedArchiver archiveRootObject:account toFile:CJFilePath];
     
