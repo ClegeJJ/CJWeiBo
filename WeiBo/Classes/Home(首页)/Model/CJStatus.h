@@ -50,7 +50,7 @@
 /**
  *  被转发的微博
  */
-@property (nonatomic, strong) CJStatus *retweetStatus;
+@property (nonatomic, strong) CJStatus *retweeted_status;
 
 
 @end

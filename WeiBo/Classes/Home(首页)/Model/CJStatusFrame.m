@@ -26,6 +26,7 @@
     CGFloat topViewX = 0;
     CGFloat topViewY = 0;
     CGFloat topViewW = cellW;
+    CGFloat topViewH = 0;
     
     // 2.头像
     CGFloat iconViewX = CJStatusFrameBorder;
@@ -35,32 +36,32 @@
     
     
     // 3.昵称
-    CGFloat nameViewX = CGRectGetMaxX(_iconViewF) + CJStatusFrameBorder;
-    CGFloat nameViewY = iconViewY;
+    CGFloat nameLabelX = CGRectGetMaxX(_iconViewF) + CJStatusFrameBorder;
+    CGFloat nameLabelY = iconViewY;
     dict[NSFontAttributeName] = CJStatusNameFont;
-    CGSize nameViewSize = [status.user.name sizeWithAttributes:dict];
-    _nameLabelF = (CGRect){{nameViewX,nameViewY},nameViewSize};
+    CGSize nameLabelSize = [status.user.name sizeWithAttributes:dict];
+    _nameLabelF = (CGRect){{nameLabelX,nameLabelY},nameLabelSize};
 
     
     // 4.vip
     if (status.user.isVip) {
-        CGFloat vipViewX = nameViewX;
+        CGFloat vipViewX = nameLabelX;
         CGFloat vipViewY = CGRectGetMaxY(_nameLabelF) + CJStatusFrameBorder;
         CGFloat vipViewW = 14;
-        CGFloat vipViewH = nameViewSize.height;
+        CGFloat vipViewH = nameLabelSize.height;
         _vipViewF = CGRectMake(vipViewX, vipViewY, vipViewW, vipViewH);
     }
     
     // 5.时间
-    CGFloat timeViewX = nameViewX;
-    CGFloat timeViewY = CGRectGetMaxY(_nameLabelF);
+    CGFloat timeLabelX = nameLabelX;
+    CGFloat timeLabelY = CGRectGetMaxY(_nameLabelF);
     dict[NSFontAttributeName] = CJStatusTimeFont;
-    CGSize timeViewSize = [status.created_at sizeWithAttributes:dict];
-    _timeLabelF = (CGRect){{timeViewX,timeViewY},timeViewSize};
+    CGSize timeLabelSize = [status.created_at sizeWithAttributes:dict];
+    _timeLabelF = (CGRect){{timeLabelX,timeLabelY},timeLabelSize};
 
     // 6.来源
     CGFloat sourceViewX = CGRectGetMaxX(_timeLabelF) + CJStatusFrameBorder;
-    CGFloat sourceViewY = timeViewY;
+    CGFloat sourceViewY = timeLabelY;
     dict[NSFontAttributeName] = CJStatusSourceFont;
     CGSize sourceViewSize = [status.source sizeWithAttributes:dict];
     _sourceLabelF = (CGRect){{sourceViewX,sourceViewY},sourceViewSize};
@@ -70,14 +71,76 @@
     CGFloat contentLabelY = CGRectGetMaxY(_iconViewF) + CJStatusFrameBorder;
     CGFloat contentLabelMaxW = topViewW - CJStatusFrameBorder * 2;
     dict[NSFontAttributeName] = CJStatusContentFont;
-    CGSize contentLabelSize = [status.text sizeWithFont:CJStatusContentFont constrainedToSize:CGSizeMake(contentLabelMaxW, MAXFLOAT)];
+    CGSize contentLabelSize = [status.text boundingRectWithSize:CGSizeMake(contentLabelMaxW, MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin attributes:dict context:nil].size;
+//    CGSize contentLabelSize = [status.text sizeWithFont:CJStatusContentFont constrainedToSize:CGSizeMake(contentLabelMaxW, MAXFLOAT)];
     _contentLabelF = (CGRect){{contentLabelX,contentLabelY},contentLabelSize};
 
-    CGFloat topViewH = CGRectGetMaxY(_contentLabelF) + CJStatusFrameBorder;
-//    CJLog(@"%f",topViewH);
+    // 8.配图
+    if (status.thumbnail_pic) { // 有配图  --- 无转发微博
+        CGFloat photoViewX = contentLabelX;
+        CGFloat photoViewY = CGRectGetMaxY(_contentLabelF) + CJStatusFrameBorder;
+        CGFloat photoViewWH = 70;
+        _photoViewF = CGRectMake(photoViewX, photoViewY, photoViewWH, photoViewWH);
+    }
+        
+        
+    // 9.被转发的微博的View
+    if (status.retweeted_status) { // 有转发微博
+        CGFloat retweetViewX = contentLabelX;
+        CGFloat retweetViewY = CGRectGetMaxY(_contentLabelF) + CJStatusFrameBorder;
+        CGFloat retweetViewW = contentLabelMaxW;
+        CGFloat retweetViewH = 0;
+        
+        // 10.被转发微博用户的昵称
+        CGFloat retweetNameLabelX = CJStatusFrameBorder;
+        CGFloat retweetNameLabelY = CJStatusFrameBorder;
+        dict[NSFontAttributeName] = CJRetweetStatusNameFont;
+        CGSize retweetNameLabelSize = [status.retweeted_status.user.name sizeWithAttributes:dict];
+        _retweetNameLabelF = (CGRect){{retweetNameLabelX,retweetNameLabelY},retweetNameLabelSize};
+
+        // 11.被转发微博的正文
+        CGFloat retweetContentLabelX = retweetNameLabelX;
+        CGFloat retweetContentLabelY = CGRectGetMaxY(_retweetNameLabelF) + CJStatusFrameBorder;
+        CGFloat retweetContentLabelMaxW = retweetViewW - CJStatusFrameBorder * 2;
+        dict[NSFontAttributeName] = CJRetweetStatusContentFont;
+        CGSize retweetContentLabelSize = [status.retweeted_status.text boundingRectWithSize:CGSizeMake(retweetContentLabelMaxW, MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin attributes:dict context:nil].size;
+//        CGSize retweetContentLabelSize = [status.retweeted_status.text sizeWithFont:CJStatusContentFont constrainedToSize:CGSizeMake(retweetContentLabelMaxW, MAXFLOAT)];
+        _retweetContentLabelF = (CGRect){{retweetContentLabelX,retweetContentLabelY},retweetContentLabelSize};
+        
+        // 12.被转发微博的配图
+        if (status.retweeted_status.thumbnail_pic) { // 被转发的微博有配图
+            CGFloat retweetPhotoViewX = retweetContentLabelX;
+            CGFloat retweetPhotoViewY = CGRectGetMaxY(_retweetContentLabelF) + CJStatusFrameBorder;
+            CGFloat retweetPhotoViewWH = 70;
+
+            _retweetPhotoViewF = CGRectMake(retweetPhotoViewX, retweetPhotoViewY, retweetPhotoViewWH, retweetPhotoViewWH);
+            retweetViewH = CGRectGetMaxY(_retweetPhotoViewF);
+
+        }else { // 被转发的微博无配图
+            retweetViewH = CGRectGetMaxY(_retweetContentLabelF);
+        }
+        retweetViewH += CJStatusFrameBorder;
+        _retweetViewF = CGRectMake(retweetViewX, retweetViewY, retweetViewW, retweetViewH);
+
+        // 有转发微博的topView高度
+        topViewH = CGRectGetMaxY(_retweetViewF);
+
+    }else { // 无转发微博
+        if (status.thumbnail_pic) { // 有配图
+            topViewH = CGRectGetMaxY(_photoViewF);
+
+        }else{ // 无配图
+            topViewH = CGRectGetMaxY(_contentLabelF);
+
+        }
+    }
+
+    topViewH += CJStatusFrameBorder;
     _topViewF = CGRectMake(topViewX, topViewY, topViewW, topViewH);
-    
+
+    // 13.cell的高度
     _cellHeight = topViewH;
+    
 }
 
 

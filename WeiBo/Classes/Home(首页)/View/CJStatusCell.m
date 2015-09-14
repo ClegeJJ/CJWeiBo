@@ -165,20 +165,43 @@
  */
 - (void)setupRetweetSubviews
 {
-
+    /** 被转发微博的View(被转发微博父控件) */
+    UIImageView *retweetView = [[UIImageView alloc] init];
+    [self.topView addSubview:retweetView];
+    self.retweetView = retweetView;
+    
+    /** 被转发微博用户的昵称 */
+    UILabel *retweetNameLabel = [[UILabel alloc] init];
+    [self.retweetView addSubview:retweetNameLabel];
+    self.retweetNameLabel = retweetNameLabel;
+    
+    /**  被转发微博的正文 */
+    UILabel *retweetContentLabel = [[UILabel alloc] init];
+    [self.retweetView addSubview:retweetContentLabel];
+    self.retweetContentLabel = retweetContentLabel;
+    
+    /**  被转发微博的配图 */
+    UIImageView *retweetPhotoView = [[UIImageView alloc] init];
+    [self.retweetView addSubview:retweetPhotoView];
+    self.retweetPhotoView = retweetPhotoView;
 }
 /**
  *  添加微博的工具条
  */
 - (void)setupStatusToolBar
 {
-
+    /**  微博的工具条(底部工具条父控件)*/
+    UIImageView *statusTool = [[UIImageView alloc] init];
+    [self.topView addSubview:statusTool];
+    self.statusTool = statusTool;
 }
 
 - (void)setStatusFrame:(CJStatusFrame *)statusFrame
 {
     
     _statusFrame = statusFrame;
+    
+
     // 1.原创微博
     [self setupOriginalData];
     
@@ -208,7 +231,6 @@
         self.vipView.hidden = NO;
         self.vipView.image = [UIImage imageWithName:@"common_icon_membership"];
         self.vipView.frame = self.statusFrame.vipViewF;
-        CJLog(@"%@",NSStringFromCGRect(self.vipView.frame));
     }else{
         self.vipView.hidden = YES;
     }
@@ -230,14 +252,49 @@
     self.contentLabel.numberOfLines = 0;
     self.contentLabel.frame = self.statusFrame.contentLabelF;
     
-//    /**  微博的配图 */
-//    UIImageView *photoView = [[UIImageView alloc] init];
-//    [self.topView addSubview:photoView];
-//    self.photoView = photoView;
+    /**  微博的配图 */
+    if (status.thumbnail_pic) { // 有配图
+        self.photoView.hidden = NO;
+        [self.photoView sd_setImageWithURL:[NSURL URLWithString:status.thumbnail_pic] placeholderImage:[UIImage imageWithName:@"timeline_image_placeholder"]];
+        self.photoView.frame = self.statusFrame.photoViewF;
+    }else { // 无配图
+        self.photoView.hidden = YES;
+    }
 }
 
 - (void)setupRetweetData
 {
+    CJStatus *retReetStatus = self.statusFrame.status.retweeted_status;
+    CJUser *user = retReetStatus.user;
 
+    
+    if (retReetStatus) { // 有转发的微博
+        
+        // 1.父控件
+        self.retweetView.hidden = NO;
+        self.retweetView.frame = self.statusFrame.retweetViewF;
+        
+        // 2.昵称
+        self.retweetNameLabel.text = user.name;
+        self.retweetNameLabel.frame = self.statusFrame.retweetNameLabelF;
+        self.retweetNameLabel.font = CJRetweetStatusNameFont;
+        
+        // 3.正文
+        self.retweetContentLabel.font = CJRetweetStatusContentFont;
+        self.retweetContentLabel.text = retReetStatus.text;
+        self.retweetContentLabel.numberOfLines = 0;
+        self.retweetContentLabel.frame = self.statusFrame.retweetContentLabelF;
+        
+        // 4.配图
+        if (retReetStatus.thumbnail_pic) { // 有配图
+            self.retweetPhotoView.hidden = NO;
+            [self.retweetPhotoView sd_setImageWithURL:[NSURL URLWithString:retReetStatus.thumbnail_pic] placeholderImage:[UIImage imageWithName:@"timeline_image_placeholder"]];
+            self.retweetPhotoView.frame = self.statusFrame.retweetPhotoViewF;
+        }else { // 无配图
+            self.retweetPhotoView.hidden = YES;
+        }
+    } else{ // 无转发的微博
+        self.retweetView.hidden = YES;
+    }
 }
 @end

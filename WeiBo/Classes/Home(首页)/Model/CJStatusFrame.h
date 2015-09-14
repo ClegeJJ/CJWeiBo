@@ -8,8 +8,13 @@
 
 #define CJStatusFrameBorder 5
 #define CJStatusNameFont [UIFont systemFontOfSize:15]
+#define CJRetweetStatusNameFont [UIFont systemFontOfSize:15]
+
 #define CJStatusTimeFont [UIFont systemFontOfSize:12]
+
 #define CJStatusContentFont [UIFont systemFontOfSize:15]
+#define CJRetweetStatusContentFont [UIFont systemFontOfSize:15]
+
 #define CJStatusSourceFont [UIFont systemFontOfSize:12]
 
 #import <Foundation/Foundation.h>
