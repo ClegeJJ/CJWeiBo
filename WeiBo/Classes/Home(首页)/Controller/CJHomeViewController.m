@@ -24,11 +24,15 @@
 
 #import "CJStatus.h"
 
+#import "CJStatusFrame.h"
+
+#import "CJStatusCell.h"
+
 #import "MJExtension.h"
 
 @interface CJHomeViewController ()
 
-@property (nonatomic ,strong) NSArray *allStatus; // 所有微博
+@property (nonatomic ,strong) NSArray *statusFrames; // 所有微博Frame
 
 
 @end
@@ -63,9 +67,21 @@
     [mgr GET:@"https://api.weibo.com/2/statuses/home_timeline.json" parameters:parameters
       success:^(AFHTTPRequestOperation *operation, id responseObject) {
 
-          // 将字典数组转为模型数组(里面放的就是IWStatus模型)
-          self.allStatus = [CJStatus objectArrayWithKeyValuesArray:responseObject[@"statuses"]];
+          // 将字典数组转为模型数组(里面放的就是CJStatus模型)
+          NSArray *statusArray = [CJStatus objectArrayWithKeyValuesArray:responseObject[@"statuses"]];
 
+          // 装载所有CJStatusFrame
+          NSMutableArray *statusFrameArray = [NSMutableArray array];
+          // 遍历statusArray数组
+          for (CJStatus *status in statusArray) {
+              
+              CJStatusFrame *statusFrame = [[CJStatusFrame alloc] init];
+              statusFrame.status = status;
+              [statusFrameArray addObject:statusFrame];
+          
+          }
+          _statusFrames = statusFrameArray;
+          
           [self.tableView reloadData];
           
       } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
@@ -151,42 +167,29 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 
     
-    return self.allStatus.count;
+    return self.statusFrames.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *ID = @"Home_Cell";
+    // 创建cell
+    CJStatusCell *cell = [CJStatusCell cellWithTableView:tableView];
     
-    UITableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:ID];
-    
-    if (cell == nil) {
-        
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:ID];
-        
-    }
-    // 取出对应行的微博模型数据
-    CJStatus *status = self.allStatus[indexPath.row];
+    // 取出对应行的微博Frame模型
+    CJStatusFrame *statusFrame = self.statusFrames[indexPath.row];
 
-    // 正文
-    cell.textLabel.text = status.text;
-    
-    
-    // 昵称
-    CJUser *user = status.user;
-    cell.detailTextLabel.text = user.name;
-    
-    // 头像
-    NSString *iconUrl = user.profile_image_url;
-    [cell.imageView sd_setImageWithURL:[NSURL URLWithString:iconUrl]];
+    // 给cell赋值
+    cell.statusFrame = statusFrame;
     
 
     return cell;
 }
 
-//- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
-//{
-//    return 100;
-//
-//}
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    CJStatusFrame *statusFrame = self.statusFrames[indexPath.row];
+    
+    return statusFrame.cellHeight;
+
+}
 @end

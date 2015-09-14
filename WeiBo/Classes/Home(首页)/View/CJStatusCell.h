@@ -7,7 +7,14 @@
 //  微博首页的 cell
 
 #import <UIKit/UIKit.h>
-
+@class CJStatusFrame;
 @interface CJStatusCell : UITableViewCell
+
+@property (nonatomic, strong) CJStatusFrame *statusFrame;
+
+
++ (instancetype)cellWithTableView:(UITableView *)tableView;
+
+
 
 @end

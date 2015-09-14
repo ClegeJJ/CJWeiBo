@@ -7,6 +7,10 @@
 //
 
 #import "CJStatusCell.h"
+#import "CJStatus.h"
+#import "CJUser.h"
+#import "CJStatusFrame.h"
+#import "UIImageView+WebCache.h"
 
 @interface CJStatusCell()
 
@@ -77,4 +81,163 @@
 @implementation CJStatusCell
 
 
+
++ (instancetype)cellWithTableView:(UITableView *)tableView
+{
+    static NSString *ID = @"Home_Cell";
+    
+    CJStatusCell *cell = [tableView dequeueReusableCellWithIdentifier:ID];
+    
+    if (cell == nil) {
+        
+        cell = [[CJStatusCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:ID];
+        
+    }
+    return cell;
+
+}
+- (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
+{
+
+    if (self == [super initWithStyle:style reuseIdentifier:reuseIdentifier]) {
+        
+        // 1.添加原创微博内部的子控件
+        [self setupOriginalSubviews];
+        
+        // 2.添加被转发微博内部的子控件
+        [self setupRetweetSubviews];
+        
+        // 3.添加微博的工具条
+        [self setupStatusToolBar];
+        
+    }
+    return self;
+}
+/**
+ *  添加原创微博内部的子控件
+ */
+- (void)setupOriginalSubviews
+{
+    /** 顶部的View(原微博父控件) */
+    UIImageView *topView = [[UIImageView alloc] init];
+    [self.contentView addSubview:topView];
+    self.topView = topView;
+    
+    /** 用户的昵称 */
+    UILabel *nameLabel = [[UILabel alloc] init];
+    [self.topView addSubview:nameLabel];
+    self.nameLabel = nameLabel;
+    
+    /** 用户的头像 */
+    UIImageView *iconView = [[UIImageView alloc] init];
+    [self.topView addSubview:iconView];
+    self.iconView = iconView;
+    
+    /**  会员图标 */
+    UIImageView *vipView = [[UIImageView alloc] init];
+    [self.topView addSubview:vipView];
+    self.vipView = vipView;
+    
+    /**  微博发送的时间 */
+    UILabel *timeLabel = [[UILabel alloc] init];
+    [self.topView addSubview:timeLabel];
+    self.timeLabel = timeLabel;
+    
+    /**  微博的来源 */
+    UILabel *sourceLabel = [[UILabel alloc] init];
+    [self.topView addSubview:sourceLabel];
+    self.sourceLabel = sourceLabel;
+    
+    /**  微博的正文 */
+    UILabel *contentLabel = [[UILabel alloc] init];
+    [self.topView addSubview:contentLabel];
+    self.contentLabel = contentLabel;
+    
+    /**  微博的配图 */
+    UIImageView *photoView = [[UIImageView alloc] init];
+    [self.topView addSubview:photoView];
+    self.photoView = photoView;
+    
+
+}
+/**
+ *  添加被转发微博内部的子控件
+ */
+- (void)setupRetweetSubviews
+{
+
+}
+/**
+ *  添加微博的工具条
+ */
+- (void)setupStatusToolBar
+{
+
+}
+
+- (void)setStatusFrame:(CJStatusFrame *)statusFrame
+{
+    
+    _statusFrame = statusFrame;
+    // 1.原创微博
+    [self setupOriginalData];
+    
+    // 2.被转发微博
+    [self setupRetweetData];
+}
+
+- (void)setupOriginalData
+{
+    CJStatus *status = self.statusFrame.status;
+    CJUser *user = status.user;
+    
+    /** 顶部的View(原微博父控件) */
+    self.topView.frame = self.statusFrame.topViewF;
+    
+    /** 用户的昵称 */
+    self.nameLabel.frame = self.statusFrame.nameLabelF;
+    self.nameLabel.text = user.name;
+    self.nameLabel.font = CJStatusNameFont;
+    
+    /** 用户的头像 */
+    self.iconView.frame = self.statusFrame.iconViewF;
+    [self.iconView sd_setImageWithURL:[NSURL URLWithString:user.profile_image_url] placeholderImage:[UIImage imageWithName:@"avatar_default_small"]];
+    
+    /**  会员图标 */
+    if (user.vip) {
+        self.vipView.hidden = NO;
+        self.vipView.image = [UIImage imageWithName:@"common_icon_membership"];
+        self.vipView.frame = self.statusFrame.vipViewF;
+        CJLog(@"%@",NSStringFromCGRect(self.vipView.frame));
+    }else{
+        self.vipView.hidden = YES;
+    }
+    
+    
+    /**  微博发送的时间 */
+    self.timeLabel.font = CJStatusTimeFont;
+    self.timeLabel.text = status.created_at;
+    self.timeLabel.frame = self.statusFrame.timeLabelF;
+    
+    /**  微博的来源 */
+    self.sourceLabel.font = CJStatusSourceFont;
+    self.sourceLabel.text = status.source;
+    self.sourceLabel.frame = self.statusFrame.sourceLabelF;
+    
+    /**  微博的正文 */
+    self.contentLabel.font = CJStatusContentFont;
+    self.contentLabel.text = status.text;
+    self.contentLabel.numberOfLines = 0;
+    self.contentLabel.frame = self.statusFrame.contentLabelF;
+    
+//    /**  微博的配图 */
+//    UIImageView *photoView = [[UIImageView alloc] init];
+//    [self.topView addSubview:photoView];
+//    self.photoView = photoView;
+}
+
+- (void)setupRetweetData
+{
+
+}
 @end
