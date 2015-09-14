@@ -5,17 +5,26 @@
 //  Created by mac527 on 15/9/13.
 //  Copyright (c) 2015年 mac527. All rights reserved.
 //
+/** 表格的边框宽度 */
+#define CJStatusFrameBorder 8
+/** cell的边框宽度 */
+#define CJStatusCellBorder 10
 
-#define CJStatusFrameBorder 5
+/** 昵称的字体 */
 #define CJStatusNameFont [UIFont systemFontOfSize:15]
+/** 被转发微博作者昵称的字体 */
 #define CJRetweetStatusNameFont [UIFont systemFontOfSize:15]
 
+/** 时间的字体 */
 #define CJStatusTimeFont [UIFont systemFontOfSize:12]
+/** 来源的字体 */
+#define CJStatusSourceFont [UIFont systemFontOfSize:12]
 
+/** 正文的字体 */
 #define CJStatusContentFont [UIFont systemFontOfSize:15]
+/** 被转发微博正文的字体 */
 #define CJRetweetStatusContentFont [UIFont systemFontOfSize:15]
 
-#define CJStatusSourceFont [UIFont systemFontOfSize:12]
 
 #import <Foundation/Foundation.h>
 @class CJStatus;

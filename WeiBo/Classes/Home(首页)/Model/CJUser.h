@@ -25,5 +25,5 @@
 /**
  *  是否为vip
  */
-@property (nonatomic, assign, getter = isVip) BOOL vip;
+@property (nonatomic, assign) int mbrank;
 @end

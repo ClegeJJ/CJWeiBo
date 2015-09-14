@@ -44,13 +44,11 @@
 
     
     // 4.vip
-    if (status.user.isVip) {
-        CGFloat vipViewX = nameLabelX;
-        CGFloat vipViewY = CGRectGetMaxY(_nameLabelF) + CJStatusFrameBorder;
-        CGFloat vipViewW = 14;
-        CGFloat vipViewH = nameLabelSize.height;
-        _vipViewF = CGRectMake(vipViewX, vipViewY, vipViewW, vipViewH);
-    }
+    CGFloat vipViewX = CGRectGetMaxX(_nameLabelF) + CJStatusFrameBorder;
+    CGFloat vipViewY = nameLabelY;
+    CGFloat vipViewW = 14;
+    CGFloat vipViewH = nameLabelSize.height;
+    _vipViewF = CGRectMake(vipViewX, vipViewY, vipViewW, vipViewH);
     
     // 5.时间
     CGFloat timeLabelX = nameLabelX;
@@ -95,7 +93,8 @@
         CGFloat retweetNameLabelX = CJStatusFrameBorder;
         CGFloat retweetNameLabelY = CJStatusFrameBorder;
         dict[NSFontAttributeName] = CJRetweetStatusNameFont;
-        CGSize retweetNameLabelSize = [status.retweeted_status.user.name sizeWithAttributes:dict];
+        NSString *newName = [NSString stringWithFormat:@"@%@",status.retweeted_status.user.name];
+        CGSize retweetNameLabelSize = [newName sizeWithAttributes:dict];
         _retweetNameLabelF = (CGRect){{retweetNameLabelX,retweetNameLabelY},retweetNameLabelSize};
 
         // 11.被转发微博的正文
@@ -138,8 +137,16 @@
     topViewH += CJStatusFrameBorder;
     _topViewF = CGRectMake(topViewX, topViewY, topViewW, topViewH);
 
-    // 13.cell的高度
-    _cellHeight = topViewH;
+    // 13.工具条
+    CGFloat statusToolX = 0;
+    CGFloat statusToolY = CGRectGetMaxY(_topViewF);
+    CGFloat statusToolW = topViewW;
+    CGFloat statusToolH = 35;
+    _statusToolF = CGRectMake(statusToolX, statusToolY, statusToolW, statusToolH);
+    
+    
+    // 14.cell的高度
+    _cellHeight = CGRectGetMaxY(_statusToolF) + CJStatusFrameBorder;
     
 }
 

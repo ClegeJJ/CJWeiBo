@@ -20,4 +20,9 @@
  *  返回一张自由拉伸的图片
  */
 + (UIImage *)resizedImageWithName:(NSString *)name;
++ (UIImage *)resizedImageWithName:(NSString *)name left:(CGFloat)left top:(CGFloat)top;
+/**
+ *  返回一张由颜色构成的图片
+ */
++ (UIImage *)imageWithColor:(UIColor *)color;
 @end

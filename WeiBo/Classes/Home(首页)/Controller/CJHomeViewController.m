@@ -42,6 +42,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    self.tableView.contentInset = UIEdgeInsetsMake(CJStatusFrameBorder, 0, CJStatusFrameBorder, 0);
+    self.tableView.backgroundColor = CJColor(226, 226, 226);
     // 设置导航栏内容
     [self setupNavBar];
     
