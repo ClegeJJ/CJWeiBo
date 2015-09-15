@@ -156,12 +156,10 @@
         titleButton.selected = NO;
     
     }else{  // 普通状态
-    
+
         titleButton.selected = YES;
         
     }
-
-
 }
 
 #pragma mark - Table view data source
