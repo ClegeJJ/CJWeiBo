@@ -72,6 +72,7 @@
           // 将字典数组转为模型数组(里面放的就是CJStatus模型)
           NSArray *statusArray = [CJStatus objectArrayWithKeyValuesArray:responseObject[@"statuses"]];
 
+
           // 装载所有CJStatusFrame
           NSMutableArray *statusFrameArray = [NSMutableArray array];
           // 遍历statusArray数组
@@ -90,9 +91,6 @@
           
           CJLog(@"请求失败：%@",error);
       }];
-
-
-
 }
 
 /**

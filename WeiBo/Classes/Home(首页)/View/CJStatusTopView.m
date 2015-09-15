@@ -10,6 +10,7 @@
 #import "CJRetweetStatusView.h"
 #import "CJStatus.h"
 #import "CJUser.h"
+#import "CJPhoto.h"
 #import "CJStatusFrame.h"
 #import "UIImageView+WebCache.h"
 @interface CJStatusTopView()
@@ -165,9 +166,10 @@
     self.contentLabel.frame = self.statusFrame.contentLabelF;
     
     /**  微博的配图 */
-    if (status.thumbnail_pic) { // 有配图
+    if (status.pic_urls.count) { // 有配图
         self.photoView.hidden = NO;
-        [self.photoView sd_setImageWithURL:[NSURL URLWithString:status.thumbnail_pic] placeholderImage:[UIImage imageWithName:@"timeline_image_placeholder"]];
+        CJPhoto *photo = status.pic_urls[0];
+        [self.photoView sd_setImageWithURL:[NSURL URLWithString:photo.thumbnail_pic] placeholderImage:[UIImage imageWithName:@"timeline_image_placeholder"]];
         self.photoView.frame = self.statusFrame.photoViewF;
     }else { // 无配图
         self.photoView.hidden = YES;

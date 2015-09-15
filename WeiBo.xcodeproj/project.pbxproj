@@ -243,6 +243,7 @@
 		F05348581BA7A2460063CB6C /* NSDate+MJ.m in Sources */ = {isa = PBXBuildFile; fileRef = F05348571BA7A2460063CB6C /* NSDate+MJ.m */; };
 		F059E3921BA10F6500BC1C25 /* CJTabBarButton.m in Sources */ = {isa = PBXBuildFile; fileRef = F059E3911BA10F6500BC1C25 /* CJTabBarButton.m */; };
 		F06549811BA832F200C8224A /* CJStatusTopView.m in Sources */ = {isa = PBXBuildFile; fileRef = F06549801BA832F200C8224A /* CJStatusTopView.m */; };
+		F06549841BA84C3200C8224A /* CJPhoto.m in Sources */ = {isa = PBXBuildFile; fileRef = F06549831BA84C3200C8224A /* CJPhoto.m */; };
 		F07714BD1BA6B917001ECEA3 /* Contents.json in Resources */ = {isa = PBXBuildFile; fileRef = F077145C1BA6B917001ECEA3 /* Contents.json */; };
 		F07714BE1BA6B917001ECEA3 /* timeline_card_bottom_background.png in Resources */ = {isa = PBXBuildFile; fileRef = F077145D1BA6B917001ECEA3 /* timeline_card_bottom_background.png */; };
 		F07714BF1BA6B917001ECEA3 /* timeline_card_bottom_background@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F077145E1BA6B917001ECEA3 /* timeline_card_bottom_background@2x.png */; };
@@ -665,6 +666,8 @@
 		F059E3911BA10F6500BC1C25 /* CJTabBarButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CJTabBarButton.m; sourceTree = "<group>"; };
 		F065497F1BA832F200C8224A /* CJStatusTopView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CJStatusTopView.h; sourceTree = "<group>"; };
 		F06549801BA832F200C8224A /* CJStatusTopView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CJStatusTopView.m; sourceTree = "<group>"; };
+		F06549821BA84C3200C8224A /* CJPhoto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CJPhoto.h; sourceTree = "<group>"; };
+		F06549831BA84C3200C8224A /* CJPhoto.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CJPhoto.m; sourceTree = "<group>"; };
 		F077145C1BA6B917001ECEA3 /* Contents.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Contents.json; sourceTree = "<group>"; };
 		F077145D1BA6B917001ECEA3 /* timeline_card_bottom_background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = timeline_card_bottom_background.png; sourceTree = "<group>"; };
 		F077145E1BA6B917001ECEA3 /* timeline_card_bottom_background@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "timeline_card_bottom_background@2x.png"; sourceTree = "<group>"; };
@@ -1005,6 +1008,8 @@
 				F081CD301BA56CAA00A65926 /* CJUser.m */,
 				F0A5CE951BA5B6F000AC3130 /* CJStatusFrame.h */,
 				F0A5CE961BA5B6F000AC3130 /* CJStatusFrame.m */,
+				F06549821BA84C3200C8224A /* CJPhoto.h */,
+				F06549831BA84C3200C8224A /* CJPhoto.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -2503,6 +2508,7 @@
 				F033A8421BA0578A00417D4D /* UIImage+MJ.m in Sources */,
 				F0A5CE891BA574BD00AC3130 /* MJFoundation.m in Sources */,
 				F04C0E3C1BA3D3DD0029282B /* AFHTTPSessionManager.m in Sources */,
+				F06549841BA84C3200C8224A /* CJPhoto.m in Sources */,
 				F081CD271BA5497C00A65926 /* UIImage+MultiFormat.m in Sources */,
 				F04C0E3D1BA3D3DD0029282B /* AFNetworkReachabilityManager.m in Sources */,
 				F07715531BA6EF19001ECEA3 /* DTTimePeriodGroup.m in Sources */,

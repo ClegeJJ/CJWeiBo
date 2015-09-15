@@ -9,6 +9,7 @@
 #import "CJRetweetStatusView.h"
 #import "CJStatus.h"
 #import "CJUser.h"
+#import "CJPhoto.h"
 #import "CJStatusFrame.h"
 #import "UIImageView+WebCache.h"
 @interface CJRetweetStatusView()
@@ -74,9 +75,10 @@
     self.retweetContentLabel.frame = self.statusFrame.retweetContentLabelF;
     
     // 3.配图
-    if (retReetStatus.thumbnail_pic) { // 有配图
+    if (retReetStatus.pic_urls.count) { // 有配图
         self.retweetPhotoView.hidden = NO;
-        [self.retweetPhotoView sd_setImageWithURL:[NSURL URLWithString:retReetStatus.thumbnail_pic] placeholderImage:[UIImage imageWithName:@"timeline_image_placeholder"]];
+        CJPhoto *photo = retReetStatus.pic_urls[0];
+        [self.retweetPhotoView sd_setImageWithURL:[NSURL URLWithString:photo.thumbnail_pic] placeholderImage:[UIImage imageWithName:@"timeline_image_placeholder"]];
         self.retweetPhotoView.frame = self.statusFrame.retweetPhotoViewF;
     }else { // 无配图
         self.retweetPhotoView.hidden = YES;

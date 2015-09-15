@@ -7,9 +7,7 @@
 //  
 
 #import "CJStatusFrame.h"
-
 #import "CJStatus.h"
-
 #import "CJUser.h"
 
 @implementation CJStatusFrame
@@ -108,7 +106,7 @@
         _retweetContentLabelF = (CGRect){{retweetContentLabelX,retweetContentLabelY},retweetContentLabelSize};
         
         // 12.被转发微博的配图
-        if (status.retweeted_status.thumbnail_pic) { // 被转发的微博有配图
+        if (status.retweeted_status.pic_urls.count) { // 被转发的微博有配图
             CGFloat retweetPhotoViewX = retweetContentLabelX;
             CGFloat retweetPhotoViewY = CGRectGetMaxY(_retweetContentLabelF) + CJStatusFrameBorder;
             CGFloat retweetPhotoViewWH = 70;
@@ -126,7 +124,7 @@
         topViewH = CGRectGetMaxY(_retweetViewF);
 
     }else { // 无转发微博
-        if (status.thumbnail_pic) { // 有配图
+        if (status.pic_urls.count) { // 有配图
             
             // 8.配图
             CGFloat photoViewX = contentLabelX;

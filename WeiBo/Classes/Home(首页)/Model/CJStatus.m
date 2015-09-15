@@ -8,8 +8,14 @@
 
 #import "DateTools.h"
 #import "CJStatus.h"
-
+#import "MJExtension.h"
+#import "CJPhoto.h"
 @implementation CJStatus
+
++ (NSDictionary *)objectClassInArray
+{
+    return @{@"pic_urls" : [CJPhoto class]};
+}
 /**
  *  get方法截取时间字符串
  */

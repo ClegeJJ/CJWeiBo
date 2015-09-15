@@ -23,9 +23,9 @@
  */
 @property (nonatomic, copy) NSString *text;
 /**
- *  微博的单张配图
+ *  微博的配图
  */
-@property (nonatomic, copy) NSString *thumbnail_pic;
+@property (nonatomic, strong) NSArray *pic_urls;
 /**
  *  微博的ID
  */
