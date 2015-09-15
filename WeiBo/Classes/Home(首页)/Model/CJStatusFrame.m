@@ -52,7 +52,7 @@
     
     // 5.时间
     CGFloat timeLabelX = nameLabelX;
-    CGFloat timeLabelY = CGRectGetMaxY(_nameLabelF);
+    CGFloat timeLabelY = CGRectGetMaxY(_nameLabelF) + CJStatusFrameBorder;
     dict[NSFontAttributeName] = CJStatusTimeFont;
     CGSize timeLabelSize = [status.created_at sizeWithAttributes:dict];
     _timeLabelF = (CGRect){{timeLabelX,timeLabelY},timeLabelSize};

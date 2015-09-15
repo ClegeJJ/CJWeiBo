@@ -18,7 +18,7 @@
 /** 时间的字体 */
 #define CJStatusTimeFont [UIFont systemFontOfSize:12]
 /** 来源的字体 */
-#define CJStatusSourceFont [UIFont systemFontOfSize:12]
+#define CJStatusSourceFont [UIFont boldSystemFontOfSize:12]
 
 /** 正文的字体 */
 #define CJStatusContentFont [UIFont systemFontOfSize:15]

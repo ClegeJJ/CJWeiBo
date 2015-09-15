@@ -14,7 +14,7 @@
 
 @interface CJStatusCell()
 
-
+@property (nonatomic, strong) NSMutableDictionary *dict;
 /**
  *  顶部的View(原微博父控件)
  */
@@ -81,7 +81,6 @@
 @implementation CJStatusCell
 
 
-
 + (instancetype)cellWithTableView:(UITableView *)tableView
 {
     static NSString *ID = @"Home_Cell";
@@ -109,6 +108,8 @@
         
         // 3.添加微博的工具条
         [self setupStatusToolBar];
+        
+        _dict = [NSMutableDictionary dictionary];
         
     }
     return self;
@@ -157,13 +158,13 @@
     /**  微博发送的时间 */
     UILabel *timeLabel = [[UILabel alloc] init];
     timeLabel.font = CJStatusTimeFont;
-    timeLabel.textColor = CJColor(240, 140, 19);
+    timeLabel.textColor = CJColor(135, 135, 135);
     [self.topView addSubview:timeLabel];
     self.timeLabel = timeLabel;
     
     /**  微博的来源 */
     UILabel *sourceLabel = [[UILabel alloc] init];
-    sourceLabel.font = CJStatusSourceFont;
+    sourceLabel.font = [UIFont boldSystemFontOfSize:12];
     sourceLabel.textColor = CJColor(135, 135, 135);
     [self.topView addSubview:sourceLabel];
     self.sourceLabel = sourceLabel;
@@ -268,20 +269,28 @@
     if (user.mbrank) {
         self.vipView.image = [UIImage imageWithName:[NSString stringWithFormat:@"common_icon_membership_level%d",user.mbrank]];
         self.vipView.frame = self.statusFrame.vipViewF;
+        self.nameLabel.textColor = CJColor(240, 140, 19);
     }else{
 
         self.vipView.frame = self.statusFrame.vipViewF;
-        NSLog(@"%@",NSStringFromCGRect(self.vipView.frame));
         self.vipView.image = [UIImage imageWithName:@"common_icon_membership_expired"];
     }
     
     /**  微博发送的时间 */
     self.timeLabel.text = status.created_at;
-    self.timeLabel.frame = self.statusFrame.timeLabelF;
+    CGFloat timeLabelX = self.statusFrame.nameLabelF.origin.x;
+    CGFloat timeLabelY = CGRectGetMaxY(self.statusFrame.nameLabelF) + CJStatusFrameBorder;
+    _dict[NSFontAttributeName] = CJStatusTimeFont;
+    CGSize timeLabelSize = [status.created_at sizeWithAttributes:_dict];
+    self.timeLabel.frame = (CGRect){{timeLabelX,timeLabelY},timeLabelSize};
     
     /**  微博的来源 */
+    CGFloat sourceViewX = CGRectGetMaxX(self.timeLabel.frame) + CJStatusFrameBorder;
+    CGFloat sourceViewY = timeLabelY;
+    _dict[NSFontAttributeName] = CJStatusSourceFont;
+    CGSize sourceViewSize = [status.source sizeWithAttributes:_dict];
     self.sourceLabel.text = status.source;
-    self.sourceLabel.frame = self.statusFrame.sourceLabelF;
+    self.sourceLabel.frame = (CGRect){{sourceViewX,sourceViewY},sourceViewSize};
     
     /**  微博的正文 */
     self.contentLabel.text = status.text;

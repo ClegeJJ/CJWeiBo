@@ -240,6 +240,7 @@
 		F04C0E591BA457A00029282B /* MBProgressHUD+MJ.m in Sources */ = {isa = PBXBuildFile; fileRef = F04C0E551BA457A00029282B /* MBProgressHUD+MJ.m */; };
 		F04C0E5A1BA457A00029282B /* MBProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = F04C0E561BA457A00029282B /* MBProgressHUD.bundle */; };
 		F04C0E5B1BA457A00029282B /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = F04C0E581BA457A00029282B /* MBProgressHUD.m */; };
+		F05348581BA7A2460063CB6C /* NSDate+MJ.m in Sources */ = {isa = PBXBuildFile; fileRef = F05348571BA7A2460063CB6C /* NSDate+MJ.m */; };
 		F059E3921BA10F6500BC1C25 /* CJTabBarButton.m in Sources */ = {isa = PBXBuildFile; fileRef = F059E3911BA10F6500BC1C25 /* CJTabBarButton.m */; };
 		F07714BD1BA6B917001ECEA3 /* Contents.json in Resources */ = {isa = PBXBuildFile; fileRef = F077145C1BA6B917001ECEA3 /* Contents.json */; };
 		F07714BE1BA6B917001ECEA3 /* timeline_card_bottom_background.png in Resources */ = {isa = PBXBuildFile; fileRef = F077145D1BA6B917001ECEA3 /* timeline_card_bottom_background.png */; };
@@ -655,6 +656,8 @@
 		F04C0E561BA457A00029282B /* MBProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = MBProgressHUD.bundle; sourceTree = "<group>"; };
 		F04C0E571BA457A00029282B /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
 		F04C0E581BA457A00029282B /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
+		F05348561BA7A2460063CB6C /* NSDate+MJ.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+MJ.h"; sourceTree = "<group>"; };
+		F05348571BA7A2460063CB6C /* NSDate+MJ.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+MJ.m"; sourceTree = "<group>"; };
 		F059E3901BA10F6500BC1C25 /* CJTabBarButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CJTabBarButton.h; sourceTree = "<group>"; };
 		F059E3911BA10F6500BC1C25 /* CJTabBarButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CJTabBarButton.m; sourceTree = "<group>"; };
 		F077145C1BA6B917001ECEA3 /* Contents.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Contents.json; sourceTree = "<group>"; };
@@ -1440,6 +1443,8 @@
 		F033A83F1BA0577B00417D4D /* Category */ = {
 			isa = PBXGroup;
 			children = (
+				F05348561BA7A2460063CB6C /* NSDate+MJ.h */,
+				F05348571BA7A2460063CB6C /* NSDate+MJ.m */,
 				F033A8401BA0578A00417D4D /* UIImage+MJ.h */,
 				F033A8411BA0578A00417D4D /* UIImage+MJ.m */,
 				F09735FD1BA286750046A288 /* UIBarButtonItem+CJ.h */,
@@ -2507,6 +2512,7 @@
 				F033A6901BA0374A00417D4D /* main.m in Sources */,
 				F088116E1BA2C74800A05B49 /* CJNewfeatureViewController.m in Sources */,
 				F09735FF1BA286750046A288 /* UIBarButtonItem+CJ.m in Sources */,
+				F05348581BA7A2460063CB6C /* NSDate+MJ.m in Sources */,
 				F04C0E5B1BA457A00029282B /* MBProgressHUD.m in Sources */,
 				F09736021BA297C20046A288 /* CJSearchBar.m in Sources */,
 				F081CD251BA5497C00A65926 /* UIButton+WebCache.m in Sources */,
