@@ -247,7 +247,20 @@
     
     // 2.被转发微博
     [self setupRetweetData];
+    
+    // 3.工具条数据
+    [self setupStatusToolBarData];
 }
+/**
+ *  设置工具条数据
+ */
+- (void)setupStatusToolBarData
+{
+
+    self.statusTool.status = self.statusFrame.status;
+
+}
+
 /**
  *  设置原创微博数据
  */
@@ -284,7 +297,7 @@
     /**  微博发送的时间 */
     self.timeLabel.text = status.created_at;
     CGFloat timeLabelX = self.statusFrame.nameLabelF.origin.x;
-    CGFloat timeLabelY = CGRectGetMaxY(self.statusFrame.nameLabelF) + CJStatusFrameBorder;
+    CGFloat timeLabelY = CGRectGetMaxY(self.statusFrame.nameLabelF);
     _dict[NSFontAttributeName] = CJStatusTimeFont;
     CGSize timeLabelSize = [status.created_at sizeWithAttributes:_dict];
     self.timeLabel.frame = (CGRect){{timeLabelX,timeLabelY},timeLabelSize};

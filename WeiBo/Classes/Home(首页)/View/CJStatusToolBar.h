@@ -7,7 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-
+@class CJStatus;
 @interface CJStatusToolBar : UIImageView
+
+@property (nonatomic ,strong) CJStatus *status;
 
 @end

@@ -148,7 +148,7 @@
     CGFloat statusToolX = 0;
     CGFloat statusToolY = CGRectGetMaxY(_topViewF);
     CGFloat statusToolW = topViewW;
-    CGFloat statusToolH = 35;
+    CGFloat statusToolH = 36;
     _statusToolF = CGRectMake(statusToolX, statusToolY, statusToolW, statusToolH);
     
     

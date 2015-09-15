@@ -847,6 +847,8 @@
 		F0A8177F1BA25710003C7773 /* CJNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CJNavigationController.m; sourceTree = "<group>"; };
 		F0B5CA251BA7C3B700351F02 /* CJStatusToolBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CJStatusToolBar.h; sourceTree = "<group>"; };
 		F0B5CA261BA7C3B700351F02 /* CJStatusToolBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CJStatusToolBar.m; sourceTree = "<group>"; };
+		F0B5CA281BA7F53200351F02 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
+		F0B5CA291BA7F53E00351F02 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
 		F0FFBC5E1BA17CC80059BFD3 /* CJBadegButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CJBadegButton.h; sourceTree = "<group>"; };
 		F0FFBC5F1BA17CC80059BFD3 /* CJBadegButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CJBadegButton.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -2565,6 +2567,8 @@
 			isa = PBXVariantGroup;
 			children = (
 				F02FF2E71B9FD1290046B9F1 /* Base */,
+				F0B5CA281BA7F53200351F02 /* zh-Hans */,
+				F0B5CA291BA7F53E00351F02 /* zh-Hant */,
 			);
 			name = LaunchScreen.xib;
 			sourceTree = "<group>";

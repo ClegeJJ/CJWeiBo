@@ -11,7 +11,7 @@
 #define CJStatusCellBorder 10
 
 /** 昵称的字体 */
-#define CJStatusNameFont [UIFont systemFontOfSize:15]
+#define CJStatusNameFont [UIFont boldSystemFontOfSize:15]
 /** 被转发微博作者昵称的字体 */
 #define CJRetweetStatusNameFont [UIFont systemFontOfSize:15]
 
