@@ -11,6 +11,7 @@
 #import "CJUser.h"
 #import "CJStatusFrame.h"
 #import "UIImageView+WebCache.h"
+#import "CJStatusToolBar.h"
 
 @interface CJStatusCell()
 
@@ -72,7 +73,7 @@
 /**
  *  微博的工具条(底部工具条父控件)
  */
-@property (nonatomic, weak) UIImageView *statusTool;
+@property (nonatomic, weak) CJStatusToolBar *statusTool;
 
 
 
@@ -109,6 +110,12 @@
         // 3.添加微博的工具条
         [self setupStatusToolBar];
         
+        // 4.设置cell被选中时的背景
+        UIView *bgView = [[UIView alloc] init];
+        bgView.backgroundColor = CJColor(240, 240, 240);
+        self.selectedBackgroundView = bgView;
+        
+        // 5.初始化字典
         _dict = [NSMutableDictionary dictionary];
         
     }
@@ -128,13 +135,14 @@
  */
 - (void)setupOriginalSubviews
 {
-    UIImageView *bgView = [[UIImageView alloc] init];
+    /** 设置cell被选中时的背景 */
+    UIView *bgView = [[UIView alloc] init];
     bgView.backgroundColor = CJColor(240, 240, 240);
-//    bgView.backgroundColor = [UIColor redColor];
-//        bgView.image = [UIImage resizedImageWithName:@"common_card_background_highlighted"];
-        self.selectedBackgroundView = bgView;
+    self.selectedBackgroundView = bgView;
+    
     /** 顶部的View(原微博父控件) */
     UIImageView *topView = [[UIImageView alloc] init];
+    topView.userInteractionEnabled = YES;
     [self.contentView addSubview:topView];
     self.topView = topView;
     
@@ -221,11 +229,8 @@
 - (void)setupStatusToolBar
 {
     /**  微博的工具条(底部工具条父控件)*/
-    UIImageView *statusTool = [[UIImageView alloc] init];
-//    statusTool.backgroundColor = CJColor(247, 247, 247);
-    statusTool.image = [UIImage resizedImageWithName:@"searchbar_textfield_background"];
-    statusTool.highlightedImage = [UIImage imageWithColor:CJColor(236, 236, 245)];
-    [self.topView addSubview:statusTool];
+    CJStatusToolBar *statusTool = [[CJStatusToolBar alloc] init];
+    [self.contentView addSubview:statusTool];
     self.statusTool = statusTool;
 }
 /**

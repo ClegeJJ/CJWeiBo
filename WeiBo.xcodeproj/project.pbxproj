@@ -380,6 +380,7 @@
 		F0A5CE941BA5ABD300AC3130 /* CJStatusCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F0A5CE931BA5ABD300AC3130 /* CJStatusCell.m */; };
 		F0A5CE971BA5B6F000AC3130 /* CJStatusFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = F0A5CE961BA5B6F000AC3130 /* CJStatusFrame.m */; };
 		F0A817801BA25710003C7773 /* CJNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = F0A8177F1BA25710003C7773 /* CJNavigationController.m */; };
+		F0B5CA271BA7C3B700351F02 /* CJStatusToolBar.m in Sources */ = {isa = PBXBuildFile; fileRef = F0B5CA261BA7C3B700351F02 /* CJStatusToolBar.m */; };
 		F0FFBC601BA17CC80059BFD3 /* CJBadegButton.m in Sources */ = {isa = PBXBuildFile; fileRef = F0FFBC5F1BA17CC80059BFD3 /* CJBadegButton.m */; };
 /* End PBXBuildFile section */
 
@@ -844,6 +845,8 @@
 		F0A5CE961BA5B6F000AC3130 /* CJStatusFrame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CJStatusFrame.m; sourceTree = "<group>"; };
 		F0A8177E1BA25710003C7773 /* CJNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CJNavigationController.h; sourceTree = "<group>"; };
 		F0A8177F1BA25710003C7773 /* CJNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CJNavigationController.m; sourceTree = "<group>"; };
+		F0B5CA251BA7C3B700351F02 /* CJStatusToolBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CJStatusToolBar.h; sourceTree = "<group>"; };
+		F0B5CA261BA7C3B700351F02 /* CJStatusToolBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CJStatusToolBar.m; sourceTree = "<group>"; };
 		F0FFBC5E1BA17CC80059BFD3 /* CJBadegButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CJBadegButton.h; sourceTree = "<group>"; };
 		F0FFBC5F1BA17CC80059BFD3 /* CJBadegButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CJBadegButton.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -1005,6 +1008,8 @@
 				F09736041BA2B3AD0046A288 /* CJTitleButton.m */,
 				F0A5CE921BA5ABD300AC3130 /* CJStatusCell.h */,
 				F0A5CE931BA5ABD300AC3130 /* CJStatusCell.m */,
+				F0B5CA251BA7C3B700351F02 /* CJStatusToolBar.h */,
+				F0B5CA261BA7C3B700351F02 /* CJStatusToolBar.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -2513,6 +2518,7 @@
 				F088116E1BA2C74800A05B49 /* CJNewfeatureViewController.m in Sources */,
 				F09735FF1BA286750046A288 /* UIBarButtonItem+CJ.m in Sources */,
 				F05348581BA7A2460063CB6C /* NSDate+MJ.m in Sources */,
+				F0B5CA271BA7C3B700351F02 /* CJStatusToolBar.m in Sources */,
 				F04C0E5B1BA457A00029282B /* MBProgressHUD.m in Sources */,
 				F09736021BA297C20046A288 /* CJSearchBar.m in Sources */,
 				F081CD251BA5497C00A65926 /* UIButton+WebCache.m in Sources */,
