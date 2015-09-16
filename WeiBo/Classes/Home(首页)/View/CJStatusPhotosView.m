@@ -66,10 +66,8 @@
 }
 - (void)photoTap:(UITapGestureRecognizer *)recognizer
 {
- 
-    NSLog(@"点击了图片--%ld",recognizer.view.tag);
     
-    int count = self.photos.count;
+    NSUInteger count = self.photos.count;
     
     // 1.封装图片数据
     NSMutableArray *myphotos = [NSMutableArray arrayWithCapacity:count];

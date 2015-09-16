@@ -15,6 +15,9 @@
 #define kPhotoViewTagOffset 1000
 #define kPhotoViewIndex(photoView) ([photoView tag] - kPhotoViewTagOffset)
 
+
+
+
 @interface MJPhotoBrowser () <MJPhotoViewDelegate>
 {
     // 滚动的view
@@ -37,10 +40,18 @@
 {
     _statusBarHiddenInited = [UIApplication sharedApplication].isStatusBarHidden;
     // 隐藏状态栏
+    
     [[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:UIStatusBarAnimationFade];
+    
     self.view = [[UIView alloc] init];
     self.view.frame = [UIScreen mainScreen].bounds;
 	self.view.backgroundColor = [UIColor blackColor];
+}
+
+- (BOOL)prefersStatusBarHidden
+{
+
+    return YES;
 }
 
 - (void)viewDidLoad

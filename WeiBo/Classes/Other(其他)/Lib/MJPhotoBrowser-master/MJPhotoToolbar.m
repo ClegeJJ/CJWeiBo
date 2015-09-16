@@ -37,8 +37,9 @@
         _indexLabel = [[UILabel alloc] init];
         _indexLabel.font = [UIFont boldSystemFontOfSize:20];
         _indexLabel.frame = self.bounds;
-        _indexLabel.backgroundColor = [UIColor clearColor];
+        _indexLabel.backgroundColor = [UIColor blackColor];
         _indexLabel.textColor = [UIColor whiteColor];
+        _indexLabel.alpha = 0.5;
         _indexLabel.textAlignment = NSTextAlignmentCenter;
         _indexLabel.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
         [self addSubview:_indexLabel];
@@ -80,9 +81,9 @@
     _currentPhotoIndex = currentPhotoIndex;
     
     // 更新页码
-    _indexLabel.text = [NSString stringWithFormat:@"%d / %d", _currentPhotoIndex + 1, _photos.count];
+    _indexLabel.text = [NSString stringWithFormat:@"%ld / %ld", _currentPhotoIndex + 1, _photos.count];
     
-    MJPhoto *photo = _photos[_currentPhotoIndex];
+//    MJPhoto *photo = _photos[_currentPhotoIndex];
     // 按钮
 //    _saveImageBtn.enabled = photo.image != nil && !photo.save;
 }

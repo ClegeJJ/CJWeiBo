@@ -44,17 +44,45 @@
     
     self.tableView.contentInset = UIEdgeInsetsMake(CJStatusFrameBorder, 0, CJStatusFrameBorder, 0);
     self.tableView.backgroundColor = CJColor(226, 226, 226);
+    
+    // 集成下拉刷新控件
+    [self setupRefreshControl];
+    
     // 设置导航栏内容
     [self setupNavBar];
     
-    // 加载微博数据
-    [self setupStatusDate];
     
 
-    
 }
 
-- (void)setupStatusDate
+- (NSArray *)statusFrames
+{
+    if (_statusFrames == nil) {
+        _statusFrames = [NSArray array];
+    }
+    return _statusFrames;
+}
+/**
+ *  集成下拉刷新控件
+ */
+- (void)setupRefreshControl
+{
+    // 1. 创建刷新控件
+    UIRefreshControl *refreshControl = [[UIRefreshControl alloc] init];
+    [refreshControl addTarget:self action:@selector(refreshData:) forControlEvents:UIControlEventValueChanged];
+    [self.view addSubview:refreshControl];
+    
+    // 开始刷新
+    [refreshControl beginRefreshing];
+    
+    // 手动调用值改变方法
+    [self refreshData:refreshControl];
+
+}
+/**
+ *  值改变事件 ，下拉tableView就会调用
+ */
+- (void)refreshData:(UIRefreshControl *)refreshControl
 {
     // 1.创建请求管理对象
     AFHTTPRequestOperationManager *mgr = [AFHTTPRequestOperationManager manager];
@@ -63,34 +91,51 @@
     NSMutableDictionary *parameters = [NSMutableDictionary dictionary];
     parameters[@"access_token"] = [CJAccountTool account].access_token;
     
-//    parameters[@"count"] = @28;
+    
+    // 是否为第一次加载数据
+    if (self.statusFrames.count) {
+        
+        CJStatusFrame *statusFrame = self.statusFrames[0];
+        parameters[@"since_id"] = statusFrame.status.idstr;
+        
+    }
     
     // 3.发送GET请求 获取微博数据
     [mgr GET:@"https://api.weibo.com/2/statuses/home_timeline.json" parameters:parameters
-      success:^(AFHTTPRequestOperation *operation, id responseObject) {
+     success:^(AFHTTPRequestOperation *operation, id responseObject) {
+         
+         // 将字典数组转为模型数组(里面放的就是CJStatus模型)
+         NSArray *statusArray = [CJStatus objectArrayWithKeyValuesArray:responseObject[@"statuses"]];
+         // 装载所有CJStatusFrame
+         NSMutableArray *statusFrameArray = [NSMutableArray array];
+         // 遍历statusArray数组
+         for (CJStatus *status in statusArray) {
+             // 给statusFrame模型赋值
+             CJStatusFrame *statusFrame = [[CJStatusFrame alloc] init];
+             statusFrame.status = status;
+             [statusFrameArray addObject:statusFrame];
+             
+         }
+         // 中间临时数组 用于拼接旧微博数据和新微博数据
+         NSMutableArray *tempArray = [NSMutableArray array];
+         [tempArray addObjectsFromArray:statusFrameArray];
+         [tempArray addObjectsFromArray:_statusFrames];
+         _statusFrames = tempArray;
+         
+         // 结束刷新
+         [refreshControl endRefreshing];
+         // 刷新tableView
+         [self.tableView reloadData];
+         
+     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+         
+         CJLog(@"请求失败：%@",error);
+          [refreshControl endRefreshing];
+     }];
 
-          // 将字典数组转为模型数组(里面放的就是CJStatus模型)
-          NSArray *statusArray = [CJStatus objectArrayWithKeyValuesArray:responseObject[@"statuses"]];
-          // 装载所有CJStatusFrame
-          NSMutableArray *statusFrameArray = [NSMutableArray array];
-          // 遍历statusArray数组
-          for (CJStatus *status in statusArray) {
-              
-              
-              CJStatusFrame *statusFrame = [[CJStatusFrame alloc] init];
-              statusFrame.status = status;
-              [statusFrameArray addObject:statusFrame];
-          
-          }
-          _statusFrames = statusFrameArray;
-          
-          [self.tableView reloadData];
-          
-      } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-          
-          CJLog(@"请求失败：%@",error);
-      }];
 }
+
+
 
 /**
  *  设置导航栏内容
