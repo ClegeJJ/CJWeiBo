@@ -12,4 +12,6 @@
 
 @property (nonatomic, strong) CJPhoto *photo;
 
+@property (nonatomic ,weak) UIImageView *gifView;
+
 @end

@@ -10,7 +10,7 @@
 #import "UIImageView+WebCache.h"
 @interface CJStatusPhotoView()
 
-@property (nonatomic ,weak) UIImageView *gifView;
+
 
 @end
 
@@ -19,10 +19,13 @@
 - (instancetype)initWithFrame:(CGRect)frame
 {
     if (self = [super initWithFrame:frame]) {
+        self.userInteractionEnabled = YES;
         
         UIImageView *gifView = [[UIImageView alloc] initWithImage:[UIImage imageWithName:@"timeline_image_gif"]];
         [self addSubview:gifView];
         self.gifView = gifView;
+        
+        // 内容模式
         self.contentMode = UIViewContentModeScaleAspectFill;
         self.clipsToBounds = YES;
         

@@ -9,7 +9,8 @@
 #import "CJStatusPhotosView.h"
 #import "UIImageView+WebCache.h"
 #import "CJStatusPhotoView.h"
-
+#import "MJPhotoBrowser.h"
+#import "MJPhoto.h"
 @implementation CJStatusPhotosView
 
 
@@ -17,9 +18,7 @@
 - (instancetype)initWithFrame:(CGRect)frame
 {
     if (self = [super initWithFrame:frame]) {
-        
-    
-        
+        self.userInteractionEnabled = YES;
     }
     return self;
 }
@@ -35,6 +34,8 @@
     if (self.subviews.count < photosCount) {
         while (self.subviews.count < photosCount ) {
             CJStatusPhotoView *photoView = [[CJStatusPhotoView alloc] init];
+            photoView.tag = self.subviews.count;
+            [photoView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(photoTap:)]];
             [self addSubview:photoView];
         }
     }
@@ -49,7 +50,7 @@
             photoView.hidden = NO;
             
             photoView.photo = photos[i];
-
+            
 
 
             
@@ -60,13 +61,43 @@
         }
         
     }
+    
 
 }
+- (void)photoTap:(UITapGestureRecognizer *)recognizer
+{
+ 
+    NSLog(@"点击了图片--%ld",recognizer.view.tag);
+    
+    int count = self.photos.count;
+    
+    // 1.封装图片数据
+    NSMutableArray *myphotos = [NSMutableArray arrayWithCapacity:count];
+    for (int i = 0; i<count; i++) {
+        // 一个MJPhoto对应一张显示的图片
+        MJPhoto *mjphoto = [[MJPhoto alloc] init];
+        
+        mjphoto.srcImageView = self.subviews[i]; // 来源于哪个UIImageView
+        
+        CJPhoto *cjphoto = self.photos[i];
+        NSString *photoUrl = [cjphoto.thumbnail_pic stringByReplacingOccurrencesOfString:@"thumbnail" withString:@"bmiddle"];
+        mjphoto.url = [NSURL URLWithString:photoUrl]; // 图片路径
+        
+        [myphotos addObject:mjphoto];
+    }
+    
+    // 2.显示相册
+    MJPhotoBrowser *browser = [[MJPhotoBrowser alloc] init];
+    browser.currentPhotoIndex = recognizer.view.tag; // 弹出相册时显示的第一张图片是？
+    browser.photos = myphotos; // 设置所有的图片
+    [browser show];
+}
+
 + (CGSize)sizeWithCount:(int)count;
 {
     // 最大的列数
     if (count == 1) {
-        return CGSizeMake(100, 100);
+        return CGSizeMake(CJPhotoWH, CJPhotoWH);
     }
     
     int maxColumns = CJStatusPhotosMaxColumns(count);

@@ -69,8 +69,6 @@
         bgView.backgroundColor = CJColor(240, 240, 240);
         self.selectedBackgroundView = bgView;
         
-
-        
     }
     return self;
 }

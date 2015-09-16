@@ -65,6 +65,7 @@
 {
     if (self = [super initWithFrame:frame]) {
         // 初始化字典
+        self.userInteractionEnabled = YES;
         _dict = [NSMutableDictionary dictionary];
         /** 用户的昵称 */
         UILabel *nameLabel = [[UILabel alloc] init];
