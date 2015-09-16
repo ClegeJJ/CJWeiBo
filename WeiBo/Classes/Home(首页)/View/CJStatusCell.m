@@ -92,6 +92,7 @@
  */
 - (void)setupTopViewSubviews
 {
+
     /** 设置cell被选中时的背景 */
     UIView *bgView = [[UIView alloc] init];
     bgView.backgroundColor = CJColor(240, 240, 240);

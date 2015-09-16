@@ -10,6 +10,7 @@
 #import "CJStatus.h"
 #import "CJUser.h"
 #import "CJPhoto.h"
+#import "CJStatusPhotosView.h"
 #import "CJStatusFrame.h"
 #import "UIImageView+WebCache.h"
 @interface CJRetweetStatusView()
@@ -24,7 +25,7 @@
 /**
  *  被转发微博的配图
  */
-@property (nonatomic, weak) UIImageView *retweetPhotoView;
+@property (nonatomic, weak) CJStatusPhotosView *retweetPhotosView;
 @end
 
 @implementation CJRetweetStatusView
@@ -52,9 +53,9 @@
         self.retweetContentLabel = retweetContentLabel;
         
         /**  被转发微博的配图 */
-        UIImageView *retweetPhotoView = [[UIImageView alloc] init];
-        [self addSubview:retweetPhotoView];
-        self.retweetPhotoView = retweetPhotoView;
+        CJStatusPhotosView *retweetPhotosView = [[CJStatusPhotosView alloc] init];
+        [self addSubview:retweetPhotosView];
+        self.retweetPhotosView = retweetPhotosView;
     }
     return self;
 }
@@ -76,12 +77,11 @@
     
     // 3.配图
     if (retReetStatus.pic_urls.count) { // 有配图
-        self.retweetPhotoView.hidden = NO;
-        CJPhoto *photo = retReetStatus.pic_urls[0];
-        [self.retweetPhotoView sd_setImageWithURL:[NSURL URLWithString:photo.thumbnail_pic] placeholderImage:[UIImage imageWithName:@"timeline_image_placeholder"]];
-        self.retweetPhotoView.frame = self.statusFrame.retweetPhotoViewF;
+        self.retweetPhotosView.hidden = NO;
+        self.retweetPhotosView.photos = retReetStatus.pic_urls;
+        self.retweetPhotosView.frame = self.statusFrame.retweetPhotosViewF;
     }else { // 无配图
-        self.retweetPhotoView.hidden = YES;
+        self.retweetPhotosView.hidden = YES;
     }
 
 

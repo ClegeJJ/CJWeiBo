@@ -122,7 +122,8 @@
     // 添加点击事件
     [titleButton addTarget:self action:@selector(titleButtonClick:) forControlEvents:UIControlEventTouchUpInside];
     self.navigationItem.titleView = titleButton;
-    
+    // 分割线样式
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
 }
 
 /**

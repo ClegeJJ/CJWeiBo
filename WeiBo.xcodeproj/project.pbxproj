@@ -384,6 +384,7 @@
 		F0A817801BA25710003C7773 /* CJNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = F0A8177F1BA25710003C7773 /* CJNavigationController.m */; };
 		F0B5CA271BA7C3B700351F02 /* CJStatusToolBar.m in Sources */ = {isa = PBXBuildFile; fileRef = F0B5CA261BA7C3B700351F02 /* CJStatusToolBar.m */; };
 		F0B5CA2E1BA8174C00351F02 /* CJLaunchTool.m in Sources */ = {isa = PBXBuildFile; fileRef = F0B5CA2D1BA8174C00351F02 /* CJLaunchTool.m */; };
+		F0E1C09E1BA8FB61003A2E2F /* CJStatusPhotosView.m in Sources */ = {isa = PBXBuildFile; fileRef = F0E1C09D1BA8FB61003A2E2F /* CJStatusPhotosView.m */; };
 		F0FFBC601BA17CC80059BFD3 /* CJBadegButton.m in Sources */ = {isa = PBXBuildFile; fileRef = F0FFBC5F1BA17CC80059BFD3 /* CJBadegButton.m */; };
 /* End PBXBuildFile section */
 
@@ -858,6 +859,8 @@
 		F0B5CA291BA7F53E00351F02 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
 		F0B5CA2C1BA8174C00351F02 /* CJLaunchTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CJLaunchTool.h; sourceTree = "<group>"; };
 		F0B5CA2D1BA8174C00351F02 /* CJLaunchTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CJLaunchTool.m; sourceTree = "<group>"; };
+		F0E1C09C1BA8FB61003A2E2F /* CJStatusPhotosView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CJStatusPhotosView.h; sourceTree = "<group>"; };
+		F0E1C09D1BA8FB61003A2E2F /* CJStatusPhotosView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CJStatusPhotosView.m; sourceTree = "<group>"; };
 		F0FFBC5E1BA17CC80059BFD3 /* CJBadegButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CJBadegButton.h; sourceTree = "<group>"; };
 		F0FFBC5F1BA17CC80059BFD3 /* CJBadegButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CJBadegButton.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -1023,6 +1026,8 @@
 				F0A5CE931BA5ABD300AC3130 /* CJStatusCell.m */,
 				F065497F1BA832F200C8224A /* CJStatusTopView.h */,
 				F06549801BA832F200C8224A /* CJStatusTopView.m */,
+				F0E1C09C1BA8FB61003A2E2F /* CJStatusPhotosView.h */,
+				F0E1C09D1BA8FB61003A2E2F /* CJStatusPhotosView.m */,
 				F00AE6871BA820D6000BCA03 /* CJRetweetStatusView.h */,
 				F00AE6881BA820D6000BCA03 /* CJRetweetStatusView.m */,
 				F0B5CA251BA7C3B700351F02 /* CJStatusToolBar.h */,
@@ -2549,6 +2554,7 @@
 				F00AE6891BA820D6000BCA03 /* CJRetweetStatusView.m in Sources */,
 				F09736021BA297C20046A288 /* CJSearchBar.m in Sources */,
 				F081CD251BA5497C00A65926 /* UIButton+WebCache.m in Sources */,
+				F0E1C09E1BA8FB61003A2E2F /* CJStatusPhotosView.m in Sources */,
 				F033A6941BA04CD800417D4D /* CJTabBar.m in Sources */,
 				F081CD2E1BA569EB00A65926 /* CJStatus.m in Sources */,
 				F0A5CE971BA5B6F000AC3130 /* CJStatusFrame.m in Sources */,

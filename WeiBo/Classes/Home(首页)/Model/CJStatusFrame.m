@@ -9,7 +9,7 @@
 #import "CJStatusFrame.h"
 #import "CJStatus.h"
 #import "CJUser.h"
-
+#import "CJStatusPhotosView.h"
 @implementation CJStatusFrame
 
 - (void)setStatus:(CJStatus *)status
@@ -107,12 +107,12 @@
         
         // 12.被转发微博的配图
         if (status.retweeted_status.pic_urls.count) { // 被转发的微博有配图
-            CGFloat retweetPhotoViewX = retweetContentLabelX;
-            CGFloat retweetPhotoViewY = CGRectGetMaxY(_retweetContentLabelF) + CJStatusFrameBorder;
-            CGFloat retweetPhotoViewWH = 70;
-
-            _retweetPhotoViewF = CGRectMake(retweetPhotoViewX, retweetPhotoViewY, retweetPhotoViewWH, retweetPhotoViewWH);
-            retweetViewH = CGRectGetMaxY(_retweetPhotoViewF);
+            CGFloat retweetPhotosViewX = retweetContentLabelX;
+            CGFloat retweetPhotosViewY = CGRectGetMaxY(_retweetContentLabelF) + CJStatusFrameBorder;
+            CGSize retweetPhotosSize = [CJStatusPhotosView sizeWithCount:(int)status.retweeted_status.pic_urls.count];
+            
+            _retweetPhotosViewF = (CGRect){{retweetPhotosViewX,retweetPhotosViewY},retweetPhotosSize};
+            retweetViewH = CGRectGetMaxY(_retweetPhotosViewF);
 
         }else { // 被转发的微博无配图
             retweetViewH = CGRectGetMaxY(_retweetContentLabelF);
@@ -127,11 +127,11 @@
         if (status.pic_urls.count) { // 有配图
             
             // 8.配图
-            CGFloat photoViewX = contentLabelX;
-            CGFloat photoViewY = CGRectGetMaxY(_contentLabelF) + CJStatusFrameBorder;
-            CGFloat photoViewWH = 70;
-            _photoViewF = CGRectMake(photoViewX, photoViewY, photoViewWH, photoViewWH);
-            topViewH = CGRectGetMaxY(_photoViewF);
+            CGFloat photosViewX = contentLabelX;
+            CGFloat photosViewY = CGRectGetMaxY(_contentLabelF) + CJStatusFrameBorder;
+            CGSize photosSize = [CJStatusPhotosView sizeWithCount:(int)status.pic_urls.count];
+            _photosViewF = (CGRect){{photosViewX,photosViewY},photosSize};
+            topViewH = CGRectGetMaxY(_photosViewF);
 
         }else{ // 无配图
             topViewH = CGRectGetMaxY(_contentLabelF);
@@ -154,6 +154,7 @@
     _cellHeight = CGRectGetMaxY(_statusToolF) + CJStatusFrameBorder;
     
 }
+
 
 
 @end

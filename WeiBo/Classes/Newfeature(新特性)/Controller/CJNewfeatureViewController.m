@@ -157,7 +157,6 @@
 - (void)checkboxButtonClick:(UIButton *)button
 {
     
-    NSLog(@"%d",button.selected);
     button.selected = !button.isSelected;
 
 }

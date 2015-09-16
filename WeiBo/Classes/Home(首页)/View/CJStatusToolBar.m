@@ -152,7 +152,6 @@
         } else { // 评论数大于一万
             
             double number = count / 10000.0;
-            NSLog(@"%f",number);
             title = [NSString stringWithFormat:@"%.1f万",number];
             title = [title stringByReplacingOccurrencesOfString:@".0" withString:@""];
         }

@@ -62,7 +62,7 @@
 /**
  *  微博的配图
  */
-@property (nonatomic, assign, readonly) CGRect photoViewF;
+@property (nonatomic, assign, readonly) CGRect photosViewF;
 
 
 /**
@@ -80,7 +80,7 @@
 /**
  *  被转发微博的配图
  */
-@property (nonatomic, assign, readonly) CGRect retweetPhotoViewF;
+@property (nonatomic, assign, readonly) CGRect retweetPhotosViewF;
 
 
 
