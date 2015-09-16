@@ -125,8 +125,6 @@
 {
     
     _statusFrame = statusFrame;
-    
-
     // 1.设置顶部微博视图数据
     [self setupTopViewData];
     

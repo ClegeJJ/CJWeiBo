@@ -63,20 +63,19 @@
     NSMutableDictionary *parameters = [NSMutableDictionary dictionary];
     parameters[@"access_token"] = [CJAccountTool account].access_token;
     
-//    parameters[@"count"] = @2;
-    // 3.发送GET请求 获取微博数据
+//    parameters[@"count"] = @28;
     
+    // 3.发送GET请求 获取微博数据
     [mgr GET:@"https://api.weibo.com/2/statuses/home_timeline.json" parameters:parameters
       success:^(AFHTTPRequestOperation *operation, id responseObject) {
 
           // 将字典数组转为模型数组(里面放的就是CJStatus模型)
           NSArray *statusArray = [CJStatus objectArrayWithKeyValuesArray:responseObject[@"statuses"]];
-
-
           // 装载所有CJStatusFrame
           NSMutableArray *statusFrameArray = [NSMutableArray array];
           // 遍历statusArray数组
           for (CJStatus *status in statusArray) {
+              
               
               CJStatusFrame *statusFrame = [[CJStatusFrame alloc] init];
               statusFrame.status = status;

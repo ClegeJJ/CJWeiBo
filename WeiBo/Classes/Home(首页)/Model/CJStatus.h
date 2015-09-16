@@ -8,7 +8,11 @@
 
 #import <Foundation/Foundation.h>
 @class CJUser;
+
+
+
 @interface CJStatus : NSObject
+
 
 /**
  *  微博的发送时间

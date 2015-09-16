@@ -8,6 +8,18 @@
 
 #import <Foundation/Foundation.h>
 
+typedef enum {
+    CJUserVerifiedTypeNone = -1, // 没有任何认证
+    
+    CJUserVerifiedPersonal = 0,  // 个人认证
+    
+    CJUserVerifiedOrgEnterprice = 2, // 企业官方：CSDN、EOE、搜狐新闻客户端
+    CJUserVerifiedOrgMedia = 3, // 媒体官方：程序员杂志、苹果汇
+    CJUserVerifiedOrgWebsite = 5, // 网站官方：猫扑
+    
+    CJUserVerifiedDaren = 220 // 微博达人
+} CJUserVerifiedType;
+
 @interface CJUser : NSObject
 
 /**
@@ -26,4 +38,10 @@
  *  是否为vip
  */
 @property (nonatomic, assign) int mbrank;
+/**
+ *  认证类型
+ */
+@property (nonatomic, assign) CJUserVerifiedType verified_type;
+
+
 @end

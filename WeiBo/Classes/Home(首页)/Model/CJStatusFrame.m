@@ -110,8 +110,8 @@
             CGFloat retweetPhotosViewX = retweetContentLabelX;
             CGFloat retweetPhotosViewY = CGRectGetMaxY(_retweetContentLabelF) + CJStatusFrameBorder;
             CGSize retweetPhotosSize = [CJStatusPhotosView sizeWithCount:(int)status.retweeted_status.pic_urls.count];
-            
             _retweetPhotosViewF = (CGRect){{retweetPhotosViewX,retweetPhotosViewY},retweetPhotosSize};
+          
             retweetViewH = CGRectGetMaxY(_retweetPhotosViewF);
 
         }else { // 被转发的微博无配图
@@ -152,7 +152,7 @@
     
     // 14.cell的高度
     _cellHeight = CGRectGetMaxY(_statusToolF) + CJStatusFrameBorder;
-    
+
 }
 
 

@@ -7,6 +7,7 @@
 //
 
 #import "CJStatusTopView.h"
+#import "CJIconView.h"
 #import "CJRetweetStatusView.h"
 #import "CJStatus.h"
 #import "CJUser.h"
@@ -27,7 +28,7 @@
 /**
  *  用户的头像
  */
-@property (nonatomic, weak) UIImageView *iconView;
+@property (nonatomic, weak) CJIconView *iconView;
 /**
  *  会员图标
  */
@@ -72,7 +73,7 @@
         self.nameLabel = nameLabel;
         
         /** 用户的头像 */
-        UIImageView *iconView = [[UIImageView alloc] init];
+        CJIconView *iconView = [[CJIconView alloc] init];
         [self addSubview:iconView];
         self.iconView = iconView;
         
@@ -133,7 +134,7 @@
     
     /** 用户的头像 */
     self.iconView.frame = self.statusFrame.iconViewF;
-    [self.iconView sd_setImageWithURL:[NSURL URLWithString:user.profile_image_url] placeholderImage:[UIImage imageWithName:@"avatar_default_small"]];
+    self.iconView.user = user;
     
     /**  会员图标 */
     if (user.mbrank) {

@@ -8,6 +8,7 @@
 #import "CJPhoto.h"
 #import "CJStatusPhotosView.h"
 #import "UIImageView+WebCache.h"
+#import "CJStatusPhotoView.h"
 
 @implementation CJStatusPhotosView
 
@@ -33,8 +34,8 @@
     // 如果不够 创建足够的imageView
     if (self.subviews.count < photosCount) {
         while (self.subviews.count < photosCount ) {
-            UIImageView *imageView = [[UIImageView alloc] init];
-            [self addSubview:imageView];
+            CJStatusPhotoView *photoView = [[CJStatusPhotoView alloc] init];
+            [self addSubview:photoView];
         }
     }
     
@@ -42,17 +43,19 @@
     
     // 拿出所有子控件
     for (int i = 0; i < self.subviews.count; i ++) {
-        UIImageView *imageView = self.subviews[i];
+        CJStatusPhotoView *photoView = self.subviews[i];
         if (i < photosCount) {  // 显示
             
-            imageView.hidden = NO;
+            photoView.hidden = NO;
             
-            CJPhoto *photo = photos[i];
+            photoView.photo = photos[i];
+
+
+
             
-            [imageView sd_setImageWithURL:[NSURL URLWithString:photo.thumbnail_pic] placeholderImage:[UIImage imageWithName:@"timeline_image_placeholder"]];
         }else { // 隐藏
         
-            imageView.hidden = YES;
+            photoView.hidden = YES;
             
         }
         
@@ -62,6 +65,10 @@
 + (CGSize)sizeWithCount:(int)count;
 {
     // 最大的列数
+    if (count == 1) {
+        return CGSizeMake(100, 100);
+    }
+    
     int maxColumns = CJStatusPhotosMaxColumns(count);
     
     // 列数
@@ -88,15 +95,20 @@
  */
 - (void)layoutSubviews
 {
+    
+    [super layoutSubviews];
     int maxColumns = CJStatusPhotosMaxColumns(self.photos.count);
+    
+    CGFloat W = 0;
+    CGFloat H = 0;
     
     for (int i = 0; i < self.subviews.count; i++) {
         
-        UIImageView *imageView = self.subviews[i];
+        CJStatusPhotoView *imageView = self.subviews[i];
         
-        CGFloat W =CJPhotosWH;
-        CGFloat H =CJPhotosWH;
-        
+        W = self.photos.count > 1 ? CJPhotosWH : CJPhotoWH;
+        H = self.photos.count > 1 ? CJPhotosWH : CJPhotoWH;
+
         int col = i % maxColumns;
         int row = i / maxColumns;
         CGFloat X = col * (CJPhotosWH + CJPhotosMargin);
@@ -104,7 +116,6 @@
 
         imageView.frame = CGRectMake(X, Y, W, H);
     }
-
 }
 
 @end
