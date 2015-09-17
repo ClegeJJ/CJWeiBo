@@ -45,11 +45,11 @@
     NSMutableDictionary *textAttri = [NSMutableDictionary dictionary];
     textAttri[NSFontAttributeName] = [UIFont boldSystemFontOfSize:15];
     textAttri[NSForegroundColorAttributeName] = [UIColor orangeColor];
-    
-    
     [item setTitleTextAttributes:textAttri forState:UIControlStateNormal];
-
-
+    
+    NSMutableDictionary *disabledTextAttri = [NSMutableDictionary dictionary];
+    disabledTextAttri[NSForegroundColorAttributeName] = [UIColor lightGrayColor];
+    [item setTitleTextAttributes:disabledTextAttri forState:UIControlStateDisabled];
 
 }
 

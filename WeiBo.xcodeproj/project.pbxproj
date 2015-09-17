@@ -427,6 +427,8 @@
 		F09CF1311BAA6C1C00923788 /* UIScrollView+MJExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = F09CF11C1BAA6C1C00923788 /* UIScrollView+MJExtension.m */; };
 		F09CF1321BAA6C1C00923788 /* UIScrollView+MJRefresh.m in Sources */ = {isa = PBXBuildFile; fileRef = F09CF11E1BAA6C1C00923788 /* UIScrollView+MJRefresh.m */; };
 		F09CF1331BAA6C1C00923788 /* UIView+MJExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = F09CF1201BAA6C1C00923788 /* UIView+MJExtension.m */; };
+		F09CF13B1BAABF5F00923788 /* CJComposeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F09CF13A1BAABF5F00923788 /* CJComposeViewController.m */; };
+		F09CF13E1BAAF21A00923788 /* CJTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = F09CF13D1BAAF21A00923788 /* CJTextView.m */; };
 		F0A5CE871BA574BD00AC3130 /* MJDictionaryCache.m in Sources */ = {isa = PBXBuildFile; fileRef = F0A5CE711BA574BD00AC3130 /* MJDictionaryCache.m */; };
 		F0A5CE881BA574BD00AC3130 /* MJExtensionConst.m in Sources */ = {isa = PBXBuildFile; fileRef = F0A5CE741BA574BD00AC3130 /* MJExtensionConst.m */; };
 		F0A5CE891BA574BD00AC3130 /* MJFoundation.m in Sources */ = {isa = PBXBuildFile; fileRef = F0A5CE761BA574BD00AC3130 /* MJFoundation.m */; };
@@ -972,6 +974,10 @@
 		F09CF11F1BAA6C1C00923788 /* UIView+MJExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+MJExtension.h"; sourceTree = "<group>"; };
 		F09CF1201BAA6C1C00923788 /* UIView+MJExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+MJExtension.m"; sourceTree = "<group>"; };
 		F09CF1341BAA990B00923788 /* CJComment.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CJComment.h; sourceTree = "<group>"; };
+		F09CF1391BAABF5F00923788 /* CJComposeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CJComposeViewController.h; sourceTree = "<group>"; };
+		F09CF13A1BAABF5F00923788 /* CJComposeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CJComposeViewController.m; sourceTree = "<group>"; };
+		F09CF13C1BAAF21A00923788 /* CJTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CJTextView.h; sourceTree = "<group>"; };
+		F09CF13D1BAAF21A00923788 /* CJTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CJTextView.m; sourceTree = "<group>"; };
 		F0A5CE701BA574BD00AC3130 /* MJDictionaryCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJDictionaryCache.h; sourceTree = "<group>"; };
 		F0A5CE711BA574BD00AC3130 /* MJDictionaryCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJDictionaryCache.m; sourceTree = "<group>"; };
 		F0A5CE721BA574BD00AC3130 /* MJExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJExtension.h; sourceTree = "<group>"; };
@@ -1082,6 +1088,7 @@
 		F033A65E1BA0374A00417D4D /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				F09CF1351BAABF1F00923788 /* Compose(发微博) */,
 				F08811621BA2C4B200A05B49 /* Newfeature(新特性) */,
 				F04C0E431BA3D3FE0029282B /* OAuth(授权) */,
 				F033A66B1BA0374A00417D4D /* Main(主要) */,
@@ -2455,6 +2462,41 @@
 			path = Header;
 			sourceTree = "<group>";
 		};
+		F09CF1351BAABF1F00923788 /* Compose(发微博) */ = {
+			isa = PBXGroup;
+			children = (
+				F09CF1361BAABF1F00923788 /* Controller */,
+				F09CF1371BAABF1F00923788 /* Model */,
+				F09CF1381BAABF1F00923788 /* View */,
+			);
+			path = "Compose(发微博)";
+			sourceTree = "<group>";
+		};
+		F09CF1361BAABF1F00923788 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				F09CF1391BAABF5F00923788 /* CJComposeViewController.h */,
+				F09CF13A1BAABF5F00923788 /* CJComposeViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		F09CF1371BAABF1F00923788 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		F09CF1381BAABF1F00923788 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				F09CF13C1BAAF21A00923788 /* CJTextView.h */,
+				F09CF13D1BAAF21A00923788 /* CJTextView.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		F0A5CE6F1BA574BD00AC3130 /* MJExtension */ = {
 			isa = PBXGroup;
 			children = (
@@ -2987,6 +3029,7 @@
 				F081CD231BA5497C00A65926 /* SDWebImageManager.m in Sources */,
 				F09CF1211BAA6C1C00923788 /* MJRefreshAutoFooter.m in Sources */,
 				F04C0E3E1BA3D3DD0029282B /* AFSecurityPolicy.m in Sources */,
+				F09CF13E1BAAF21A00923788 /* CJTextView.m in Sources */,
 				F033A68E1BA0374A00417D4D /* CJMessageViewController.m in Sources */,
 				F0FFBC601BA17CC80059BFD3 /* CJBadegButton.m in Sources */,
 				F0A5CE8B1BA574BD00AC3130 /* MJPropertyKey.m in Sources */,
@@ -2996,6 +3039,7 @@
 				F04C0E3B1BA3D3DD0029282B /* AFHTTPRequestOperationManager.m in Sources */,
 				F09CF1221BAA6C1C00923788 /* MJRefreshBackFooter.m in Sources */,
 				F09CF1241BAA6C1C00923788 /* MJRefreshFooter.m in Sources */,
+				F09CF13B1BAABF5F00923788 /* CJComposeViewController.m in Sources */,
 				F033A6901BA0374A00417D4D /* main.m in Sources */,
 				F088116E1BA2C74800A05B49 /* CJNewfeatureViewController.m in Sources */,
 				F09735FF1BA286750046A288 /* UIBarButtonItem+CJ.m in Sources */,
@@ -3150,6 +3194,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				INFOPLIST_FILE = WeiBo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -3161,6 +3206,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				INFOPLIST_FILE = WeiBo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

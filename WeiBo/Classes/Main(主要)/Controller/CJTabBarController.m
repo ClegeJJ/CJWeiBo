@@ -13,6 +13,8 @@
 #import "CJMeViewController.h"
 #import "CJMessageViewController.h"
 #import "CJNavigationController.h"
+#import "CJComposeViewController.h"
+
 
 @interface CJTabBarController () <CJTabBarDelegate>
 
@@ -117,6 +119,9 @@
     [self.myTabBar addTabBarButtonWithItem:childVc.tabBarItem];
 }
 
+
+
+#pragma mark - 代理方法
 /**
  *  TabBar 代理方法 把当前被选中的按钮传入
  *
@@ -127,6 +132,14 @@
 {
 
     self.selectedIndex = to;
+
+}
+
+- (void)tabBarDidCilckPlusButton:(CJTabBar *)tabBar
+{
+    CJComposeViewController *compose = [[CJComposeViewController alloc] init];
+    CJNavigationController *nav = [[CJNavigationController alloc] initWithRootViewController:compose];
+    [self presentViewController:nav animated:YES completion:nil];
 
 }
 @end

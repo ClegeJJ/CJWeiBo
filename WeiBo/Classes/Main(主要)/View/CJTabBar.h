@@ -13,7 +13,7 @@
 @optional
 
 - (void)tabBar:(CJTabBar *)tabBar didSelectedButtonFrom:(NSInteger)from to:(NSInteger)to;
-
+- (void)tabBarDidCilckPlusButton:(CJTabBar *)tabBar;
 @end
 
 @interface CJTabBar : UIView

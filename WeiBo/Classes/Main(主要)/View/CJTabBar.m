@@ -8,6 +8,7 @@
 
 #import "CJTabBar.h"
 #import "CJTabBarButton.h"
+
 @interface CJTabBar()
 
 @property (nonatomic ,weak) CJTabBarButton *selectedButton;
@@ -33,7 +34,7 @@
         [plusButton setImage:[UIImage imageWithName:@"tabbar_compose_icon_add"] forState:UIControlStateNormal];
         [plusButton setImage:[UIImage imageWithName:@"tabbar_compose_icon_add_highlighted"] forState:UIControlStateHighlighted];
         plusButton.bounds = CGRectMake(0, 0, plusButton.currentBackgroundImage.size.width, 53);
-        
+        [plusButton addTarget:self action:@selector(plusButtonClick:) forControlEvents:UIControlEventTouchDown];
         [self addSubview:plusButton];
         self.plusButton = plusButton;
         
@@ -43,7 +44,20 @@
     return  self;
 }
 
+/**
+ *  代理方法 因弹出模态视图是控制器方法 所以不能直接使用 要通知控制器
+ */
+- (void)plusButtonClick:(UIButton*)plusButton
+{
+    if ([self.delegate respondsToSelector:@selector(tabBarDidCilckPlusButton:)]) {
+        [self.delegate tabBarDidCilckPlusButton:self];
+    }
+    
+}
 
+/**
+ *  懒加载
+ */
 - (NSMutableArray *)allTabBarButton
 {
 
