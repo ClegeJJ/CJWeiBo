@@ -8,26 +8,12 @@
 
 #ifndef WeiBo_CJ_pch
 #define WeiBo_CJ_pch
-#import "UIViewExt.h"
+
 // Include any system framework and library headers here that should be included in all compilation units.
 // You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
 #import "UIImage+MJ.h"
+#import "CJComment.h"
+#import "UIViewExt.h"
 
-#define iOS7 ([[UIDevice currentDevice].systemVersion doubleValue] >= 7.0)
-#define kWidth [UIScreen mainScreen].bounds.size.width
-#define kHeight [UIScreen mainScreen].bounds.size.height
-
-
-// 1.获得RGB颜色
-#define CJColor(r, g, b) [UIColor colorWithRed:(r)/255.0 green:(g)/255.0 blue:(b)/255.0 alpha:1.0]
 #endif
 
-// 2.自定义Log
-#ifdef DEBUG
-#define CJLog(...) NSLog(__VA_ARGS__)
-#else
-#define CJLog(...)
-#endif
-
-// 3.定义导航栏文字颜色
-#define navButtonColor [UIColor colorWithWhite:0.400 alpha:1.000]

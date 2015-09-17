@@ -30,11 +30,14 @@
 
 #import "MJExtension.h"
 
+#import "MJRefresh.h"
+
 @interface CJHomeViewController ()
 
-@property (nonatomic ,strong) NSArray *statusFrames; // 所有微博Frame
+@property (nonatomic ,strong) NSMutableArray *statusFrames; // 所有微博Frame
 
 @property (nonatomic ,strong) CJTitleButton *titleButton;
+
 
 @end
 
@@ -56,10 +59,10 @@
     [self setupUserData];
 }
 
-- (NSArray *)statusFrames
+- (NSMutableArray *)statusFrames
 {
     if (_statusFrames == nil) {
-        _statusFrames = [NSArray array];
+        _statusFrames = [NSMutableArray array];
     }
     return _statusFrames;
 }
@@ -68,22 +71,71 @@
  */
 - (void)setupRefreshControl
 {
-    // 1. 创建刷新控件
-    UIRefreshControl *refreshControl = [[UIRefreshControl alloc] init];
-    [refreshControl addTarget:self action:@selector(refreshData:) forControlEvents:UIControlEventValueChanged];
-    [self.view addSubview:refreshControl];
+
+    // 下拉刷新
+    self.tableView.header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(refreshNewData)];
+    [self.tableView.header beginRefreshing];
     
-    // 开始刷新
-    [refreshControl beginRefreshing];
+    // 上拉刷新
+    self.tableView.footer = [MJRefreshBackNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(refreshMoreData)];
     
-    // 手动调用值改变方法
-    [self refreshData:refreshControl];
+}
+/**
+ *  上拉tableView就会调用
+ */
+- (void)refreshMoreData
+{
+    // 1.创建请求管理对象
+    AFHTTPRequestOperationManager *mgr = [AFHTTPRequestOperationManager manager];
+    
+    // 2.封装请求参数
+    NSMutableDictionary *parameters = [NSMutableDictionary dictionary];
+    parameters[@"access_token"] = [CJAccountTool account].access_token;
+    parameters[@"count"] = @5;
+    
+    if (self.statusFrames.count) {
+        CJStatusFrame *statusFrame = [self.statusFrames lastObject];
+        long long maxID = [statusFrame.status.idstr longLongValue] - 1;
+        parameters[@"max_id"] = @(maxID);
+    }
+    
+    // 3.发送GET请求 获取微博数据
+    [mgr GET:@"https://api.weibo.com/2/statuses/home_timeline.json" parameters:parameters
+     success:^(AFHTTPRequestOperation *operation, id responseObject) {
+         
+         // 将字典数组转为模型数组(里面放的就是CJStatus模型)
+         NSArray *statusArray = [CJStatus objectArrayWithKeyValuesArray:responseObject[@"statuses"]];
+         // 装载所有CJStatusFrame
+         NSMutableArray *statusFrameArray = [NSMutableArray array];
+         // 遍历statusArray数组
+         for (CJStatus *status in statusArray) {
+             // 给statusFrame模型赋值
+             CJStatusFrame *statusFrame = [[CJStatusFrame alloc] init];
+             statusFrame.status = status;
+             [statusFrameArray addObject:statusFrame];
+         }
+
+         [_statusFrames addObjectsFromArray:statusFrameArray];
+         
+         // 结束刷新
+         [self.tableView.footer endRefreshing];
+         
+         // 刷新tableView
+         [self.tableView reloadData];
+         
+     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+         
+         CJLog(@"请求失败：%@",error);
+         [self showMessageForRefreshDataWithTitle:@"用户请求超时"];
+         [self.tableView.footer endRefreshing];
+     }];
+
 
 }
 /**
- *  值改变事件 ，下拉tableView就会调用
+ *  下拉tableView就会调用
  */
-- (void)refreshData:(UIRefreshControl *)refreshControl
+- (void)refreshNewData
 {
     // 1.创建请求管理对象
     AFHTTPRequestOperationManager *mgr = [AFHTTPRequestOperationManager manager];
@@ -98,7 +150,7 @@
         
         CJStatusFrame *statusFrame = self.statusFrames[0];
         parameters[@"since_id"] = statusFrame.status.idstr;
-        
+        parameters[@"count"] = @5;
     }
     
     // 3.发送GET请求 获取微博数据
@@ -124,7 +176,7 @@
          _statusFrames = tempArray;
          
          // 结束刷新
-         [refreshControl endRefreshing];
+         [self.tableView.header endRefreshing];
          
          // 弹出信息提醒
          NSString *title = [NSString string];
@@ -144,7 +196,7 @@
          
          CJLog(@"请求失败：%@",error);
          [self showMessageForRefreshDataWithTitle:@"用户请求超时"];
-          [refreshControl endRefreshing];
+          [self.tableView.header endRefreshing];
      }];
 
 }
@@ -186,8 +238,6 @@
     }];
 }
 
-
-
 /**
  *  设置导航栏内容
  */
@@ -212,8 +262,12 @@
     titleButton.bounds = CGRectMake(0, 0, 0, 40);
     
     // 设置标题
-    [titleButton setTitle:@"首页" forState:UIControlStateNormal];
-    
+    if ([CJAccountTool account].name) {
+        [titleButton setTitle:[CJAccountTool account].name forState:UIControlStateNormal];
+    }else {
+        [titleButton setTitle:@"首页" forState:UIControlStateNormal];
+    }
+   
     // 添加点击事件
     [titleButton addTarget:self action:@selector(titleButtonClick:) forControlEvents:UIControlEventTouchUpInside];
     self.navigationItem.titleView = titleButton;
@@ -223,6 +277,9 @@
 }
 
 
+/**
+ *  加载用户数据  归档用户昵称 方便下次使用时直接获取
+ */
 - (void)setupUserData
 {
     // 1.创建请求管理对象
@@ -240,6 +297,12 @@
          CJUser *user = [CJUser objectWithKeyValues:responseObject];
          
          [self.titleButton setTitle:user.name forState:UIControlStateNormal];
+         
+         // 保存昵称
+         CJAccount *account = [CJAccountTool account];
+         account.name = user.name;
+         [CJAccountTool saveAccount:account];
+         
          
      } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
          

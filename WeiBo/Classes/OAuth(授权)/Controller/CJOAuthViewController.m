@@ -36,14 +36,15 @@
     
     
     // 2.发送code请求
-    NSURL *url = [NSURL URLWithString:@"https://api.weibo.com/oauth2/authorize?client_id=3087428443&redirect_uri=http://www.baidu.com"];
+    
+    NSString *urlStr = [NSString stringWithFormat:@"https://api.weibo.com/oauth2/authorize?client_id=%@&redirect_uri=%@",AppKey,AppRedirectURL];
+    NSURL *url = [NSURL URLWithString:urlStr];
     
     NSURLRequest *request = [NSURLRequest requestWithURL:url];
     
     [webView loadRequest:request];
     
 }
-
 
 /**
  *  webView代理方法 当webView发送一个请求之前都会先调用这个方法, 询问代理可不可以加载这个页面(请求)
@@ -56,7 +57,6 @@
     
     // 2.查找code=在url中范围
     NSRange range = [urlStr rangeOfString:@"code="];
-
     // 3.如果URL中有code 拦截code
     if (range.length) {
         
@@ -68,7 +68,10 @@
         //5.发送POST请求给新浪，用code换取accessToken
         [self accessTokenWithCode:code];
         
+        return NO;
+        
     }
+    
     return YES;
 }
 /**
@@ -76,7 +79,7 @@
  */
 - (void)webViewDidStartLoad:(UIWebView *)webView
 {
-    [MBProgressHUD showMessage:@"杰哥正在帮你加载中..."];
+    [MBProgressHUD showMessage:@"哥正在帮你加载中..."];
 }
 
 /**
@@ -116,11 +119,11 @@
     
     // 2.封装请求参数
     NSMutableDictionary *parameters = [NSMutableDictionary dictionary];
-    parameters[@"client_id"] = @"3087428443";
-    parameters[@"client_secret"] = @"cb2c460dcf79e93e80d4a8f396ee4013";
+    parameters[@"client_id"] = AppKey;
+    parameters[@"client_secret"] = AppSecret;
     parameters[@"grant_type"] = @"authorization_code";
     parameters[@"code"] = code;
-    parameters[@"redirect_uri"] = @"http://www.baidu.com";
+    parameters[@"redirect_uri"] = AppRedirectURL;
     
     // 3.发送POST请求 获取access_token
     [mgr POST:@"https://api.weibo.com/oauth2/access_token" parameters:parameters
