@@ -34,6 +34,7 @@
 
 @property (nonatomic ,strong) NSArray *statusFrames; // 所有微博Frame
 
+@property (nonatomic ,strong) CJTitleButton *titleButton;
 
 @end
 
@@ -44,15 +45,15 @@
     
     self.tableView.contentInset = UIEdgeInsetsMake(CJStatusFrameBorder, 0, CJStatusFrameBorder, 0);
     self.tableView.backgroundColor = CJColor(226, 226, 226);
-    
+
     // 集成下拉刷新控件
     [self setupRefreshControl];
     
     // 设置导航栏内容
     [self setupNavBar];
     
-    
-
+    // 获得当前用户数据
+    [self setupUserData];
 }
 
 - (NSArray *)statusFrames
@@ -124,15 +125,65 @@
          
          // 结束刷新
          [refreshControl endRefreshing];
+         
+         // 弹出信息提醒
+         NSString *title = [NSString string];
+         if (statusFrameArray.count) {
+             
+             title = [NSString stringWithFormat:@"%ld 条新微博",statusFrameArray.count];
+             
+         }else {
+             title = @"没有新的微博";
+         }
+         [self showMessageForRefreshDataWithTitle:title];
+         
          // 刷新tableView
          [self.tableView reloadData];
          
      } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
          
          CJLog(@"请求失败：%@",error);
+         [self showMessageForRefreshDataWithTitle:@"用户请求超时"];
           [refreshControl endRefreshing];
      }];
 
+}
+
+
+/**
+ *  提示最新微博数据
+ */
+- (void)showMessageForRefreshDataWithTitle:(NSString *)title
+{
+
+    // 创建一个 btn
+    UIButton *messageBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    
+    [self.navigationController.view insertSubview:messageBtn belowSubview:self.navigationController.navigationBar];
+    
+    // 设置属性
+    [messageBtn setBackgroundColor:[UIColor orangeColor]];
+    messageBtn.titleLabel.font = [UIFont boldSystemFontOfSize:14];
+    messageBtn.userInteractionEnabled = NO;
+    messageBtn.titleLabel.textColor = [UIColor whiteColor];
+    
+
+    CGFloat W = self.navigationController.navigationBar.frame.size.width;
+    CGFloat H = 30;
+    CGFloat X = 0;
+    CGFloat Y = self.navigationController.navigationBar.frame.size.height - H;
+    messageBtn.frame = CGRectMake(X, Y, W, H);
+    [messageBtn setTitle:title forState:UIControlStateNormal];
+    
+    [UIView animateWithDuration:0.5 animations:^{
+        messageBtn.transform = CGAffineTransformMakeTranslation(0, 50);
+    } completion:^(BOOL finished) {
+        [UIView animateWithDuration:0.5 delay:1 options:UIViewAnimationOptionCurveLinear animations:^{
+            messageBtn.transform = CGAffineTransformIdentity;
+        } completion:^(BOOL finished) {
+            [messageBtn removeFromSuperview];
+        }];
+    }];
 }
 
 
@@ -158,16 +209,42 @@
     [titleButton setImage:[UIImage imageWithName:@"navigationbar_arrow_up"] forState:UIControlStateSelected];
     
     // 设置宽高
-    titleButton.bounds = CGRectMake(0, 0, 110, 40);
+    titleButton.bounds = CGRectMake(0, 0, 0, 40);
     
     // 设置标题
-    [titleButton setTitle:@"哈哈哈哈" forState:UIControlStateNormal];
+    [titleButton setTitle:@"首页" forState:UIControlStateNormal];
     
     // 添加点击事件
     [titleButton addTarget:self action:@selector(titleButtonClick:) forControlEvents:UIControlEventTouchUpInside];
     self.navigationItem.titleView = titleButton;
+    self.titleButton = titleButton;
     // 分割线样式
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+}
+
+
+- (void)setupUserData
+{
+    // 1.创建请求管理对象
+    AFHTTPRequestOperationManager *mgr = [AFHTTPRequestOperationManager manager];
+    
+    // 2.封装请求参数
+    NSMutableDictionary *parameters = [NSMutableDictionary dictionary];
+    parameters[@"access_token"] = [CJAccountTool account].access_token;
+    parameters[@"uid"] = @([CJAccountTool account].uid);
+    
+    // 3.发送GET请求 获取微博数据
+    [mgr GET:@"https://api.weibo.com/2/users/show.json" parameters:parameters
+     success:^(AFHTTPRequestOperation *operation, id responseObject) {
+         
+         CJUser *user = [CJUser objectWithKeyValues:responseObject];
+         
+         [self.titleButton setTitle:user.name forState:UIControlStateNormal];
+         
+     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+         
+     }];
+
 }
 
 /**

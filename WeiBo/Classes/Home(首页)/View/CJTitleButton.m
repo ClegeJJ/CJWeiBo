@@ -36,6 +36,20 @@
     return self;
 }
 
+- (void)setTitle:(NSString *)title forState:(UIControlState)state
+{
+    // 根据文字计算自己的宽度
+
+    NSMutableDictionary *dict = [NSMutableDictionary dictionary];
+    dict[NSFontAttributeName] = self.titleLabel.font;
+    CGFloat btnW = [title sizeWithAttributes:dict].width;
+    CGRect frame = self.frame;
+    frame.size.width = btnW + CJTitleButtonImageW + 5;
+    self.frame = frame;
+    [super setTitle:title forState:state];
+
+}
+
 /**
  *  调整button内部imageView位置
  */
