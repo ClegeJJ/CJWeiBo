@@ -15,6 +15,8 @@
 #import "CJAccount.h"
 
 #import "CJAccountTool.h"
+
+#import "SDWebImageManager.h"
 @interface AppDelegate ()
 
 @end
@@ -45,6 +47,19 @@
     
     
     return YES;
+}
+
+
+- (void)applicationDidReceiveMemoryWarning:(UIApplication *)application
+{
+    
+    
+    [[SDWebImageManager sharedManager] cancelAll];
+    
+    [[SDWebImageManager sharedManager].imageCache clearMemory];
+
+
+
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {

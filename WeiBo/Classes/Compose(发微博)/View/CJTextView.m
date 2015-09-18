@@ -28,10 +28,12 @@
         [self addSubview:label];
         self.placeholderLabel = label;
         self.placeholderLabel.textColor = [UIColor grayColor];
-        
+
     }
     return self;
 }
+
+
 
 - (void)dealloc
 {
@@ -40,6 +42,9 @@
 
 }
 
+/**
+ *  设置提醒文字
+ */
 - (void)setPlaceholder:(NSString *)placeholder
 {
 
@@ -59,6 +64,12 @@
     
 }
 
+
+
+
+/**
+ *  通知方法
+ */
 - (void)textDidChange
 {
 

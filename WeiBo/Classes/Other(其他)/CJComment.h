@@ -28,7 +28,7 @@
 
 // 4.微博cell相关属性
 /** 表格的边框宽度 */
-#define CJStatusFrameBorder 8
+#define CJStatusFrameBorder 7
 /** cell的边框宽度 */
 #define CJStatusCellBorder 10
 
