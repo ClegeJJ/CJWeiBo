@@ -7,10 +7,11 @@
 //
 
 #import "CJComposeViewController.h"
-#import "AFNetworking.h"
+#import "CJNetTool.h"
 #import "CJAccountTool.h"
 #import "CJAccount.h"
 #import "CJTextView.h"
+#import "CJFarmData.h"
 #import "CJComposeToolBar.h"
 #import "MBProgressHUD+MJ.h"
 @interface CJComposeViewController () <UITextViewDelegate,CJComposeToolBarDelegate,UINavigationControllerDelegate, UIImagePickerControllerDelegate>
@@ -76,7 +77,7 @@
     button.layer.borderWidth = 0.5;
     button.layer.cornerRadius = 2;
     button.clipsToBounds = YES;
-    
+    [button addTarget:self action:@selector(send) forControlEvents:UIControlEventTouchUpInside];
     button.titleLabel.font = [UIFont boldSystemFontOfSize:15];
     button.frame = CGRectMake(0, 0, 40, 25);
     
@@ -146,9 +147,6 @@
     }];
 
 }
-
-
-
 /**
  *  设置工具条
  */
@@ -281,27 +279,24 @@
  */
 - (void)sendStatusWithPhoto
 {
-    // 1.创建请求管理对象
-    AFHTTPRequestOperationManager *mgr = [AFHTTPRequestOperationManager manager];
-    
-    // 2.封装请求参数
+    // 1.封装请求参数
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
     params[@"status"] = self.textView.text;
     params[@"access_token"] = [CJAccountTool account].access_token;
     
-    // 3.发送请求
-    [mgr POST:@"https://upload.api.weibo.com/2/statuses/upload.json" parameters:params constructingBodyWithBlock:^(id<AFMultipartFormData> formData) { // 在发送请求之前调用这个block
-        // 必须在这里说明要上传哪些文件
-        
-        NSData *data = UIImageJPEGRepresentation(self.imageView.image, 0.1);
-        [formData appendPartWithFileData:data name:@"pic" fileName:@"" mimeType:@"image/jpeg"];
-    } success:^(AFHTTPRequestOperation *operation, id responseObject) {
+    
+    // 2.封装复杂请求参数
+    NSData *data = UIImageJPEGRepresentation(self.imageView.image, 0.1);
+    
+    CJFarmData *farmData = [[CJFarmData alloc] initWithData:data name:@"pic" fileName:@"" mimeType:@"image/jpeg"];
+    NSArray *array = @[farmData];
+    
+    // 2.发送请求
+    [CJNetTool postWithUrl:@"https://upload.api.weibo.com/2/statuses/upload.json" parameters:params farmDatas:array success:^(id json) {
         [MBProgressHUD showSuccess:@"发送成功"];
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+    } failure:^(NSError *error) {
         [MBProgressHUD showError:@"发送失败"];
     }];
-
-    
     
 }
 
@@ -310,21 +305,17 @@
  */
 - (void)sendStatusWithoutPhoto
 {
-    // 1.创建请求管理对象
-    AFHTTPRequestOperationManager *mgr = [AFHTTPRequestOperationManager manager];
-    
-    // 2.封装请求参数
+
+    // 1.封装请求参数
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
     params[@"status"] = self.textView.text;
     params[@"access_token"] = [CJAccountTool account].access_token;
     
-    // 3.发送请求
-    [mgr POST:@"https://api.weibo.com/2/statuses/update.json" parameters:params
-      success:^(AFHTTPRequestOperation *operation, id responseObject) {
-          [MBProgressHUD showSuccess:@"发送成功"];
-      } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-          [MBProgressHUD showError:@"发送失败"];
-      }];
+    [CJNetTool postWithUrl:@"https://api.weibo.com/2/statuses/update.json" parameters:params success:^(id json) {
+      [MBProgressHUD showSuccess:@"发送成功"];
+    } failure:^(NSError *error) {
+      [MBProgressHUD showError:@"发送失败"];
+    }];
     
 }
 @end

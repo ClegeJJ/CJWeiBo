@@ -8,7 +8,7 @@
 
 #import "CJOAuthViewController.h"
 
-#import "AFNetworking.h"
+#import "CJNetTool.h"
 
 #import "CJAccount.h"
 
@@ -114,13 +114,9 @@
 {
     
     
-    // AFNetworking\AFN
-    // 1.创建请求管理对象
-    AFHTTPRequestOperationManager *mgr = [AFHTTPRequestOperationManager manager];
-    //告诉管理对象响应的数据为JSON
-    mgr.responseSerializer = [AFJSONResponseSerializer serializer];
+
     
-    // 2.封装请求参数
+    // 1.封装请求参数
     NSMutableDictionary *parameters = [NSMutableDictionary dictionary];
     parameters[@"client_id"] = AppKey;
     parameters[@"client_secret"] = AppSecret;
@@ -128,29 +124,51 @@
     parameters[@"code"] = code;
     parameters[@"redirect_uri"] = AppRedirectURL;
     
-    // 3.发送POST请求 获取access_token
-    [mgr POST:@"https://api.weibo.com/oauth2/access_token" parameters:parameters
-      success:^(AFHTTPRequestOperation *operation, id responseObject) {
+    // 2.发送POST请求 获取access_token
+    [CJNetTool postWithUrl:@"https://api.weibo.com/oauth2/access_token" parameters:parameters success:^(id json) {
         
-          // 4.封装 responseObject字典转换成模型
-          CJAccount *account = [[CJAccount alloc] initWithDict:responseObject];
-          
-          // 5.存储模型数据
-          [CJAccountTool saveAccount:account];
+                  // 4.封装 responseObject字典转换成模型
+                  CJAccount *account = [[CJAccount alloc] initWithDict:json];
         
-          // 6.选择要跳转的控制器
-          [CJLaunchTool chooseRootViewController];
-          
-          // 7.隐藏弹窗
-          [MBProgressHUD hideHUD];
-          
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                  // 5.存储模型数据
+                  [CJAccountTool saveAccount:account];
         
-        NSLog(@"%@---%@",operation.error,error);
+                  // 6.选择要跳转的控制器
+                  [CJLaunchTool chooseRootViewController];
         
-        [MBProgressHUD hideHUD];
+                  // 7.隐藏弹窗
+                  [MBProgressHUD hideHUD];
+    } failure:^(NSError *error) {
         
+                [MBProgressHUD hideHUD];
+    
     }];
+    
+    
+    
+
+//    [mgr POST:@"https://api.weibo.com/oauth2/access_token" parameters:parameters
+//      success:^(AFHTTPRequestOperation *operation, id responseObject) {
+//        
+//          // 4.封装 responseObject字典转换成模型
+//          CJAccount *account = [[CJAccount alloc] initWithDict:responseObject];
+//          
+//          // 5.存储模型数据
+//          [CJAccountTool saveAccount:account];
+//        
+//          // 6.选择要跳转的控制器
+//          [CJLaunchTool chooseRootViewController];
+//          
+//          // 7.隐藏弹窗
+//          [MBProgressHUD hideHUD];
+//          
+//    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+//        
+//        NSLog(@"%@---%@",operation.error,error);
+//        
+//        [MBProgressHUD hideHUD];
+//        
+//    }];
     
     
 
