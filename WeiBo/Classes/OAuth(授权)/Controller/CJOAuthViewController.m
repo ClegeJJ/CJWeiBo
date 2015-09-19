@@ -39,6 +39,7 @@
     
     NSString *urlStr = [NSString stringWithFormat:@"https://api.weibo.com/oauth2/authorize?client_id=%@&redirect_uri=%@",AppKey,AppRedirectURL];
     NSURL *url = [NSURL URLWithString:urlStr];
+
     
     NSURLRequest *request = [NSURLRequest requestWithURL:url];
     
@@ -111,6 +112,8 @@
  */
 - (void)accessTokenWithCode:(NSString *)code
 {
+    
+    
     // AFNetworking\AFN
     // 1.创建请求管理对象
     AFHTTPRequestOperationManager *mgr = [AFHTTPRequestOperationManager manager];
@@ -142,6 +145,8 @@
           [MBProgressHUD hideHUD];
           
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        
+        NSLog(@"%@---%@",operation.error,error);
         
         [MBProgressHUD hideHUD];
         

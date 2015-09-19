@@ -25,6 +25,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    // 设置导航栏内容
+    [self setupNavBar];
     // 设置textView
     [self setupTextView];
     
@@ -45,8 +47,7 @@
 {
 
     [super viewWillAppear:animated];
-    //     设置导航栏内容
-    [self setupNavBar];
+
     // 弹出键盘
     [self.textView becomeFirstResponder];
     
@@ -62,7 +63,24 @@
     self.title = @"发微博";
     
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"取消" style:UIBarButtonItemStyleDone target:self action:@selector(cancel)];
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"发送" style:UIBarButtonItemStyleDone target:self action:@selector(send)];
+    
+    
+    UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
+    [button setBackgroundImage:[UIImage imageWithColor:[UIColor orangeColor]] forState:UIControlStateNormal];
+    [button setBackgroundImage:[UIImage imageWithColor:CJColor(254, 254, 254)] forState:UIControlStateDisabled];
+    [button setBackgroundImage:[UIImage imageWithColor:CJColor(117, 55, 8)] forState:UIControlStateHighlighted];
+    [button setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    [button setTitleColor:CJColor(207, 207, 207) forState:UIControlStateDisabled];
+    [button setTitle:@"发送" forState:UIControlStateNormal];
+    button.layer.borderColor = [UIColor lightGrayColor].CGColor;
+    button.layer.borderWidth = 0.5;
+    button.layer.cornerRadius = 2;
+    button.clipsToBounds = YES;
+    
+    button.titleLabel.font = [UIFont boldSystemFontOfSize:15];
+    button.frame = CGRectMake(0, 0, 40, 25);
+    
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:button];
     self.navigationItem.rightBarButtonItem.enabled = NO;
     
 }
@@ -275,7 +293,7 @@
     [mgr POST:@"https://upload.api.weibo.com/2/statuses/upload.json" parameters:params constructingBodyWithBlock:^(id<AFMultipartFormData> formData) { // 在发送请求之前调用这个block
         // 必须在这里说明要上传哪些文件
         
-        NSData *data = UIImageJPEGRepresentation(self.imageView.image, 1.0);
+        NSData *data = UIImageJPEGRepresentation(self.imageView.image, 0.1);
         [formData appendPartWithFileData:data name:@"pic" fileName:@"" mimeType:@"image/jpeg"];
     } success:^(AFHTTPRequestOperation *operation, id responseObject) {
         [MBProgressHUD showSuccess:@"发送成功"];
