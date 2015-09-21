@@ -7,7 +7,7 @@
 //
 
 #import "CJComposeViewController.h"
-#import "CJNetTool.h"
+#import "CJComposeTool.h"
 #import "CJAccountTool.h"
 #import "CJAccount.h"
 #import "CJTextView.h"
@@ -280,19 +280,17 @@
 - (void)sendStatusWithPhoto
 {
     // 1.封装请求参数
-    NSMutableDictionary *params = [NSMutableDictionary dictionary];
-    params[@"status"] = self.textView.text;
-    params[@"access_token"] = [CJAccountTool account].access_token;
-    
+    CJComposeParma *parma = [CJComposeParma parma];
+    parma.status = self.textView.text;
+
     
     // 2.封装复杂请求参数
     NSData *data = UIImageJPEGRepresentation(self.imageView.image, 0.1);
     
     CJFarmData *farmData = [[CJFarmData alloc] initWithData:data name:@"pic" fileName:@"" mimeType:@"image/jpeg"];
-    NSArray *array = @[farmData];
+    NSArray *farmDatas = @[farmData];
     
-    // 2.发送请求
-    [CJNetTool postWithUrl:@"https://upload.api.weibo.com/2/statuses/upload.json" parameters:params farmDatas:array success:^(id json) {
+    [CJComposeTool composeWithparameters:parma farmDatas:farmDatas success:^(CJComposeResult *result) {
         [MBProgressHUD showSuccess:@"发送成功"];
     } failure:^(NSError *error) {
         [MBProgressHUD showError:@"发送失败"];
@@ -305,17 +303,16 @@
  */
 - (void)sendStatusWithoutPhoto
 {
-
     // 1.封装请求参数
-    NSMutableDictionary *params = [NSMutableDictionary dictionary];
-    params[@"status"] = self.textView.text;
-    params[@"access_token"] = [CJAccountTool account].access_token;
+    CJComposeParma *param = [CJComposeParma parma];
+    param.status = self.textView.text;
     
-    [CJNetTool postWithUrl:@"https://api.weibo.com/2/statuses/update.json" parameters:params success:^(id json) {
+    // 2.发送请求
+    [CJComposeTool composeWithParameters:param success:^(CJComposeResult *result) {
       [MBProgressHUD showSuccess:@"发送成功"];
+        NSLog(@"%@",result);
     } failure:^(NSError *error) {
       [MBProgressHUD showError:@"发送失败"];
     }];
-    
 }
 @end

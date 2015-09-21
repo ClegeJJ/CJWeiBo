@@ -8,7 +8,7 @@
 
 #import "CJOAuthViewController.h"
 
-#import "CJNetTool.h"
+#import "CJOAuthTool.h"
 
 #import "CJAccount.h"
 
@@ -100,77 +100,33 @@
 
 /**
  *  发送POST请求给新浪
- 
- client_id	    true	string	申请应用时分配的AppKey。
- client_secret	true	string	申请应用时分配的AppSecret。
- grant_type	    true	string	请求的类型，填写authorization_code
- 
- grant_type为authorization_code时
-
- code	        true	string	调用authorize获得的code值。
- redirect_uri	true	string	回调地址，需需与注册应用里的回调地址一致。
  */
 - (void)accessTokenWithCode:(NSString *)code
 {
-    
-    
-
-    
     // 1.封装请求参数
-    NSMutableDictionary *parameters = [NSMutableDictionary dictionary];
-    parameters[@"client_id"] = AppKey;
-    parameters[@"client_secret"] = AppSecret;
-    parameters[@"grant_type"] = @"authorization_code";
-    parameters[@"code"] = code;
-    parameters[@"redirect_uri"] = AppRedirectURL;
+    CJOAuthParma *parma = [[CJOAuthParma alloc] init];
+    parma.client_id = AppKey;
+    parma.client_secret = AppSecret;
+    parma.grant_type = @"authorization_code";
+    parma.code = code;
+    parma.redirect_uri = AppRedirectURL;
+
     
     // 2.发送POST请求 获取access_token
-    [CJNetTool postWithUrl:@"https://api.weibo.com/oauth2/access_token" parameters:parameters success:^(id json) {
+    [CJOAuthTool oauthWithParam:parma success:^(CJOAuthResult *result) {
+
+        // 5.存储模型数据
+        [CJAccountTool saveAccount:result];
         
-                  // 4.封装 responseObject字典转换成模型
-                  CJAccount *account = [[CJAccount alloc] initWithDict:json];
+        // 6.选择要跳转的控制器
+        [CJLaunchTool chooseRootViewController];
         
-                  // 5.存储模型数据
-                  [CJAccountTool saveAccount:account];
-        
-                  // 6.选择要跳转的控制器
-                  [CJLaunchTool chooseRootViewController];
-        
-                  // 7.隐藏弹窗
-                  [MBProgressHUD hideHUD];
+        // 7.隐藏弹窗
+        [MBProgressHUD hideHUD];
     } failure:^(NSError *error) {
         
-                [MBProgressHUD hideHUD];
-    
+        [MBProgressHUD hideHUD];
     }];
-    
-    
-    
-
-//    [mgr POST:@"https://api.weibo.com/oauth2/access_token" parameters:parameters
-//      success:^(AFHTTPRequestOperation *operation, id responseObject) {
-//        
-//          // 4.封装 responseObject字典转换成模型
-//          CJAccount *account = [[CJAccount alloc] initWithDict:responseObject];
-//          
-//          // 5.存储模型数据
-//          [CJAccountTool saveAccount:account];
-//        
-//          // 6.选择要跳转的控制器
-//          [CJLaunchTool chooseRootViewController];
-//          
-//          // 7.隐藏弹窗
-//          [MBProgressHUD hideHUD];
-//          
-//    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-//        
-//        NSLog(@"%@---%@",operation.error,error);
-//        
-//        [MBProgressHUD hideHUD];
-//        
-//    }];
-    
-    
 
 }
 

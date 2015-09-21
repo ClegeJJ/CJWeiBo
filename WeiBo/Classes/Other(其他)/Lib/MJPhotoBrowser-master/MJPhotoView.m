@@ -101,16 +101,24 @@
         
         __unsafe_unretained MJPhotoView *photoView = self;
         __unsafe_unretained MJPhotoLoadingView *loading = _photoLoadingView;
-        [_imageView setImageWithURL:_photo.url placeholderImage:_photo.srcImageView.image options:SDWebImageRetryFailed|SDWebImageLowPriority progress:^(NSInteger receivedSize, NSInteger expectedSize) {
+//        [_imageView setImageWithURL:_photo.url placeholderImage:_photo.srcImageView.image options:SDWebImageRetryFailed|SDWebImageLowPriority progress:^(NSInteger receivedSize, NSInteger expectedSize) {
+//            if (receivedSize > kMinProgress) {
+//                loading.progress = (float)receivedSize/expectedSize;
+//            }
+//        } completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType) {
+//            [photoView photoDidFinishLoadWithImage:image];
+//        }];
+        [_imageView sd_setImageWithURL:_photo.url placeholderImage:_photo.srcImageView.image options:SDWebImageRetryFailed|SDWebImageLowPriority
+        progress:^(NSInteger receivedSize, NSInteger expectedSize) {
             if (receivedSize > kMinProgress) {
-                loading.progress = (float)receivedSize/expectedSize;
+                                loading.progress = (float)receivedSize/expectedSize;
             }
-        } completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType) {
-            [photoView photoDidFinishLoadWithImage:image];
+
+        } completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
+                [photoView photoDidFinishLoadWithImage:image];
         }];
     }
 }
-
 #pragma mark 加载完毕
 - (void)photoDidFinishLoadWithImage:(UIImage *)image
 {

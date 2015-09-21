@@ -12,7 +12,9 @@
 
 #import "CJTitleButton.h"
 
-#import "CJNetTool.h"
+#import "CJHomeStatusTool.h"
+
+#import "CJUserInfoTool.h"
 
 #import "UIImageView+WebCache.h"
 
@@ -87,43 +89,39 @@
 {
     
     // 1.封装请求参数
-    NSMutableDictionary *parameters = [NSMutableDictionary dictionary];
-    parameters[@"access_token"] = [CJAccountTool account].access_token;
-    parameters[@"count"] = @5;
-    
+    CJHomeStatusesParam *param = [CJHomeStatusesParam parma];
+    param.count = @5;
     if (self.statusFrames.count) {
         CJStatusFrame *statusFrame = [self.statusFrames lastObject];
         long long maxID = [statusFrame.status.idstr longLongValue] - 1;
-        parameters[@"max_id"] = @(maxID);
+        param.max_id = @(maxID);
     }
-    // 3.发送GET请求 获取微博数据
-    [CJNetTool getWithUrl:@"https://api.weibo.com/2/statuses/home_timeline.json" parameters:parameters success:^(id json) {
-                 // 将字典数组转为模型数组(里面放的就是CJStatus模型)
-                 NSArray *statusArray = [CJStatus objectArrayWithKeyValuesArray:json[@"statuses"]];
-                 // 装载所有CJStatusFrame
-                 NSMutableArray *statusFrameArray = [NSMutableArray array];
-                 // 遍历statusArray数组
-                 for (CJStatus *status in statusArray) {
-                     // 给statusFrame模型赋值
-                     CJStatusFrame *statusFrame = [[CJStatusFrame alloc] init];
-                     statusFrame.status = status;
-                     [statusFrameArray addObject:statusFrame];
-                 }
+    // 2.发送GET请求 获取微博数据
+    [CJHomeStatusTool HomeStatusWithParameters:param success:^(CJHomeStatusesResult *result)  {
+
+        // 装载所有CJStatusFrame
+        NSMutableArray *statusFrameArray = [NSMutableArray array];
+        // 遍历statusArray数组
+        for (CJStatus *status in result.statuses) {
+            // 给statusFrame模型赋值
+            CJStatusFrame *statusFrame = [[CJStatusFrame alloc] init];
+            statusFrame.status = status;
+            [statusFrameArray addObject:statusFrame];
+        }
         
-                 [_statusFrames addObjectsFromArray:statusFrameArray];
+        [_statusFrames addObjectsFromArray:statusFrameArray];
         
-                 // 结束刷新
-                 [self.tableView.footer endRefreshing];
-                 
-                 // 刷新tableView
-                 [self.tableView reloadData];
-    } failure:^(NSError *error) {
+        // 结束刷新
+        [self.tableView.footer endRefreshing];
         
-                 [self showMessageForRefreshDataWithTitle:@"用户请求超时"];
-                 [self.tableView.footer endRefreshing];
+        // 刷新tableView
+        [self.tableView reloadData];
+        
+          } failure:^(NSError *error) {
+      [self showMessageForRefreshDataWithTitle:@"用户请求超时"];
+      [self.tableView.footer endRefreshing];
+
     }];
-
-
 }
 /**
  *  下拉tableView就会调用
@@ -132,26 +130,21 @@
 {
     
     // 1.封装请求参数
-    NSMutableDictionary *parameters = [NSMutableDictionary dictionary];
-    parameters[@"access_token"] = [CJAccountTool account].access_token;
-    
-    
+    CJHomeStatusesParam *param = [CJHomeStatusesParam parma];
     // 是否为第一次加载数据
     if (self.statusFrames.count) {
-        
         CJStatusFrame *statusFrame = self.statusFrames[0];
-        parameters[@"since_id"] = statusFrame.status.idstr;
-        parameters[@"count"] = @5;
+        param.since_id = @([statusFrame.status.idstr longLongValue]);
+
     }
     
         // 2.发送GET请求 获取微博数据
-    [CJNetTool getWithUrl:@"https://api.weibo.com/2/statuses/home_timeline.json" parameters:parameters success:^(id json) {
+    [CJHomeStatusTool HomeStatusWithParameters:param success:^(CJHomeStatusesResult *result) {
         // 将字典数组转为模型数组(里面放的就是CJStatus模型)
-        NSArray *statusArray = [CJStatus objectArrayWithKeyValuesArray:json[@"statuses"]];
         // 装载所有CJStatusFrame
         NSMutableArray *statusFrameArray = [NSMutableArray array];
         // 遍历statusArray数组
-        for (CJStatus *status in statusArray) {
+        for (CJStatus *status in result.statuses) {
             // 给statusFrame模型赋值
             CJStatusFrame *statusFrame = [[CJStatusFrame alloc] init];
             statusFrame.status = status;
@@ -180,12 +173,12 @@
         
         // 刷新tableView
         [self.tableView reloadData];
-        
     } failure:^(NSError *error) {
         [self showMessageForRefreshDataWithTitle:@"用户请求超时"];
         [self.tableView.header endRefreshing];
 
     }];
+
 
 }
 
@@ -272,21 +265,16 @@
 {
     
     // 1.封装请求参数
-    NSMutableDictionary *parameters = [NSMutableDictionary dictionary];
-    parameters[@"access_token"] = [CJAccountTool account].access_token;
-    parameters[@"uid"] = @([CJAccountTool account].uid);
-    
-    
-    
+    CJUserInfoParma *parma = [CJUserInfoParma parma];
+    parma.uid = @([CJAccountTool account].uid);
+
     // 2.发送GET请求 获取微博数据
-    [CJNetTool getWithUrl:@"https://api.weibo.com/2/users/show.json" parameters:parameters success:^(id json) {
-        CJUser *user = [CJUser objectWithKeyValues:json];
-        
-        [self.titleButton setTitle:user.name forState:UIControlStateNormal];
-        
+    [CJUserInfoTool UserInfoWithParameters:parma success:^(CJUserInfoResult *result) {
+        [self.titleButton setTitle:result.name forState:UIControlStateNormal];
+
         // 保存昵称
         CJAccount *account = [CJAccountTool account];
-        account.name = user.name;
+        account.name = result.name;
         [CJAccountTool saveAccount:account];
     } failure:^(NSError *error) {
         

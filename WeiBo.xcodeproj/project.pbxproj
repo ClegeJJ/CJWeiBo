@@ -7,6 +7,19 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F008AE121BAF8CD20098C157 /* CJHomeStatusTool.m in Sources */ = {isa = PBXBuildFile; fileRef = F008AE111BAF8CD20098C157 /* CJHomeStatusTool.m */; };
+		F008AE171BB005450098C157 /* CJBaseParma.m in Sources */ = {isa = PBXBuildFile; fileRef = F008AE161BB005450098C157 /* CJBaseParma.m */; };
+		F008AE241BB026E10098C157 /* CJHomeStatusesParam.m in Sources */ = {isa = PBXBuildFile; fileRef = F008AE201BB026E10098C157 /* CJHomeStatusesParam.m */; };
+		F008AE251BB026E10098C157 /* CJHomeStatusesResult.m in Sources */ = {isa = PBXBuildFile; fileRef = F008AE221BB026E10098C157 /* CJHomeStatusesResult.m */; };
+		F008AE281BB026F50098C157 /* CJUserInfoParma.m in Sources */ = {isa = PBXBuildFile; fileRef = F008AE271BB026F50098C157 /* CJUserInfoParma.m */; };
+		F008AE2B1BB0270A0098C157 /* CJUserInfoResult.m in Sources */ = {isa = PBXBuildFile; fileRef = F008AE2A1BB0270A0098C157 /* CJUserInfoResult.m */; };
+		F008AE2E1BB0272E0098C157 /* CJUserInfoTool.m in Sources */ = {isa = PBXBuildFile; fileRef = F008AE2D1BB0272E0098C157 /* CJUserInfoTool.m */; };
+		F008AE321BB02C4F0098C157 /* CJComposeTool.m in Sources */ = {isa = PBXBuildFile; fileRef = F008AE311BB02C4F0098C157 /* CJComposeTool.m */; };
+		F008AE351BB02C6C0098C157 /* CJComposeParma.m in Sources */ = {isa = PBXBuildFile; fileRef = F008AE341BB02C6C0098C157 /* CJComposeParma.m */; };
+		F008AE381BB02C7B0098C157 /* CJComposeResult.m in Sources */ = {isa = PBXBuildFile; fileRef = F008AE371BB02C7B0098C157 /* CJComposeResult.m */; };
+		F008AE3B1BB032870098C157 /* CJOAuthTool.m in Sources */ = {isa = PBXBuildFile; fileRef = F008AE3A1BB032870098C157 /* CJOAuthTool.m */; };
+		F008AE3E1BB032AF0098C157 /* CJOAuthParma.m in Sources */ = {isa = PBXBuildFile; fileRef = F008AE3D1BB032AF0098C157 /* CJOAuthParma.m */; };
+		F008AE411BB032C20098C157 /* CJOAuthResult.m in Sources */ = {isa = PBXBuildFile; fileRef = F008AE401BB032C20098C157 /* CJOAuthResult.m */; };
 		F00AE6891BA820D6000BCA03 /* CJRetweetStatusView.m in Sources */ = {isa = PBXBuildFile; fileRef = F00AE6881BA820D6000BCA03 /* CJRetweetStatusView.m */; };
 		F02FF2E51B9FD1290046B9F1 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F02FF2E41B9FD1290046B9F1 /* Images.xcassets */; };
 		F02FF2E81B9FD1290046B9F1 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = F02FF2E61B9FD1290046B9F1 /* LaunchScreen.xib */; };
@@ -528,6 +541,32 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		F008AE101BAF8CD20098C157 /* CJHomeStatusTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CJHomeStatusTool.h; sourceTree = "<group>"; };
+		F008AE111BAF8CD20098C157 /* CJHomeStatusTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CJHomeStatusTool.m; sourceTree = "<group>"; };
+		F008AE151BB005450098C157 /* CJBaseParma.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CJBaseParma.h; sourceTree = "<group>"; };
+		F008AE161BB005450098C157 /* CJBaseParma.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CJBaseParma.m; sourceTree = "<group>"; };
+		F008AE1F1BB026E10098C157 /* CJHomeStatusesParam.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CJHomeStatusesParam.h; sourceTree = "<group>"; };
+		F008AE201BB026E10098C157 /* CJHomeStatusesParam.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CJHomeStatusesParam.m; sourceTree = "<group>"; };
+		F008AE211BB026E10098C157 /* CJHomeStatusesResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CJHomeStatusesResult.h; sourceTree = "<group>"; };
+		F008AE221BB026E10098C157 /* CJHomeStatusesResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CJHomeStatusesResult.m; sourceTree = "<group>"; };
+		F008AE261BB026F50098C157 /* CJUserInfoParma.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CJUserInfoParma.h; sourceTree = "<group>"; };
+		F008AE271BB026F50098C157 /* CJUserInfoParma.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CJUserInfoParma.m; sourceTree = "<group>"; };
+		F008AE291BB0270A0098C157 /* CJUserInfoResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CJUserInfoResult.h; sourceTree = "<group>"; };
+		F008AE2A1BB0270A0098C157 /* CJUserInfoResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CJUserInfoResult.m; sourceTree = "<group>"; };
+		F008AE2C1BB0272E0098C157 /* CJUserInfoTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CJUserInfoTool.h; sourceTree = "<group>"; };
+		F008AE2D1BB0272E0098C157 /* CJUserInfoTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CJUserInfoTool.m; sourceTree = "<group>"; };
+		F008AE301BB02C4F0098C157 /* CJComposeTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CJComposeTool.h; sourceTree = "<group>"; };
+		F008AE311BB02C4F0098C157 /* CJComposeTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CJComposeTool.m; sourceTree = "<group>"; };
+		F008AE331BB02C6C0098C157 /* CJComposeParma.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CJComposeParma.h; sourceTree = "<group>"; };
+		F008AE341BB02C6C0098C157 /* CJComposeParma.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CJComposeParma.m; sourceTree = "<group>"; };
+		F008AE361BB02C7B0098C157 /* CJComposeResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CJComposeResult.h; sourceTree = "<group>"; };
+		F008AE371BB02C7B0098C157 /* CJComposeResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CJComposeResult.m; sourceTree = "<group>"; };
+		F008AE391BB032870098C157 /* CJOAuthTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CJOAuthTool.h; sourceTree = "<group>"; };
+		F008AE3A1BB032870098C157 /* CJOAuthTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CJOAuthTool.m; sourceTree = "<group>"; };
+		F008AE3C1BB032AF0098C157 /* CJOAuthParma.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CJOAuthParma.h; sourceTree = "<group>"; };
+		F008AE3D1BB032AF0098C157 /* CJOAuthParma.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CJOAuthParma.m; sourceTree = "<group>"; };
+		F008AE3F1BB032C20098C157 /* CJOAuthResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CJOAuthResult.h; sourceTree = "<group>"; };
+		F008AE401BB032C20098C157 /* CJOAuthResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CJOAuthResult.m; sourceTree = "<group>"; };
 		F00AE6871BA820D6000BCA03 /* CJRetweetStatusView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CJRetweetStatusView.h; sourceTree = "<group>"; };
 		F00AE6881BA820D6000BCA03 /* CJRetweetStatusView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CJRetweetStatusView.m; sourceTree = "<group>"; };
 		F02FF2D11B9FD1290046B9F1 /* WeiBo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WeiBo.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -1176,6 +1215,48 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		F008AE0F1BAF8C9D0098C157 /* Tool */ = {
+			isa = PBXGroup;
+			children = (
+				F008AE101BAF8CD20098C157 /* CJHomeStatusTool.h */,
+				F008AE111BAF8CD20098C157 /* CJHomeStatusTool.m */,
+				F008AE2C1BB0272E0098C157 /* CJUserInfoTool.h */,
+				F008AE2D1BB0272E0098C157 /* CJUserInfoTool.m */,
+			);
+			path = Tool;
+			sourceTree = "<group>";
+		};
+		F008AE1E1BB026E10098C157 /* HomeStatuses */ = {
+			isa = PBXGroup;
+			children = (
+				F008AE1F1BB026E10098C157 /* CJHomeStatusesParam.h */,
+				F008AE201BB026E10098C157 /* CJHomeStatusesParam.m */,
+				F008AE211BB026E10098C157 /* CJHomeStatusesResult.h */,
+				F008AE221BB026E10098C157 /* CJHomeStatusesResult.m */,
+			);
+			path = HomeStatuses;
+			sourceTree = "<group>";
+		};
+		F008AE231BB026E10098C157 /* HomeUserInfo */ = {
+			isa = PBXGroup;
+			children = (
+				F008AE261BB026F50098C157 /* CJUserInfoParma.h */,
+				F008AE271BB026F50098C157 /* CJUserInfoParma.m */,
+				F008AE291BB0270A0098C157 /* CJUserInfoResult.h */,
+				F008AE2A1BB0270A0098C157 /* CJUserInfoResult.m */,
+			);
+			path = HomeUserInfo;
+			sourceTree = "<group>";
+		};
+		F008AE2F1BB02BC40098C157 /* Tool */ = {
+			isa = PBXGroup;
+			children = (
+				F008AE301BB02C4F0098C157 /* CJComposeTool.h */,
+				F008AE311BB02C4F0098C157 /* CJComposeTool.m */,
+			);
+			path = Tool;
+			sourceTree = "<group>";
+		};
 		F02FF2C81B9FD1290046B9F1 = {
 			isa = PBXGroup;
 			children = (
@@ -1280,6 +1361,7 @@
 		F033A6651BA0374A00417D4D /* Home(首页) */ = {
 			isa = PBXGroup;
 			children = (
+				F008AE0F1BAF8C9D0098C157 /* Tool */,
 				F033A6661BA0374A00417D4D /* Controller */,
 				F033A6691BA0374A00417D4D /* Model */,
 				F033A66A1BA0374A00417D4D /* View */,
@@ -1299,6 +1381,8 @@
 		F033A6691BA0374A00417D4D /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				F008AE1E1BB026E10098C157 /* HomeStatuses */,
+				F008AE231BB026E10098C157 /* HomeUserInfo */,
 				F081CD2C1BA569EB00A65926 /* CJStatus.h */,
 				F081CD2D1BA569EB00A65926 /* CJStatus.m */,
 				F081CD2F1BA56CAA00A65926 /* CJUser.h */,
@@ -1358,6 +1442,8 @@
 		F033A66F1BA0374A00417D4D /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				F008AE151BB005450098C157 /* CJBaseParma.h */,
+				F008AE161BB005450098C157 /* CJBaseParma.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1820,6 +1906,10 @@
 			children = (
 				F04C0E491BA411A50029282B /* CJAccount.h */,
 				F04C0E4A1BA411A50029282B /* CJAccount.m */,
+				F008AE3C1BB032AF0098C157 /* CJOAuthParma.h */,
+				F008AE3D1BB032AF0098C157 /* CJOAuthParma.m */,
+				F008AE3F1BB032C20098C157 /* CJOAuthResult.h */,
+				F008AE401BB032C20098C157 /* CJOAuthResult.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1829,6 +1919,8 @@
 			children = (
 				F04C0E501BA448DD0029282B /* CJAccountTool.h */,
 				F04C0E511BA448DD0029282B /* CJAccountTool.m */,
+				F008AE391BB032870098C157 /* CJOAuthTool.h */,
+				F008AE3A1BB032870098C157 /* CJOAuthTool.m */,
 			);
 			path = Tool;
 			sourceTree = "<group>";
@@ -2869,6 +2961,7 @@
 		F09CF1351BAABF1F00923788 /* Compose(发微博) */ = {
 			isa = PBXGroup;
 			children = (
+				F008AE2F1BB02BC40098C157 /* Tool */,
 				F09CF1361BAABF1F00923788 /* Controller */,
 				F09CF1371BAABF1F00923788 /* Model */,
 				F09CF1381BAABF1F00923788 /* View */,
@@ -2890,6 +2983,10 @@
 			children = (
 				F06128261BAD4F95009BC72A /* CJFarmData.h */,
 				F06128271BAD4F95009BC72A /* CJFarmData.m */,
+				F008AE331BB02C6C0098C157 /* CJComposeParma.h */,
+				F008AE341BB02C6C0098C157 /* CJComposeParma.m */,
+				F008AE361BB02C7B0098C157 /* CJComposeResult.h */,
+				F008AE371BB02C7B0098C157 /* CJComposeResult.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -3467,6 +3564,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F008AE411BB032C20098C157 /* CJOAuthResult.m in Sources */,
 				F095A40A1BA9823700696D9D /* MJPhotoBrowser.m in Sources */,
 				F0A5CE941BA5ABD300AC3130 /* CJStatusCell.m in Sources */,
 				F0A5CE8A1BA574BD00AC3130 /* MJProperty.m in Sources */,
@@ -3476,11 +3574,14 @@
 				F095A4081BA9823700696D9D /* MJPhoto.m in Sources */,
 				F095A40F1BA9823700696D9D /* SDWebImageManager+MJ.m in Sources */,
 				F081CD2B1BA5497C00A65926 /* UIView+WebCacheOperation.m in Sources */,
+				F008AE171BB005450098C157 /* CJBaseParma.m in Sources */,
 				F081CD1C1BA5497C00A65926 /* MKAnnotationView+WebCache.m in Sources */,
 				F077154F1BA6EF19001ECEA3 /* DTError.m in Sources */,
 				F0A5CE8D1BA574BD00AC3130 /* NSObject+MJClass.m in Sources */,
 				F0A5CE8C1BA574BD00AC3130 /* MJPropertyType.m in Sources */,
+				F008AE381BB02C7B0098C157 /* CJComposeResult.m in Sources */,
 				F09CF1271BAA6C1C00923788 /* MJRefreshAutoNormalFooter.m in Sources */,
+				F008AE2E1BB0272E0098C157 /* CJUserInfoTool.m in Sources */,
 				F0A5CE911BA574BD00AC3130 /* NSString+MJExtension.m in Sources */,
 				F04C0E4B1BA411A50029282B /* CJAccount.m in Sources */,
 				F09CF1291BAA6C1C00923788 /* MJRefreshBackGifFooter.m in Sources */,
@@ -3488,6 +3589,8 @@
 				F0A5CE891BA574BD00AC3130 /* MJFoundation.m in Sources */,
 				F095A40B1BA9823700696D9D /* MJPhotoLoadingView.m in Sources */,
 				F0D6FBC41BAC4E7400056271 /* AFURLResponseSerialization.m in Sources */,
+				F008AE3E1BB032AF0098C157 /* CJOAuthParma.m in Sources */,
+				F008AE2B1BB0270A0098C157 /* CJUserInfoResult.m in Sources */,
 				F0D6FBC21BAC4E7400056271 /* AFURLConnectionOperation.m in Sources */,
 				F09CF12E1BAA6C1C00923788 /* MJRefreshStateHeader.m in Sources */,
 				F06549841BA84C3200C8224A /* CJPhoto.m in Sources */,
@@ -3503,6 +3606,8 @@
 				F06326111BABA6EF00FEA8A4 /* CJComposeToolBar.m in Sources */,
 				F081CD1D1BA5497C00A65926 /* NSData+ImageContentType.m in Sources */,
 				F081CD261BA5497C00A65926 /* UIImage+GIF.m in Sources */,
+				F008AE281BB026F50098C157 /* CJUserInfoParma.m in Sources */,
+				F008AE121BAF8CD20098C157 /* CJHomeStatusTool.m in Sources */,
 				F04C0E521BA448DD0029282B /* CJAccountTool.m in Sources */,
 				F081CD211BA5497C00A65926 /* SDWebImageDownloader.m in Sources */,
 				F081CD1F1BA5497C00A65926 /* SDWebImageCompat.m in Sources */,
@@ -3531,6 +3636,7 @@
 				F081CD231BA5497C00A65926 /* SDWebImageManager.m in Sources */,
 				F09CF1211BAA6C1C00923788 /* MJRefreshAutoFooter.m in Sources */,
 				F09CF13E1BAAF21A00923788 /* CJTextView.m in Sources */,
+				F008AE251BB026E10098C157 /* CJHomeStatusesResult.m in Sources */,
 				F033A68E1BA0374A00417D4D /* CJMessageViewController.m in Sources */,
 				F0FFBC601BA17CC80059BFD3 /* CJBadegButton.m in Sources */,
 				F0A5CE8B1BA574BD00AC3130 /* MJPropertyKey.m in Sources */,
@@ -3549,6 +3655,7 @@
 				F0B5CA271BA7C3B700351F02 /* CJStatusToolBar.m in Sources */,
 				F04C0E5B1BA457A00029282B /* MBProgressHUD.m in Sources */,
 				F00AE6891BA820D6000BCA03 /* CJRetweetStatusView.m in Sources */,
+				F008AE241BB026E10098C157 /* CJHomeStatusesParam.m in Sources */,
 				F09CF1311BAA6C1C00923788 /* UIScrollView+MJExtension.m in Sources */,
 				F09736021BA297C20046A288 /* CJSearchBar.m in Sources */,
 				F0D6FBBD1BAC4E7400056271 /* AFHTTPRequestOperation.m in Sources */,
@@ -3561,6 +3668,7 @@
 				F09CF1231BAA6C1C00923788 /* MJRefreshComponent.m in Sources */,
 				F07715521BA6EF19001ECEA3 /* DTTimePeriodCollection.m in Sources */,
 				F059E3921BA10F6500BC1C25 /* CJTabBarButton.m in Sources */,
+				F008AE3B1BB032870098C157 /* CJOAuthTool.m in Sources */,
 				F0D6FBBF1BAC4E7400056271 /* AFHTTPSessionManager.m in Sources */,
 				F09736051BA2B3AD0046A288 /* CJTitleButton.m in Sources */,
 				F081CD1E1BA5497C00A65926 /* SDImageCache.m in Sources */,
@@ -3570,11 +3678,13 @@
 				F0D6FBC11BAC4E7400056271 /* AFSecurityPolicy.m in Sources */,
 				F095A40D1BA9823700696D9D /* MJPhotoToolbar.m in Sources */,
 				F09CF1251BAA6C1C00923788 /* MJRefreshHeader.m in Sources */,
+				F008AE351BB02C6C0098C157 /* CJComposeParma.m in Sources */,
 				F0A5CE8F1BA574BD00AC3130 /* NSObject+MJKeyValue.m in Sources */,
 				F09CF12B1BAA6C1C00923788 /* MJRefreshBackStateFooter.m in Sources */,
 				F081CD2A1BA5497C00A65926 /* UIImageView+WebCache.m in Sources */,
 				F081CD311BA56CAA00A65926 /* CJUser.m in Sources */,
 				F081CD281BA5497C00A65926 /* UIImage+WebP.m in Sources */,
+				F008AE321BB02C4F0098C157 /* CJComposeTool.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
