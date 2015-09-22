@@ -145,10 +145,14 @@
  */
 - (void)startWeiBo
 {
-    
+
     self.view.window.rootViewController = [[CJTabBarController alloc] init];
 
-    
+    if (iOS8) {
+        UIUserNotificationSettings *settings = [UIUserNotificationSettings settingsForTypes:UIUserNotificationTypeBadge categories:nil];
+        [[UIApplication sharedApplication] registerUserNotificationSettings:settings];
+    }
+
 }
 
 /**

@@ -6,6 +6,9 @@
 //  Copyright (c) 2015年 mac527. All rights reserved.
 //
 #import "CJTabBar.h"
+#import "CJUnreadCountTool.h"
+#import "CJAccount.h"
+#import "CJAccountTool.h"
 #import "CJTabBarButton.h"
 #import "CJTabBarController.h"
 #import "CJHomeViewController.h"
@@ -20,6 +23,11 @@
 
 @property (nonatomic ,weak) CJTabBar *myTabBar;
 
+@property (nonatomic ,weak) UIViewController *home;
+@property (nonatomic ,weak) UIViewController *discover;
+@property (nonatomic ,weak) UIViewController *me;
+@property (nonatomic ,weak) UIViewController *message;
+
 @end
 
 @implementation CJTabBarController
@@ -27,13 +35,40 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
+    // 设置标签栏
     [self setUpTabBar];
     
+    // 设置子控制器
     [self setUpAllChildViewController];
     
-
+    // 添加定时器 发送未读数请求
+    NSTimer *timer = [NSTimer scheduledTimerWithTimeInterval:2.0 target:self selector:@selector(checkUnreadCount) userInfo:nil repeats:YES];
+    
+#warning 固定写法 定时操作放在子线程
+    [[NSRunLoop currentRunLoop] addTimer:timer forMode:NSRunLoopCommonModes];
+    
+}
+/**
+ *  检查未读消息
+ */
+- (void)checkUnreadCount
+{
+    
+    CJUnreadCountParma *parma = [CJUnreadCountParma parma];
+    parma.uid = @([CJAccountTool account].uid);
+    
+    [CJUnreadCountTool unreadCountWithParam:parma success:^(CJUnreadCountResult *result) {
+        
+        self.home.tabBarItem.badgeValue = [NSString stringWithFormat:@"%d",result.status];
+        self.message.tabBarItem.badgeValue = [NSString stringWithFormat:@"%d",result.messageCount];
+        self.discover.tabBarItem.badgeValue = [NSString stringWithFormat:@"%d",result.follower];
+        [UIApplication sharedApplication].applicationIconBadgeNumber = result.count;
+    } failure:^(NSError *error) {
+        
+    }];
 
 }
+
 
 
 /**
@@ -79,19 +114,22 @@
     CJHomeViewController *homeVC = [[CJHomeViewController alloc] init];
     homeVC.tabBarItem.badgeValue = @"10";
     [self setUpChildViewControllerWithChildVc:homeVC Title:@"首页" image:@"tabbar_home" selectedImage:@"tabbar_home_selected"];
+    self.home= homeVC;
     
     // 消息
     CJMessageViewController *messageVC = [[CJMessageViewController alloc] init];
     [self setUpChildViewControllerWithChildVc:messageVC Title:@"消息" image:@"tabbar_message_center" selectedImage:@"tabbar_message_center_selected"];
+    self.message = messageVC;
     
     //广场
     CJDiscoverViewController *discoverVC = [[CJDiscoverViewController alloc] init];
     [self setUpChildViewControllerWithChildVc:discoverVC Title:@"广场" image:@"tabbar_discover" selectedImage:@"tabbar_discover_selected"];
-
+    self.discover = discoverVC;
+    
     // 我
     CJMeViewController *meVC = [[CJMeViewController alloc] init];
     [self setUpChildViewControllerWithChildVc:meVC Title:@"我" image:@"tabbar_profile" selectedImage:@"tabbar_profile_selected"];
-    
+    self.me = meVC;
 
 
 }

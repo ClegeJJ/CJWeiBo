@@ -40,7 +40,7 @@
 {
     _badgeValue = [badgeValue copy];
 
-    if (badgeValue) { // 有值 算宽高
+    if (badgeValue && [badgeValue integerValue] != 0) { // 有值 算宽高
         self.hidden = NO;
         [self setTitle:badgeValue forState:UIControlStateNormal];
         

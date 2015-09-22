@@ -9,6 +9,9 @@
 
 #define kWidth [UIScreen mainScreen].bounds.size.width
 #define kHeight [UIScreen mainScreen].bounds.size.height
+// -1.判断是否为iOS7
+#define iOS8 ([[UIDevice currentDevice].systemVersion doubleValue] >= 8.0)
+
 // 0.授权信息
 #define AppKey @"3087428443"
 #define AppSecret @"cb2c460dcf79e93e80d4a8f396ee4013"
@@ -23,9 +26,6 @@
 #else
 #define CJLog(...)
 #endif
-
-
-
 
 // 3.定义导航栏文字颜色
 #define navButtonColor [UIColor colorWithWhite:0.400 alpha:1.000]

@@ -4,7 +4,7 @@
 //
 //  Created by mac527 on 15/9/21.
 //  Copyright (c) 2015年 mac527. All rights reserved.
-//
+//  授权工具类
 
 #import <Foundation/Foundation.h>
 #import "CJOAuthResult.h"

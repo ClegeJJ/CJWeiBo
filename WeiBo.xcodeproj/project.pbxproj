@@ -20,6 +20,9 @@
 		F008AE3B1BB032870098C157 /* CJOAuthTool.m in Sources */ = {isa = PBXBuildFile; fileRef = F008AE3A1BB032870098C157 /* CJOAuthTool.m */; };
 		F008AE3E1BB032AF0098C157 /* CJOAuthParma.m in Sources */ = {isa = PBXBuildFile; fileRef = F008AE3D1BB032AF0098C157 /* CJOAuthParma.m */; };
 		F008AE411BB032C20098C157 /* CJOAuthResult.m in Sources */ = {isa = PBXBuildFile; fileRef = F008AE401BB032C20098C157 /* CJOAuthResult.m */; };
+		F008AE451BB037770098C157 /* CJUnreadCountTool.m in Sources */ = {isa = PBXBuildFile; fileRef = F008AE441BB037770098C157 /* CJUnreadCountTool.m */; };
+		F008AE481BB0379A0098C157 /* CJUnreadCountParma.m in Sources */ = {isa = PBXBuildFile; fileRef = F008AE471BB0379A0098C157 /* CJUnreadCountParma.m */; };
+		F008AE4B1BB037B20098C157 /* CJUnreadCountResult.m in Sources */ = {isa = PBXBuildFile; fileRef = F008AE4A1BB037B20098C157 /* CJUnreadCountResult.m */; };
 		F00AE6891BA820D6000BCA03 /* CJRetweetStatusView.m in Sources */ = {isa = PBXBuildFile; fileRef = F00AE6881BA820D6000BCA03 /* CJRetweetStatusView.m */; };
 		F02FF2E51B9FD1290046B9F1 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F02FF2E41B9FD1290046B9F1 /* Images.xcassets */; };
 		F02FF2E81B9FD1290046B9F1 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = F02FF2E61B9FD1290046B9F1 /* LaunchScreen.xib */; };
@@ -567,6 +570,12 @@
 		F008AE3D1BB032AF0098C157 /* CJOAuthParma.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CJOAuthParma.m; sourceTree = "<group>"; };
 		F008AE3F1BB032C20098C157 /* CJOAuthResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CJOAuthResult.h; sourceTree = "<group>"; };
 		F008AE401BB032C20098C157 /* CJOAuthResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CJOAuthResult.m; sourceTree = "<group>"; };
+		F008AE431BB037770098C157 /* CJUnreadCountTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CJUnreadCountTool.h; sourceTree = "<group>"; };
+		F008AE441BB037770098C157 /* CJUnreadCountTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CJUnreadCountTool.m; sourceTree = "<group>"; };
+		F008AE461BB0379A0098C157 /* CJUnreadCountParma.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CJUnreadCountParma.h; sourceTree = "<group>"; };
+		F008AE471BB0379A0098C157 /* CJUnreadCountParma.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CJUnreadCountParma.m; sourceTree = "<group>"; };
+		F008AE491BB037B20098C157 /* CJUnreadCountResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CJUnreadCountResult.h; sourceTree = "<group>"; };
+		F008AE4A1BB037B20098C157 /* CJUnreadCountResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CJUnreadCountResult.m; sourceTree = "<group>"; };
 		F00AE6871BA820D6000BCA03 /* CJRetweetStatusView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CJRetweetStatusView.h; sourceTree = "<group>"; };
 		F00AE6881BA820D6000BCA03 /* CJRetweetStatusView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CJRetweetStatusView.m; sourceTree = "<group>"; };
 		F02FF2D11B9FD1290046B9F1 /* WeiBo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WeiBo.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -1257,6 +1266,15 @@
 			path = Tool;
 			sourceTree = "<group>";
 		};
+		F008AE421BB037560098C157 /* Tool */ = {
+			isa = PBXGroup;
+			children = (
+				F008AE431BB037770098C157 /* CJUnreadCountTool.h */,
+				F008AE441BB037770098C157 /* CJUnreadCountTool.m */,
+			);
+			path = Tool;
+			sourceTree = "<group>";
+		};
 		F02FF2C81B9FD1290046B9F1 = {
 			isa = PBXGroup;
 			children = (
@@ -1421,6 +1439,7 @@
 		F033A66B1BA0374A00417D4D /* Main(主要) */ = {
 			isa = PBXGroup;
 			children = (
+				F008AE421BB037560098C157 /* Tool */,
 				F033A6911BA04CAB00417D4D /* View */,
 				F033A66C1BA0374A00417D4D /* Controller */,
 				F033A66F1BA0374A00417D4D /* Model */,
@@ -1444,6 +1463,10 @@
 			children = (
 				F008AE151BB005450098C157 /* CJBaseParma.h */,
 				F008AE161BB005450098C157 /* CJBaseParma.m */,
+				F008AE461BB0379A0098C157 /* CJUnreadCountParma.h */,
+				F008AE471BB0379A0098C157 /* CJUnreadCountParma.m */,
+				F008AE491BB037B20098C157 /* CJUnreadCountResult.h */,
+				F008AE4A1BB037B20098C157 /* CJUnreadCountResult.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -3616,6 +3639,7 @@
 				F04C0E481BA3D4750029282B /* CJOAuthViewController.m in Sources */,
 				F0A5CE881BA574BD00AC3130 /* MJExtensionConst.m in Sources */,
 				F095A3F71BA954FF00696D9D /* CJIconView.m in Sources */,
+				F008AE4B1BB037B20098C157 /* CJUnreadCountResult.m in Sources */,
 				F09CF12A1BAA6C1C00923788 /* MJRefreshBackNormalFooter.m in Sources */,
 				F09CF1321BAA6C1C00923788 /* UIScrollView+MJRefresh.m in Sources */,
 				F081CD291BA5497C00A65926 /* UIImageView+HighlightedWebCache.m in Sources */,
@@ -3644,6 +3668,7 @@
 				F077154E1BA6EF19001ECEA3 /* DTConstants.m in Sources */,
 				F033A68D1BA0374A00417D4D /* CJMeViewController.m in Sources */,
 				F09CF1221BAA6C1C00923788 /* MJRefreshBackFooter.m in Sources */,
+				F008AE481BB0379A0098C157 /* CJUnreadCountParma.m in Sources */,
 				F09CF1241BAA6C1C00923788 /* MJRefreshFooter.m in Sources */,
 				F09CF13B1BAABF5F00923788 /* CJComposeViewController.m in Sources */,
 				F033A6901BA0374A00417D4D /* main.m in Sources */,
@@ -3679,6 +3704,7 @@
 				F095A40D1BA9823700696D9D /* MJPhotoToolbar.m in Sources */,
 				F09CF1251BAA6C1C00923788 /* MJRefreshHeader.m in Sources */,
 				F008AE351BB02C6C0098C157 /* CJComposeParma.m in Sources */,
+				F008AE451BB037770098C157 /* CJUnreadCountTool.m in Sources */,
 				F0A5CE8F1BA574BD00AC3130 /* NSObject+MJKeyValue.m in Sources */,
 				F09CF12B1BAA6C1C00923788 /* MJRefreshBackStateFooter.m in Sources */,
 				F081CD2A1BA5497C00A65926 /* UIImageView+WebCache.m in Sources */,
@@ -3808,7 +3834,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				INFOPLIST_FILE = WeiBo/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -3820,7 +3846,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				INFOPLIST_FILE = WeiBo/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
