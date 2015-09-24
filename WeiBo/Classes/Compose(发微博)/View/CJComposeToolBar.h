@@ -20,6 +20,7 @@ typedef enum{
     CJComposeToolBarButtonTypeEmotion
 
 } CJComposeToolBarButtonType;
+
 @class CJComposeToolBar;
 
 @protocol CJComposeToolBarDelegate <NSObject>
@@ -30,10 +31,14 @@ typedef enum{
 
 @end
 
+
+
 @interface CJComposeToolBar : UIView
 
-- (void)addButtonWithImage:(NSString *)image highImage:(NSString *)highImage tag:(CJComposeToolBarButtonType)type;
+
 
 @property (nonatomic ,weak) id<CJComposeToolBarDelegate> delegate;
+
+@property (nonatomic ,assign) BOOL showEmotionKeyboard;
 
 @end

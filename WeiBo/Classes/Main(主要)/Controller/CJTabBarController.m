@@ -23,10 +23,10 @@
 
 @property (nonatomic ,weak) CJTabBar *myTabBar;
 
-@property (nonatomic ,weak) UIViewController *home;
-@property (nonatomic ,weak) UIViewController *discover;
-@property (nonatomic ,weak) UIViewController *me;
-@property (nonatomic ,weak) UIViewController *message;
+@property (nonatomic ,weak) CJHomeViewController *home;
+@property (nonatomic ,weak) CJDiscoverViewController *discover;
+@property (nonatomic ,weak) CJMeViewController *me;
+@property (nonatomic ,weak) CJMessageViewController *message;
 
 @end
 
@@ -112,7 +112,6 @@
     
     // 首页
     CJHomeViewController *homeVC = [[CJHomeViewController alloc] init];
-    homeVC.tabBarItem.badgeValue = @"10";
     [self setUpChildViewControllerWithChildVc:homeVC Title:@"首页" image:@"tabbar_home" selectedImage:@"tabbar_home_selected"];
     self.home= homeVC;
     
@@ -168,7 +167,10 @@
  */
 - (void)tabBar:(CJTabBar *)tabBar didSelectedButtonFrom:(NSInteger)from to:(NSInteger)to
 {
-
+    
+    if (from == to && from == 0) {
+        [self.home clickAgain];
+    }
     self.selectedIndex = to;
 
 }

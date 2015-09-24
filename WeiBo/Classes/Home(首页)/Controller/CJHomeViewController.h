@@ -10,4 +10,6 @@
 
 @interface CJHomeViewController : UITableViewController
 
+- (void)clickAgain;
+
 @end

@@ -81,7 +81,7 @@
     
     [self addSubview:button];
 
-    [button addTarget:self action:@selector(buttonClick:) forControlEvents:UIControlEventTouchDown];
+    [button addTarget:self action:@selector(tabBarbuttonClick:) forControlEvents:UIControlEventTouchDown];
     
     [self.allTabBarButton addObject:button];
 }
@@ -90,7 +90,7 @@
 /**
  *  监听点击事件 切换控制器
  */
-- (void)buttonClick:(CJTabBarButton *)button
+- (void)tabBarbuttonClick:(CJTabBarButton *)button
 {
     
     if ([self.delegate respondsToSelector:@selector(tabBar:didSelectedButtonFrom:to:)]) {
@@ -137,7 +137,7 @@
         button.tag = 2015 + index;
         
         if (index == 0) {
-            [self buttonClick:button];
+            [self tabBarbuttonClick:button];
         }
         
 

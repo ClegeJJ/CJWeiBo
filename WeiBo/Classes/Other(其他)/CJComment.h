@@ -9,16 +9,19 @@
 
 #define kWidth [UIScreen mainScreen].bounds.size.width
 #define kHeight [UIScreen mainScreen].bounds.size.height
-// -1.判断是否为iOS7
+// 0.0判断是否为iOS7
 #define iOS8 ([[UIDevice currentDevice].systemVersion doubleValue] >= 8.0)
 
-// 0.授权信息
+// 0.1授权信息
 #define AppKey @"3087428443"
 #define AppSecret @"cb2c460dcf79e93e80d4a8f396ee4013"
 #define AppRedirectURL @"http://www.baidu.com"
 
 // 1.获得RGB颜色
 #define CJColor(r, g, b) [UIColor colorWithRed:(r)/255.0 green:(g)/255.0 blue:(b)/255.0 alpha:1.0]
+// 1.1随机色
+#define CJRandomColor CJColor(arc4random_uniform(256), arc4random_uniform(256), arc4random_uniform(256))
+
 
 // 2.自定义Log
 #ifdef DEBUG

@@ -51,7 +51,7 @@
     self.tableView.contentInset = UIEdgeInsetsMake(CJStatusFrameBorder, 0, CJStatusFrameBorder, 0);
     self.tableView.backgroundColor = CJColor(226, 226, 226);
 
-    // 集成下拉刷新控件
+    // 集成刷新控件
     [self setupRefreshControl];
     
     // 设置导航栏内容
@@ -69,14 +69,14 @@
     return _statusFrames;
 }
 /**
- *  集成下拉刷新控件
+ *  集成刷新控件
  */
 - (void)setupRefreshControl
 {
 
     // 下拉刷新
     self.tableView.header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(refreshNewData)];
-    [self.tableView.header beginRefreshing];
+
     
     // 上拉刷新
     self.tableView.footer = [MJRefreshBackNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(refreshMoreData)];
@@ -123,12 +123,20 @@
 
     }];
 }
+
+/**
+ *  再次点击home
+ */
+- (void)clickAgain
+{
+    [self.tableView.header beginRefreshing];
+
+}
 /**
  *  下拉tableView就会调用
  */
 - (void)refreshNewData
 {
-    
     // 1.封装请求参数
     CJHomeStatusesParam *param = [CJHomeStatusesParam parma];
     // 是否为第一次加载数据
@@ -173,6 +181,8 @@
         
         // 刷新tableView
         [self.tableView reloadData];
+        self.tabBarItem.badgeValue = @"";
+        
     } failure:^(NSError *error) {
         [self showMessageForRefreshDataWithTitle:@"用户请求超时"];
         [self.tableView.header endRefreshing];

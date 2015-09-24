@@ -14,11 +14,15 @@
 #import "CJFarmData.h"
 #import "CJComposeToolBar.h"
 #import "MBProgressHUD+MJ.h"
+#import "CJEmotionKeyborad.h"
 @interface CJComposeViewController () <UITextViewDelegate,CJComposeToolBarDelegate,UINavigationControllerDelegate, UIImagePickerControllerDelegate>
 
 @property (nonatomic ,weak) CJTextView *textView;
 @property (nonatomic ,weak) CJComposeToolBar *toolBar;
 @property (nonatomic ,weak) UIImageView *imageView;
+
+#warning 一定要用strong保住他的命
+@property (nonatomic ,strong) CJEmotionKeyborad *emotionKeyboard;
 @end
 
 @implementation CJComposeViewController
@@ -39,7 +43,20 @@
     
 
 }
-
+/**
+ *  懒加载
+ *
+ *  @return 返回一个_emotionKeyboard
+ */
+- (CJEmotionKeyborad *)emotionKeyboard
+{
+ 
+    if (_emotionKeyboard == nil) {
+        _emotionKeyboard = [[CJEmotionKeyborad alloc] init];
+        _emotionKeyboard.frame = CGRectMake(0, 0, self.view.width, 216);
+    }
+    return _emotionKeyboard;
+}
 
 /**
  *  ViewDidLoad中 设置self.navigationItem.rightBarButtonItem.enabled 的颜色无效。。。 ios 8 Bug；
@@ -187,11 +204,12 @@
         case CJComposeToolBarButtonTypePhotoLibrary:
             [self openPhotoLibaray];
             break;
-        case CJComposeToolBarButtonTypeMention:
+        case CJComposeToolBarButtonTypeMention:  // @
             break;
-        case CJComposeToolBarButtonTypeTrend:
+        case CJComposeToolBarButtonTypeTrend: // #
             break;
         case CJComposeToolBarButtonTypeEmotion:
+            [self ClickEmotionButton];  // 表情
             break;
             
         default:
@@ -220,6 +238,30 @@
     ipc.delegate = self;
     [self presentViewController:ipc animated:YES completion:nil];
 
+}
+/**
+ *  表情按钮被点击
+ */
+- (void)ClickEmotionButton
+{
+    if (self.textView.inputView == nil) { // 系统键盘
+        
+
+        self.textView.inputView = self.emotionKeyboard;
+        self.toolBar.showEmotionKeyboard = NO;
+        
+    }else {  // 表情键盘
+    
+        self.textView.inputView = nil;
+        self.toolBar.showEmotionKeyboard = YES;
+    }
+
+    [self.textView endEditing:YES];
+    
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [self.textView becomeFirstResponder];
+    });
+    
 }
 
 #pragma mark - UIImagePickerController 代理方法
