@@ -13,8 +13,11 @@
 - (instancetype)initWithFrame:(CGRect)frame
 {
     if (self = [super initWithFrame:frame]) {
-        [self setTitleColor:[UIColor darkGrayColor] forState:UIControlStateNormal];
-        [self setTitleColor:[UIColor whiteColor] forState:UIControlStateSelected];
+        [self setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+        [self setTitleColor:[UIColor darkGrayColor] forState:UIControlStateSelected];
+        
+        [self setBackgroundImage:[UIImage resizedImageWithName:@"compose_emotion_table_mid_normal"] forState:UIControlStateNormal];
+        [self setBackgroundImage:[UIImage resizedImageWithName:@"compose_emotion_table_mid_selected"] forState:UIControlStateSelected];
         self.titleLabel.font = [UIFont systemFontOfSize:13];
     }
     return self;

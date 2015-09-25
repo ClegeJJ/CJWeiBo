@@ -58,6 +58,23 @@
 // 多张配图时图片尺寸
 #define CJPhotosWH 70
 
+// 6.表情键盘
+// 一页中最多3行
+#define CJEmotionMaxRows 3
+// 一行中最多7列
+#define CJEmotionMaxCols 7
+// 每一页的表情个数
+#define CJMaxEmotionCount ((CJEmotionMaxCols * CJEmotionMaxRows) - 1)
+// 表情间距
+#define CJPageViewInset 10
+
+// 7.微博配图
 // 只有一张配图时图片尺寸
 #define CJPhotoWH 120
 #define CJPhotosMargin 10
+
+// 8.表情点击通知
+// 参数名
+#define CJselectedEmotionKey @"selectedEmotionKey"
+// 通知名
+#define CJEmotionKeyboardDidSelectedNotification @"emotionKeyboardDidSelectedNotification"

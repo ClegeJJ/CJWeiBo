@@ -10,8 +10,7 @@
 
 @interface CJTextView : UITextView
 
+// 占位文字
 @property (nonatomic ,copy) NSString *placeholder;
-
-
 
 @end

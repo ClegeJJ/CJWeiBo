@@ -37,7 +37,7 @@
 {
     if (_defaultView == nil) {
         _defaultView = [[CJEmotionListView alloc] init];
-        NSString *path = [[NSBundle mainBundle] pathForResource:@"EmotionIcons/default/info" ofType:@"plist"];
+        NSString *path = [[NSBundle mainBundle] pathForResource:@"default" ofType:@"plist"];
         NSArray *array = [CJEmotion objectArrayWithKeyValuesArray:[NSArray arrayWithContentsOfFile:path]];
         _defaultView.emotions = array;
     }
@@ -47,7 +47,7 @@
 {
     if (_emojiView == nil) {
         _emojiView = [[CJEmotionListView alloc] init];
-        NSString *path = [[NSBundle mainBundle] pathForResource:@"EmotionIcons/emoji/info" ofType:@"plist"];
+        NSString *path = [[NSBundle mainBundle] pathForResource:@"emoji" ofType:@"plist"];
         NSArray *array = [CJEmotion objectArrayWithKeyValuesArray:[NSArray arrayWithContentsOfFile:path]];
         _emojiView.emotions = array;
     }
@@ -57,7 +57,7 @@
 {
     if (_lxhView == nil) {
         _lxhView = [[CJEmotionListView alloc] init];
-        NSString *path = [[NSBundle mainBundle] pathForResource:@"EmotionIcons/lxh/info" ofType:@"plist"];
+        NSString *path = [[NSBundle mainBundle] pathForResource:@"lxh" ofType:@"plist"];
         NSArray *array = [CJEmotion objectArrayWithKeyValuesArray:[NSArray arrayWithContentsOfFile:path]];
         _lxhView.emotions = array;
     }

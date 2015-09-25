@@ -72,11 +72,19 @@
  */
 - (void)textDidChange
 {
-
-    self.placeholderLabel.hidden = self.text.length;
+    
+    
+    self.placeholderLabel.hidden = self.text.length | self.attributedText.length;
     
 }
+//
+- (void)setAttributedText:(NSAttributedString *)attributedText
+{
 
-
+    [super setAttributedText:attributedText];
+    
+    [self textDidChange];
+    
+}
 
 @end

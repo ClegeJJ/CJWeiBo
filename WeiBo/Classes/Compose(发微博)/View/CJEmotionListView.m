@@ -8,7 +8,7 @@
 
 #import "CJEmotionListView.h"
 #import "CJEmotionPageView.h"
-#define CJMaxEmotionCount 20
+
 
 @interface CJEmotionListView () <UIScrollViewDelegate>
 
@@ -22,11 +22,9 @@
 - (instancetype)initWithFrame:(CGRect)frame
 {
     if (self = [super initWithFrame:frame]) {
-//        self.backgroundColor = [UIColor redColor];
        
         // 1.scrollView
         UIScrollView *scrollView = [[UIScrollView alloc] init];
-//        scrollView.backgroundColor = CJRandomColor;
         scrollView.pagingEnabled = YES;
         scrollView.delegate = self;
         scrollView.showsVerticalScrollIndicator = NO;
@@ -36,7 +34,6 @@
         
         // 2.pageControl
         UIPageControl *pageControl = [[UIPageControl alloc] init];
-        pageControl.backgroundColor = CJRandomColor;
         // kvc对私有属性赋值
         [pageControl setValue:[UIImage imageWithName:@"compose_keyboard_dot_normal"] forKey:@"_pageImage"];
         [pageControl setValue:[UIImage imageWithName:@"compose_keyboard_dot_selected"] forKey:@"_currentPageImage"];
@@ -53,15 +50,13 @@
 - (void)setEmotions:(NSArray *)emotions
 {
     _emotions = emotions;
-    
-    self.pageCount = (emotions.count / 20) + 1;
+    self.pageCount = (emotions.count + CJMaxEmotionCount - 1) / CJMaxEmotionCount;
     self.pageControl.numberOfPages = self.pageCount;
     
     
     for (int i = 0; i < self.pageCount; i++) {
         
         CJEmotionPageView *pageView = [[CJEmotionPageView alloc] init];
-        pageView.backgroundColor = CJRandomColor;
 
         NSRange range;
         range.location = i * CJMaxEmotionCount;

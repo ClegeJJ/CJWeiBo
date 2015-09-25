@@ -41,9 +41,6 @@
     CJEmotionTabBarButton *button = [[CJEmotionTabBarButton alloc] init];
     
     [button setTitle:title forState:UIControlStateNormal];
-    
-    [button setBackgroundImage:[UIImage resizedImageWithName:@"compose_emotion_table_mid_normal"] forState:UIControlStateNormal];
-    [button setBackgroundImage:[UIImage resizedImageWithName:@"compose_emotion_table_mid_selected"] forState:UIControlStateSelected];
     [button addTarget:self action:@selector(emotionbuttonClick:) forControlEvents:UIControlEventTouchDown];
     button.tag = type;
     [self addSubview:button];
@@ -53,8 +50,8 @@
 - (void)emotionbuttonClick:(CJEmotionTabBarButton *)button
 {
     
-    self.selectedBtn.enabled = YES;
-    button.enabled = NO;
+    self.selectedBtn.selected = NO;
+    button.selected = YES;
     self.selectedBtn = button;
     
     

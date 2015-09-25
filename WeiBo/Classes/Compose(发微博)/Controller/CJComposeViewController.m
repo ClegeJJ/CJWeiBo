@@ -10,14 +10,16 @@
 #import "CJComposeTool.h"
 #import "CJAccountTool.h"
 #import "CJAccount.h"
-#import "CJTextView.h"
+#import "CJEmotionTextView.h"
 #import "CJFarmData.h"
 #import "CJComposeToolBar.h"
 #import "MBProgressHUD+MJ.h"
 #import "CJEmotionKeyborad.h"
+#import "CJEmotion.h"
+
 @interface CJComposeViewController () <UITextViewDelegate,CJComposeToolBarDelegate,UINavigationControllerDelegate, UIImagePickerControllerDelegate>
 
-@property (nonatomic ,weak) CJTextView *textView;
+@property (nonatomic ,weak) CJEmotionTextView *textView;
 @property (nonatomic ,weak) CJComposeToolBar *toolBar;
 @property (nonatomic ,weak) UIImageView *imageView;
 
@@ -113,7 +115,7 @@
  */
 - (void)setupTextView
 {
-    CJTextView *textView = [[CJTextView alloc] init];
+    CJEmotionTextView *textView = [[CJEmotionTextView alloc] init];
     textView.frame = self.view.bounds;
     textView.placeholder = @"分享点新鲜事...";
     textView.alwaysBounceVertical = YES;
@@ -123,10 +125,13 @@
     
     // 添加通知 监听文字改变
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(textDidChange) name:UITextViewTextDidChangeNotification object:textView];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillShow:) name:UIKeyboardWillShowNotification object:nil];
     
+    // 键盘弹出消失
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillShow:) name:UIKeyboardWillShowNotification object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillHide:) name:UIKeyboardWillHideNotification object:nil];
     
+    // 添加表情
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(emotionSelected:) name:CJEmotionKeyboardDidSelectedNotification object:nil];
 }
 
 
@@ -239,6 +244,22 @@
     [self presentViewController:ipc animated:YES completion:nil];
 
 }
+
+#pragma mark - 监听方法
+
+/**
+ *  表情被选中了
+ *
+ *  @param notification 通知
+ */
+- (void)emotionSelected:(NSNotification *)notification
+{
+
+    CJEmotion *emotion = notification.userInfo[CJselectedEmotionKey];
+    
+    [self.textView insertEmotion:emotion];
+}
+
 /**
  *  表情按钮被点击
  */
@@ -289,8 +310,8 @@
  */
 - (void)textDidChange
 {
-
-    self.navigationItem.rightBarButtonItem.enabled = self.textView.text.length;
+    
+    self.navigationItem.rightBarButtonItem.enabled = self.textView.text.length | self.textView.attributedText.length;
 
 }
 
@@ -323,7 +344,7 @@
 {
     // 1.封装请求参数
     CJComposeParma *parma = [CJComposeParma parma];
-    parma.status = self.textView.text;
+    parma.status = self.textView.fullText;
 
     
     // 2.封装复杂请求参数
@@ -347,7 +368,8 @@
 {
     // 1.封装请求参数
     CJComposeParma *param = [CJComposeParma parma];
-    param.status = self.textView.text;
+    param.status = self.textView.fullText;
+    NSLog(@"%@",self.textView.fullText);
     
     // 2.发送请求
     [CJComposeTool composeWithParameters:param success:^(CJComposeResult *result) {
