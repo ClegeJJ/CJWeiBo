@@ -14,7 +14,9 @@
 
 @implementation CJEmotionTextView
 
-
+/**
+ *  插入一个表情
+ */
 - (void)insertEmotion:(CJEmotion *)emotion
 {
 
@@ -29,13 +31,13 @@
         NSAttributedString *imageStr = [NSAttributedString attributedStringWithAttachment:attac];
         
         [self insertAttributedText:imageStr];
-        
-        
     }
-
-
 }
 
+
+/**
+ *  获取所有文字
+ */
 - (NSString *)fullText
 {
     NSMutableString *fullText = [NSMutableString string];

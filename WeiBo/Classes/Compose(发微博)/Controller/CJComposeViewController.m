@@ -369,12 +369,10 @@
     // 1.封装请求参数
     CJComposeParma *param = [CJComposeParma parma];
     param.status = self.textView.fullText;
-    NSLog(@"%@",self.textView.fullText);
     
     // 2.发送请求
     [CJComposeTool composeWithParameters:param success:^(CJComposeResult *result) {
       [MBProgressHUD showSuccess:@"发送成功"];
-        NSLog(@"%@",result);
     } failure:^(NSError *error) {
       [MBProgressHUD showError:@"发送失败"];
     }];

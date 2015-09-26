@@ -43,6 +43,9 @@
         [deleteButton setImage:[UIImage imageWithName:@"compose_emotion_delete"] forState:UIControlStateNormal];
         [deleteButton setImage:[UIImage imageWithName:@"compose_emotion_delete_highlighted" ] forState:UIControlStateHighlighted];
         [deleteButton addTarget:self action:@selector(deleteButtonClick) forControlEvents:UIControlEventTouchUpInside];
+        
+        [self addGestureRecognizer:[[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(longPressPageView:)]];
+        
         [self addSubview:deleteButton];
         self.deleteButton = deleteButton;
     }
@@ -92,6 +95,43 @@
 }
 
 /**
+ *  监听长按手势
+ */
+- (void)longPressPageView:(UILongPressGestureRecognizer *)recognizer
+{
+    // 寻找当前长按的表情按钮
+    CGPoint loco = [recognizer locationInView:recognizer.view];
+    CJEmotionButton *selectedBtn = nil;
+    for (int i = 0 ; i < self.emotions.count; i ++) {
+        CJEmotionButton *btn = self.subviews[i + 1];
+        
+        if (CGRectContainsPoint(btn.frame, loco))
+        {
+            selectedBtn = btn;
+            break;
+        }
+    }
+    
+    switch (recognizer.state) {
+        case UIGestureRecognizerStateEnded:
+        case UIGestureRecognizerStateCancelled:
+            
+            
+            [self emotionButtonClick:selectedBtn];
+            
+            break;
+        case UIGestureRecognizerStateChanged: // 改变
+        case UIGestureRecognizerStateBegan: // 开始
+            
+            [self.popView showPopViewWithBtn:selectedBtn];
+            
+            break;
+        default:
+            break;
+    }
+}
+
+/**
  *  监听点击
  */
 - (void)emotionButtonClick:(CJEmotionButton *)btn
@@ -103,6 +143,12 @@
     dict[CJselectedEmotionKey] = emotion;
     [[NSNotificationCenter defaultCenter] postNotificationName:CJEmotionKeyboardDidSelectedNotification object:nil userInfo:dict];
     
+    // 移除
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.25 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        
+        [self.popView removeFromSuperview];
+        
+    });
 }
 
 - (void)deleteButtonClick
