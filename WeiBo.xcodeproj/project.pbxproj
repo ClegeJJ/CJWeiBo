@@ -745,6 +745,13 @@
 		F09735FF1BA286750046A288 /* UIBarButtonItem+CJ.m in Sources */ = {isa = PBXBuildFile; fileRef = F09735FE1BA286750046A288 /* UIBarButtonItem+CJ.m */; };
 		F09736021BA297C20046A288 /* CJSearchBar.m in Sources */ = {isa = PBXBuildFile; fileRef = F09736011BA297C20046A288 /* CJSearchBar.m */; };
 		F09736051BA2B3AD0046A288 /* CJTitleButton.m in Sources */ = {isa = PBXBuildFile; fileRef = F09736041BA2B3AD0046A288 /* CJTitleButton.m */; };
+		F09A52AF1BC1181A00C58225 /* CJStatusCacheTool.m in Sources */ = {isa = PBXBuildFile; fileRef = F09A52AE1BC1181A00C58225 /* CJStatusCacheTool.m */; };
+		F09A52BC1BC11B2E00C58225 /* FMDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = F09A52B21BC11B2E00C58225 /* FMDatabase.m */; };
+		F09A52BD1BC11B2E00C58225 /* FMDatabaseAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = F09A52B41BC11B2E00C58225 /* FMDatabaseAdditions.m */; };
+		F09A52BE1BC11B2E00C58225 /* FMDatabasePool.m in Sources */ = {isa = PBXBuildFile; fileRef = F09A52B61BC11B2E00C58225 /* FMDatabasePool.m */; };
+		F09A52BF1BC11B2E00C58225 /* FMDatabaseQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = F09A52B81BC11B2E00C58225 /* FMDatabaseQueue.m */; };
+		F09A52C01BC11B2E00C58225 /* FMResultSet.m in Sources */ = {isa = PBXBuildFile; fileRef = F09A52BB1BC11B2E00C58225 /* FMResultSet.m */; };
+		F09A52C21BC11B4100C58225 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = F09A52C11BC11B4100C58225 /* libsqlite3.dylib */; };
 		F09CF1211BAA6C1C00923788 /* MJRefreshAutoFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = F09CF0F71BAA6C1C00923788 /* MJRefreshAutoFooter.m */; };
 		F09CF1221BAA6C1C00923788 /* MJRefreshBackFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = F09CF0F91BAA6C1C00923788 /* MJRefreshBackFooter.m */; };
 		F09CF1231BAA6C1C00923788 /* MJRefreshComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = F09CF0FB1BAA6C1C00923788 /* MJRefreshComponent.m */; };
@@ -1641,6 +1648,20 @@
 		F09736011BA297C20046A288 /* CJSearchBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CJSearchBar.m; sourceTree = "<group>"; };
 		F09736031BA2B3AD0046A288 /* CJTitleButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CJTitleButton.h; sourceTree = "<group>"; };
 		F09736041BA2B3AD0046A288 /* CJTitleButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CJTitleButton.m; sourceTree = "<group>"; };
+		F09A52AD1BC1181A00C58225 /* CJStatusCacheTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CJStatusCacheTool.h; sourceTree = "<group>"; };
+		F09A52AE1BC1181A00C58225 /* CJStatusCacheTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CJStatusCacheTool.m; sourceTree = "<group>"; };
+		F09A52B11BC11B2E00C58225 /* FMDatabase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabase.h; sourceTree = "<group>"; };
+		F09A52B21BC11B2E00C58225 /* FMDatabase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabase.m; sourceTree = "<group>"; };
+		F09A52B31BC11B2E00C58225 /* FMDatabaseAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabaseAdditions.h; sourceTree = "<group>"; };
+		F09A52B41BC11B2E00C58225 /* FMDatabaseAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabaseAdditions.m; sourceTree = "<group>"; };
+		F09A52B51BC11B2E00C58225 /* FMDatabasePool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabasePool.h; sourceTree = "<group>"; };
+		F09A52B61BC11B2E00C58225 /* FMDatabasePool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabasePool.m; sourceTree = "<group>"; };
+		F09A52B71BC11B2E00C58225 /* FMDatabaseQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabaseQueue.h; sourceTree = "<group>"; };
+		F09A52B81BC11B2E00C58225 /* FMDatabaseQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabaseQueue.m; sourceTree = "<group>"; };
+		F09A52B91BC11B2E00C58225 /* FMDB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDB.h; sourceTree = "<group>"; };
+		F09A52BA1BC11B2E00C58225 /* FMResultSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMResultSet.h; sourceTree = "<group>"; };
+		F09A52BB1BC11B2E00C58225 /* FMResultSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMResultSet.m; sourceTree = "<group>"; };
+		F09A52C11BC11B4100C58225 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 		F09CF0F61BAA6C1C00923788 /* MJRefreshAutoFooter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJRefreshAutoFooter.h; sourceTree = "<group>"; };
 		F09CF0F71BAA6C1C00923788 /* MJRefreshAutoFooter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJRefreshAutoFooter.m; sourceTree = "<group>"; };
 		F09CF0F81BAA6C1C00923788 /* MJRefreshBackFooter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJRefreshBackFooter.h; sourceTree = "<group>"; };
@@ -1764,6 +1785,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F09A52C21BC11B4100C58225 /* libsqlite3.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1784,6 +1806,8 @@
 				F008AE111BAF8CD20098C157 /* CJHomeStatusTool.m */,
 				F008AE2C1BB0272E0098C157 /* CJUserInfoTool.h */,
 				F008AE2D1BB0272E0098C157 /* CJUserInfoTool.m */,
+				F09A52AD1BC1181A00C58225 /* CJStatusCacheTool.h */,
+				F09A52AE1BC1181A00C58225 /* CJStatusCacheTool.m */,
 			);
 			path = Tool;
 			sourceTree = "<group>";
@@ -2708,8 +2732,10 @@
 		F04C0E251BA3D3DD0029282B /* Lib */ = {
 			isa = PBXGroup;
 			children = (
+				F09A52C11BC11B4100C58225 /* libsqlite3.dylib */,
 				F095A3AC1BA92B5300696D9D /* UIViewExt.h */,
 				F095A3AD1BA92B5300696D9D /* UIViewExt.m */,
+				F09A52B01BC11B2E00C58225 /* fmdb */,
 				F0D6FBA91BAC4E7400056271 /* AFNetworking */,
 				F09CF0F41BAA6C1C00923788 /* MJRefresh */,
 				F095A3F81BA9823700696D9D /* MJPhotoBrowser-master */,
@@ -3871,6 +3897,24 @@
 			path = "MJPhotoBrowser-master";
 			sourceTree = "<group>";
 		};
+		F09A52B01BC11B2E00C58225 /* fmdb */ = {
+			isa = PBXGroup;
+			children = (
+				F09A52B11BC11B2E00C58225 /* FMDatabase.h */,
+				F09A52B21BC11B2E00C58225 /* FMDatabase.m */,
+				F09A52B31BC11B2E00C58225 /* FMDatabaseAdditions.h */,
+				F09A52B41BC11B2E00C58225 /* FMDatabaseAdditions.m */,
+				F09A52B51BC11B2E00C58225 /* FMDatabasePool.h */,
+				F09A52B61BC11B2E00C58225 /* FMDatabasePool.m */,
+				F09A52B71BC11B2E00C58225 /* FMDatabaseQueue.h */,
+				F09A52B81BC11B2E00C58225 /* FMDatabaseQueue.m */,
+				F09A52B91BC11B2E00C58225 /* FMDB.h */,
+				F09A52BA1BC11B2E00C58225 /* FMResultSet.h */,
+				F09A52BB1BC11B2E00C58225 /* FMResultSet.m */,
+			);
+			path = fmdb;
+			sourceTree = "<group>";
+		};
 		F09CF0F41BAA6C1C00923788 /* MJRefresh */ = {
 			isa = PBXGroup;
 			children = (
@@ -4864,9 +4908,12 @@
 				F081CD1C1BA5497C00A65926 /* MKAnnotationView+WebCache.m in Sources */,
 				F0C90B061BB572B40088298B /* HWEmotionAttachment.m in Sources */,
 				F077154F1BA6EF19001ECEA3 /* DTError.m in Sources */,
+				F09A52BE1BC11B2E00C58225 /* FMDatabasePool.m in Sources */,
 				F0A5CE8D1BA574BD00AC3130 /* NSObject+MJClass.m in Sources */,
 				F05228731BB0EF2200F4E059 /* CJEmotionKeyborad.m in Sources */,
+				F09A52C01BC11B2E00C58225 /* FMResultSet.m in Sources */,
 				F0A5CE8C1BA574BD00AC3130 /* MJPropertyType.m in Sources */,
+				F09A52BD1BC11B2E00C58225 /* FMDatabaseAdditions.m in Sources */,
 				F008AE381BB02C7B0098C157 /* CJComposeResult.m in Sources */,
 				F09CF1271BAA6C1C00923788 /* MJRefreshAutoNormalFooter.m in Sources */,
 				F008AE2E1BB0272E0098C157 /* CJUserInfoTool.m in Sources */,
@@ -4895,6 +4942,7 @@
 				F033A6891BA0374A00417D4D /* CJTabBarController.m in Sources */,
 				F033A6871BA0374A00417D4D /* CJDiscoverViewController.m in Sources */,
 				F06326111BABA6EF00FEA8A4 /* CJComposeToolBar.m in Sources */,
+				F09A52BF1BC11B2E00C58225 /* FMDatabaseQueue.m in Sources */,
 				F081CD1D1BA5497C00A65926 /* NSData+ImageContentType.m in Sources */,
 				F081CD261BA5497C00A65926 /* UIImage+GIF.m in Sources */,
 				F008AE281BB026F50098C157 /* CJUserInfoParma.m in Sources */,
@@ -4904,6 +4952,7 @@
 				F081CD1F1BA5497C00A65926 /* SDWebImageCompat.m in Sources */,
 				F07715511BA6EF19001ECEA3 /* DTTimePeriodChain.m in Sources */,
 				F07715501BA6EF19001ECEA3 /* DTTimePeriod.m in Sources */,
+				F09A52BC1BC11B2E00C58225 /* FMDatabase.m in Sources */,
 				F04C0E481BA3D4750029282B /* CJOAuthViewController.m in Sources */,
 				F0A5CE881BA574BD00AC3130 /* MJExtensionConst.m in Sources */,
 				F095A3F71BA954FF00696D9D /* CJIconView.m in Sources */,
@@ -4967,6 +5016,7 @@
 				F09CF1231BAA6C1C00923788 /* MJRefreshComponent.m in Sources */,
 				F07715521BA6EF19001ECEA3 /* DTTimePeriodCollection.m in Sources */,
 				F059E3921BA10F6500BC1C25 /* CJTabBarButton.m in Sources */,
+				F09A52AF1BC1181A00C58225 /* CJStatusCacheTool.m in Sources */,
 				F008AE3B1BB032870098C157 /* CJOAuthTool.m in Sources */,
 				F0D6FBBF1BAC4E7400056271 /* AFHTTPSessionManager.m in Sources */,
 				F09736051BA2B3AD0046A288 /* CJTitleButton.m in Sources */,

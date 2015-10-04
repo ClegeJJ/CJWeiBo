@@ -90,7 +90,7 @@
     
     // 1.封装请求参数
     CJHomeStatusesParam *param = [CJHomeStatusesParam parma];
-    param.count = @5;
+    param.count = @10;
     if (self.statusFrames.count) {
         CJStatusFrame *statusFrame = [self.statusFrames lastObject];
         long long maxID = [statusFrame.status.idstr longLongValue] - 1;
