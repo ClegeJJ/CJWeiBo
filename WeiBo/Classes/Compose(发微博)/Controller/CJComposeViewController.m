@@ -358,7 +358,6 @@
     } failure:^(NSError *error) {
         [MBProgressHUD showError:@"发送失败"];
     }];
-    
 }
 
 /**

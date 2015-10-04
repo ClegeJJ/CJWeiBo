@@ -47,8 +47,6 @@
         // 如果是图片表情
         HWEmotionAttachment *attch = attrs[@"NSAttachment"];
         if (attch) { // 图片
-            NSLog(@"%@",attch.emotion.chs);
-            
             [fullText appendString:attch.emotion.chs];
         } else { // emoji、普通文本
             // 获得这个范围内的文字

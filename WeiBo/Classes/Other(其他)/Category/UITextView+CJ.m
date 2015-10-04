@@ -18,8 +18,8 @@
     // 拼接图片 文字
     NSMutableAttributedString *attriStr = [[NSMutableAttributedString alloc] init];
     [attriStr appendAttributedString:self.attributedText];
-    // 插入图片到 光标
-    [attriStr insertAttributedString:imageStr atIndex:range.location];
+    // 替换图片到 光标
+    [attriStr replaceCharactersInRange:range withAttributedString:imageStr];
     
     // 设置图片大小
     [attriStr addAttribute:NSFontAttributeName value:self.font range:NSMakeRange(0, attriStr.length)];

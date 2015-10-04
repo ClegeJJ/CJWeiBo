@@ -116,8 +116,14 @@
         case UIGestureRecognizerStateEnded:
         case UIGestureRecognizerStateCancelled:
             
+            [self.popView removeFromSuperview];
+            if (selectedBtn) {
+                CJEmotion *emotion = selectedBtn.emotion;
+                NSMutableDictionary *dict = [NSMutableDictionary dictionary];
+                dict[CJselectedEmotionKey] = emotion;
+                [[NSNotificationCenter defaultCenter] postNotificationName:CJEmotionKeyboardDidSelectedNotification object:nil userInfo:dict];
+            }
             
-            [self emotionButtonClick:selectedBtn];
             
             break;
         case UIGestureRecognizerStateChanged: // 改变

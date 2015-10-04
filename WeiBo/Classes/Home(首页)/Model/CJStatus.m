@@ -39,16 +39,17 @@
     
 
 }
-
-
-
 /**
  *  截取来源字符串
  */
 - (void)setSource:(NSString *)source
 {
+    if (source == nil) return;
+    
     long loc = [source rangeOfString:@">"].location + 1;
     long length = [source rangeOfString:@"</"].location - loc;
+
+    
     source = [source substringWithRange:NSMakeRange(loc, length)];
     
     _source = [NSString stringWithFormat:@"来自%@", source];
