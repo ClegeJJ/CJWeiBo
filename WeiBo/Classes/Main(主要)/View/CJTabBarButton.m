@@ -103,7 +103,11 @@
     self.badgeButton.badgeValue = self.item.badgeValue;
 
     // 设置坐标
-    CGFloat badgX = self.frame.size.width - self.badgeButton.frame.size.width - 10;
+    CGFloat badgX = 0;
+    badgX = self.frame.size.width - self.badgeButton.frame.size.width - 5;
+    if (self.badgeButton.badgeValue.length <= 1) {
+        badgX = self.frame.size.width - self.badgeButton.frame.size.width - 10;
+    }
     CGFloat badgY = 4;
     CGRect badgeF = self.badgeButton.frame;
     badgeF.origin.x = badgX;
@@ -114,12 +118,8 @@
 
 /**
  *  取消高亮状态
- *
  */
-- (void)setHighlighted:(BOOL)highlighted
-{
-
-}
+- (void)setHighlighted:(BOOL)highlighted {}
 
 /**
  *  设置Button内titleLabel尺寸
@@ -142,7 +142,7 @@
 
     CGFloat W = contentRect.size.width;
     CGFloat H = contentRect.size.height * CJTabBarButtonRatio;
-    return CGRectMake(0, 0, W, H);
+    return CGRectMake(0, 5, W, H);
 
 }
 

@@ -42,7 +42,13 @@
 
     if (badgeValue && [badgeValue integerValue] != 0) { // 有值 算宽高
         self.hidden = NO;
-        [self setTitle:badgeValue forState:UIControlStateNormal];
+        
+        if ([badgeValue integerValue] > 99) {
+            [self setTitle:@"99+" forState:UIControlStateNormal];
+        }else{
+            [self setTitle:badgeValue forState:UIControlStateNormal];
+        }
+        
         
         CGFloat badgW = self.currentBackgroundImage.size.width;
         CGFloat badgH = self.currentBackgroundImage.size.height;

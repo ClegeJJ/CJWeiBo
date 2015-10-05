@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
-@interface CJMeViewController : UITableViewController
+#import "CJSettingViewController.h"
+@interface CJMeViewController : CJSettingViewController
 
 @end

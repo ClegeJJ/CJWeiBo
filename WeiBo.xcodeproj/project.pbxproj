@@ -466,6 +466,7 @@
 		F03C51601BB3CB7100D4A8CC /* lxh_zhuanfa.gif in Resources */ = {isa = PBXBuildFile; fileRef = F03C50801BB3CB7100D4A8CC /* lxh_zhuanfa.gif */; };
 		F03C51611BB3CB7100D4A8CC /* lxh_zhuanfa.png in Resources */ = {isa = PBXBuildFile; fileRef = F03C50811BB3CB7100D4A8CC /* lxh_zhuanfa.png */; };
 		F03C51621BB3CB7100D4A8CC /* lxh_zhuanfa@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F03C50821BB3CB7100D4A8CC /* lxh_zhuanfa@2x.png */; };
+		F0403AAD1BC20FE60005A801 /* CJSettingTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F0403AAC1BC20FE60005A801 /* CJSettingTableViewCell.m */; };
 		F04C0E481BA3D4750029282B /* CJOAuthViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F04C0E471BA3D4750029282B /* CJOAuthViewController.m */; };
 		F04C0E4B1BA411A50029282B /* CJAccount.m in Sources */ = {isa = PBXBuildFile; fileRef = F04C0E4A1BA411A50029282B /* CJAccount.m */; };
 		F04C0E521BA448DD0029282B /* CJAccountTool.m in Sources */ = {isa = PBXBuildFile; fileRef = F04C0E511BA448DD0029282B /* CJAccountTool.m */; };
@@ -752,6 +753,12 @@
 		F09A52BF1BC11B2E00C58225 /* FMDatabaseQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = F09A52B81BC11B2E00C58225 /* FMDatabaseQueue.m */; };
 		F09A52C01BC11B2E00C58225 /* FMResultSet.m in Sources */ = {isa = PBXBuildFile; fileRef = F09A52BB1BC11B2E00C58225 /* FMResultSet.m */; };
 		F09A52C21BC11B4100C58225 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = F09A52C11BC11B4100C58225 /* libsqlite3.dylib */; };
+		F09A52C51BC151D000C58225 /* CJSettingItem.m in Sources */ = {isa = PBXBuildFile; fileRef = F09A52C41BC151D000C58225 /* CJSettingItem.m */; };
+		F09A52C81BC1540600C58225 /* CJSettingGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = F09A52C71BC1540600C58225 /* CJSettingGroup.m */; };
+		F09A52CB1BC1550800C58225 /* CJSettingArrowItem.m in Sources */ = {isa = PBXBuildFile; fileRef = F09A52CA1BC1550800C58225 /* CJSettingArrowItem.m */; };
+		F09A52D11BC1553300C58225 /* CJSettingLabelItem.m in Sources */ = {isa = PBXBuildFile; fileRef = F09A52D01BC1553300C58225 /* CJSettingLabelItem.m */; };
+		F09A52D41BC1555600C58225 /* CJSettingSwitchItem.m in Sources */ = {isa = PBXBuildFile; fileRef = F09A52D31BC1555600C58225 /* CJSettingSwitchItem.m */; };
+		F09A52D71BC1595800C58225 /* CJSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F09A52D61BC1595800C58225 /* CJSettingViewController.m */; };
 		F09CF1211BAA6C1C00923788 /* MJRefreshAutoFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = F09CF0F71BAA6C1C00923788 /* MJRefreshAutoFooter.m */; };
 		F09CF1221BAA6C1C00923788 /* MJRefreshBackFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = F09CF0F91BAA6C1C00923788 /* MJRefreshBackFooter.m */; };
 		F09CF1231BAA6C1C00923788 /* MJRefreshComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = F09CF0FB1BAA6C1C00923788 /* MJRefreshComponent.m */; };
@@ -1311,6 +1318,8 @@
 		F03C50801BB3CB7100D4A8CC /* lxh_zhuanfa.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = lxh_zhuanfa.gif; sourceTree = "<group>"; };
 		F03C50811BB3CB7100D4A8CC /* lxh_zhuanfa.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = lxh_zhuanfa.png; sourceTree = "<group>"; };
 		F03C50821BB3CB7100D4A8CC /* lxh_zhuanfa@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "lxh_zhuanfa@2x.png"; sourceTree = "<group>"; };
+		F0403AAB1BC20FE60005A801 /* CJSettingTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CJSettingTableViewCell.h; sourceTree = "<group>"; };
+		F0403AAC1BC20FE60005A801 /* CJSettingTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CJSettingTableViewCell.m; sourceTree = "<group>"; };
 		F04C0E461BA3D4750029282B /* CJOAuthViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CJOAuthViewController.h; sourceTree = "<group>"; };
 		F04C0E471BA3D4750029282B /* CJOAuthViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CJOAuthViewController.m; sourceTree = "<group>"; };
 		F04C0E491BA411A50029282B /* CJAccount.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CJAccount.h; sourceTree = "<group>"; };
@@ -1662,6 +1671,18 @@
 		F09A52BA1BC11B2E00C58225 /* FMResultSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMResultSet.h; sourceTree = "<group>"; };
 		F09A52BB1BC11B2E00C58225 /* FMResultSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMResultSet.m; sourceTree = "<group>"; };
 		F09A52C11BC11B4100C58225 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
+		F09A52C31BC151D000C58225 /* CJSettingItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CJSettingItem.h; sourceTree = "<group>"; };
+		F09A52C41BC151D000C58225 /* CJSettingItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CJSettingItem.m; sourceTree = "<group>"; };
+		F09A52C61BC1540600C58225 /* CJSettingGroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CJSettingGroup.h; sourceTree = "<group>"; };
+		F09A52C71BC1540600C58225 /* CJSettingGroup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CJSettingGroup.m; sourceTree = "<group>"; };
+		F09A52C91BC1550800C58225 /* CJSettingArrowItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CJSettingArrowItem.h; sourceTree = "<group>"; };
+		F09A52CA1BC1550800C58225 /* CJSettingArrowItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CJSettingArrowItem.m; sourceTree = "<group>"; };
+		F09A52CF1BC1553300C58225 /* CJSettingLabelItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CJSettingLabelItem.h; sourceTree = "<group>"; };
+		F09A52D01BC1553300C58225 /* CJSettingLabelItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CJSettingLabelItem.m; sourceTree = "<group>"; };
+		F09A52D21BC1555600C58225 /* CJSettingSwitchItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CJSettingSwitchItem.h; sourceTree = "<group>"; };
+		F09A52D31BC1555600C58225 /* CJSettingSwitchItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CJSettingSwitchItem.m; sourceTree = "<group>"; };
+		F09A52D51BC1595800C58225 /* CJSettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CJSettingViewController.h; sourceTree = "<group>"; };
+		F09A52D61BC1595800C58225 /* CJSettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CJSettingViewController.m; sourceTree = "<group>"; };
 		F09CF0F61BAA6C1C00923788 /* MJRefreshAutoFooter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJRefreshAutoFooter.h; sourceTree = "<group>"; };
 		F09CF0F71BAA6C1C00923788 /* MJRefreshAutoFooter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJRefreshAutoFooter.m; sourceTree = "<group>"; };
 		F09CF0F81BAA6C1C00923788 /* MJRefreshBackFooter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJRefreshBackFooter.h; sourceTree = "<group>"; };
@@ -2063,6 +2084,8 @@
 			children = (
 				F033A6791BA0374A00417D4D /* CJMeViewController.h */,
 				F033A67A1BA0374A00417D4D /* CJMeViewController.m */,
+				F09A52D51BC1595800C58225 /* CJSettingViewController.h */,
+				F09A52D61BC1595800C58225 /* CJSettingViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -2070,6 +2093,16 @@
 		F033A67B1BA0374A00417D4D /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				F09A52C31BC151D000C58225 /* CJSettingItem.h */,
+				F09A52C41BC151D000C58225 /* CJSettingItem.m */,
+				F09A52C91BC1550800C58225 /* CJSettingArrowItem.h */,
+				F09A52CA1BC1550800C58225 /* CJSettingArrowItem.m */,
+				F09A52CF1BC1553300C58225 /* CJSettingLabelItem.h */,
+				F09A52D01BC1553300C58225 /* CJSettingLabelItem.m */,
+				F09A52D21BC1555600C58225 /* CJSettingSwitchItem.h */,
+				F09A52D31BC1555600C58225 /* CJSettingSwitchItem.m */,
+				F09A52C61BC1540600C58225 /* CJSettingGroup.h */,
+				F09A52C71BC1540600C58225 /* CJSettingGroup.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -2077,6 +2110,8 @@
 		F033A67C1BA0374A00417D4D /* View */ = {
 			isa = PBXGroup;
 			children = (
+				F0403AAB1BC20FE60005A801 /* CJSettingTableViewCell.h */,
+				F0403AAC1BC20FE60005A801 /* CJSettingTableViewCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -4901,6 +4936,7 @@
 				F05228791BB0EF5400F4E059 /* CJEmotionTabBar.m in Sources */,
 				F06128251BAD4052009BC72A /* CJNetTool.m in Sources */,
 				F081CD241BA5497C00A65926 /* SDWebImagePrefetcher.m in Sources */,
+				F09A52D71BC1595800C58225 /* CJSettingViewController.m in Sources */,
 				F095A4081BA9823700696D9D /* MJPhoto.m in Sources */,
 				F095A40F1BA9823700696D9D /* SDWebImageManager+MJ.m in Sources */,
 				F081CD2B1BA5497C00A65926 /* UIView+WebCacheOperation.m in Sources */,
@@ -4943,6 +4979,7 @@
 				F033A6871BA0374A00417D4D /* CJDiscoverViewController.m in Sources */,
 				F06326111BABA6EF00FEA8A4 /* CJComposeToolBar.m in Sources */,
 				F09A52BF1BC11B2E00C58225 /* FMDatabaseQueue.m in Sources */,
+				F09A52C81BC1540600C58225 /* CJSettingGroup.m in Sources */,
 				F081CD1D1BA5497C00A65926 /* NSData+ImageContentType.m in Sources */,
 				F081CD261BA5497C00A65926 /* UIImage+GIF.m in Sources */,
 				F008AE281BB026F50098C157 /* CJUserInfoParma.m in Sources */,
@@ -4960,6 +4997,8 @@
 				F09CF12A1BAA6C1C00923788 /* MJRefreshBackNormalFooter.m in Sources */,
 				F09CF1321BAA6C1C00923788 /* UIScrollView+MJRefresh.m in Sources */,
 				F081CD291BA5497C00A65926 /* UIImageView+HighlightedWebCache.m in Sources */,
+				F09A52C51BC151D000C58225 /* CJSettingItem.m in Sources */,
+				F0403AAD1BC20FE60005A801 /* CJSettingTableViewCell.m in Sources */,
 				F07715541BA6EF19001ECEA3 /* NSDate+DateTools.m in Sources */,
 				F0D6FBC01BAC4E7400056271 /* AFNetworkReachabilityManager.m in Sources */,
 				F033A68F1BA0374A00417D4D /* AppDelegate.m in Sources */,
@@ -4986,12 +5025,14 @@
 				F033A68E1BA0374A00417D4D /* CJMessageViewController.m in Sources */,
 				F0FFBC601BA17CC80059BFD3 /* CJBadegButton.m in Sources */,
 				F0A5CE8B1BA574BD00AC3130 /* MJPropertyKey.m in Sources */,
+				F09A52D41BC1555600C58225 /* CJSettingSwitchItem.m in Sources */,
 				F081CD221BA5497C00A65926 /* SDWebImageDownloaderOperation.m in Sources */,
 				F077154E1BA6EF19001ECEA3 /* DTConstants.m in Sources */,
 				F033A68D1BA0374A00417D4D /* CJMeViewController.m in Sources */,
 				F09CF1221BAA6C1C00923788 /* MJRefreshBackFooter.m in Sources */,
 				F008AE481BB0379A0098C157 /* CJUnreadCountParma.m in Sources */,
 				F09CF1241BAA6C1C00923788 /* MJRefreshFooter.m in Sources */,
+				F09A52CB1BC1550800C58225 /* CJSettingArrowItem.m in Sources */,
 				F09CF13B1BAABF5F00923788 /* CJComposeViewController.m in Sources */,
 				F033A6901BA0374A00417D4D /* main.m in Sources */,
 				F088116E1BA2C74800A05B49 /* CJNewfeatureViewController.m in Sources */,
@@ -5002,6 +5043,7 @@
 				F0B5CA271BA7C3B700351F02 /* CJStatusToolBar.m in Sources */,
 				F04C0E5B1BA457A00029282B /* MBProgressHUD.m in Sources */,
 				F00AE6891BA820D6000BCA03 /* CJRetweetStatusView.m in Sources */,
+				F09A52D11BC1553300C58225 /* CJSettingLabelItem.m in Sources */,
 				F008AE241BB026E10098C157 /* CJHomeStatusesParam.m in Sources */,
 				F09CF1311BAA6C1C00923788 /* UIScrollView+MJExtension.m in Sources */,
 				F09736021BA297C20046A288 /* CJSearchBar.m in Sources */,

@@ -44,15 +44,19 @@
  */
 - (void)setSource:(NSString *)source
 {
-    if (source == nil) return;
+    long jianLoc = [source rangeOfString:@">"].location;
     
-    long loc = [source rangeOfString:@">"].location + 1;
-    long length = [source rangeOfString:@"</"].location - loc;
+    if (jianLoc == NSNotFound) {
+        _source = source;
+    }else{
+        
+        long loc = jianLoc + 1;
+        long length = [source rangeOfString:@"</"].location - loc;
+        source = [source substringWithRange:NSMakeRange(loc, length)];
+        
+        _source = [NSString stringWithFormat:@"来自%@", source];
+    }
 
-    
-    source = [source substringWithRange:NSMakeRange(loc, length)];
-    
-    _source = [NSString stringWithFormat:@"来自%@", source];
 }
 
 @end
