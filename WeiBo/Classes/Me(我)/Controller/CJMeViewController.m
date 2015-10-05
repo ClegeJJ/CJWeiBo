@@ -11,6 +11,7 @@
 #import "CJSettingArrowItem.h"
 #import "CJSettingSwitchItem.h"
 #import "CJSettingLabelItem.h"
+#import "CJSystemSettingViewController.h"
 
 @interface CJMeViewController ()
 
@@ -73,8 +74,9 @@
 
 - (void)setting
 {
-
-
+    CJSystemSettingViewController *sys = [[CJSystemSettingViewController alloc] init];
+    
+    [self.navigationController pushViewController:sys animated:YES];
 }
 
 

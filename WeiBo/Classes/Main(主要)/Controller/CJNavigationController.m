@@ -44,13 +44,18 @@
     
     NSMutableDictionary *textAttri = [NSMutableDictionary dictionary];
     textAttri[NSFontAttributeName] = [UIFont boldSystemFontOfSize:15];
-    textAttri[NSForegroundColorAttributeName] = [UIColor orangeColor];
+    textAttri[NSForegroundColorAttributeName] = CJColor(84, 84, 84);
     [item setTitleTextAttributes:textAttri forState:UIControlStateNormal];
     
     NSMutableDictionary *disabledTextAttri = [NSMutableDictionary dictionary];
     disabledTextAttri[NSForegroundColorAttributeName] = [UIColor lightGrayColor];
     [item setTitleTextAttributes:disabledTextAttri forState:UIControlStateDisabled];
 
+    
+    // 导航栏返回按钮箭头颜色
+    UINavigationBar *nav = [UINavigationBar appearance];
+    nav.tintColor = CJColor(84, 84, 84);
+    [nav setBackgroundImage:[UIImage imageNamed:@"NavBar64"] forBarMetrics:UIBarMetricsDefault];
 }
 
 /**

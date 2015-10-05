@@ -9,5 +9,9 @@
 #import "CJSettingItem.h"
 
 @interface CJSettingLabelItem : CJSettingItem
+@property (nonatomic, copy) NSString *text;
+
++ (instancetype)itemWithIcon:(NSString *)icon title:(NSString *)title text:(NSString *)text;
++ (instancetype)itemWithTitle:(NSString *)title text:(NSString *)text;
 
 @end

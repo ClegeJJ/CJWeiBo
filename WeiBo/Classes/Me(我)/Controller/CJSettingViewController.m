@@ -10,6 +10,7 @@
 #import "CJSettingGroup.h"
 #import "CJSettingItem.h"
 #import "CJSettingTableViewCell.h"
+#import "CJSettingArrowItem.h"
 @interface CJSettingViewController ()
 
 @end
@@ -35,7 +36,7 @@
     
     self.tableView.sectionHeaderHeight = 10;
     self.tableView.sectionFooterHeight = 0;
-        self.tableView.contentInset = UIEdgeInsetsMake(-25, 0, 0, 0);
+    self.tableView.contentInset = UIEdgeInsetsMake(-25, 0, 0, 0);
 
 
 }
@@ -55,6 +56,8 @@
     return group;
 }
 
+
+#pragma mark - tableView代理方法
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
 
@@ -76,7 +79,7 @@
     
     CJSettingGroup *settingGroup = self.groups[indexPath.section];
 
-    cell.item = settingGroup.items[indexPath.row];;
+    cell.item = settingGroup.items[indexPath.row];
     
     return cell;
 }
@@ -85,8 +88,20 @@
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
+    CJSettingGroup *settingGroup = self.groups[indexPath.section];
+    CJSettingItem *item = settingGroup.items[indexPath.row];
     
-    
+    if (item.opreation) {  // 有特定操作
+        item.opreation();
+    }
+    if ([item isKindOfClass:[CJSettingArrowItem class]]) {
+        CJSettingArrowItem *arrowItem = (CJSettingArrowItem *)item;
+        if (arrowItem.destVcClass) {
+            UIViewController *Vc = [[arrowItem.destVcClass alloc] init];
+            Vc.title = arrowItem.title;
+            [self.navigationController pushViewController:Vc animated:YES];
+        }
+    }
 }
 
 

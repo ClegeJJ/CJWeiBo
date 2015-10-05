@@ -12,12 +12,12 @@
 #import "CJAccount.h"
 #import "FMDB.h"
 @implementation CJStatusCacheTool
-
 static FMDatabaseQueue *_queue;
+
 
 + (void)initialize
 {
-    NSString *path = [[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject] stringByAppendingPathComponent:@"statuses.sqlite"];
+    NSString *path = [[NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) lastObject] stringByAppendingPathComponent:@"statuses.sqlite"];
     
     _queue = [FMDatabaseQueue databaseQueueWithPath:path];
     

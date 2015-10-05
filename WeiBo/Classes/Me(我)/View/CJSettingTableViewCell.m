@@ -98,7 +98,10 @@
     _item = item;
     self.textLabel.text = item.title;
     self.detailTextLabel.text = item.subtitle;
-    self.imageView.image = [UIImage imageNamed:item.icon];
+    if (item.icon) {
+        self.imageView.image = [UIImage imageNamed:item.icon];
+    }
+    
     
     // 2.设置右边控件
     
