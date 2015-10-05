@@ -12,6 +12,9 @@
 #import "CJSettingGroup.h"
 #import "MBProgressHUD+MJ.h"
 #import "SDWebImageManager.h"
+//#import "FMDB.h"
+//extern FMDatabaseQueue *_queue;
+#import "CJStatusCacheTool.h"
 
 @interface CJGeneralViewController ()
 
@@ -76,12 +79,21 @@
         // 弹框
         [MBProgressHUD showMessage:@"哥正在帮你拼命清理中..."];
         
+        
         // 执行清除缓存
         NSFileManager *mgr = [NSFileManager defaultManager];
         NSString *cachePath = [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) lastObject];
-        NSLog(@"%@",cachePath);
+
         
-        [mgr removeItemAtPath:cachePath error:nil];
+        NSArray *subpaths = [mgr subpathsAtPath:cachePath];
+
+        for (NSString *subpath in subpaths) {
+        
+            NSString *fullpath = [cachePath stringByAppendingPathComponent:subpath];
+            
+            [mgr removeItemAtPath:fullpath error:nil];
+        }
+        [CJStatusCacheTool initialize];
         
         // 关闭弹框
         [MBProgressHUD hideHUD];

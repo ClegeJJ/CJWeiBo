@@ -28,6 +28,8 @@
 
 @property (nonatomic, weak) UIImageView *bgView;
 
+@property (nonatomic, strong) UIImageView *lineView;
+
 @end
 
 @implementation CJSettingTableViewCell
@@ -73,8 +75,9 @@
         self.textLabel.highlightedTextColor = self.textLabel.textColor;
         self.textLabel.font = [UIFont boldSystemFontOfSize:15];
         
-
- 
+//        self.lineView = [[UIImageView alloc] initWithFrame:CGRectMake(0, self.height - 1, self.width, 1)];
+//        self.lineView.backgroundColor = [UIColor lightGrayColor];
+        [self addSubview:self.lineView];
     }
     return self;
 }

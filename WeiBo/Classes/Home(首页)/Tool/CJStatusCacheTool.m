@@ -12,7 +12,7 @@
 #import "CJAccount.h"
 #import "FMDB.h"
 @implementation CJStatusCacheTool
-static FMDatabaseQueue *_queue;
+FMDatabaseQueue *_queue;
 
 
 + (void)initialize

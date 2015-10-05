@@ -45,7 +45,7 @@
     
     if (cell == nil) {
         
-        cell = [[CJStatusCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:ID];
+        cell = [[CJStatusCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:ID];
         
     }
     return cell;
