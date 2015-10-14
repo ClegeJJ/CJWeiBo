@@ -12,6 +12,12 @@
 #import "CJPhoto.h"
 @implementation CJStatus
 
+
+
+
+
+
+
 + (NSDictionary *)objectClassInArray
 {
     return @{@"pic_urls" : [CJPhoto class]};

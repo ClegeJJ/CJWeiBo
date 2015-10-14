@@ -56,30 +56,27 @@
     
     CJUnreadCountParma *parma = [CJUnreadCountParma parma];
     parma.uid = @([CJAccountTool account].uid);
-    
     [CJUnreadCountTool unreadCountWithParam:parma success:^(CJUnreadCountResult *result) {
-        
         self.home.tabBarItem.badgeValue = [NSString stringWithFormat:@"%d",result.status];
         self.message.tabBarItem.badgeValue = [NSString stringWithFormat:@"%d",result.messageCount];
-        self.discover.tabBarItem.badgeValue = [NSString stringWithFormat:@"%d",result.follower];
+        self.me.tabBarItem.badgeValue = [NSString stringWithFormat:@"%d",result.follower];
         [UIApplication sharedApplication].applicationIconBadgeNumber = result.count;
     } failure:^(NSError *error) {
-        
     }];
-
 }
-
-
-
 /**
  *  移除系统自带的TabBarItem
- *
  */
 - (void)viewWillAppear:(BOOL)animated
 {
 
     [super viewWillAppear:YES];
     
+    [self removeTabBarItem];
+}
+
+- (void)removeTabBarItem
+{
     for (UIView *view in self.tabBar.subviews) {
         
         if ([view isKindOfClass:[UIControl class]]) {
@@ -88,9 +85,8 @@
             
         }
     }
+
 }
-
-
 /**
  *  初始化自定义TabBar
  */

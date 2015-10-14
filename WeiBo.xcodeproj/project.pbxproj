@@ -469,6 +469,7 @@
 		F0403AAD1BC20FE60005A801 /* CJSettingTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F0403AAC1BC20FE60005A801 /* CJSettingTableViewCell.m */; };
 		F0403AB01BC256290005A801 /* CJSystemSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F0403AAF1BC256290005A801 /* CJSystemSettingViewController.m */; };
 		F0403AB31BC25F370005A801 /* CJGeneralViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F0403AB21BC25F370005A801 /* CJGeneralViewController.m */; };
+		F0403B1D1BC2A5FF0005A801 /* CJConst.m in Sources */ = {isa = PBXBuildFile; fileRef = F0403B1C1BC2A5FF0005A801 /* CJConst.m */; };
 		F04C0E481BA3D4750029282B /* CJOAuthViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F04C0E471BA3D4750029282B /* CJOAuthViewController.m */; };
 		F04C0E4B1BA411A50029282B /* CJAccount.m in Sources */ = {isa = PBXBuildFile; fileRef = F04C0E4A1BA411A50029282B /* CJAccount.m */; };
 		F04C0E521BA448DD0029282B /* CJAccountTool.m in Sources */ = {isa = PBXBuildFile; fileRef = F04C0E511BA448DD0029282B /* CJAccountTool.m */; };
@@ -782,6 +783,8 @@
 		F09CF1331BAA6C1C00923788 /* UIView+MJExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = F09CF1201BAA6C1C00923788 /* UIView+MJExtension.m */; };
 		F09CF13B1BAABF5F00923788 /* CJComposeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F09CF13A1BAABF5F00923788 /* CJComposeViewController.m */; };
 		F09CF13E1BAAF21A00923788 /* CJTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = F09CF13D1BAAF21A00923788 /* CJTextView.m */; };
+		F09EF4791BCE3D4A005D166B /* RegexKitLite.m in Sources */ = {isa = PBXBuildFile; fileRef = F09EF4781BCE3D4A005D166B /* RegexKitLite.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		F09EF47B1BCE3DD0005D166B /* libicucore.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = F09EF47A1BCE3DD0005D166B /* libicucore.dylib */; };
 		F0A5CE871BA574BD00AC3130 /* MJDictionaryCache.m in Sources */ = {isa = PBXBuildFile; fileRef = F0A5CE711BA574BD00AC3130 /* MJDictionaryCache.m */; };
 		F0A5CE881BA574BD00AC3130 /* MJExtensionConst.m in Sources */ = {isa = PBXBuildFile; fileRef = F0A5CE741BA574BD00AC3130 /* MJExtensionConst.m */; };
 		F0A5CE891BA574BD00AC3130 /* MJFoundation.m in Sources */ = {isa = PBXBuildFile; fileRef = F0A5CE761BA574BD00AC3130 /* MJFoundation.m */; };
@@ -1326,6 +1329,8 @@
 		F0403AAF1BC256290005A801 /* CJSystemSettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CJSystemSettingViewController.m; sourceTree = "<group>"; };
 		F0403AB11BC25F370005A801 /* CJGeneralViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CJGeneralViewController.h; sourceTree = "<group>"; };
 		F0403AB21BC25F370005A801 /* CJGeneralViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CJGeneralViewController.m; sourceTree = "<group>"; };
+		F0403B1B1BC2A5FF0005A801 /* CJConst.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CJConst.h; sourceTree = "<group>"; };
+		F0403B1C1BC2A5FF0005A801 /* CJConst.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CJConst.m; sourceTree = "<group>"; };
 		F04C0E461BA3D4750029282B /* CJOAuthViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CJOAuthViewController.h; sourceTree = "<group>"; };
 		F04C0E471BA3D4750029282B /* CJOAuthViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CJOAuthViewController.m; sourceTree = "<group>"; };
 		F04C0E491BA411A50029282B /* CJAccount.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CJAccount.h; sourceTree = "<group>"; };
@@ -1732,6 +1737,9 @@
 		F09CF13A1BAABF5F00923788 /* CJComposeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CJComposeViewController.m; sourceTree = "<group>"; };
 		F09CF13C1BAAF21A00923788 /* CJTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CJTextView.h; sourceTree = "<group>"; };
 		F09CF13D1BAAF21A00923788 /* CJTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CJTextView.m; sourceTree = "<group>"; };
+		F09EF4771BCE3D4A005D166B /* RegexKitLite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegexKitLite.h; sourceTree = "<group>"; };
+		F09EF4781BCE3D4A005D166B /* RegexKitLite.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegexKitLite.m; sourceTree = "<group>"; };
+		F09EF47A1BCE3DD0005D166B /* libicucore.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libicucore.dylib; path = usr/lib/libicucore.dylib; sourceTree = SDKROOT; };
 		F0A5CE701BA574BD00AC3130 /* MJDictionaryCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJDictionaryCache.h; sourceTree = "<group>"; };
 		F0A5CE711BA574BD00AC3130 /* MJDictionaryCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJDictionaryCache.m; sourceTree = "<group>"; };
 		F0A5CE721BA574BD00AC3130 /* MJExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJExtension.h; sourceTree = "<group>"; };
@@ -1812,6 +1820,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F09EF47B1BCE3DD0005D166B /* libicucore.dylib in Frameworks */,
 				F09A52C21BC11B4100C58225 /* libsqlite3.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2168,6 +2177,8 @@
 				F033A6841BA0374A00417D4D /* AppDelegate.h */,
 				F033A6851BA0374A00417D4D /* AppDelegate.m */,
 				F09CF1341BAA990B00923788 /* CJComment.h */,
+				F0403B1B1BC2A5FF0005A801 /* CJConst.h */,
+				F0403B1C1BC2A5FF0005A801 /* CJConst.m */,
 				F033A6861BA0374A00417D4D /* main.m */,
 			);
 			path = "Other(其他)";
@@ -2777,9 +2788,11 @@
 		F04C0E251BA3D3DD0029282B /* Lib */ = {
 			isa = PBXGroup;
 			children = (
+				F09EF47A1BCE3DD0005D166B /* libicucore.dylib */,
 				F09A52C11BC11B4100C58225 /* libsqlite3.dylib */,
 				F095A3AC1BA92B5300696D9D /* UIViewExt.h */,
 				F095A3AD1BA92B5300696D9D /* UIViewExt.m */,
+				F09EF4761BCE3D4A005D166B /* RegexKitLite */,
 				F09A52B01BC11B2E00C58225 /* fmdb */,
 				F0D6FBA91BAC4E7400056271 /* AFNetworking */,
 				F09CF0F41BAA6C1C00923788 /* MJRefresh */,
@@ -4118,6 +4131,15 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		F09EF4761BCE3D4A005D166B /* RegexKitLite */ = {
+			isa = PBXGroup;
+			children = (
+				F09EF4771BCE3D4A005D166B /* RegexKitLite.h */,
+				F09EF4781BCE3D4A005D166B /* RegexKitLite.m */,
+			);
+			path = RegexKitLite;
+			sourceTree = "<group>";
+		};
 		F0A5CE6F1BA574BD00AC3130 /* MJExtension */ = {
 			isa = PBXGroup;
 			children = (
@@ -4951,6 +4973,7 @@
 				F095A40F1BA9823700696D9D /* SDWebImageManager+MJ.m in Sources */,
 				F081CD2B1BA5497C00A65926 /* UIView+WebCacheOperation.m in Sources */,
 				F008AE171BB005450098C157 /* CJBaseParma.m in Sources */,
+				F09EF4791BCE3D4A005D166B /* RegexKitLite.m in Sources */,
 				F0403AB01BC256290005A801 /* CJSystemSettingViewController.m in Sources */,
 				F081CD1C1BA5497C00A65926 /* MKAnnotationView+WebCache.m in Sources */,
 				F0C90B061BB572B40088298B /* HWEmotionAttachment.m in Sources */,
@@ -5041,6 +5064,7 @@
 				F081CD221BA5497C00A65926 /* SDWebImageDownloaderOperation.m in Sources */,
 				F077154E1BA6EF19001ECEA3 /* DTConstants.m in Sources */,
 				F033A68D1BA0374A00417D4D /* CJMeViewController.m in Sources */,
+				F0403B1D1BC2A5FF0005A801 /* CJConst.m in Sources */,
 				F09CF1221BAA6C1C00923788 /* MJRefreshBackFooter.m in Sources */,
 				F008AE481BB0379A0098C157 /* CJUnreadCountParma.m in Sources */,
 				F09CF1241BAA6C1C00923788 /* MJRefreshFooter.m in Sources */,

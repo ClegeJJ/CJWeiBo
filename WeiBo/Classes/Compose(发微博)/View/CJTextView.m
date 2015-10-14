@@ -24,6 +24,7 @@
         // 添加通知 监听文字改变
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(textDidChange) name:UITextViewTextDidChangeNotification object:self];
         
+        
         UILabel *label = [[UILabel alloc] init];
         [self addSubview:label];
         self.placeholderLabel = label;
@@ -72,19 +73,21 @@
  */
 - (void)textDidChange
 {
-    
-    
     self.placeholderLabel.hidden = self.text.length | self.attributedText.length;
     
 }
-//
+
 - (void)setAttributedText:(NSAttributedString *)attributedText
 {
-
+    
     [super setAttributedText:attributedText];
     
     [self textDidChange];
     
+    if ([self.CJdelegate respondsToSelector:@selector(textViewAttributedTextDidChange:)]) {
+        [self.CJdelegate textViewAttributedTextDidChange:self];
+    }
+
 }
 
 @end

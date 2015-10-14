@@ -38,7 +38,7 @@
 - (instancetype)initWithFrame:(CGRect)frame
 {
     if (self == [super initWithFrame:frame]) {
-        
+
         UIButton *deleteButton = [[UIButton alloc] init];
         [deleteButton setImage:[UIImage imageWithName:@"compose_emotion_delete"] forState:UIControlStateNormal];
         [deleteButton setImage:[UIImage imageWithName:@"compose_emotion_delete_highlighted" ] forState:UIControlStateHighlighted];
@@ -157,10 +157,11 @@
     });
 }
 
+/**
+ *  表情键盘删除按钮
+ */
 - (void)deleteButtonClick
 {
-
-    NSLog(@"删除");
-
+    [[NSNotificationCenter defaultCenter] postNotificationName:CJEmitionkeyboardDidDeletedNotification object:nil];
 }
 @end

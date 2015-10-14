@@ -26,6 +26,12 @@
  *  微博的正文
  */
 @property (nonatomic, copy) NSString *text;
+
+/**
+ *  微博的正文(带有属性文字的正文)
+ */
+@property (nonatomic, copy) NSAttributedString *attributedString;
+
 /**
  *  微博的配图
  */

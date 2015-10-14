@@ -10,4 +10,6 @@
 
 @interface CJTabBarController : UITabBarController
 
+- (void)removeTabBarItem;
+
 @end

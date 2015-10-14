@@ -7,7 +7,8 @@
 //
 
 #import "CJNavigationController.h"
-
+#import "UIBarButtonItem+CJ.h"
+#import "CJTabBarController.h"
 @interface CJNavigationController ()
 
 @end
@@ -53,9 +54,9 @@
 
     
     // 导航栏返回按钮箭头颜色
-    UINavigationBar *nav = [UINavigationBar appearance];
-    nav.tintColor = CJColor(84, 84, 84);
-    [nav setBackgroundImage:[UIImage imageNamed:@"NavBar64"] forBarMetrics:UIBarMetricsDefault];
+//    UINavigationBar *nav = [UINavigationBar appearance];
+//    nav.tintColor = CJColor(84, 84, 84);
+//    [nav setBackgroundImage:[UIImage imageNamed:@"NavBar64"] forBarMetrics:UIBarMetricsDefault];
 }
 
 /**
@@ -63,15 +64,26 @@
  */
 - (void)pushViewController:(UIViewController *)viewController animated:(BOOL)animated
 {
-
-
     if (self.viewControllers.count > 0) {
-        
         viewController.hidesBottomBarWhenPushed = YES;
+        
+        viewController.navigationItem.leftBarButtonItem = [UIBarButtonItem itemWithImage:@"navigationbar_back" highImage:@"navigationbar_back_highlighted" target:self action:@selector(back)];
+        viewController.navigationItem.rightBarButtonItem = [UIBarButtonItem itemWithImage:@"navigationbar_more" highImage:@"navigationbar_more_highlighted" target:self action:@selector(more)];
         
     }
     [super pushViewController:viewController animated:animated];
 
 }
 
+- (void)back
+{
+    [self popViewControllerAnimated:YES];
+}
+
+- (void)more
+{
+    [self  popToRootViewControllerAnimated:YES];
+    CJTabBarController *tabConroller = (CJTabBarController *)self.tabBarController;
+    [tabConroller removeTabBarItem];
+}
 @end

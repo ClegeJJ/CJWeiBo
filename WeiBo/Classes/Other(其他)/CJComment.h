@@ -12,10 +12,7 @@
 // 0.0判断是否为iOS7
 #define iOS8 ([[UIDevice currentDevice].systemVersion doubleValue] >= 8.0)
 
-// 0.1授权信息
-#define AppKey @"3087428443"
-#define AppSecret @"cb2c460dcf79e93e80d4a8f396ee4013"
-#define AppRedirectURL @"http://www.baidu.com"
+
 
 // 1.获得RGB颜色
 #define CJColor(r, g, b) [UIColor colorWithRed:(r)/255.0 green:(g)/255.0 blue:(b)/255.0 alpha:1.0]
@@ -73,8 +70,4 @@
 #define CJPhotoWH 120
 #define CJPhotosMargin 10
 
-// 8.表情点击通知
-// 参数名
-#define CJselectedEmotionKey @"selectedEmotionKey"
-// 通知名
-#define CJEmotionKeyboardDidSelectedNotification @"emotionKeyboardDidSelectedNotification"
+

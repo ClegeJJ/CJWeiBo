@@ -17,7 +17,7 @@
 #import "CJEmotionKeyborad.h"
 #import "CJEmotion.h"
 
-@interface CJComposeViewController () <UITextViewDelegate,CJComposeToolBarDelegate,UINavigationControllerDelegate, UIImagePickerControllerDelegate>
+@interface CJComposeViewController () <UITextViewDelegate,CJComposeToolBarDelegate,UINavigationControllerDelegate, UIImagePickerControllerDelegate,CJTextViewDelegate>
 
 @property (nonatomic ,weak) CJEmotionTextView *textView;
 @property (nonatomic ,weak) CJComposeToolBar *toolBar;
@@ -81,7 +81,6 @@
     
     self.view.backgroundColor = [UIColor whiteColor];
     self.title = @"发微博";
-    
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"取消" style:UIBarButtonItemStyleDone target:self action:@selector(cancel)];
     
     
@@ -120,6 +119,7 @@
     textView.placeholder = @"分享点新鲜事...";
     textView.alwaysBounceVertical = YES;
     textView.delegate = self;
+    textView.CJdelegate = self;
     [self.view addSubview:textView];
     self.textView = textView;
     
@@ -130,8 +130,11 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillShow:) name:UIKeyboardWillShowNotification object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillHide:) name:UIKeyboardWillHideNotification object:nil];
     
-    // 添加表情
+    // 添加表情通知
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(emotionSelected:) name:CJEmotionKeyboardDidSelectedNotification object:nil];
+    
+    // 删除按钮通知
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(emotionDeleted:) name:CJEmitionkeyboardDidDeletedNotification object:nil];
 }
 
 
@@ -246,7 +249,6 @@
 }
 
 #pragma mark - 监听方法
-
 /**
  *  表情被选中了
  *
@@ -259,9 +261,18 @@
     
     [self.textView insertEmotion:emotion];
 }
+/**
+ *  自定义表情键盘的删除按钮被选点击了
+ *
+ *  @param notification 通知
+ */
+- (void)emotionDeleted:(NSNotification *)notification
+{
+    [self.textView deleteBackward];
+}
 
 /**
- *  表情按钮被点击
+ *  状态栏表情按钮被点击
  */
 - (void)ClickEmotionButton
 {
@@ -302,6 +313,15 @@
 
     [self.textView endEditing:YES];
     
+}
+/**
+ *  当textView中输入了属性文字
+ */
+- (void)textViewAttributedTextDidChange:(CJTextView *)textView
+{
+
+    [self textDidChange];
+
 }
 
 
