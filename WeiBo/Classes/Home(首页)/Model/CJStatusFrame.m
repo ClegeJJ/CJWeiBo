@@ -67,7 +67,9 @@
     CGFloat contentLabelY = CGRectGetMaxY(_iconViewF) + CJStatusFrameBorder;
     CGFloat contentLabelMaxW = topViewW - CJStatusFrameBorder * 2;
     dict[NSFontAttributeName] = CJStatusContentFont;
-    CGSize contentLabelSize = [status.text boundingRectWithSize:CGSizeMake(contentLabelMaxW, MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin attributes:dict context:nil].size;
+//    CGSize contentLabelSize = [status.text boundingRectWithSize:CGSizeMake(contentLabelMaxW, MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin attributes:dict context:nil].size;
+    CGSize contentLabelSize = [status.attributedString boundingRectWithSize:CGSizeMake(contentLabelMaxW, MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin context:nil].size;
+    
     _contentLabelF = (CGRect){{contentLabelX,contentLabelY},contentLabelSize};
 
     
@@ -92,7 +94,7 @@
         CGFloat retweetNameLabelX = CJStatusFrameBorder;
         CGFloat retweetNameLabelY = CJStatusFrameBorder;
         dict[NSFontAttributeName] = CJRetweetStatusNameFont;
-        NSString *newName = [NSString stringWithFormat:@"@%@",status.retweeted_status.user.name];
+        NSString *newName = [NSString stringWithFormat:@"@%@:",status.retweeted_status.user.name];
         CGSize retweetNameLabelSize = [newName sizeWithAttributes:dict];
         _retweetNameLabelF = (CGRect){{retweetNameLabelX,retweetNameLabelY},retweetNameLabelSize};
 

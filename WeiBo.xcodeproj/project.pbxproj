@@ -785,6 +785,7 @@
 		F09CF13E1BAAF21A00923788 /* CJTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = F09CF13D1BAAF21A00923788 /* CJTextView.m */; };
 		F09EF4791BCE3D4A005D166B /* RegexKitLite.m in Sources */ = {isa = PBXBuildFile; fileRef = F09EF4781BCE3D4A005D166B /* RegexKitLite.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		F09EF47B1BCE3DD0005D166B /* libicucore.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = F09EF47A1BCE3DD0005D166B /* libicucore.dylib */; };
+		F09EF47E1BCE8664005D166B /* CJStatusContentPart.m in Sources */ = {isa = PBXBuildFile; fileRef = F09EF47D1BCE8664005D166B /* CJStatusContentPart.m */; };
 		F0A5CE871BA574BD00AC3130 /* MJDictionaryCache.m in Sources */ = {isa = PBXBuildFile; fileRef = F0A5CE711BA574BD00AC3130 /* MJDictionaryCache.m */; };
 		F0A5CE881BA574BD00AC3130 /* MJExtensionConst.m in Sources */ = {isa = PBXBuildFile; fileRef = F0A5CE741BA574BD00AC3130 /* MJExtensionConst.m */; };
 		F0A5CE891BA574BD00AC3130 /* MJFoundation.m in Sources */ = {isa = PBXBuildFile; fileRef = F0A5CE761BA574BD00AC3130 /* MJFoundation.m */; };
@@ -1740,6 +1741,8 @@
 		F09EF4771BCE3D4A005D166B /* RegexKitLite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegexKitLite.h; sourceTree = "<group>"; };
 		F09EF4781BCE3D4A005D166B /* RegexKitLite.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegexKitLite.m; sourceTree = "<group>"; };
 		F09EF47A1BCE3DD0005D166B /* libicucore.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libicucore.dylib; path = usr/lib/libicucore.dylib; sourceTree = SDKROOT; };
+		F09EF47C1BCE8664005D166B /* CJStatusContentPart.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CJStatusContentPart.h; sourceTree = "<group>"; };
+		F09EF47D1BCE8664005D166B /* CJStatusContentPart.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CJStatusContentPart.m; sourceTree = "<group>"; };
 		F0A5CE701BA574BD00AC3130 /* MJDictionaryCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJDictionaryCache.h; sourceTree = "<group>"; };
 		F0A5CE711BA574BD00AC3130 /* MJDictionaryCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJDictionaryCache.m; sourceTree = "<group>"; };
 		F0A5CE721BA574BD00AC3130 /* MJExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJExtension.h; sourceTree = "<group>"; };
@@ -2022,6 +2025,8 @@
 				F0A5CE961BA5B6F000AC3130 /* CJStatusFrame.m */,
 				F06549821BA84C3200C8224A /* CJPhoto.h */,
 				F06549831BA84C3200C8224A /* CJPhoto.m */,
+				F09EF47C1BCE8664005D166B /* CJStatusContentPart.h */,
+				F09EF47D1BCE8664005D166B /* CJStatusContentPart.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -5105,6 +5110,7 @@
 				F0D6FBC11BAC4E7400056271 /* AFSecurityPolicy.m in Sources */,
 				F095A40D1BA9823700696D9D /* MJPhotoToolbar.m in Sources */,
 				F09CF1251BAA6C1C00923788 /* MJRefreshHeader.m in Sources */,
+				F09EF47E1BCE8664005D166B /* CJStatusContentPart.m in Sources */,
 				F008AE351BB02C6C0098C157 /* CJComposeParma.m in Sources */,
 				F008AE451BB037770098C157 /* CJUnreadCountTool.m in Sources */,
 				F0A5CE8F1BA574BD00AC3130 /* NSObject+MJKeyValue.m in Sources */,

@@ -12,7 +12,7 @@
 #import "CJSettingGroup.h"
 #import "MBProgressHUD+MJ.h"
 #import "SDWebImageManager.h"
-//#import "FMDB.h"
+
 //extern FMDatabaseQueue *_queue;
 #import "CJStatusCacheTool.h"
 

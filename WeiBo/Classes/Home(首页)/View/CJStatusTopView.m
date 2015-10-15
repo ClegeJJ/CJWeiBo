@@ -100,7 +100,7 @@
         
         /**  微博的正文 */
         UILabel *contentLabel = [[UILabel alloc] init];
-        contentLabel.font = CJStatusContentFont;
+//        contentLabel.font = [UIFont systemFontOfSize:30];
         contentLabel.textColor = CJColor(39, 39, 39);
         contentLabel.numberOfLines = 0;
         [self addSubview:contentLabel];
@@ -165,7 +165,8 @@
     self.sourceLabel.frame = (CGRect){{sourceViewX,sourceViewY},sourceViewSize};
     
     /**  微博的正文 */
-    self.contentLabel.text = status.text;
+    self.contentLabel.attributedText = status.attributedString;
+    
     self.contentLabel.frame = self.statusFrame.contentLabelF;
     
     /**  微博的配图 */

@@ -49,7 +49,7 @@
         UILabel *retweetContentLabel = [[UILabel alloc] init];
         retweetContentLabel.numberOfLines = 0;
         retweetContentLabel.textColor = CJColor(90, 90, 90);
-        retweetContentLabel.font = CJRetweetStatusContentFont;
+//        retweetContentLabel.font = CJRetweetStatusContentFont;
         [self addSubview:retweetContentLabel];
         self.retweetContentLabel = retweetContentLabel;
         
@@ -69,11 +69,11 @@
     CJUser *user = retReetStatus.user;
     
     // 1.昵称
-    self.retweetNameLabel.text = [NSString stringWithFormat:@"@%@",user.name];
+    self.retweetNameLabel.text = [NSString stringWithFormat:@"@%@:",user.name];
     self.retweetNameLabel.frame = self.statusFrame.retweetNameLabelF;
     
     // 2.正文
-    self.retweetContentLabel.text = retReetStatus.text;
+    self.retweetContentLabel.attributedText = retReetStatus.attributedString;
     self.retweetContentLabel.frame = self.statusFrame.retweetContentLabelF;
     
     // 3.配图
@@ -84,9 +84,6 @@
     }else { // 无配图
         self.retweetPhotosView.hidden = YES;
     }
-
-
-
 }
 
 
