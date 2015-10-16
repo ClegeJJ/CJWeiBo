@@ -12,7 +12,11 @@
 #import "CJPhoto.h"
 #import "RegexKitLite.h"
 #import "CJStatusContentPart.h"
+#import "CJEmotionTool.h"
 @implementation CJStatus
+
+
+
 
 /**
  *  重写set方法 根据普通文字 获取 给属性文字赋值
@@ -22,7 +26,8 @@
     _text = [text copy];
     
     
-    NSMutableAttributedString *attributedString = [[NSMutableAttributedString alloc] initWithString:text];
+    NSMutableAttributedString *attributedString = [[NSMutableAttributedString alloc] init];
+
     
     // 表情的规则
     NSString *emotionPattern = @"\\[[0-9a-zA-Z\\u4e00-\\u9fa5]+\\]";
@@ -40,9 +45,12 @@
     [text enumerateStringsMatchedByRegex:pattern usingBlock:^(NSInteger captureCount, NSString *const __unsafe_unretained *capturedStrings, const NSRange *capturedRanges, volatile BOOL *const stop) {
         
         CJStatusContentPart *part = [[CJStatusContentPart alloc] init];
+        part.special = YES;
+        part.emotion = [*capturedStrings hasPrefix:@"["] && [*capturedStrings hasSuffix:@"]"];
         part.text = *capturedStrings;
         part.range = *capturedRanges;
         [partArray addObject:part];
+
         
     }];
     
@@ -52,26 +60,51 @@
         part.text = *capturedStrings;
         part.range = *capturedRanges;
         [partArray addObject:part];
+
     }];
     
-    [partArray sortedArrayUsingComparator:^NSComparisonResult(CJStatusContentPart *part1, CJStatusContentPart *part2) {
-       
-        return  part1.range.location > part2.range.location ? NSOrderedAscending : NSOrderedDescending;
+    // 数组内按照 CJStatusContentPart 模型 的 range.location 排序
+    [partArray sortUsingComparator:^NSComparisonResult(CJStatusContentPart *part1, CJStatusContentPart *part2) {
+        // part1>part2
+        // part1放后面, part2放前面 (降序)
+        return  part1.range.location > part2.range.location ? NSOrderedDescending : NSOrderedAscending;
         
     }];
-    NSLog(@"%@",partArray);
     
-#warning TODO
+    /***********************************************************************************************/
     
-//    NSTextAttachment *attac = [[NSTextAttachment alloc] init];
-//    attac.image = [UIImage imageNamed:@"d_aini"];
-//    attac.bounds = CGRectMake(0, -4, 15, 15);
-//    [attributedString insertAttributedString:[NSAttributedString attributedStringWithAttachment:attac] atIndex:0];
-    
+    // 根据字体 计算表情 图片 宽高
+    UIFont *font = CJStatusContentFont;
+    // 遍历数组 添加特殊属性~
+    for (CJStatusContentPart *part in partArray) {
+                // 等会需要拼接的子串
+                NSAttributedString *subStr = nil;
+                if (part.isEmotion) { // 表情
+                    NSTextAttachment *attac = [[NSTextAttachment alloc] init];
+                    UIImage *image = [CJEmotionTool emotionWithChs:part.text];
+                    if (image == nil) { // 表情库中 找不到对应的表情
+                        subStr = [[NSMutableAttributedString alloc] initWithString:part.text];
+                    }else { // 表情库中 找到了对应的表情
+                    attac.image = image;
+                    attac.bounds = CGRectMake(0, -4, font.lineHeight, font.lineHeight);
+                    subStr = [NSAttributedString attributedStringWithAttachment:attac];
+                    }
+                } else if (part.isSpecial){ // 特殊文字
+                    subStr = [[NSMutableAttributedString alloc] initWithString:part.text
+                                                                    attributes:@{
+                                                                                 NSForegroundColorAttributeName :
+                                                                                     [UIColor redColor]
+                                                                                 }];
+                      }else { // 普通文字
+                          subStr = [[NSMutableAttributedString alloc] initWithString:part.text];
+                      }
+                      // 拼接属性自负
+                      [attributedString  appendAttributedString:subStr];
+                  }
     //设置属性文字字体
-    [attributedString addAttribute:NSFontAttributeName value:CJStatusContentFont range:NSMakeRange(0, text.length)];
+    [attributedString addAttribute:NSFontAttributeName value:CJStatusContentFont range:NSMakeRange(0, attributedString.length)];
     self.attributedString = attributedString;
-    
+
 }
 
 + (NSDictionary *)objectClassInArray

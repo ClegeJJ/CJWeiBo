@@ -19,4 +19,13 @@
  */
 @property (nonatomic, assign) NSRange range;
 
+/**
+ *  是否是特殊文字
+ */
+@property (nonatomic, assign, getter = isSpecial) BOOL special;
+
+/**
+ *  是否是表情
+ */
+@property (nonatomic, assign, getter = isEmotion) BOOL emotion;
 @end

@@ -10,7 +10,7 @@
 #import "CJEmotion.h"
 #import "NSString+Emoji.h"
 #import "UITextView+CJ.h"
-#import "HWEmotionAttachment.h"
+#import "CJEmotionAttachment.h"
 
 @implementation CJEmotionTextView
 
@@ -25,7 +25,7 @@
         [self insertText:emotion.code.emoji];
         
     }else if (emotion.png){ // 图片
-        HWEmotionAttachment *attac = [[HWEmotionAttachment alloc] init];
+        CJEmotionAttachment *attac = [[CJEmotionAttachment alloc] init];
         attac.emotion = emotion;
         attac.bounds = CGRectMake(0, -4, self.font.lineHeight, self.font.lineHeight);
         NSAttributedString *imageStr = [NSAttributedString attributedStringWithAttachment:attac];
@@ -45,7 +45,7 @@
     // 遍历所有的属性文字（图片、emoji、普通文字）
     [self.attributedText enumerateAttributesInRange:NSMakeRange(0, self.attributedText.length) options:0 usingBlock:^(NSDictionary *attrs, NSRange range, BOOL *stop) {
         // 如果是图片表情
-        HWEmotionAttachment *attch = attrs[@"NSAttachment"];
+        CJEmotionAttachment *attch = attrs[@"NSAttachment"];
         if (attch) { // 图片
             [fullText appendString:attch.emotion.chs];
         } else { // emoji、普通文本

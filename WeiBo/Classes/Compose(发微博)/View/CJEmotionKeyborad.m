@@ -8,7 +8,7 @@
 #import "CJEmotionTabBar.h"
 #import "CJEmotionListView.h"
 #import "CJEmotionKeyborad.h"
-#import "MJExtension.h"
+#import "CJEmotionTool.h"
 #import "CJEmotion.h"
 @interface CJEmotionKeyborad () <CJEmotionTabBarDelegate>
 
@@ -37,9 +37,7 @@
 {
     if (_defaultView == nil) {
         _defaultView = [[CJEmotionListView alloc] init];
-        NSString *path = [[NSBundle mainBundle] pathForResource:@"default" ofType:@"plist"];
-        NSArray *array = [CJEmotion objectArrayWithKeyValuesArray:[NSArray arrayWithContentsOfFile:path]];
-        _defaultView.emotions = array;
+        _defaultView.emotions = [CJEmotionTool defaultEmotion];
     }
     return _defaultView;
 }
@@ -47,9 +45,7 @@
 {
     if (_emojiView == nil) {
         _emojiView = [[CJEmotionListView alloc] init];
-        NSString *path = [[NSBundle mainBundle] pathForResource:@"emoji" ofType:@"plist"];
-        NSArray *array = [CJEmotion objectArrayWithKeyValuesArray:[NSArray arrayWithContentsOfFile:path]];
-        _emojiView.emotions = array;
+        _emojiView.emotions = [CJEmotionTool emojiEmotion];
     }
     return _emojiView;
 }
@@ -57,9 +53,7 @@
 {
     if (_lxhView == nil) {
         _lxhView = [[CJEmotionListView alloc] init];
-        NSString *path = [[NSBundle mainBundle] pathForResource:@"lxh" ofType:@"plist"];
-        NSArray *array = [CJEmotion objectArrayWithKeyValuesArray:[NSArray arrayWithContentsOfFile:path]];
-        _lxhView.emotions = array;
+        _lxhView.emotions = [CJEmotionTool LXHEmotion];
     }
     return _lxhView;
 }

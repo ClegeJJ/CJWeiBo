@@ -6,10 +6,10 @@
 //  Copyright (c) 2014年 heima. All rights reserved.
 //
 
-#import "HWEmotionAttachment.h"
-#import "CJEmotion.h"
+#import "CJEmotionAttachment.h"
 
-@implementation HWEmotionAttachment
+#import "CJEmotion.h"
+@implementation CJEmotionAttachment
 - (void)setEmotion:(CJEmotion *)emotion
 {
     _emotion = emotion;

@@ -800,11 +800,12 @@
 		F0A5CE941BA5ABD300AC3130 /* CJStatusCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F0A5CE931BA5ABD300AC3130 /* CJStatusCell.m */; };
 		F0A5CE971BA5B6F000AC3130 /* CJStatusFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = F0A5CE961BA5B6F000AC3130 /* CJStatusFrame.m */; };
 		F0A817801BA25710003C7773 /* CJNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = F0A8177F1BA25710003C7773 /* CJNavigationController.m */; };
+		F0A96BA61BCFC46E00786A0E /* CJEmotionTool.m in Sources */ = {isa = PBXBuildFile; fileRef = F0A96BA51BCFC46E00786A0E /* CJEmotionTool.m */; };
 		F0B5CA271BA7C3B700351F02 /* CJStatusToolBar.m in Sources */ = {isa = PBXBuildFile; fileRef = F0B5CA261BA7C3B700351F02 /* CJStatusToolBar.m */; };
 		F0B5CA2E1BA8174C00351F02 /* CJLaunchTool.m in Sources */ = {isa = PBXBuildFile; fileRef = F0B5CA2D1BA8174C00351F02 /* CJLaunchTool.m */; };
 		F0C90A841BB514EF0088298B /* CJEmotionTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = F0C90A831BB514EF0088298B /* CJEmotionTextView.m */; };
 		F0C90B031BB5407A0088298B /* UITextView+CJ.m in Sources */ = {isa = PBXBuildFile; fileRef = F0C90B021BB5407A0088298B /* UITextView+CJ.m */; };
-		F0C90B061BB572B40088298B /* HWEmotionAttachment.m in Sources */ = {isa = PBXBuildFile; fileRef = F0C90B051BB572B40088298B /* HWEmotionAttachment.m */; };
+		F0C90B061BB572B40088298B /* CJEmotionAttachment.m in Sources */ = {isa = PBXBuildFile; fileRef = F0C90B051BB572B40088298B /* CJEmotionAttachment.m */; };
 		F0D6FBBD1BAC4E7400056271 /* AFHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = F0D6FBAB1BAC4E7400056271 /* AFHTTPRequestOperation.m */; };
 		F0D6FBBE1BAC4E7400056271 /* AFHTTPRequestOperationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F0D6FBAD1BAC4E7400056271 /* AFHTTPRequestOperationManager.m */; };
 		F0D6FBBF1BAC4E7400056271 /* AFHTTPSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F0D6FBAF1BAC4E7400056271 /* AFHTTPSessionManager.m */; };
@@ -1772,6 +1773,8 @@
 		F0A5CE961BA5B6F000AC3130 /* CJStatusFrame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CJStatusFrame.m; sourceTree = "<group>"; };
 		F0A8177E1BA25710003C7773 /* CJNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CJNavigationController.h; sourceTree = "<group>"; };
 		F0A8177F1BA25710003C7773 /* CJNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CJNavigationController.m; sourceTree = "<group>"; };
+		F0A96BA41BCFC46E00786A0E /* CJEmotionTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CJEmotionTool.h; sourceTree = "<group>"; };
+		F0A96BA51BCFC46E00786A0E /* CJEmotionTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CJEmotionTool.m; sourceTree = "<group>"; };
 		F0B5CA251BA7C3B700351F02 /* CJStatusToolBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CJStatusToolBar.h; sourceTree = "<group>"; };
 		F0B5CA261BA7C3B700351F02 /* CJStatusToolBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CJStatusToolBar.m; sourceTree = "<group>"; };
 		F0B5CA281BA7F53200351F02 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
@@ -1782,8 +1785,8 @@
 		F0C90A831BB514EF0088298B /* CJEmotionTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CJEmotionTextView.m; sourceTree = "<group>"; };
 		F0C90B011BB5407A0088298B /* UITextView+CJ.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITextView+CJ.h"; sourceTree = "<group>"; };
 		F0C90B021BB5407A0088298B /* UITextView+CJ.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITextView+CJ.m"; sourceTree = "<group>"; };
-		F0C90B041BB572B40088298B /* HWEmotionAttachment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HWEmotionAttachment.h; sourceTree = "<group>"; };
-		F0C90B051BB572B40088298B /* HWEmotionAttachment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HWEmotionAttachment.m; sourceTree = "<group>"; };
+		F0C90B041BB572B40088298B /* CJEmotionAttachment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CJEmotionAttachment.h; sourceTree = "<group>"; };
+		F0C90B051BB572B40088298B /* CJEmotionAttachment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CJEmotionAttachment.m; sourceTree = "<group>"; };
 		F0D6FBAA1BAC4E7400056271 /* AFHTTPRequestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPRequestOperation.h; sourceTree = "<group>"; };
 		F0D6FBAB1BAC4E7400056271 /* AFHTTPRequestOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFHTTPRequestOperation.m; sourceTree = "<group>"; };
 		F0D6FBAC1BAC4E7400056271 /* AFHTTPRequestOperationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPRequestOperationManager.h; sourceTree = "<group>"; };
@@ -1878,6 +1881,8 @@
 			children = (
 				F008AE301BB02C4F0098C157 /* CJComposeTool.h */,
 				F008AE311BB02C4F0098C157 /* CJComposeTool.m */,
+				F0A96BA41BCFC46E00786A0E /* CJEmotionTool.h */,
+				F0A96BA51BCFC46E00786A0E /* CJEmotionTool.m */,
 			);
 			path = Tool;
 			sourceTree = "<group>";
@@ -4094,8 +4099,8 @@
 		F09CF1371BAABF1F00923788 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				F0C90B041BB572B40088298B /* HWEmotionAttachment.h */,
-				F0C90B051BB572B40088298B /* HWEmotionAttachment.m */,
+				F0C90B041BB572B40088298B /* CJEmotionAttachment.h */,
+				F0C90B051BB572B40088298B /* CJEmotionAttachment.m */,
 				F06128261BAD4F95009BC72A /* CJFarmData.h */,
 				F06128271BAD4F95009BC72A /* CJFarmData.m */,
 				F008AE331BB02C6C0098C157 /* CJComposeParma.h */,
@@ -4981,7 +4986,7 @@
 				F09EF4791BCE3D4A005D166B /* RegexKitLite.m in Sources */,
 				F0403AB01BC256290005A801 /* CJSystemSettingViewController.m in Sources */,
 				F081CD1C1BA5497C00A65926 /* MKAnnotationView+WebCache.m in Sources */,
-				F0C90B061BB572B40088298B /* HWEmotionAttachment.m in Sources */,
+				F0C90B061BB572B40088298B /* CJEmotionAttachment.m in Sources */,
 				F077154F1BA6EF19001ECEA3 /* DTError.m in Sources */,
 				F09A52BE1BC11B2E00C58225 /* FMDatabasePool.m in Sources */,
 				F0A5CE8D1BA574BD00AC3130 /* NSObject+MJClass.m in Sources */,
@@ -5068,6 +5073,7 @@
 				F09A52D41BC1555600C58225 /* CJSettingSwitchItem.m in Sources */,
 				F081CD221BA5497C00A65926 /* SDWebImageDownloaderOperation.m in Sources */,
 				F077154E1BA6EF19001ECEA3 /* DTConstants.m in Sources */,
+				F0A96BA61BCFC46E00786A0E /* CJEmotionTool.m in Sources */,
 				F033A68D1BA0374A00417D4D /* CJMeViewController.m in Sources */,
 				F0403B1D1BC2A5FF0005A801 /* CJConst.m in Sources */,
 				F09CF1221BAA6C1C00923788 /* MJRefreshBackFooter.m in Sources */,

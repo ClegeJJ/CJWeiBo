@@ -9,6 +9,6 @@
 #import <UIKit/UIKit.h>
 @class CJEmotion;
 
-@interface HWEmotionAttachment : NSTextAttachment
+@interface CJEmotionAttachment : NSTextAttachment
 @property (nonatomic, strong) CJEmotion *emotion;
 @end
