@@ -15,6 +15,7 @@
 #import "CJStatusFrame.h"
 #import "UIImageView+WebCache.h"
 #import "CJStatusPhotosView.h"
+#import "CJStatusLabelTextView.h"
 @interface CJStatusTopView()
 
 /**
@@ -44,7 +45,7 @@
 /**
  *  微博的正文
  */
-@property (nonatomic, weak) UILabel *contentLabel;
+@property (nonatomic, weak) CJStatusLabelTextView *contentLabel;
 /**
  *  微博的配图
  */
@@ -99,10 +100,8 @@
         self.sourceLabel = sourceLabel;
         
         /**  微博的正文 */
-        UILabel *contentLabel = [[UILabel alloc] init];
-//        contentLabel.font = [UIFont systemFontOfSize:30];
+        CJStatusLabelTextView *contentLabel = [[CJStatusLabelTextView alloc] init];
         contentLabel.textColor = CJColor(39, 39, 39);
-        contentLabel.numberOfLines = 0;
         [self addSubview:contentLabel];
         self.contentLabel = contentLabel;
         

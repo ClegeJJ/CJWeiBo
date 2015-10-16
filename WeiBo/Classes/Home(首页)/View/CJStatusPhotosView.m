@@ -83,7 +83,7 @@
         
         [myphotos addObject:mjphoto];
     }
-    
+#warning MJPhotoBrowser 加载图片退出时有几率闪退
     // 2.显示相册
     MJPhotoBrowser *browser = [[MJPhotoBrowser alloc] init];
     browser.currentPhotoIndex = recognizer.view.tag; // 弹出相册时显示的第一张图片是？

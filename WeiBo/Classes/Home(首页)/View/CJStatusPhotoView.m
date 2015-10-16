@@ -10,8 +10,6 @@
 #import "UIImageView+WebCache.h"
 @interface CJStatusPhotoView()
 
-
-
 @end
 
 @implementation CJStatusPhotoView

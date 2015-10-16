@@ -22,16 +22,13 @@
         [self setBackgroundImage:[UIImage resizedImageWithName:@"navigationbar_filter_background_highlighted"] forState:UIControlStateHighlighted];
         // 设置标题文字颜色
         [self setTitleColor:navButtonColor forState:UIControlStateNormal];
-        
         // 字体
         self.titleLabel.font = [UIFont boldSystemFontOfSize:19];
-        
         // 图片显示样式居中
         self.imageView.contentMode = UIViewContentModeCenter;
-        
         // 文字显示样式右对齐
         self.titleLabel.textAlignment = NSTextAlignmentRight;
-
+//        self.backgroundColor = [UIColor blueColor];
     }
     return self;
 }
@@ -39,7 +36,7 @@
 - (void)setTitle:(NSString *)title forState:(UIControlState)state
 {
     // 根据文字计算自己的宽度
-
+#warning 更换文字 尺寸BUG
     NSMutableDictionary *dict = [NSMutableDictionary dictionary];
     dict[NSFontAttributeName] = self.titleLabel.font;
     CGFloat btnW = [title sizeWithAttributes:dict].width;
@@ -47,15 +44,13 @@
     frame.size.width = btnW + CJTitleButtonImageW + 5;
     self.frame = frame;
     [super setTitle:title forState:state];
-
+    
 }
-
 /**
  *  调整button内部imageView位置
  */
 - (CGRect)imageRectForContentRect:(CGRect)contentRect
 {
-
     CGFloat imageY = 0;
     CGFloat imageW = CJTitleButtonImageW;
     CGFloat imageH = contentRect.size.height;
@@ -63,8 +58,6 @@
     return CGRectMake(imageX, imageY, imageW, imageH);
 
 }
-
-
 /**
  *  调整button内部titleLabel位置
  */
@@ -75,7 +68,5 @@
     CGFloat imageH = contentRect.size.height;
     CGFloat imageX = 0;
     return CGRectMake(imageX, imageY, imageW, imageH);
-
-
 }
 @end

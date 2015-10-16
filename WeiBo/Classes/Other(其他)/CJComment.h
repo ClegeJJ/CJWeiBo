@@ -47,9 +47,9 @@
 #define CJStatusSourceFont [UIFont boldSystemFontOfSize:12]
 
 /** 正文的字体 */
-#define CJStatusContentFont [UIFont systemFontOfSize:15]
+#define CJStatusContentFont [UIFont systemFontOfSize:14]
 /** 被转发微博正文的字体 */
-#define CJRetweetStatusContentFont [UIFont systemFontOfSize:15]
+#define CJRetweetStatusContentFont [UIFont systemFontOfSize:14]
 
 // 5.微博cell配图相关属性
 // 多张配图时图片尺寸

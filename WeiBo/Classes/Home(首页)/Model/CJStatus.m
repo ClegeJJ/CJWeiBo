@@ -14,6 +14,7 @@
 #import "CJStatusContentPart.h"
 #import "CJUser.h"
 #import "CJEmotionTool.h"
+#import "CJSpecialText.h"
 @implementation CJStatus
 
 
@@ -69,6 +70,7 @@
     
     // 根据字体 计算表情 图片 宽高
     UIFont *font = CJStatusContentFont;
+    NSMutableArray *specialTexts = [NSMutableArray array];
     // 遍历数组 添加特殊属性~
     for (CJStatusContentPart *part in partArray) {
         // 等会需要拼接的子串
@@ -87,8 +89,14 @@
             subStr = [[NSMutableAttributedString alloc] initWithString:part.text
                                                             attributes:@{
                                                                          NSForegroundColorAttributeName :
-                                                                             [UIColor redColor]
+                                                                        [UIColor redColor]
                                                                          }];
+            CJSpecialText *special = [[CJSpecialText alloc] init];
+            special.text = part.text;
+            NSUInteger lenth = part.text.length;
+            NSUInteger loc = attributedString.length;
+            special.range = NSMakeRange(loc, lenth);
+            [specialTexts addObject:special];
         }else { // 普通文字
             subStr = [[NSMutableAttributedString alloc] initWithString:part.text];
         }
@@ -97,6 +105,8 @@
     }
     //设置属性文字字体
     [attributedString addAttribute:NSFontAttributeName value:CJStatusContentFont range:NSMakeRange(0, attributedString.length)];
+    
+    [attributedString addAttribute:@"special" value:specialTexts range:NSMakeRange(0, 1)];
     
     return attributedString;
 }

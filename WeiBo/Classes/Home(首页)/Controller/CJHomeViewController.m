@@ -68,6 +68,8 @@
     }
     return _statusFrames;
 }
+
+
 /**
  *  集成刷新控件
  */
@@ -236,7 +238,6 @@
 {
     // 设置左边按钮
     self.navigationItem.leftBarButtonItem = [UIBarButtonItem itemWithImage:@"navigationbar_friendsearch" highImage:@"navigationbar_friendsearch_highlighted" target:self action:@selector(findFriend)];
-    
     // 设置右边按钮
     self.navigationItem.rightBarButtonItem = [UIBarButtonItem itemWithImage:@"navigationbar_pop" highImage:@"navigationbar_pop_highlighted" target:self action:@selector(pop)];
     
@@ -298,7 +299,9 @@
  */
 - (void)findFriend
 {
-
+    
+//    [self.titleButton setTitle:@"aaaaa" forState:UIControlStateNormal];
+    
     NSLog(@"findFriend");
 
 }
@@ -308,6 +311,8 @@
 - (void)pop
 {
 
+//    [self.titleButton setTitle:@"啊啊" forState:UIControlStateNormal];
+//    self.titleButton.frame = CGRectMake(105, 22, 1, 40);
     NSLog(@"pop");
 
 }

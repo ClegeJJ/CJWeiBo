@@ -8,10 +8,10 @@
 
 #import "CJRetweetStatusView.h"
 #import "CJStatus.h"
-#import "CJUser.h"
 #import "CJPhoto.h"
 #import "CJStatusPhotosView.h"
 #import "CJStatusFrame.h"
+#import "CJStatusLabelTextView.h"
 #import "UIImageView+WebCache.h"
 @interface CJRetweetStatusView()
 /**
@@ -21,7 +21,7 @@
 /**
  *  被转发用户的正文
  */
-@property (nonatomic, weak) UILabel *retweetContentLabel;
+@property (nonatomic, weak) CJStatusLabelTextView *retweetContentLabel;
 /**
  *  被转发微博的配图
  */
@@ -46,8 +46,7 @@
 //        self.retweetNameLabel = retweetNameLabel;
         
         /**  被转发微博的正文 */
-        UILabel *retweetContentLabel = [[UILabel alloc] init];
-        retweetContentLabel.numberOfLines = 0;
+        CJStatusLabelTextView *retweetContentLabel = [[CJStatusLabelTextView alloc] init];
         retweetContentLabel.textColor = CJColor(90, 90, 90);
         [self addSubview:retweetContentLabel];
         self.retweetContentLabel = retweetContentLabel;

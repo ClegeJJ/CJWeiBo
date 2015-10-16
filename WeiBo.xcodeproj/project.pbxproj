@@ -476,6 +476,8 @@
 		F04C0E591BA457A00029282B /* MBProgressHUD+MJ.m in Sources */ = {isa = PBXBuildFile; fileRef = F04C0E551BA457A00029282B /* MBProgressHUD+MJ.m */; };
 		F04C0E5A1BA457A00029282B /* MBProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = F04C0E561BA457A00029282B /* MBProgressHUD.bundle */; };
 		F04C0E5B1BA457A00029282B /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = F04C0E581BA457A00029282B /* MBProgressHUD.m */; };
+		F04E60731BD0BCA4001C300B /* CJStatusLabelTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = F04E60721BD0BCA4001C300B /* CJStatusLabelTextView.m */; };
+		F04E60761BD11960001C300B /* CJSpecialText.m in Sources */ = {isa = PBXBuildFile; fileRef = F04E60751BD11960001C300B /* CJSpecialText.m */; };
 		F05228731BB0EF2200F4E059 /* CJEmotionKeyborad.m in Sources */ = {isa = PBXBuildFile; fileRef = F05228721BB0EF2200F4E059 /* CJEmotionKeyborad.m */; };
 		F05228761BB0EF4500F4E059 /* CJEmotionListView.m in Sources */ = {isa = PBXBuildFile; fileRef = F05228751BB0EF4500F4E059 /* CJEmotionListView.m */; };
 		F05228791BB0EF5400F4E059 /* CJEmotionTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = F05228781BB0EF5400F4E059 /* CJEmotionTabBar.m */; };
@@ -1344,6 +1346,10 @@
 		F04C0E561BA457A00029282B /* MBProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = MBProgressHUD.bundle; sourceTree = "<group>"; };
 		F04C0E571BA457A00029282B /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
 		F04C0E581BA457A00029282B /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
+		F04E60711BD0BCA4001C300B /* CJStatusLabelTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CJStatusLabelTextView.h; sourceTree = "<group>"; };
+		F04E60721BD0BCA4001C300B /* CJStatusLabelTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CJStatusLabelTextView.m; sourceTree = "<group>"; };
+		F04E60741BD11960001C300B /* CJSpecialText.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CJSpecialText.h; sourceTree = "<group>"; };
+		F04E60751BD11960001C300B /* CJSpecialText.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CJSpecialText.m; sourceTree = "<group>"; };
 		F05228711BB0EF2200F4E059 /* CJEmotionKeyborad.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CJEmotionKeyborad.h; sourceTree = "<group>"; };
 		F05228721BB0EF2200F4E059 /* CJEmotionKeyborad.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CJEmotionKeyborad.m; sourceTree = "<group>"; };
 		F05228741BB0EF4500F4E059 /* CJEmotionListView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CJEmotionListView.h; sourceTree = "<group>"; };
@@ -2032,6 +2038,8 @@
 				F06549831BA84C3200C8224A /* CJPhoto.m */,
 				F09EF47C1BCE8664005D166B /* CJStatusContentPart.h */,
 				F09EF47D1BCE8664005D166B /* CJStatusContentPart.m */,
+				F04E60741BD11960001C300B /* CJSpecialText.h */,
+				F04E60751BD11960001C300B /* CJSpecialText.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -2055,6 +2063,8 @@
 				F0B5CA261BA7C3B700351F02 /* CJStatusToolBar.m */,
 				F095A3F51BA954FF00696D9D /* CJIconView.h */,
 				F095A3F61BA954FF00696D9D /* CJIconView.m */,
+				F04E60711BD0BCA4001C300B /* CJStatusLabelTextView.h */,
+				F04E60721BD0BCA4001C300B /* CJStatusLabelTextView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -5022,6 +5032,7 @@
 				F0403AB31BC25F370005A801 /* CJGeneralViewController.m in Sources */,
 				F033A6891BA0374A00417D4D /* CJTabBarController.m in Sources */,
 				F033A6871BA0374A00417D4D /* CJDiscoverViewController.m in Sources */,
+				F04E60761BD11960001C300B /* CJSpecialText.m in Sources */,
 				F06326111BABA6EF00FEA8A4 /* CJComposeToolBar.m in Sources */,
 				F09A52BF1BC11B2E00C58225 /* FMDatabaseQueue.m in Sources */,
 				F09A52C81BC1540600C58225 /* CJSettingGroup.m in Sources */,
@@ -5038,6 +5049,7 @@
 				F04C0E481BA3D4750029282B /* CJOAuthViewController.m in Sources */,
 				F0A5CE881BA574BD00AC3130 /* MJExtensionConst.m in Sources */,
 				F095A3F71BA954FF00696D9D /* CJIconView.m in Sources */,
+				F04E60731BD0BCA4001C300B /* CJStatusLabelTextView.m in Sources */,
 				F008AE4B1BB037B20098C157 /* CJUnreadCountResult.m in Sources */,
 				F09CF12A1BAA6C1C00923788 /* MJRefreshBackNormalFooter.m in Sources */,
 				F09CF1321BAA6C1C00923788 /* UIScrollView+MJRefresh.m in Sources */,
