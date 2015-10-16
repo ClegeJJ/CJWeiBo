@@ -61,7 +61,10 @@
  *  被转发的微博
  */
 @property (nonatomic, strong) CJStatus *retweeted_status;
-
+/**
+ *  被转发的微博的正文
+ */
+@property (nonatomic, copy) NSAttributedString *retweetedAttributedSting;
 
 @end
 /*

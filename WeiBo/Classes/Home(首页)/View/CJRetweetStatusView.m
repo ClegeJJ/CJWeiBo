@@ -17,7 +17,7 @@
 /**
  *  被转发用户的昵称
  */
-@property (nonatomic, weak) UILabel *retweetNameLabel;
+//@property (nonatomic, weak) UILabel *retweetNameLabel;
 /**
  *  被转发用户的正文
  */
@@ -39,17 +39,16 @@
         self.image = [UIImage resizedImageWithName:@"timeline_retweet_background" left:0.9 top:0.5];
         
         /** 被转发微博用户的昵称 */
-        UILabel *retweetNameLabel = [[UILabel alloc] init];
-        retweetNameLabel.font = CJRetweetStatusNameFont;
-        retweetNameLabel.textColor = CJColor(67, 107, 163);
-        [self addSubview:retweetNameLabel];
-        self.retweetNameLabel = retweetNameLabel;
+//        UILabel *retweetNameLabel = [[UILabel alloc] init];
+//        retweetNameLabel.font = CJRetweetStatusNameFont;
+//        retweetNameLabel.textColor = CJColor(67, 107, 163);
+//        [self addSubview:retweetNameLabel];
+//        self.retweetNameLabel = retweetNameLabel;
         
         /**  被转发微博的正文 */
         UILabel *retweetContentLabel = [[UILabel alloc] init];
         retweetContentLabel.numberOfLines = 0;
         retweetContentLabel.textColor = CJColor(90, 90, 90);
-//        retweetContentLabel.font = CJRetweetStatusContentFont;
         [self addSubview:retweetContentLabel];
         self.retweetContentLabel = retweetContentLabel;
         
@@ -66,14 +65,14 @@
     _statusFrame = statusFrame;
     
     CJStatus *retReetStatus = self.statusFrame.status.retweeted_status;
-    CJUser *user = retReetStatus.user;
+//    CJUser *user = retReetStatus.user;
     
     // 1.昵称
-    self.retweetNameLabel.text = [NSString stringWithFormat:@"@%@:",user.name];
-    self.retweetNameLabel.frame = self.statusFrame.retweetNameLabelF;
+//    self.retweetNameLabel.text = [NSString stringWithFormat:@"@%@:",user.name];
+//    self.retweetNameLabel.frame = self.statusFrame.retweetNameLabelF;
     
     // 2.正文
-    self.retweetContentLabel.attributedText = retReetStatus.attributedString;
+    self.retweetContentLabel.attributedText = retReetStatus.retweetedAttributedSting;
     self.retweetContentLabel.frame = self.statusFrame.retweetContentLabelF;
     
     // 3.配图

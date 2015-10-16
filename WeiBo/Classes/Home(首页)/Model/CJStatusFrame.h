@@ -55,7 +55,7 @@
 /**
  *  被转发用户的昵称
  */
-@property (nonatomic, assign, readonly) CGRect retweetNameLabelF;
+//@property (nonatomic, assign, readonly) CGRect retweetNameLabelF;
 /**
  *  被转发用户的正文
  */

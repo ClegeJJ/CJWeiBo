@@ -90,21 +90,21 @@
         CGFloat retweetViewW = contentLabelMaxW;
         CGFloat retweetViewH = 0;
         
-        // 10.被转发微博用户的昵称
-        CGFloat retweetNameLabelX = CJStatusFrameBorder;
-        CGFloat retweetNameLabelY = CJStatusFrameBorder;
-        dict[NSFontAttributeName] = CJRetweetStatusNameFont;
-        NSString *newName = [NSString stringWithFormat:@"@%@:",status.retweeted_status.user.name];
-        CGSize retweetNameLabelSize = [newName sizeWithAttributes:dict];
-        _retweetNameLabelF = (CGRect){{retweetNameLabelX,retweetNameLabelY},retweetNameLabelSize};
+//        // 10.被转发微博用户的昵称
+//        CGFloat retweetNameLabelX = CJStatusFrameBorder;
+//        CGFloat retweetNameLabelY = CJStatusFrameBorder;
+//        dict[NSFontAttributeName] = CJRetweetStatusNameFont;
+//        NSString *newName = [NSString stringWithFormat:@"@%@:",status.retweeted_status.user.name];
+//        CGSize retweetNameLabelSize = [newName sizeWithAttributes:dict];
+//        _retweetNameLabelF = (CGRect){{retweetNameLabelX,retweetNameLabelY},retweetNameLabelSize};
 
         // 11.被转发微博的正文
-        CGFloat retweetContentLabelX = retweetNameLabelX;
-        CGFloat retweetContentLabelY = CGRectGetMaxY(_retweetNameLabelF) + CJStatusFrameBorder;
+        CGFloat retweetContentLabelX = CJStatusFrameBorder;
+        CGFloat retweetContentLabelY = CJStatusFrameBorder + CJStatusFrameBorder;
         CGFloat retweetContentLabelMaxW = retweetViewW - CJStatusFrameBorder * 2;
         dict[NSFontAttributeName] = CJRetweetStatusContentFont;
-        CGSize retweetContentLabelSize = [status.retweeted_status.text boundingRectWithSize:CGSizeMake(retweetContentLabelMaxW, MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin attributes:dict context:nil].size;
-
+//        CGSize retweetContentLabelSize = [status.retweeted_status.text boundingRectWithSize:CGSizeMake(retweetContentLabelMaxW, MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin attributes:dict context:nil].size;
+        CGSize retweetContentLabelSize = [status.retweeted_status.retweetedAttributedSting boundingRectWithSize:CGSizeMake(retweetContentLabelMaxW, MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin context:nil].size;
         _retweetContentLabelF = (CGRect){{retweetContentLabelX,retweetContentLabelY},retweetContentLabelSize};
         
         // 12.被转发微博的配图

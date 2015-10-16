@@ -12,22 +12,16 @@
 #import "CJPhoto.h"
 #import "RegexKitLite.h"
 #import "CJStatusContentPart.h"
+#import "CJUser.h"
 #import "CJEmotionTool.h"
 @implementation CJStatus
 
 
 
-
-/**
- *  重写set方法 根据普通文字 获取 给属性文字赋值
- */
-- (void)setText:(NSString *)text
+- (NSAttributedString *)attributedStringWithText:(NSString *)text;
 {
-    _text = [text copy];
-    
-    
     NSMutableAttributedString *attributedString = [[NSMutableAttributedString alloc] init];
-
+    
     
     // 表情的规则
     NSString *emotionPattern = @"\\[[0-9a-zA-Z\\u4e00-\\u9fa5]+\\]";
@@ -50,7 +44,7 @@
         part.text = *capturedStrings;
         part.range = *capturedRanges;
         [partArray addObject:part];
-
+        
         
     }];
     
@@ -60,7 +54,7 @@
         part.text = *capturedStrings;
         part.range = *capturedRanges;
         [partArray addObject:part];
-
+        
     }];
     
     // 数组内按照 CJStatusContentPart 模型 的 range.location 排序
@@ -77,35 +71,61 @@
     UIFont *font = CJStatusContentFont;
     // 遍历数组 添加特殊属性~
     for (CJStatusContentPart *part in partArray) {
-                // 等会需要拼接的子串
-                NSAttributedString *subStr = nil;
-                if (part.isEmotion) { // 表情
-                    NSTextAttachment *attac = [[NSTextAttachment alloc] init];
-                    UIImage *image = [CJEmotionTool emotionWithChs:part.text];
-                    if (image == nil) { // 表情库中 找不到对应的表情
-                        subStr = [[NSMutableAttributedString alloc] initWithString:part.text];
-                    }else { // 表情库中 找到了对应的表情
-                    attac.image = image;
-                    attac.bounds = CGRectMake(0, -4, font.lineHeight, font.lineHeight);
-                    subStr = [NSAttributedString attributedStringWithAttachment:attac];
-                    }
-                } else if (part.isSpecial){ // 特殊文字
-                    subStr = [[NSMutableAttributedString alloc] initWithString:part.text
-                                                                    attributes:@{
-                                                                                 NSForegroundColorAttributeName :
-                                                                                     [UIColor redColor]
-                                                                                 }];
-                      }else { // 普通文字
-                          subStr = [[NSMutableAttributedString alloc] initWithString:part.text];
-                      }
-                      // 拼接属性自负
-                      [attributedString  appendAttributedString:subStr];
-                  }
+        // 等会需要拼接的子串
+        NSAttributedString *subStr = nil;
+        if (part.isEmotion) { // 表情
+            NSTextAttachment *attac = [[NSTextAttachment alloc] init];
+            UIImage *image = [CJEmotionTool emotionWithChs:part.text];
+            if (image == nil) { // 表情库中 找不到对应的表情
+                subStr = [[NSMutableAttributedString alloc] initWithString:part.text];
+            }else { // 表情库中 找到了对应的表情
+                attac.image = image;
+                attac.bounds = CGRectMake(0, -4, font.lineHeight, font.lineHeight);
+                subStr = [NSAttributedString attributedStringWithAttachment:attac];
+            }
+        } else if (part.isSpecial){ // 特殊文字
+            subStr = [[NSMutableAttributedString alloc] initWithString:part.text
+                                                            attributes:@{
+                                                                         NSForegroundColorAttributeName :
+                                                                             [UIColor redColor]
+                                                                         }];
+        }else { // 普通文字
+            subStr = [[NSMutableAttributedString alloc] initWithString:part.text];
+        }
+        // 拼接属性自负
+        [attributedString  appendAttributedString:subStr];
+    }
     //设置属性文字字体
     [attributedString addAttribute:NSFontAttributeName value:CJStatusContentFont range:NSMakeRange(0, attributedString.length)];
-    self.attributedString = attributedString;
+    
+    return attributedString;
+}
+
+
+/**
+ *  重写set方法 根据普通文字 获取 给属性文字赋值
+ */
+- (void)setText:(NSString *)text
+{
+    _text = [text copy];
+    
+    // 利用text 生成对应的 attributedSting
+    self.attributedString = [self attributedStringWithText:text];
 
 }
+
+- (void)setRetweeted_status:(CJStatus *)retweeted_status
+{
+    _retweeted_status = retweeted_status;
+    
+    // 拼接用户名
+    NSString *contentText = [NSString stringWithFormat:@"@%@ : %@",retweeted_status.user.name, retweeted_status.text];
+    
+    // 利用text 生成对应的 attributedSting
+    retweeted_status.retweetedAttributedSting = [self attributedStringWithText:contentText];
+}
+
+
 
 + (NSDictionary *)objectClassInArray
 {
