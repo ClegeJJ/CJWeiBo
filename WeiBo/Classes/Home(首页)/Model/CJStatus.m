@@ -31,14 +31,15 @@
     // #话题#的规则
     NSString *topicPattern = @"#[0-9a-zA-Z\\u4e00-\\u9fa5\\.]+#";
     // url链接的规则
-    NSString *urlPattern = @"\\b(([\\w-]+://?|www[.])[^\\s()<>]+(?:\\([\\w\\d]+\\)|([^[:punct:]\\s]|/)))";
+//    NSString *urlPattern = @"\\b(([\\w-]+://?|www[.])[^\\s()<>]+(?:\\([\\w\\d]+\\)|([^[:punct:]\\s]|/)))";
+    NSString *urlPattern = @"((http|ftp|https)://)(([a-zA-Z0-9\\._-]+\\.[a-zA-Z]{2,6})|([0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}))(:[0-9]{1,4})*(/[a-zA-Z0-9\\&%_\\./-~-]*)?";
     NSString *pattern = [NSString stringWithFormat:@"%@|%@|%@|%@", emotionPattern, atPattern, topicPattern, urlPattern];
     
     NSMutableArray *partArray = [NSMutableArray array];
     
     // 遍历所有特殊文字
     [text enumerateStringsMatchedByRegex:pattern usingBlock:^(NSInteger captureCount, NSString *const __unsafe_unretained *capturedStrings, const NSRange *capturedRanges, volatile BOOL *const stop) {
-        
+        NSLog(@"%@",*capturedStrings);
         CJStatusContentPart *part = [[CJStatusContentPart alloc] init];
         part.special = YES;
         part.emotion = [*capturedStrings hasPrefix:@"["] && [*capturedStrings hasSuffix:@"]"];
@@ -106,6 +107,7 @@
     //设置属性文字字体
     [attributedString addAttribute:NSFontAttributeName value:CJStatusContentFont range:NSMakeRange(0, attributedString.length)];
     
+    //
     [attributedString addAttribute:@"special" value:specialTexts range:NSMakeRange(0, 1)];
     
     return attributedString;

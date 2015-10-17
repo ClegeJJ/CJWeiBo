@@ -71,6 +71,7 @@
 //    self.retweetNameLabel.frame = self.statusFrame.retweetNameLabelF;
     
     // 2.正文
+    self.retweetContentLabel.speicalRects = nil;
     self.retweetContentLabel.attributedText = retReetStatus.retweetedAttributedSting;
     self.retweetContentLabel.frame = self.statusFrame.retweetContentLabelF;
     

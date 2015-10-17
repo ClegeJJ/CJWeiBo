@@ -165,7 +165,7 @@
     
     /**  微博的正文 */
     self.contentLabel.attributedText = status.attributedString;
-    
+    self.contentLabel.speicalRects = nil;
     self.contentLabel.frame = self.statusFrame.contentLabelF;
     
     /**  微博的配图 */
@@ -191,7 +191,6 @@
     } else{ // 无转发的微博
         self.retweetView.hidden = YES;
     }
-
 }
 
 
