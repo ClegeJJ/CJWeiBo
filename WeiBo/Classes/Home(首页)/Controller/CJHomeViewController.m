@@ -290,8 +290,6 @@
     } failure:^(NSError *error) {
         
     }];
-    
-
 }
 
 /**
@@ -300,7 +298,7 @@
 - (void)findFriend
 {
     
-//    [self.titleButton setTitle:@"aaaaa" forState:UIControlStateNormal];
+    [self.titleButton setTitle:@"哈哈哈哈啊啊啊" forState:UIControlStateNormal];
     
     NSLog(@"findFriend");
 
@@ -311,7 +309,7 @@
 - (void)pop
 {
 
-//    [self.titleButton setTitle:@"啊啊" forState:UIControlStateNormal];
+    [self.titleButton setTitle:@"啊啊" forState:UIControlStateNormal];
 //    self.titleButton.frame = CGRectMake(105, 22, 1, 40);
     NSLog(@"pop");
 
