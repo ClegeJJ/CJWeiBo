@@ -50,7 +50,9 @@
     
     self.tableView.contentInset = UIEdgeInsetsMake(CJStatusFrameBorder, 0, CJStatusFrameBorder, 0);
     self.tableView.backgroundColor = CJColor(226, 226, 226);
+    
 
+    
     // 集成刷新控件
     [self setupRefreshControl];
     
@@ -87,6 +89,7 @@
 /**
  *  上拉tableView就会调用
  */
+#warning 优化~~~~
 - (void)refreshMoreData
 {
     
@@ -183,6 +186,7 @@
         
         // 刷新tableView
         [self.tableView reloadData];
+#warning bug
         self.tabBarItem.badgeValue = @"";
         
     } failure:^(NSError *error) {
@@ -243,7 +247,7 @@
     
     // 设置中间按钮
     CJTitleButton *titleButton = [CJTitleButton buttonWithType:UIButtonTypeCustom];
-    
+
     // 设置箭头图片
     [titleButton setImage:[UIImage imageWithName:@"navigationbar_arrow_down"] forState:UIControlStateNormal];
     
@@ -299,7 +303,10 @@
 {
     
     [self.titleButton setTitle:@"哈哈哈哈啊啊啊" forState:UIControlStateNormal];
-    
+    CGRect rectStatus = [[UIApplication sharedApplication] statusBarFrame];
+    NSLog(@"%@",NSStringFromCGRect(rectStatus));
+    CGRect rectNav = self.navigationController.navigationBar.frame;
+    NSLog(@"%@",NSStringFromCGRect(rectNav));
     NSLog(@"findFriend");
 
 }

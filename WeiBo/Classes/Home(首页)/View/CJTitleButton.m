@@ -62,7 +62,7 @@
     self.frame = frame;
     [super setTitle:title forState:state];
     //    [self sizeToFit];
-    self.backgroundColor = CJRandomColor;
+//    self.backgroundColor = CJRandomColor;
 }
 /**
  *  调整button内部imageView位置

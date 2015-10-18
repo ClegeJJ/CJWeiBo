@@ -34,6 +34,7 @@
     NSMutableDictionary *textAttri = [NSMutableDictionary dictionary];
     textAttri[NSFontAttributeName] = [UIFont boldSystemFontOfSize:19];
     textAttri[NSForegroundColorAttributeName] = navButtonColor;
+    
     [navBar setTitleTextAttributes:textAttri];
 
 }

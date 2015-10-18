@@ -12,7 +12,7 @@
 #import "CJSettingGroup.h"
 #import "MBProgressHUD+MJ.h"
 #import "SDWebImageManager.h"
-
+#import "NSString+Extension.h"
 //extern FMDatabaseQueue *_queue;
 #import "CJStatusCacheTool.h"
 
@@ -31,6 +31,8 @@
     [self setupGroup2];
     [self setupGroup3];
     [self setupGroup4];
+
+
 }
 
 - (void)setupGroup0
@@ -73,8 +75,10 @@
 - (void)setupGroup4
 {
     CJSettingGroup *group = [self addGroup];
-    
+    NSString *cachePath = [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) lastObject];
     CJSettingArrowItem *clearCache = [CJSettingArrowItem itemWithTitle:@"清除图片缓存"];
+    __weak typeof(clearCache) weakCache = clearCache;
+    clearCache.subtitle = [NSString stringWithFormat:@"%lld",[cachePath fileSize]];
     clearCache.opreation = ^{
         // 弹框
         [MBProgressHUD showMessage:@"哥正在帮你拼命清理中..."];
@@ -82,9 +86,7 @@
         
         // 执行清除缓存
         NSFileManager *mgr = [NSFileManager defaultManager];
-        NSString *cachePath = [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) lastObject];
 
-        
         NSArray *subpaths = [mgr subpathsAtPath:cachePath];
 
         for (NSString *subpath in subpaths) {
@@ -98,17 +100,8 @@
         // 关闭弹框
         [MBProgressHUD hideHUD];
         
-        // 计算缓存文件夹的大小
-//        NSArray *subpaths = [mgr subpathsAtPath:cachePath];
-//        long long totalSize = 0;
-//        for (NSString *subpath in subpaths) {
-//            NSString *fullpath = [cachePath stringByAppendingPathComponent:subpath];
-//            BOOL dir = NO;
-//            [mgr fileExistsAtPath:fullpath isDirectory:&dir];
-//            if (dir == NO) {// 文件
-//                totalSize += [[mgr attributesOfItemAtPath:fullpath error:nil][NSFileSize] longLongValue];
-//            }
-//        }
+        weakCache.subtitle = [NSString stringWithFormat:@"%lld",[cachePath fileSize]];
+
     };
     
     CJSettingArrowItem *clearHistory = [CJSettingArrowItem itemWithTitle:@"清空搜索历史"];

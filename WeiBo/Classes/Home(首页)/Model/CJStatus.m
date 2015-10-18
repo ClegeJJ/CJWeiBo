@@ -39,7 +39,6 @@
     
     // 遍历所有特殊文字
     [text enumerateStringsMatchedByRegex:pattern usingBlock:^(NSInteger captureCount, NSString *const __unsafe_unretained *capturedStrings, const NSRange *capturedRanges, volatile BOOL *const stop) {
-        NSLog(@"%@",*capturedStrings);
         CJStatusContentPart *part = [[CJStatusContentPart alloc] init];
         part.special = YES;
         part.emotion = [*capturedStrings hasPrefix:@"["] && [*capturedStrings hasSuffix:@"]"];

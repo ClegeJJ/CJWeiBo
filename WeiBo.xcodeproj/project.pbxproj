@@ -519,6 +519,7 @@
 		F059E3921BA10F6500BC1C25 /* CJTabBarButton.m in Sources */ = {isa = PBXBuildFile; fileRef = F059E3911BA10F6500BC1C25 /* CJTabBarButton.m */; };
 		F06128251BAD4052009BC72A /* CJNetTool.m in Sources */ = {isa = PBXBuildFile; fileRef = F06128241BAD4052009BC72A /* CJNetTool.m */; };
 		F06128281BAD4F95009BC72A /* CJFarmData.m in Sources */ = {isa = PBXBuildFile; fileRef = F06128271BAD4F95009BC72A /* CJFarmData.m */; };
+		F0615A711BD3A06F002C868D /* NSString+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = F0615A701BD3A06F002C868D /* NSString+Extension.m */; };
 		F06326111BABA6EF00FEA8A4 /* CJComposeToolBar.m in Sources */ = {isa = PBXBuildFile; fileRef = F06326101BABA6EF00FEA8A4 /* CJComposeToolBar.m */; };
 		F063266E1BABA9F100FEA8A4 /* compose_camerabutton_background.png in Resources */ = {isa = PBXBuildFile; fileRef = F06326141BABA9F100FEA8A4 /* compose_camerabutton_background.png */; };
 		F063266F1BABA9F100FEA8A4 /* compose_camerabutton_background@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F06326151BABA9F100FEA8A4 /* compose_camerabutton_background@2x.png */; };
@@ -1400,6 +1401,8 @@
 		F06128241BAD4052009BC72A /* CJNetTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CJNetTool.m; sourceTree = "<group>"; };
 		F06128261BAD4F95009BC72A /* CJFarmData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CJFarmData.h; sourceTree = "<group>"; };
 		F06128271BAD4F95009BC72A /* CJFarmData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CJFarmData.m; sourceTree = "<group>"; };
+		F0615A6F1BD3A06F002C868D /* NSString+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Extension.h"; sourceTree = "<group>"; };
+		F0615A701BD3A06F002C868D /* NSString+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Extension.m"; sourceTree = "<group>"; };
 		F063260F1BABA6EF00FEA8A4 /* CJComposeToolBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CJComposeToolBar.h; sourceTree = "<group>"; };
 		F06326101BABA6EF00FEA8A4 /* CJComposeToolBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CJComposeToolBar.m; sourceTree = "<group>"; };
 		F06326141BABA9F100FEA8A4 /* compose_camerabutton_background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = compose_camerabutton_background.png; sourceTree = "<group>"; };
@@ -2546,6 +2549,8 @@
 				F09735FE1BA286750046A288 /* UIBarButtonItem+CJ.m */,
 				F0C90B011BB5407A0088298B /* UITextView+CJ.h */,
 				F0C90B021BB5407A0088298B /* UITextView+CJ.m */,
+				F0615A6F1BD3A06F002C868D /* NSString+Extension.h */,
+				F0615A701BD3A06F002C868D /* NSString+Extension.m */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -5004,6 +5009,7 @@
 				F09A52C01BC11B2E00C58225 /* FMResultSet.m in Sources */,
 				F0A5CE8C1BA574BD00AC3130 /* MJPropertyType.m in Sources */,
 				F09A52BD1BC11B2E00C58225 /* FMDatabaseAdditions.m in Sources */,
+				F0615A711BD3A06F002C868D /* NSString+Extension.m in Sources */,
 				F008AE381BB02C7B0098C157 /* CJComposeResult.m in Sources */,
 				F09CF1271BAA6C1C00923788 /* MJRefreshAutoNormalFooter.m in Sources */,
 				F008AE2E1BB0272E0098C157 /* CJUserInfoTool.m in Sources */,
