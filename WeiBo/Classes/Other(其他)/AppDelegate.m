@@ -28,7 +28,7 @@
 
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     [self.window makeKeyAndVisible];
-    
+
 
     // 1.取出授权帐号模型
     CJAccount *account = [CJAccountTool account];
