@@ -10,6 +10,6 @@
 
 @interface NSString (Extension)
 
-- (long long)fileSize;
+- (NSString *)fileSize;
 
 @end

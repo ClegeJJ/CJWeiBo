@@ -9,14 +9,14 @@
 #import "NSString+Extension.h"
 
 @implementation NSString (Extension)
-- (long long)fileSize
+- (NSString *)fileSize
 {
     
     NSFileManager *mgr = [NSFileManager defaultManager];
     BOOL dir = NO;
     BOOL exists = [mgr fileExistsAtPath:self isDirectory:&dir];
     if (!exists) { // 路径不存在
-        return 0;
+        return @"0M";
     }
     if (dir) { // 文件夹
         //     计算缓存文件夹的大小
@@ -30,9 +30,15 @@
                 totalSize += [[mgr attributesOfItemAtPath:fullpath error:nil][NSFileSize] longLongValue];
             }
         }
-        return totalSize/1000/1000;
+        CGFloat sum = totalSize/1000/1000.0;
+        if (sum < 0.1) {
+            return @"0M";
+        }else{
+            return [NSString stringWithFormat:@"%.1fM",sum];
+        }
+        
     } else{ // 文件
-        return [[mgr attributesOfItemAtPath:self error:nil][NSFileSize] longLongValue];
+        return [mgr attributesOfItemAtPath:self error:nil][NSFileSize];
     }
         
 

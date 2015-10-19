@@ -78,10 +78,10 @@
     NSString *cachePath = [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) lastObject];
     CJSettingArrowItem *clearCache = [CJSettingArrowItem itemWithTitle:@"清除图片缓存"];
     __weak typeof(clearCache) weakCache = clearCache;
-    clearCache.subtitle = [NSString stringWithFormat:@"%lld",[cachePath fileSize]];
-    clearCache.opreation = ^{
+    clearCache.subtitle = [cachePath fileSize];
+    clearCache.opreation = ^{ // 清除缓存
         // 弹框
-        [MBProgressHUD showMessage:@"哥正在帮你拼命清理中..."];
+//        [MBProgressHUD showMessage:@"哥正在帮你拼命清理中..."];
         
         
         // 执行清除缓存
@@ -98,10 +98,11 @@
         [CJStatusCacheTool initialize];
         
         // 关闭弹框
-        [MBProgressHUD hideHUD];
+        [MBProgressHUD showSuccess:@"清除成功"];
         
-        weakCache.subtitle = [NSString stringWithFormat:@"%lld",[cachePath fileSize]];
-
+        weakCache.subtitle = [cachePath fileSize];
+        NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:4];
+        [self.tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
     };
     
     CJSettingArrowItem *clearHistory = [CJSettingArrowItem itemWithTitle:@"清空搜索历史"];
@@ -113,6 +114,11 @@
     [super viewWillAppear:animated];
     
     [self.tableView reloadData];
+}
+
+- (void)dealloc
+{
+    NSLog(@"dealloc");
 }
 
 @end
