@@ -22,8 +22,8 @@
 
 - (instancetype)initWithFrame:(CGRect)frame
 {
-
-    if (self == [super initWithFrame:frame]) {
+    self = [super initWithFrame:frame];
+    if (self) {
         
         [self setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
         

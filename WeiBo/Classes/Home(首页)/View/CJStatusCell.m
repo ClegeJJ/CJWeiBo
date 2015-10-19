@@ -55,8 +55,8 @@
 #pragma mark - 初始化
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
-
-    if (self == [super initWithStyle:style reuseIdentifier:reuseIdentifier]) {
+    self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
+    if (self) {
         
         // 1.添加顶部微博视图
         [self setupTopViewSubviews];

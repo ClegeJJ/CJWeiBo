@@ -16,8 +16,8 @@
 
 - (instancetype)initWithFrame:(CGRect)frame
 {
-
-    if (self == [super initWithFrame:frame]) {
+    self = [super initWithFrame:frame];
+    if (self) {
         [self setBackgroundImage:[UIImage resizedImageWithName:@"main_badge"] forState:UIControlStateNormal];
         
         

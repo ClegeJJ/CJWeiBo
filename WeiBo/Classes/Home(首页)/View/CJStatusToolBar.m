@@ -51,8 +51,8 @@
 
 - (instancetype)initWithFrame:(CGRect)frame
 {
-
-    if (self == [super initWithFrame:frame]) {
+    self = [super initWithFrame:frame];
+    if (self) {
         
         // 1. 设置与用户交互 button才能监听事件
         self.userInteractionEnabled = YES;
@@ -105,7 +105,7 @@
    
     btn.adjustsImageWhenHighlighted = NO;  // 自动调整图片
     [btn setBackgroundImage:[UIImage resizedImageWithName:bgImage] forState:UIControlStateHighlighted];
-    [btn addTarget:self action:@selector(test) forControlEvents:UIControlEventTouchUpInside];
+    [btn addTarget:self action:nil forControlEvents:UIControlEventTouchUpInside];
     
     [self addSubview:btn];
     
@@ -141,7 +141,7 @@
  */
 - (void)setupButton:(UIButton *)button count:(int)count originalTitle:(NSString *)originalTitle
 {
-    NSString *title = [NSString string];
+    NSString *title = nil;
     
     if (count) { // 评论大于0
         
@@ -164,11 +164,6 @@
 
 }
 
-- (void)test
-{
-
-    
-}
 /**
  *  调整子控件位置
  */

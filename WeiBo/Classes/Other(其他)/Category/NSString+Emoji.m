@@ -11,8 +11,8 @@
 
 @implementation NSString (Emoji)
 
-+ (NSString *)emojiWithIntCode:(int)intCode {
-    int symbol = EmojiCodeToSymbol(intCode);
++ (NSString *)emojiWithIntCode:(long)intCode {
+    long symbol = EmojiCodeToSymbol(intCode);
     NSString *string = [[NSString alloc] initWithBytes:&symbol length:sizeof(symbol) encoding:NSUTF8StringEncoding];
     if (string == nil) { // 新版Emoji
         string = [NSString stringWithFormat:@"%C", (unichar)intCode];
@@ -28,7 +28,7 @@
 + (NSString *)emojiWithStringCode:(NSString *)stringCode
 {
     char *charCode = (char *)stringCode.UTF8String;
-    int intCode = strtol(charCode, NULL, 16);
+    long intCode = strtol(charCode, NULL, 16);
     return [self emojiWithIntCode:intCode];
 }
 

@@ -56,7 +56,7 @@
     
     
     if ([self.delegate respondsToSelector:@selector(emotionTabBar:didSelectedButton:)]) {
-        [self.delegate emotionTabBar:self didSelectedButton:button.tag];
+        [self.delegate emotionTabBar:self didSelectedButton:(int)button.tag];
     }
 }
 

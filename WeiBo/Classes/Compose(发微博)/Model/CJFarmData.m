@@ -11,8 +11,8 @@
 @implementation CJFarmData
 - (instancetype)initWithData:(NSData *)data name:(NSString *)name fileName:(NSString *)fileName mimeType:(NSString *)mimeType
 {
-
-    if (self == [super init]) {
+    self = [super init];
+    if (self) {
         _data = data;
         _name = name;
         _fileName = fileName;

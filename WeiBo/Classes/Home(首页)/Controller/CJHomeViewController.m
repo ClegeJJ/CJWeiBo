@@ -148,9 +148,9 @@
     if (self.statusFrames.count) {
         CJStatusFrame *statusFrame = self.statusFrames[0];
         param.since_id = @([statusFrame.status.idstr longLongValue]);
-
+        
     }
-    
+    param.count = @30;
         // 2.发送GET请求 获取微博数据
     [CJHomeStatusTool HomeStatusWithParameters:param success:^(CJHomeStatusesResult *result) {
         // 将字典数组转为模型数组(里面放的就是CJStatus模型)
@@ -174,12 +174,12 @@
         [self.tableView.header endRefreshing];
         
         // 弹出信息提醒
-        NSString *title = [NSString string];
-        if (statusFrameArray.count) {
+        NSString *title = nil;
+        if (statusFrameArray.count) { // 有新微博数据
             
-            title = [NSString stringWithFormat:@"%ld 条新微博",statusFrameArray.count];
+            title = [NSString stringWithFormat:@"%lu 条新微博",statusFrameArray.count];
             
-        }else {
+        }else { // 无新微博数据
             title = @"没有新的微博";
         }
         [self showMessageForRefreshDataWithTitle:title];

@@ -42,7 +42,7 @@
     [self setUpAllChildViewController];
     
     // 添加定时器 发送未读数请求
-    NSTimer *timer = [NSTimer scheduledTimerWithTimeInterval:120 target:self selector:@selector(checkUnreadCount) userInfo:nil repeats:YES];
+    NSTimer *timer = [NSTimer scheduledTimerWithTimeInterval:20 target:self selector:@selector(checkUnreadCount) userInfo:nil repeats:YES];
     
 #warning 固定写法 定时操作放在子线程
     [[NSRunLoop currentRunLoop] addTimer:timer forMode:NSRunLoopCommonModes];

@@ -12,8 +12,8 @@
 
 - (instancetype)initWithDict:(NSDictionary *)dict
 {
-
-    if (self == [super init]) {
+    self = [super init];
+    if (self) {
         
         [self setValuesForKeysWithDictionary:dict];
     }
@@ -34,7 +34,8 @@
 
 - (id)initWithCoder:(NSCoder *)aDecoder
 {
-    if (self == [super init]) {
+    self = [super init];
+    if (self) {
         
         self.access_token = [aDecoder decodeObjectForKey:@"access_token"];
         self.expires_time = [aDecoder decodeObjectForKey:@"expires_time"];

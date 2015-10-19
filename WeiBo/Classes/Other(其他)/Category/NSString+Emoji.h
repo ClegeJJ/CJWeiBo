@@ -12,7 +12,7 @@
 /**
  *  将十六进制的编码转为emoji字符
  */
-+ (NSString *)emojiWithIntCode:(int)intCode;
++ (NSString *)emojiWithIntCode:(long)intCode;
 
 /**
  *  将十六进制的编码转为emoji字符

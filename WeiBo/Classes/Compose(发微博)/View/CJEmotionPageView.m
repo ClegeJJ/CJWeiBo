@@ -37,7 +37,8 @@
 
 - (instancetype)initWithFrame:(CGRect)frame
 {
-    if (self == [super initWithFrame:frame]) {
+    self = [super initWithFrame:frame];
+    if (self) {
 
         UIButton *deleteButton = [[UIButton alloc] init];
         [deleteButton setImage:[UIImage imageWithName:@"compose_emotion_delete"] forState:UIControlStateNormal];

@@ -39,9 +39,6 @@
             [self addSubview:photoView];
         }
     }
-    
-    
-    
     // 拿出所有子控件
     for (int i = 0; i < self.subviews.count; i ++) {
         CJStatusPhotoView *photoView = self.subviews[i];
@@ -50,10 +47,6 @@
             photoView.hidden = NO;
             
             photoView.photo = photos[i];
-            
-
-
-            
         }else { // 隐藏
         
             photoView.hidden = YES;
@@ -61,8 +54,6 @@
         }
         
     }
-    
-
 }
 - (void)photoTap:(UITapGestureRecognizer *)recognizer
 {
