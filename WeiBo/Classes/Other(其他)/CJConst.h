@@ -14,11 +14,13 @@ extern NSString * const AppSecret;
 extern NSString * const AppRedirectURL;
 
 
-// 2.表情点击通知
+// 2.通知
 // 参数名
 extern NSString * const CJselectedEmotionKey;
+extern NSString * const CJShowPhotoBrowserKey;
+extern NSString * const CJPhotoIndexKey;
 // 通知名
 extern NSString * const CJEmotionKeyboardDidSelectedNotification;
-
+extern NSString * const CJPhotoDidTapNotification;
 // 3.删除按钮点击通知
 extern NSString * const CJEmitionkeyboardDidDeletedNotification;

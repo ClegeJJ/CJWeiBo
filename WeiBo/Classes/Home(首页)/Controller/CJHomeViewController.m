@@ -34,12 +34,14 @@
 
 #import "MJRefresh.h"
 
-@interface CJHomeViewController ()
+#import "MWPhotoBrowser.h"
+@interface CJHomeViewController () <MWPhotoBrowserDelegate>
 
 @property (nonatomic ,strong) NSMutableArray *statusFrames; // 所有微博Frame
 
-@property (nonatomic ,strong) CJTitleButton *titleButton;
+@property (nonatomic, strong) NSArray *allWMPhotos;
 
+@property (nonatomic ,strong) CJTitleButton *titleButton;
 
 @end
 
@@ -51,8 +53,6 @@
     self.tableView.contentInset = UIEdgeInsetsMake(CJStatusFrameBorder, 0, CJStatusFrameBorder, 0);
     self.tableView.backgroundColor = CJColor(226, 226, 226);
     
-
-    
     // 集成刷新控件
     [self setupRefreshControl];
     
@@ -61,8 +61,58 @@
     
     // 获得当前用户数据
     [self setupUserData];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(photoDidTap:) name:CJPhotoDidTapNotification object:nil];
 }
 
+- (void)dealloc
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
+- (void)photoDidTap:(NSNotification *)notification
+{
+    self.allWMPhotos = notification.userInfo[CJShowPhotoBrowserKey];
+    NSInteger index = [notification.userInfo[CJPhotoIndexKey] integerValue];
+    // Create browser
+    MWPhotoBrowser *browser = [[MWPhotoBrowser alloc] initWithDelegate:self];
+    browser.displayActionButton = NO;
+    browser.displayNavArrows = NO;
+    browser.displaySelectionButtons = NO;
+    browser.alwaysShowControls = NO;
+    browser.zoomPhotosToFill = YES;
+    browser.enableGrid = NO;
+    browser.startOnGrid = NO;
+    browser.enableSwipeToDismiss = NO;
+    browser.autoPlayOnAppear = NO;
+    [browser setCurrentPhotoIndex:index];
+    [browser showNextPhotoAnimated:YES];
+    [browser showPreviousPhotoAnimated:YES];
+    UINavigationController *nv = [[UINavigationController alloc] initWithRootViewController:browser];
+    nv.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
+    [self presentViewController:nv animated:YES completion:nil];
+//    [self.navigationController pushViewController:browser animated:YES];
+    
+}
+#pragma mark - MWPhotoBrowserDelegate
+- (NSUInteger)numberOfPhotosInPhotoBrowser:(MWPhotoBrowser *)photoBrowser
+{
+    return self.allWMPhotos.count;
+}
+
+- (id <MWPhoto>)photoBrowser:(MWPhotoBrowser *)photoBrowser photoAtIndex:(NSUInteger)index
+{
+    if (index < self.allWMPhotos.count) {
+        NSLog(@"%@",[self.allWMPhotos objectAtIndex:index]);
+        return [self.allWMPhotos objectAtIndex:index];
+    }
+    return nil;
+}
+
+
+/**
+ *  懒加载
+ */
 - (NSMutableArray *)statusFrames
 {
     if (_statusFrames == nil) {
@@ -148,7 +198,6 @@
     if (self.statusFrames.count) {
         CJStatusFrame *statusFrame = self.statusFrames[0];
         param.since_id = @([statusFrame.status.idstr longLongValue]);
-        
     }
     param.count = @30;
         // 2.发送GET请求 获取微博数据
@@ -197,8 +246,6 @@
 
 
 }
-
-
 /**
  *  提示最新微博数据
  */
@@ -272,7 +319,6 @@
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
 }
 
-
 /**
  *  加载用户数据  归档用户昵称 方便下次使用时直接获取
  */
@@ -301,25 +347,14 @@
  */
 - (void)findFriend
 {
-    
-    [self.titleButton setTitle:@"哈哈哈哈啊啊啊" forState:UIControlStateNormal];
-    CGRect rectStatus = [[UIApplication sharedApplication] statusBarFrame];
-    NSLog(@"%@",NSStringFromCGRect(rectStatus));
-    CGRect rectNav = self.navigationController.navigationBar.frame;
-    NSLog(@"%@",NSStringFromCGRect(rectNav));
     NSLog(@"findFriend");
-
 }
 /**
  *  导航栏右边按钮点击时调用
  */
 - (void)pop
 {
-
-    [self.titleButton setTitle:@"啊啊" forState:UIControlStateNormal];
-//    self.titleButton.frame = CGRectMake(105, 22, 1, 40);
     NSLog(@"pop");
-
 }
 
 /**

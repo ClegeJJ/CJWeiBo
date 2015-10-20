@@ -14,7 +14,7 @@
 @interface CJStatusPhotosView : UIImageView
 
 @property (nonatomic ,strong) NSArray *photos;
-
+@property (nonatomic ,strong) NSMutableArray *allWMPhotos;
 + (CGSize)sizeWithCount:(int)count;
 
 @end

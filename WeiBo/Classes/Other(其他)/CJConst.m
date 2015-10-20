@@ -13,12 +13,14 @@ NSString * const AppSecret = @"cb2c460dcf79e93e80d4a8f396ee4013";
 NSString * const AppRedirectURL = @"http://www.baidu.com";
 
 
-// 2.表情点击通知
+// 2.通知
 // 参数名
 NSString * const CJselectedEmotionKey = @"selectedEmotionKey";
+NSString * const CJShowPhotoBrowserKey = @"ShowPhotoBrowserKey";
+NSString * const CJPhotoIndexKey = @"photoIndexKey";
 // 通知名
 NSString * const CJEmotionKeyboardDidSelectedNotification = @"emotionKeyboardDidSelectedNotification";
-
+NSString * const CJPhotoDidTapNotification = @"photoDidTapNotification";
 
 // 3.删除按钮点击通知
 NSString * const CJEmitionkeyboardDidDeletedNotification = @"deletedNotification";

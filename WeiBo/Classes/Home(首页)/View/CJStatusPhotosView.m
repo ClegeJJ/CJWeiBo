@@ -9,8 +9,10 @@
 #import "CJStatusPhotosView.h"
 #import "UIImageView+WebCache.h"
 #import "CJStatusPhotoView.h"
-#import "MJPhotoBrowser.h"
-#import "MJPhoto.h"
+//#import "MJPhotoBrowser.h"
+//#import "MJPhoto.h"
+//#import "MWCommon.h"
+#import "MWPhoto.h"
 @implementation CJStatusPhotosView
 
 
@@ -57,29 +59,34 @@
 }
 - (void)photoTap:(UITapGestureRecognizer *)recognizer
 {
-    
+    NSInteger index = recognizer.view.tag;
     NSUInteger count = self.photos.count;
     
     // 1.封装图片数据
-    NSMutableArray *myphotos = [NSMutableArray arrayWithCapacity:count];
+    self.allWMPhotos = [NSMutableArray arrayWithCapacity:count];
     for (int i = 0; i<count; i++) {
         // 一个MJPhoto对应一张显示的图片
-        MJPhoto *mjphoto = [[MJPhoto alloc] init];
-        
-        mjphoto.srcImageView = self.subviews[i]; // 来源于哪个UIImageView
+//        MJPhoto *mjphoto = [[MJPhoto alloc] init];
+//        mjphoto.srcImageView = self.subviews[i]; // 来源于哪个UIImageView
+//        mjphoto.url = [NSURL URLWithString:photoUrl]; // 图片路径
         
         CJPhoto *cjphoto = self.photos[i];
         NSString *photoUrl = [cjphoto.thumbnail_pic stringByReplacingOccurrencesOfString:@"thumbnail" withString:@"bmiddle"];
-        mjphoto.url = [NSURL URLWithString:photoUrl]; // 图片路径
-        
-        [myphotos addObject:mjphoto];
+
+        MWPhoto *mwphoto = [MWPhoto photoWithURL:[NSURL URLWithString:photoUrl]];
+        [self.allWMPhotos addObject:mwphoto];
     }
-#warning MJPhotoBrowser 加载图片退出时有几率闪退
+    NSDictionary *dict = @{
+                           CJShowPhotoBrowserKey:self.allWMPhotos,
+                           CJPhotoIndexKey : @(index)
+                           };
+    [[NSNotificationCenter defaultCenter] postNotificationName:CJPhotoDidTapNotification object:nil userInfo:dict];
+
     // 2.显示相册
-    MJPhotoBrowser *browser = [[MJPhotoBrowser alloc] init];
-    browser.currentPhotoIndex = recognizer.view.tag; // 弹出相册时显示的第一张图片是？
-    browser.photos = myphotos; // 设置所有的图片
-    [browser show];
+//    MWPhotoBrowser *
+//    browser.currentPhotoIndex = recognizer.view.tag; // 弹出相册时显示的第一张图片是？
+//    browser.photos = myphotos; // 设置所有的图片
+//    [browser show];
 }
 
 + (CGSize)sizeWithCount:(int)count;
