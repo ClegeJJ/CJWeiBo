@@ -39,7 +39,7 @@
     
     NSString *urlStr = [NSString stringWithFormat:@"https://api.weibo.com/oauth2/authorize?client_id=%@&redirect_uri=%@",AppKey,AppRedirectURL];
     NSURL *url = [NSURL URLWithString:urlStr];
-
+    
     
     NSURLRequest *request = [NSURLRequest requestWithURL:url];
     
@@ -52,7 +52,7 @@
  */
 - (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType
 {
-
+    
     // 1.请求URL数据  @"https://api.weibo.com/oauth2/authorize?client_id=3087428443&redirect_uri=http://www.baidu.com"];
     NSString *urlStr = [request.URL absoluteString];
     
@@ -62,7 +62,7 @@
     if (range.length) {
         
         NSUInteger index = range.location + range.length;
-       
+        
         //4.取出code换取accessToken
         NSString *code = [urlStr substringFromIndex:index];
         
@@ -78,9 +78,15 @@
 /**
  * 开始加载会调用
  */
+#warning 加载开始
 - (void)webViewDidStartLoad:(UIWebView *)webView
 {
-    [MBProgressHUD showMessage:@"哥正在帮你加载中..."];
+    //    [MBProgressHUD showMessage:@"哥正在帮你加载中..."];
+    
+    
+    //    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+    //        [MBProgressHUD hideHUD];
+    //    });
 }
 
 /**
@@ -88,14 +94,16 @@
  */
 - (void)webViewDidFinishLoad:(UIWebView *)webView
 {
-
-    [MBProgressHUD hideHUD];
+    
+    //    [MBProgressHUD hideHUD];
+    [MBProgressHUD showSuccess:@"加载成功"];
 }
+
 
 - (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error
 {
-
-    [MBProgressHUD hideHUD];
+    
+    [MBProgressHUD showError:@"网络加载失败"];
 }
 
 /**
@@ -110,11 +118,11 @@
     parma.grant_type = @"authorization_code";
     parma.code = code;
     parma.redirect_uri = AppRedirectURL;
-
+    
     
     // 2.发送POST请求 获取access_token
     [CJOAuthTool oauthWithParam:parma success:^(CJOAuthResult *result) {
-
+        
         // 5.存储模型数据
         [CJAccountTool saveAccount:result];
         
@@ -122,12 +130,14 @@
         [CJLaunchTool chooseRootViewController];
         
         // 7.隐藏弹窗
-        [MBProgressHUD hideHUD];
+        [MBProgressHUD showSuccess:@"加载成功"];
     } failure:^(NSError *error) {
         
-        [MBProgressHUD hideHUD];
+        NSLog(@"%@",error);
+        
+        [MBProgressHUD showError:@"网络加载失败"];
     }];
-
+    
 }
 
 

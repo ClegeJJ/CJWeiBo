@@ -1,25 +1,4 @@
 PODS:
-  - AFNetworking (2.6.0):
-    - AFNetworking/NSURLConnection (= 2.6.0)
-    - AFNetworking/NSURLSession (= 2.6.0)
-    - AFNetworking/Reachability (= 2.6.0)
-    - AFNetworking/Security (= 2.6.0)
-    - AFNetworking/Serialization (= 2.6.0)
-    - AFNetworking/UIKit (= 2.6.0)
-  - AFNetworking/NSURLConnection (2.6.0):
-    - AFNetworking/Reachability
-    - AFNetworking/Security
-    - AFNetworking/Serialization
-  - AFNetworking/NSURLSession (2.6.0):
-    - AFNetworking/Reachability
-    - AFNetworking/Security
-    - AFNetworking/Serialization
-  - AFNetworking/Reachability (2.6.0)
-  - AFNetworking/Security (2.6.0)
-  - AFNetworking/Serialization (2.6.0)
-  - AFNetworking/UIKit (2.6.0):
-    - AFNetworking/NSURLConnection
-    - AFNetworking/NSURLSession
   - DACircularProgress (2.3.1)
   - DateTools (1.7.0)
   - FMDB (2.5):
@@ -36,18 +15,16 @@ PODS:
   - SDWebImage/Core (3.7.3)
 
 DEPENDENCIES:
-  - AFNetworking (~> 2.6.0)
-  - DACircularProgress (~> 2.3.1)
-  - DateTools (~> 1.7.0)
-  - FMDB (~> 2.5)
-  - MBProgressHUD (~> 0.9.1)
-  - MJExtension (~> 2.5.12)
-  - MJRefresh (~> 2.4.11)
-  - RegexKitLite-NoWarning (~> 1.1.0)
-  - SDWebImage (~> 3.7.3)
+  - DACircularProgress (= 2.3.1)
+  - DateTools (= 1.7.0)
+  - FMDB (= 2.5)
+  - MBProgressHUD (= 0.9.1)
+  - MJExtension (= 2.5.12)
+  - MJRefresh (= 2.4.11)
+  - RegexKitLite-NoWarning (= 1.1.0)
+  - SDWebImage (= 3.7.3)
 
 SPEC CHECKSUMS:
-  AFNetworking: 79f7eb1a0fcfa7beb409332b2ca49afe9ce53b05
   DACircularProgress: 4dd437c0fc3da5161cb289e07ac449493d41db71
   DateTools: 53288ee8b905fdc75897a1e6b5cc0144b14cba60
   FMDB: 96e8f1bcc1329e269330f99770ad4285d9003e52
