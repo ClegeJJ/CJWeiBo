@@ -29,14 +29,13 @@
             success(result);
         }
     } else{
-        
+    
         [CJNetTool getWithUrl:@"https://api.weibo.com/2/statuses/home_timeline.json" parameters:parameters.keyValues success:^(id json) {
             
             if (success) {
                 NSArray *dictArray = json[@"statuses"];
                 [CJStatusCacheTool addStatusesWithArray:dictArray];
-                
-                
+
                 CJHomeStatusesResult *result = [CJHomeStatusesResult objectWithKeyValues:json];
                 
                 success(result);
@@ -47,7 +46,7 @@
             }
         }];
     }
-    
+
 
 }
 

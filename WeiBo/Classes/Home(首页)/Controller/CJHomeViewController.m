@@ -76,8 +76,8 @@
     NSInteger index = [notification.userInfo[CJPhotoIndexKey] integerValue];
     // Create browser
     MWPhotoBrowser *browser = [[MWPhotoBrowser alloc] initWithDelegate:self];
-    browser.displayActionButton = NO;
-    browser.displayNavArrows = NO;
+    browser.displayActionButton = YES;
+    browser.displayNavArrows = YES;
     browser.displaySelectionButtons = NO;
     browser.alwaysShowControls = NO;
     browser.zoomPhotosToFill = YES;
@@ -103,13 +103,10 @@
 - (id <MWPhoto>)photoBrowser:(MWPhotoBrowser *)photoBrowser photoAtIndex:(NSUInteger)index
 {
     if (index < self.allWMPhotos.count) {
-        NSLog(@"%@",[self.allWMPhotos objectAtIndex:index]);
         return [self.allWMPhotos objectAtIndex:index];
     }
     return nil;
 }
-
-
 /**
  *  懒加载
  */
@@ -139,7 +136,6 @@
 /**
  *  上拉tableView就会调用
  */
-#warning 优化~~~~
 - (void)refreshMoreData
 {
     
@@ -179,14 +175,6 @@
     }];
 }
 
-/**
- *  再次点击home
- */
-- (void)clickAgain
-{
-    [self.tableView.header beginRefreshing];
-
-}
 /**
  *  下拉tableView就会调用
  */
@@ -357,6 +345,14 @@
     NSLog(@"pop");
 }
 
+/**
+ *  再次点击home
+ */
+- (void)clickAgain
+{
+    [self.tableView.header beginRefreshing];
+    
+}
 /**
  *  导航栏中间按钮点击时调用
  */

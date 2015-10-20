@@ -30,6 +30,8 @@ FMDatabaseQueue *_queue;
 + (void)addStatusesWithArray:(NSArray *)array
 {
     for (NSDictionary *dict in array) {
+        
+        
         [CJStatusCacheTool addStatusWithDict:dict];
     }
 
@@ -62,9 +64,14 @@ FMDatabaseQueue *_queue;
         
         if (param.since_id) {
             result = [db executeQuery:@"select dict from t_statuses where access_token = ? and idstr >? order by idstr desc limit 0,?",access_token,param.since_id,param.count];
-        }else if (param.max_id){
-            result = [db executeQuery:@"select dict from t_statuses where access_token = ? and idstr <=? order by idstr desc limit 0,?",access_token,param.max_id,param.count];
-        }else{
+//        }else if (param.max_id){
+//            
+//            result = [db executeQuery:@"select idstr from t_statuses where access_token =? and idstr = (select max(idstr) from t_statuses)",access_token];
+////            result = [db executeQuery:@"select dict from t_statuses where access_token = ? and idstr <=? order by idstr desc limit 0,?",access_token,param.max_id,param.count];
+//            
+//            
+        }
+        else{
             result = [db executeQuery:@"select dict from t_statuses where access_token = ? order by idstr desc limit 0,?",access_token,param.count];
         }
         
@@ -73,6 +80,10 @@ FMDatabaseQueue *_queue;
             NSDictionary *dict = [NSKeyedUnarchiver unarchiveObjectWithData:data];
             [dictArray addObject:dict];
         }
+//        while (result.next) {
+//            NSLog(@"%ld",[result longForColumn:@"idstr"]);
+//        }
+//        NSLog(@"%@",result);
         
     }];
     return dictArray;
