@@ -40,7 +40,6 @@
     // 给每个item添加 数字显示button
     CJBadegButton *badgeButton = [[CJBadegButton alloc] init];
     badgeButton.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleBottomMargin;
-    
     [self addSubview:badgeButton];
     self.badgeButton = badgeButton;
     
@@ -104,9 +103,9 @@
 
     // 设置坐标
     CGFloat badgX = 0;
-    badgX = self.frame.size.width - self.badgeButton.frame.size.width - 5;
+    badgX = self.frame.size.width - self.badgeButton.frame.size.width - 10;
     if (self.badgeButton.badgeValue.length <= 1) {
-        badgX = self.frame.size.width - self.badgeButton.frame.size.width - 10;
+        badgX = self.frame.size.width - self.badgeButton.frame.size.width - 15;
     }
     CGFloat badgY = 4;
     CGRect badgeF = self.badgeButton.frame;

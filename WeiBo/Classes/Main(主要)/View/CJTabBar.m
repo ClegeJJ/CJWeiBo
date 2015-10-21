@@ -136,7 +136,7 @@
      
         button.tag = 2015 + index;
         
-        if (index == 0) {
+        if (index == 0) { // 每次重写登录重新刷新
             [self tabBarbuttonClick:button];
         }
         

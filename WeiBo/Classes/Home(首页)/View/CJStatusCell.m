@@ -90,12 +90,6 @@
  */
 - (void)setupTopViewSubviews
 {
-
-    /** 设置cell被选中时的背景 */
-    UIView *bgView = [[UIView alloc] init];
-    bgView.backgroundColor = CJColor(240, 240, 240);
-    self.selectedBackgroundView = bgView;
-    
     /** 顶部的View(原微博父控件) */
     CJStatusTopView *topView = [[CJStatusTopView alloc] init];
     [self.contentView addSubview:topView];

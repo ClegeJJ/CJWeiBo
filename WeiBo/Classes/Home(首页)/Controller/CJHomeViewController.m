@@ -35,6 +35,8 @@
 #import "MJRefresh.h"
 
 #import "MWPhotoBrowser.h"
+
+#import "CJDetailViewController.h"
 @interface CJHomeViewController () <MWPhotoBrowserDelegate>
 
 @property (nonatomic ,strong) NSMutableArray *statusFrames; // 所有微博Frame
@@ -372,8 +374,6 @@
 #pragma mark - Table view data source
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-
-    
     return self.statusFrames.count;
 }
 
@@ -403,5 +403,10 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
+    CJDetailViewController *detail = [[CJDetailViewController alloc] init];
+    detail.statusF = self.statusFrames[indexPath.row];
+    detail.view.backgroundColor = self.tableView.backgroundColor;
+    [self.navigationController pushViewController:detail animated:YES];
 }
 @end
