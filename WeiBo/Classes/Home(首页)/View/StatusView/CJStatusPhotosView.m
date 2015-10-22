@@ -112,9 +112,7 @@
         rows = count / maxColumns + 1;
     }
     CGFloat H = (rows - 1) * CJPhotosMargin + rows * CJPhotosWH;
-    
-    
-    
+
     return CGSizeMake(W, H);
 }
 /**

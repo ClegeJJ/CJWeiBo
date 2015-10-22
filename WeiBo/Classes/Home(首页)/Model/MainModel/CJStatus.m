@@ -45,8 +45,6 @@
         part.text = *capturedStrings;
         part.range = *capturedRanges;
         [partArray addObject:part];
-        
-        
     }];
     
     // 遍历所有非特殊文字

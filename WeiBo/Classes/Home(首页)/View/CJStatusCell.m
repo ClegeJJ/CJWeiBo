@@ -79,7 +79,7 @@
  */
 - (void)setFrame:(CGRect)frame
 {
-    frame.size.height -= CJStatusFrameBorder;
+    frame.size.height -= CJStatusCellBorder;
     
     [super setFrame:frame];
 

@@ -9,6 +9,7 @@
 #import "CJGeneralViewController.h"
 #import "CJSettingArrowItem.h"
 #import "CJSettingSwitchItem.h"
+#import "CJSettingLabelItem.h"
 #import "CJSettingGroup.h"
 #import "MBProgressHUD+MJ.h"
 #import "SDWebImageManager.h"
@@ -76,14 +77,11 @@
 {
     CJSettingGroup *group = [self addGroup];
     NSString *cachePath = [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) lastObject];
-    CJSettingArrowItem *clearCache = [CJSettingArrowItem itemWithTitle:@"清除图片缓存"];
+    CJSettingLabelItem *clearCache = [CJSettingLabelItem itemWithTitle:@"清除图片缓存"];
     __weak typeof(clearCache) weakCache = clearCache;
-    clearCache.subtitle = [cachePath fileSize];
+    clearCache.text = [cachePath fileSize];
     clearCache.opreation = ^{ // 清除缓存
-        // 弹框
-//        [MBProgressHUD showMessage:@"哥正在帮你拼命清理中..."];
-        
-        
+
         // 执行清除缓存
         NSFileManager *mgr = [NSFileManager defaultManager];
 

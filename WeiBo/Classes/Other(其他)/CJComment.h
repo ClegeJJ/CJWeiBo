@@ -18,7 +18,8 @@
 #define CJColor(r, g, b) [UIColor colorWithRed:(r)/255.0 green:(g)/255.0 blue:(b)/255.0 alpha:1.0]
 // 1.1随机色
 #define CJRandomColor CJColor(arc4random_uniform(256), arc4random_uniform(256), arc4random_uniform(256))
-
+// 1.2全局背景颜色
+#define CJGlobelBackgroundColor CJColor(226, 226, 226)
 
 // 2.自定义Log
 #ifdef DEBUG
@@ -53,7 +54,7 @@
 
 // 5.微博cell配图相关属性
 // 多张配图时图片尺寸
-#define CJPhotosWH 70
+#define CJPhotosWH 90
 
 // 6.表情键盘
 // 一页中最多3行
@@ -67,7 +68,7 @@
 
 // 7.微博配图
 // 只有一张配图时图片尺寸
-#define CJPhotoWH 120
+#define CJPhotoWH 130
 #define CJPhotosMargin 10
 
 

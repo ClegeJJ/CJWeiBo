@@ -12,7 +12,6 @@
 - (NSString *)description
 {
     return [NSString stringWithFormat:@"%@ - %@", self.text, NSStringFromRange(self.range)];
-//    return [NSString stringWithFormat:@"%@----%ld",self.text,self.range.location];
     
 }
 @end

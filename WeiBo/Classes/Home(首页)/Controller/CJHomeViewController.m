@@ -52,8 +52,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.tableView.contentInset = UIEdgeInsetsMake(CJStatusFrameBorder, 0, CJStatusFrameBorder, 0);
-    self.tableView.backgroundColor = CJColor(226, 226, 226);
+    // 顶部和尾部间距
+    self.tableView.contentInset = UIEdgeInsetsMake(CJStatusCellBorder - 3, 0, CJStatusCellBorder, 0);
+    self.tableView.backgroundColor = CJGlobelBackgroundColor;
     
     // 集成刷新控件
     [self setupRefreshControl];
@@ -225,7 +226,6 @@
         
         // 刷新tableView
         [self.tableView reloadData];
-#warning bug
         self.tabBarItem.badgeValue = @"";
         
     } failure:^(NSError *error) {

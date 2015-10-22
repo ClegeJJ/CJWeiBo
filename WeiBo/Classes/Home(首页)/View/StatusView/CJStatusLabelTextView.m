@@ -50,7 +50,6 @@
         self.editable = NO;
         // 解决文字不出来的bug
         self.scrollEnabled = NO;
-        
         // 容器边距  默认为 {8,0,8,0};
         // 默认左右有间距 但是值为0 ;
         self.textContainerInset = UIEdgeInsetsMake(0, -5, 0, -5);

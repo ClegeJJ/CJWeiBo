@@ -31,29 +31,21 @@
     [self setupFooter];
 }
 
+/**
+ *  退出登录按钮~
+ */
 - (void)setupFooter
 {
     // 按钮
     UIButton *logoutButton = [[UIButton alloc] init];
-    CGFloat logoutX = CJStatusCellBorder + 2;
-    CGFloat logoutY = 10;
-    CGFloat logoutW = self.tableView.frame.size.width - 2 * logoutX;
-    CGFloat logoutH = 44;
-    logoutButton.frame = CGRectMake(logoutX, logoutY, logoutW, logoutH);
-    
-    // 背景和文字
-    [logoutButton setBackgroundImage:[UIImage resizedImageWithName:@"common_button_red"] forState:UIControlStateNormal];
-    [logoutButton setBackgroundImage:[UIImage resizedImageWithName:@"common_button_red_highlighted"] forState:UIControlStateHighlighted];
     [logoutButton setTitle:@"退出当前帐号" forState:UIControlStateNormal];
-    logoutButton.titleLabel.font = [UIFont systemFontOfSize:14];
-    [logoutButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-    
-    // footer
-    UIView *footer = [[UIView alloc] init];
-    CGFloat footerH = logoutH + 20;
-    footer.frame = CGRectMake(0, 0, 0, footerH);
-    self.tableView.tableFooterView = footer;
-    [footer addSubview:logoutButton];
+    [logoutButton setTitleColor:CJColor(255, 20, 20) forState:UIControlStateNormal];
+    logoutButton.titleLabel.font = [UIFont boldSystemFontOfSize:16];
+    logoutButton.height = 44;
+    // 背景和文字
+    [logoutButton setBackgroundImage:[UIImage resizedImageWithName:@"common_card_middle_background"] forState:UIControlStateNormal];
+    [logoutButton setBackgroundImage:[UIImage resizedImageWithName:@"common_card_middle_background_highlighted"] forState:UIControlStateHighlighted];
+    self.tableView.tableFooterView = logoutButton;
 }
 
 - (void)setupGroup0

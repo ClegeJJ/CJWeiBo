@@ -153,7 +153,7 @@
     
     
     // 14.cell的高度
-    _cellHeight = CGRectGetMaxY(_statusToolF) + CJStatusFrameBorder;
+    _cellHeight = CGRectGetMaxY(_statusToolF) + CJStatusCellBorder;
 
 }
 
