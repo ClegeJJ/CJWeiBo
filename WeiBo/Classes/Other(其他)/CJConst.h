@@ -19,8 +19,11 @@ extern NSString * const AppRedirectURL;
 extern NSString * const CJselectedEmotionKey;
 extern NSString * const CJShowPhotoBrowserKey;
 extern NSString * const CJPhotoIndexKey;
+extern NSString * const CJDidTapSpecialTextKey;
 // 通知名
 extern NSString * const CJEmotionKeyboardDidSelectedNotification;
 extern NSString * const CJPhotoDidTapNotification;
+
+extern NSString * const CJDidTapSpecialTextNotification;
 // 3.删除按钮点击通知
 extern NSString * const CJEmitionkeyboardDidDeletedNotification;

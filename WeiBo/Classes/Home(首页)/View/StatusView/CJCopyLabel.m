@@ -35,10 +35,7 @@
     [self attahTapHandler];
 }
 
-- (void)didMoveToSuperview
-{
-    NSLog(@"didMoveToSuperview");
-}
+
 
 - (void)attahTapHandler
 {
@@ -68,6 +65,5 @@
     UIPasteboard *pasteboard = [UIPasteboard generalPasteboard];
     pasteboard.string = self.text;
 }
-
 
 @end

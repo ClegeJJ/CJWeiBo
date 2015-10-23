@@ -18,9 +18,12 @@ NSString * const AppRedirectURL = @"http://www.baidu.com";
 NSString * const CJselectedEmotionKey = @"selectedEmotionKey";
 NSString * const CJShowPhotoBrowserKey = @"ShowPhotoBrowserKey";
 NSString * const CJPhotoIndexKey = @"photoIndexKey";
+NSString * const CJDidTapSpecialTextKey = @"didTapSpecialTextKey";
 // 通知名
 NSString * const CJEmotionKeyboardDidSelectedNotification = @"emotionKeyboardDidSelectedNotification";
 NSString * const CJPhotoDidTapNotification = @"photoDidTapNotification";
 
-// 3.删除按钮点击通知
+NSString * const CJDidTapSpecialTextNotification = @"didTapSpecialTextNotification";
+
+// 删除按钮点击通知
 NSString * const CJEmitionkeyboardDidDeletedNotification = @"deletedNotification";

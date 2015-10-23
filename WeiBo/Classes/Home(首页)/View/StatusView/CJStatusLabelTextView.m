@@ -36,9 +36,10 @@
                 // 如果长度或者宽度为0 弃用
                 if (rect.size.height == 0 || rect.size.width == 0) continue;
             
-                [tmps addObject:[NSValue valueWithCGRect:rect]];
+                [tmps addObject:selectedRect];
             }
-            [allRects addObject:tmps];
+            special.rects = tmps;
+            [allRects addObject:special];
         }
         _speicalRects = allRects;
     }
@@ -86,38 +87,90 @@
 {
     // 获取触摸点
     UITouch *touch = [touches anyObject];
-
     CGPoint point = [touch locationInView:self];
-    // 标记  : 触摸点是否在特殊字符上
-    BOOL contains = NO;
-    // 获取某一段特殊字符
-    for (NSArray *tmps in self.speicalRects) {
-        // 获取这一段特殊字符中所有的矩形框
-        for (NSValue *rectValue in tmps) {
+    
+    // 得出被点击的那个链接
+    CJSpecialText *touchingSpecial = [self touchingSpecialTextWithPoint:point];
+    
+    // 设置链接选中的背景
+    [self showSpecialInBackground:touchingSpecial];
+    
+    // 设置链接选中的背景
+//    [self showLinkBackground:touchingLink];
+    
+//    // 标记  : 触摸点是否在特殊字符上
+//    BOOL contains = NO;
+//    // 获取某一段特殊字符
+//    for (NSArray *tmps in self.speicalRects) {
+//        // 获取这一段特殊字符中所有的矩形框
+//        for (NSValue *rectValue in tmps) {
+//            
+//            CGRect rect = [rectValue CGRectValue];
+//            // 判断触摸点与特殊字符矩形框是否有交点
+//            if (CGRectContainsPoint(rect, point)) { // 选中了某个特殊字符
+//                contains = YES;
+//                break; // 停止遍历
+//            }
+//    }
+//        if (contains) { // 触摸点在某段特殊字符上
+//            // 获得选中范围的矩形框
+//            for (NSValue *selecedRect in tmps) {
+//                CJCopyLabel *cover = [[CJCopyLabel alloc] init];
+//                cover.backgroundColor = [UIColor lightGrayColor];
+//                cover.frame = [selecedRect CGRectValue];
+//                cover.tag = CJStatusTextViewCoverTag;
+//                cover.layer.cornerRadius = 5;
+//                [self.textView insertSubview:cover atIndex:0];
+//            }
+//            break; // 停止遍历
+//        }
+//    }
+}
+
+
+- (CJSpecialText *)touchingSpecialTextWithPoint:(CGPoint)point
+{
+    __block CJSpecialText *touchingText = nil;
+
+    [self.speicalRects enumerateObjectsUsingBlock:^(CJSpecialText *special, NSUInteger idx, BOOL *stop) {
+        for (UITextSelectionRect *selectionRect in special.rects) {
             
-            CGRect rect = [rectValue CGRectValue];
-            // 判断触摸点与特殊字符矩形框是否有交点
-            if (CGRectContainsPoint(rect, point)) { // 选中了某个特殊字符
-                contains = YES;
-                break; // 停止遍历
+            if (CGRectContainsPoint(selectionRect.rect, point)) {
+                touchingText = special;
+                break;
             }
-    }
-        if (contains) { // 触摸点在某段特殊字符上
-            // 获得选中范围的矩形框
-            for (NSValue *selecedRect in tmps) {
-                CJCopyLabel *cover = [[CJCopyLabel alloc] init];
-                cover.backgroundColor = [UIColor lightGrayColor];
-                cover.frame = [selecedRect CGRectValue];
-                cover.tag = CJStatusTextViewCoverTag;
-                cover.layer.cornerRadius = 5;
-                [self.textView insertSubview:cover atIndex:0];
-            }
-            break; // 停止遍历
         }
+    }];
+    return touchingText;
+}
+/**
+ *  显示链接的背景
+ *
+ *  @param link 需要显示背景的link
+ */
+- (void)showSpecialInBackground:(CJSpecialText *)special
+{
+    for (UITextSelectionRect *selectionRect in special.rects) {
+        CJCopyLabel *bg = [[CJCopyLabel alloc] init];
+        bg.tag = CJStatusTextViewCoverTag;
+        bg.layer.cornerRadius = 3;
+        bg.frame = selectionRect.rect;
+        bg.backgroundColor = [UIColor lightGrayColor];
+        [self.textView insertSubview:bg atIndex:0];
     }
 }
+
 - (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
 {
+    UITouch *touch = [touches anyObject];
+    CGPoint point = [touch locationInView:touch.view];
+    
+    // 得出被点击的那个链接
+    CJSpecialText *touchingSpecial = [self touchingSpecialTextWithPoint:point];
+    if (touchingSpecial) {
+        // 说明手指在某个链接上面抬起来, 发出通知
+        [[NSNotificationCenter defaultCenter] postNotificationName:CJDidTapSpecialTextNotification object:nil userInfo:@{CJDidTapSpecialTextKey : touchingSpecial.text}];
+    }
     // 删除遮盖
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.25 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         [self touchesCancelled:touches withEvent:event];
@@ -144,13 +197,13 @@
  */
 - (BOOL)pointInside:(CGPoint)point withEvent:(UIEvent *)event
 {
-    for (NSArray *tmps in self.speicalRects) {
-        for (NSValue *rectValue in tmps) {
-            if (CGRectContainsPoint(rectValue.CGRectValue, point)) {
+    
+    CJSpecialText *touchingText = [self touchingSpecialTextWithPoint:point];
+    for (UITextSelectionRect *selectedRect in touchingText.rects) {
+            if (CGRectContainsPoint(selectedRect.rect, point)) {
                 return YES;
                 break;
             }
-        }
     }
     return NO;
 }

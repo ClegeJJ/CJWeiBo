@@ -10,6 +10,8 @@
 
 @interface CJSpecialText : NSObject
 
+/** 链接的边框 */
+@property (nonatomic, strong) NSArray *rects;
 /**
  *  特殊文字内容
  */

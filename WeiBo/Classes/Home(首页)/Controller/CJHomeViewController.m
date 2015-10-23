@@ -66,6 +66,8 @@
     [self setupUserData];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(photoDidTap:) name:CJPhotoDidTapNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(specialTextDidTap:) name:CJDidTapSpecialTextNotification object:nil];
+    
 }
 
 - (void)dealloc
@@ -73,6 +75,7 @@
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
+#pragma mark - Notification
 - (void)photoDidTap:(NSNotification *)notification
 {
     self.allWMPhotos = notification.userInfo[CJShowPhotoBrowserKey];
@@ -94,9 +97,13 @@
     UINavigationController *nv = [[UINavigationController alloc] initWithRootViewController:browser];
     nv.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
     [self presentViewController:nv animated:YES completion:nil];
-//    [self.navigationController pushViewController:browser animated:YES];
-    
 }
+- (void)specialTextDidTap:(NSNotification *)notification
+{
+    NSString *specialText = notification.userInfo[CJDidTapSpecialTextKey];
+    NSLog(@"%@",specialText);
+}
+
 #pragma mark - MWPhotoBrowserDelegate
 - (NSUInteger)numberOfPhotosInPhotoBrowser:(MWPhotoBrowser *)photoBrowser
 {
