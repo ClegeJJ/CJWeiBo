@@ -64,7 +64,10 @@
  *  被转发微博的配图
  */
 @property (nonatomic, assign, readonly) CGRect retweetPhotosViewF;
-
+/**
+ *  被转发微博的工具条
+ */
+@property (nonatomic, assign, readonly) CGRect retweetToolBarF;
 
 
 /**

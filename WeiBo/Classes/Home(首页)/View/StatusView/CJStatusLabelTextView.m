@@ -53,7 +53,6 @@
         UITextView *textView = [[UITextView alloc] init];
         // 设置TextView不能跟用户交互
         textView.userInteractionEnabled = NO;
-        textView.textColor = CJColor(90, 90, 90);
         [self addSubview:textView];
         self.textView = textView;
 
@@ -68,13 +67,19 @@
     }
     return self;
 }
-#pragma mark - 公共接口
+
+/**
+ *  传递数据
+ */
 - (void)setAttributedText:(NSAttributedString *)attributedText
 {
     _attributedText = attributedText;
     
     self.textView.attributedText = attributedText;
 }
+/**
+ *  调整子控件
+ */
 - (void)layoutSubviews
 {
     [super layoutSubviews];
@@ -94,40 +99,14 @@
     
     // 设置链接选中的背景
     [self showSpecialInBackground:touchingSpecial];
-    
-    // 设置链接选中的背景
-//    [self showLinkBackground:touchingLink];
-    
-//    // 标记  : 触摸点是否在特殊字符上
-//    BOOL contains = NO;
-//    // 获取某一段特殊字符
-//    for (NSArray *tmps in self.speicalRects) {
-//        // 获取这一段特殊字符中所有的矩形框
-//        for (NSValue *rectValue in tmps) {
-//            
-//            CGRect rect = [rectValue CGRectValue];
-//            // 判断触摸点与特殊字符矩形框是否有交点
-//            if (CGRectContainsPoint(rect, point)) { // 选中了某个特殊字符
-//                contains = YES;
-//                break; // 停止遍历
-//            }
-//    }
-//        if (contains) { // 触摸点在某段特殊字符上
-//            // 获得选中范围的矩形框
-//            for (NSValue *selecedRect in tmps) {
-//                CJCopyLabel *cover = [[CJCopyLabel alloc] init];
-//                cover.backgroundColor = [UIColor lightGrayColor];
-//                cover.frame = [selecedRect CGRectValue];
-//                cover.tag = CJStatusTextViewCoverTag;
-//                cover.layer.cornerRadius = 5;
-//                [self.textView insertSubview:cover atIndex:0];
-//            }
-//            break; // 停止遍历
-//        }
-//    }
+
 }
 
-
+/**
+ *  根据触摸点找出被触摸的链接
+ *
+ *  @param point 触摸点
+ */
 - (CJSpecialText *)touchingSpecialTextWithPoint:(CGPoint)point
 {
     __block CJSpecialText *touchingText = nil;
@@ -146,7 +125,7 @@
 /**
  *  显示链接的背景
  *
- *  @param link 需要显示背景的link
+ *  @param special 需要显示背景的special
  */
 - (void)showSpecialInBackground:(CJSpecialText *)special
 {

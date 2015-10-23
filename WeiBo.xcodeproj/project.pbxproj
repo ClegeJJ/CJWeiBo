@@ -36,7 +36,6 @@
 		F01529471BD7CAD400EE0024 /* CJStatusLabelTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = F015293C1BD7CAD400EE0024 /* CJStatusLabelTextView.m */; };
 		F01529481BD7CAD400EE0024 /* CJStatusPhotosView.m in Sources */ = {isa = PBXBuildFile; fileRef = F015293E1BD7CAD400EE0024 /* CJStatusPhotosView.m */; };
 		F01529491BD7CAD400EE0024 /* CJStatusPhotoView.m in Sources */ = {isa = PBXBuildFile; fileRef = F01529401BD7CAD400EE0024 /* CJStatusPhotoView.m */; };
-		F015294A1BD7CAD400EE0024 /* CJStatusToolBar.m in Sources */ = {isa = PBXBuildFile; fileRef = F01529421BD7CAD400EE0024 /* CJStatusToolBar.m */; };
 		F015294B1BD7CAD400EE0024 /* CJStatusTopView.m in Sources */ = {isa = PBXBuildFile; fileRef = F01529441BD7CAD400EE0024 /* CJStatusTopView.m */; };
 		F015294E1BD7CAEC00EE0024 /* CJDetailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F015294D1BD7CAEC00EE0024 /* CJDetailCell.m */; };
 		F01529511BD7D39200EE0024 /* CJDetailCommentTool.m in Sources */ = {isa = PBXBuildFile; fileRef = F01529501BD7D39200EE0024 /* CJDetailCommentTool.m */; };
@@ -761,6 +760,10 @@
 		F0DC0B8A1BB4217300B71D7B /* UIView+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = F0DC0B891BB4217300B71D7B /* UIView+Extension.m */; };
 		F0FFBC601BA17CC80059BFD3 /* CJBadegButton.m in Sources */ = {isa = PBXBuildFile; fileRef = F0FFBC5F1BA17CC80059BFD3 /* CJBadegButton.m */; };
 		F0FFF2F11BD9CABE004BB1BF /* CJCopyLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = F0FFF2F01BD9CABE004BB1BF /* CJCopyLabel.m */; };
+		F0FFF2FA1BDA0969004BB1BF /* CJRetweetStatusToolBar.m in Sources */ = {isa = PBXBuildFile; fileRef = F0FFF2F71BDA0969004BB1BF /* CJRetweetStatusToolBar.m */; };
+		F0FFF2FB1BDA0969004BB1BF /* CJStatusToolBar.m in Sources */ = {isa = PBXBuildFile; fileRef = F0FFF2F91BDA0969004BB1BF /* CJStatusToolBar.m */; };
+		F0FFF2FE1BDA097B004BB1BF /* CJBaseToolBar.m in Sources */ = {isa = PBXBuildFile; fileRef = F0FFF2FD1BDA097B004BB1BF /* CJBaseToolBar.m */; };
+		F0FFF3001BDA14E0004BB1BF /* Status_toolBar_background@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F0FFF2FF1BDA14E0004BB1BF /* Status_toolBar_background@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -832,8 +835,6 @@
 		F015293E1BD7CAD400EE0024 /* CJStatusPhotosView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CJStatusPhotosView.m; sourceTree = "<group>"; };
 		F015293F1BD7CAD400EE0024 /* CJStatusPhotoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CJStatusPhotoView.h; sourceTree = "<group>"; };
 		F01529401BD7CAD400EE0024 /* CJStatusPhotoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CJStatusPhotoView.m; sourceTree = "<group>"; };
-		F01529411BD7CAD400EE0024 /* CJStatusToolBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CJStatusToolBar.h; sourceTree = "<group>"; };
-		F01529421BD7CAD400EE0024 /* CJStatusToolBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CJStatusToolBar.m; sourceTree = "<group>"; };
 		F01529431BD7CAD400EE0024 /* CJStatusTopView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CJStatusTopView.h; sourceTree = "<group>"; };
 		F01529441BD7CAD400EE0024 /* CJStatusTopView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CJStatusTopView.m; sourceTree = "<group>"; };
 		F015294C1BD7CAEC00EE0024 /* CJDetailCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CJDetailCell.h; sourceTree = "<group>"; };
@@ -1649,6 +1650,13 @@
 		F0FFBC5F1BA17CC80059BFD3 /* CJBadegButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CJBadegButton.m; sourceTree = "<group>"; };
 		F0FFF2EF1BD9CABE004BB1BF /* CJCopyLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CJCopyLabel.h; sourceTree = "<group>"; };
 		F0FFF2F01BD9CABE004BB1BF /* CJCopyLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CJCopyLabel.m; sourceTree = "<group>"; };
+		F0FFF2F61BDA0969004BB1BF /* CJRetweetStatusToolBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CJRetweetStatusToolBar.h; sourceTree = "<group>"; };
+		F0FFF2F71BDA0969004BB1BF /* CJRetweetStatusToolBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CJRetweetStatusToolBar.m; sourceTree = "<group>"; };
+		F0FFF2F81BDA0969004BB1BF /* CJStatusToolBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CJStatusToolBar.h; sourceTree = "<group>"; };
+		F0FFF2F91BDA0969004BB1BF /* CJStatusToolBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CJStatusToolBar.m; sourceTree = "<group>"; };
+		F0FFF2FC1BDA097B004BB1BF /* CJBaseToolBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CJBaseToolBar.h; sourceTree = "<group>"; };
+		F0FFF2FD1BDA097B004BB1BF /* CJBaseToolBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CJBaseToolBar.m; sourceTree = "<group>"; };
+		F0FFF2FF1BDA14E0004BB1BF /* Status_toolBar_background@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Status_toolBar_background@2x.png"; sourceTree = "<group>"; };
 		FE2310932B1E6441EE643473 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -1781,6 +1789,7 @@
 		F01529361BD7CAD400EE0024 /* StatusView */ = {
 			isa = PBXGroup;
 			children = (
+				F0FFF2F51BDA0969004BB1BF /* ToolBar */,
 				F01529371BD7CAD400EE0024 /* CJIconView.h */,
 				F01529381BD7CAD400EE0024 /* CJIconView.m */,
 				F01529391BD7CAD400EE0024 /* CJRetweetStatusView.h */,
@@ -1791,8 +1800,6 @@
 				F015293E1BD7CAD400EE0024 /* CJStatusPhotosView.m */,
 				F015293F1BD7CAD400EE0024 /* CJStatusPhotoView.h */,
 				F01529401BD7CAD400EE0024 /* CJStatusPhotoView.m */,
-				F01529411BD7CAD400EE0024 /* CJStatusToolBar.h */,
-				F01529421BD7CAD400EE0024 /* CJStatusToolBar.m */,
 				F01529431BD7CAD400EE0024 /* CJStatusTopView.h */,
 				F01529441BD7CAD400EE0024 /* CJStatusTopView.m */,
 				F0FFF2EF1BD9CABE004BB1BF /* CJCopyLabel.h */,
@@ -3248,6 +3255,7 @@
 		F077145A1BA6B917001ECEA3 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				F0FFF2FF1BDA14E0004BB1BF /* Status_toolBar_background@2x.png */,
 				F077145B1BA6B917001ECEA3 /* timeline_card_bottom_background.imageset */,
 				F077145F1BA6B917001ECEA3 /* timeline_card_bottom_background_os7.imageset */,
 				F07714621BA6B917001ECEA3 /* timeline_card_bottom_line.imageset */,
@@ -3883,6 +3891,19 @@
 			path = Other;
 			sourceTree = "<group>";
 		};
+		F0FFF2F51BDA0969004BB1BF /* ToolBar */ = {
+			isa = PBXGroup;
+			children = (
+				F0FFF2F61BDA0969004BB1BF /* CJRetweetStatusToolBar.h */,
+				F0FFF2F71BDA0969004BB1BF /* CJRetweetStatusToolBar.m */,
+				F0FFF2F81BDA0969004BB1BF /* CJStatusToolBar.h */,
+				F0FFF2F91BDA0969004BB1BF /* CJStatusToolBar.m */,
+				F0FFF2FC1BDA097B004BB1BF /* CJBaseToolBar.h */,
+				F0FFF2FD1BDA097B004BB1BF /* CJBaseToolBar.m */,
+			);
+			path = ToolBar;
+			sourceTree = "<group>";
+		};
 		FDBB3952B51268D6914C3169 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -3992,6 +4013,7 @@
 				F033A7CB1BA0554D00417D4D /* navigationbar_friendsearch.png in Resources */,
 				F033A7EA1BA0554D00417D4D /* new_feature_background.png in Resources */,
 				F033A7841BA0554D00417D4D /* common_button_red_disable@2x.png in Resources */,
+				F0FFF3001BDA14E0004BB1BF /* Status_toolBar_background@2x.png in Resources */,
 				F03C50B21BB3CB7100D4A8CC /* d_wabishi@2x.png in Resources */,
 				F03C51401BB3CB7100D4A8CC /* lxh_toule.png in Resources */,
 				F033A7DE1BA0554D00417D4D /* new_dot@2x.png in Resources */,
@@ -4690,6 +4712,7 @@
 				F0DC0B8A1BB4217300B71D7B /* UIView+Extension.m in Sources */,
 				F0D4D32D1BD8CD4B0086BACC /* CJSettingSwitchItem.m in Sources */,
 				F008AE3E1BB032AF0098C157 /* CJOAuthParma.m in Sources */,
+				F0FFF2FA1BDA0969004BB1BF /* CJRetweetStatusToolBar.m in Sources */,
 				F026A44D1BD6755800CEE8CA /* AFHTTPRequestOperationManager.m in Sources */,
 				F0C90A841BB514EF0088298B /* CJEmotionTextView.m in Sources */,
 				F008AE2B1BB0270A0098C157 /* CJUserInfoResult.m in Sources */,
@@ -4736,11 +4759,11 @@
 				F0A96BA61BCFC46E00786A0E /* CJEmotionTool.m in Sources */,
 				F057F16D1BD628DC0058FB2B /* MWGridCell.m in Sources */,
 				F033A68D1BA0374A00417D4D /* CJMeViewController.m in Sources */,
+				F0FFF2FB1BDA0969004BB1BF /* CJStatusToolBar.m in Sources */,
 				F0D4D3661BD8E3450086BACC /* main.m in Sources */,
 				F0403B1D1BC2A5FF0005A801 /* CJConst.m in Sources */,
 				F0D4D3211BD8CB060086BACC /* CJSettingViewController.m in Sources */,
 				F057F1741BD628DC0058FB2B /* UIImage+MWPhotoBrowser.m in Sources */,
-				F015294A1BD7CAD400EE0024 /* CJStatusToolBar.m in Sources */,
 				F026A44C1BD6755800CEE8CA /* AFHTTPRequestOperation.m in Sources */,
 				F008AE481BB0379A0098C157 /* CJUnreadCountParma.m in Sources */,
 				F09CF13B1BAABF5F00923788 /* CJComposeViewController.m in Sources */,
@@ -4766,6 +4789,7 @@
 				F008AE3B1BB032870098C157 /* CJOAuthTool.m in Sources */,
 				F09736051BA2B3AD0046A288 /* CJTitleButton.m in Sources */,
 				F026A44E1BD6755800CEE8CA /* AFHTTPSessionManager.m in Sources */,
+				F0FFF2FE1BDA097B004BB1BF /* CJBaseToolBar.m in Sources */,
 				F033A6881BA0374A00417D4D /* CJHomeViewController.m in Sources */,
 				F015294E1BD7CAEC00EE0024 /* CJDetailCell.m in Sources */,
 				F008AE351BB02C6C0098C157 /* CJComposeParma.m in Sources */,

@@ -88,7 +88,7 @@
         /**  微博发送的时间 */
         UILabel *timeLabel = [[UILabel alloc] init];
         timeLabel.font = CJStatusTimeFont;
-        timeLabel.textColor = CJColor(135, 135, 135);
+        timeLabel.textColor = [UIColor orangeColor];
         [self addSubview:timeLabel];
         self.timeLabel = timeLabel;
         
@@ -101,7 +101,6 @@
         
         /**  微博的正文 */
         CJStatusLabelTextView *contentLabel = [[CJStatusLabelTextView alloc] init];
-//        contentLabel.textColor = CJColor(39, 39, 39);
         [self addSubview:contentLabel];
         self.contentLabel = contentLabel;
         
@@ -150,7 +149,7 @@
     /**  微博发送的时间 */
     self.timeLabel.text = status.created_at;
     CGFloat timeLabelX = self.statusFrame.nameLabelF.origin.x;
-    CGFloat timeLabelY = CGRectGetMaxY(self.statusFrame.nameLabelF);
+    CGFloat timeLabelY = CGRectGetMaxY(self.statusFrame.nameLabelF) + CJStatusFrameBorder;
     _dict[NSFontAttributeName] = CJStatusTimeFont;
     CGSize timeLabelSize = [status.created_at sizeWithAttributes:_dict];
     self.timeLabel.frame = (CGRect){{timeLabelX,timeLabelY},timeLabelSize};

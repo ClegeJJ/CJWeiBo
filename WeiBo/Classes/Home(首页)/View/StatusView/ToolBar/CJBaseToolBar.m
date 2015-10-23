@@ -6,17 +6,14 @@
 //  Copyright (c) 2015年 mac527. All rights reserved.
 //
 
-#import "CJStatusToolBar.h"
+#import "CJBaseToolBar.h"
 
 #import "CJStatus.h"
 
-@interface CJStatusToolBar()
+@interface CJBaseToolBar()
 
 
 @property (nonatomic ,strong) NSMutableArray *btns; // 所有button
-
-@property (nonatomic ,strong) NSMutableArray *dividers; // 所有分割线
-
 /**
  *  微博的转发数
  */
@@ -31,7 +28,7 @@
 @property (nonatomic, strong) UIButton *attitudes_countBtn;
 @end
 
-@implementation CJStatusToolBar
+@implementation CJBaseToolBar
 
 
 - (NSMutableArray *)btns
@@ -40,13 +37,6 @@
         _btns = [NSMutableArray array];
     }
     return _btns;
-}
-- (NSMutableArray *)dividers
-{
-    if (_dividers == nil) {
-        _dividers = [NSMutableArray array];
-    }
-    return _dividers;
 }
 
 - (instancetype)initWithFrame:(CGRect)frame
@@ -57,10 +47,9 @@
         // 1. 设置与用户交互 button才能监听事件
         self.userInteractionEnabled = YES;
         
-        // 2. 设置bar的背景图片
-        self.image = [UIImage resizedImageWithName:@"searchbar_textfield_background"];
-        self.highlightedImage = [UIImage imageWithColor:CJColor(236, 236, 245)];
-        
+
+     // 2. 设置bar的背景颜色
+        self.backgroundColor = [UIColor clearColor];
         // 3. 设置子控件
         self.reposts_countBtn = [self setupButtonWithTitle:@"转发" image:@"timeline_icon_retweet" bgImage:@"timeline_card_middlebottom_highlighted"];
         
@@ -68,23 +57,10 @@
         
         self.attitudes_countBtn = [self setupButtonWithTitle:@"赞" image:@"timeline_icon_unlike" bgImage:@"timeline_card_middlebottom_highlighted"];
         
-        // 4. 设置分割线
-        [self setupDivider];
-        [self setupDivider];
     }
     return self;
 }
-/**
- *  设置分割线
- */
-- (void)setupDivider
-{
-    UIImageView *divider = [[UIImageView alloc] initWithImage:[UIImage imageWithName:@"timeline_card_bottom_line"]];
-    [self addSubview:divider];
-    
-    //     添加分割线到数组
-    [self.dividers addObject:divider];
-}
+
 /**
  *  设置按钮
  *
@@ -102,7 +78,7 @@
     [btn setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];  // 文字颜色
     btn.titleLabel.font = [UIFont boldSystemFontOfSize:13];   // 字体
     btn.titleEdgeInsets = UIEdgeInsetsMake(0, 5, 0, 0);  // 调整button内间距
-   
+    
     btn.adjustsImageWhenHighlighted = NO;  // 自动调整图片
     [btn setBackgroundImage:[UIImage resizedImageWithName:bgImage] forState:UIControlStateHighlighted];
     [btn addTarget:self action:nil forControlEvents:UIControlEventTouchUpInside];
@@ -113,8 +89,8 @@
     [self.btns addObject:btn];
     
     return btn;
-
-
+    
+    
 }
 
 - (void)setStatus:(CJStatus *)status
@@ -155,13 +131,13 @@
             title = [NSString stringWithFormat:@"%.1f万",number];
             title = [title stringByReplacingOccurrencesOfString:@".0" withString:@""];
         }
-
+        
     }else{ // 评论为0
         title = originalTitle;
     }
-
+    
     [button setTitle:title forState:UIControlStateNormal];
-
+    
 }
 
 /**
@@ -172,27 +148,15 @@
     [super layoutSubviews];
     CGFloat Y = 0;
     CGFloat H = self.frame.size.height;
-    CGFloat dividerW = 2;
-    CGFloat btnW = (self.frame.size.width - (dividerW * self.dividers.count)) / self.btns.count;
+    CGFloat btnW = self.width / self.btns.count;
     // 调整按钮位置
     for (int index = 0; index < self.btns.count; index ++) {
         
-        CGFloat X = index * (btnW + dividerW);
+        CGFloat X = index * btnW;
         UIButton *btn = self.subviews[index];
-
+        
         btn.frame = CGRectMake(X, Y, btnW, H);
     }
     
-
-    // 调整分割线位置
-    for (int j = 0; j < self.dividers.count; j++) {
-        
-        UIImageView *divider = self.dividers[j];
-        UIButton *btn = self.btns[j];
-        CGFloat X = CGRectGetMaxX(btn.frame);
-        divider.frame = CGRectMake(X, Y, dividerW, H);
-        
-    }
-
 }
 @end

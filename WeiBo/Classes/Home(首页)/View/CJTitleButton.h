@@ -9,7 +9,4 @@
 #import <UIKit/UIKit.h>
 
 @interface CJTitleButton : UIButton
-
-
-
 @end

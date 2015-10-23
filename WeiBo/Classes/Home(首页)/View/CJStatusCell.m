@@ -21,8 +21,6 @@
  */
 @property (nonatomic, weak) CJStatusTopView *topView;
 
-
-
 /**
  *  微博的工具条(底部工具条父控件)
  */

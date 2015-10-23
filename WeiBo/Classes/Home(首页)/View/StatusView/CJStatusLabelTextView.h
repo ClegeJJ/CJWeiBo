@@ -15,4 +15,6 @@
  *  特殊文字所在的矩形框
  */
 @property (nonatomic ,strong) NSMutableArray *speicalRects;
+
+
 @end

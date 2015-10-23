@@ -48,13 +48,13 @@
 #define CJStatusSourceFont [UIFont boldSystemFontOfSize:12]
 
 /** 正文的字体 */
-#define CJStatusContentFont [UIFont systemFontOfSize:15]
+#define CJStatusContentFont [UIFont systemFontOfSize:17]
 /** 被转发微博正文的字体 */
-#define CJRetweetStatusContentFont [UIFont systemFontOfSize:15]
+#define CJRetweetStatusContentFont [UIFont systemFontOfSize:17]
 
 // 5.微博cell配图相关属性
 // 多张配图时图片尺寸
-#define CJPhotosWH 90
+#define CJPhotosWH 100
 
 // 6.表情键盘
 // 一页中最多3行
@@ -68,7 +68,7 @@
 
 // 7.微博配图
 // 只有一张配图时图片尺寸
-#define CJPhotoWH 130
+#define CJPhotoWH 140
 #define CJPhotosMargin 10
 
 

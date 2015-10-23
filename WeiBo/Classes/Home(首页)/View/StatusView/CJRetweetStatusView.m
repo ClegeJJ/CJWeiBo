@@ -13,6 +13,7 @@
 #import "CJStatusFrame.h"
 #import "CJStatusLabelTextView.h"
 #import "UIImageView+WebCache.h"
+#import "CJRetweetStatusToolBar.h"
 @interface CJRetweetStatusView()
 /**
  *  被转发用户的昵称
@@ -26,6 +27,10 @@
  *  被转发微博的配图
  */
 @property (nonatomic, weak) CJStatusPhotosView *retweetPhotosView;
+/**
+ *  被转发微博的工具条
+ */
+@property (nonatomic, weak) CJRetweetStatusToolBar *retweetToolBar;
 @end
 
 @implementation CJRetweetStatusView
@@ -37,17 +42,10 @@
         self.userInteractionEnabled = YES;
         // 设置背景图片
         self.image = [UIImage resizedImageWithName:@"timeline_retweet_background" left:0.9 top:0.5];
-        
-        /** 被转发微博用户的昵称 */
-//        UILabel *retweetNameLabel = [[UILabel alloc] init];
-//        retweetNameLabel.font = CJRetweetStatusNameFont;
-//        retweetNameLabel.textColor = CJColor(67, 107, 163);
-//        [self addSubview:retweetNameLabel];
-//        self.retweetNameLabel = retweetNameLabel;
+
         
         /**  被转发微博的正文 */
         CJStatusLabelTextView *retweetContentLabel = [[CJStatusLabelTextView alloc] init];
-//        retweetContentLabel.textColor = CJColor(90, 90, 90);
         [self addSubview:retweetContentLabel];
         self.retweetContentLabel = retweetContentLabel;
         
@@ -55,6 +53,11 @@
         CJStatusPhotosView *retweetPhotosView = [[CJStatusPhotosView alloc] init];
         [self addSubview:retweetPhotosView];
         self.retweetPhotosView = retweetPhotosView;
+        
+        /**  被转发微博的工具条 */
+        CJRetweetStatusToolBar *retweetToolBar = [[CJRetweetStatusToolBar alloc] init];
+        [self addSubview:retweetToolBar];
+        self.retweetToolBar = retweetToolBar;
     }
     return self;
 }
@@ -64,18 +67,13 @@
     _statusFrame = statusFrame;
     
     CJStatus *retReetStatus = self.statusFrame.status.retweeted_status;
-//    CJUser *user = retReetStatus.user;
     
-    // 1.昵称
-//    self.retweetNameLabel.text = [NSString stringWithFormat:@"@%@:",user.name];
-//    self.retweetNameLabel.frame = self.statusFrame.retweetNameLabelF;
-    
-    // 2.正文
+    // 1.正文
     self.retweetContentLabel.speicalRects = nil;
     self.retweetContentLabel.attributedText = retReetStatus.retweetedAttributedSting;
     self.retweetContentLabel.frame = self.statusFrame.retweetContentLabelF;
     
-    // 3.配图
+    // 2.配图
     if (retReetStatus.pic_urls.count) { // 有配图
         self.retweetPhotosView.hidden = NO;
         self.retweetPhotosView.photos = retReetStatus.pic_urls;
@@ -83,6 +81,10 @@
     }else { // 无配图
         self.retweetPhotosView.hidden = YES;
     }
+    
+    // 3.工具条
+    self.retweetToolBar.frame = statusFrame.retweetToolBarF;
+    self.retweetToolBar.status = retReetStatus;
 }
 
 
