@@ -153,9 +153,10 @@
     CJHomeStatusesParam *param = [CJHomeStatusesParam parma];
     param.count = @10;
     if (self.statusFrames.count) {
-        CJStatusFrame *statusFrame = [self.statusFrames lastObject];
-        long long maxID = [statusFrame.status.idstr longLongValue] - 1;
+        CJStatusFrame *lastStatus = [self.statusFrames lastObject];
+        long long maxID = [lastStatus.status.idstr longLongValue] - 1;
         param.max_id = @(maxID);
+        NSLog(@"%lld",maxID);
     }
     // 2.发送GET请求 获取微博数据
     [CJHomeStatusTool HomeStatusWithParameters:param success:^(CJHomeStatusesResult *result)  {
@@ -170,7 +171,13 @@
             [statusFrameArray addObject:statusFrame];
         }
         
+
+        
         [_statusFrames addObjectsFromArray:statusFrameArray];
+        
+        for (int i = 0; i < _statusFrames.count; i++) {
+            CJStatusFrame *statusF = _statusFrames[i];
+        }
         
         // 结束刷新
         [self.tableView.footer endRefreshing];
@@ -197,7 +204,7 @@
         CJStatusFrame *statusFrame = self.statusFrames[0];
         param.since_id = @([statusFrame.status.idstr longLongValue]);
     }
-    param.count = @30;
+    param.count = @10;
         // 2.发送GET请求 获取微博数据
     [CJHomeStatusTool HomeStatusWithParameters:param success:^(CJHomeStatusesResult *result) {
         // 将字典数组转为模型数组(里面放的就是CJStatus模型)

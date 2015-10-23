@@ -64,11 +64,10 @@ FMDatabaseQueue *_queue;
         
         if (param.since_id) {
             result = [db executeQuery:@"select dict from t_statuses where access_token = ? and idstr >? order by idstr desc limit 0,?",access_token,param.since_id,param.count];
-//        }else if (param.max_id){
-//            
+        }else if (param.max_id){
 //            result = [db executeQuery:@"select idstr from t_statuses where access_token =? and idstr = (select max(idstr) from t_statuses)",access_token];
 ////            result = [db executeQuery:@"select dict from t_statuses where access_token = ? and idstr <=? order by idstr desc limit 0,?",access_token,param.max_id,param.count];
-//            
+//
 //            
         }
         else{

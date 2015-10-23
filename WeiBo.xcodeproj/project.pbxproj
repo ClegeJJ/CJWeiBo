@@ -765,6 +765,7 @@
 		F0FFF2FE1BDA097B004BB1BF /* CJBaseToolBar.m in Sources */ = {isa = PBXBuildFile; fileRef = F0FFF2FD1BDA097B004BB1BF /* CJBaseToolBar.m */; };
 		F0FFF3001BDA14E0004BB1BF /* Status_toolBar_background@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F0FFF2FF1BDA14E0004BB1BF /* Status_toolBar_background@2x.png */; };
 		F0FFF3031BDA4D0A004BB1BF /* CJStatusDetailBottomToolBar.m in Sources */ = {isa = PBXBuildFile; fileRef = F0FFF3021BDA4D0A004BB1BF /* CJStatusDetailBottomToolBar.m */; };
+		F0FFF3061BDA606F004BB1BF /* CJStatusDetailTopToolBar.m in Sources */ = {isa = PBXBuildFile; fileRef = F0FFF3051BDA606F004BB1BF /* CJStatusDetailTopToolBar.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -1660,6 +1661,8 @@
 		F0FFF2FF1BDA14E0004BB1BF /* Status_toolBar_background@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Status_toolBar_background@2x.png"; sourceTree = "<group>"; };
 		F0FFF3011BDA4D0A004BB1BF /* CJStatusDetailBottomToolBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CJStatusDetailBottomToolBar.h; sourceTree = "<group>"; };
 		F0FFF3021BDA4D0A004BB1BF /* CJStatusDetailBottomToolBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CJStatusDetailBottomToolBar.m; sourceTree = "<group>"; };
+		F0FFF3041BDA606F004BB1BF /* CJStatusDetailTopToolBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CJStatusDetailTopToolBar.h; sourceTree = "<group>"; };
+		F0FFF3051BDA606F004BB1BF /* CJStatusDetailTopToolBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CJStatusDetailTopToolBar.m; sourceTree = "<group>"; };
 		FE2310932B1E6441EE643473 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -3897,6 +3900,8 @@
 		F0FFF2F51BDA0969004BB1BF /* ToolBar */ = {
 			isa = PBXGroup;
 			children = (
+				F0FFF3041BDA606F004BB1BF /* CJStatusDetailTopToolBar.h */,
+				F0FFF3051BDA606F004BB1BF /* CJStatusDetailTopToolBar.m */,
 				F0FFF2F61BDA0969004BB1BF /* CJRetweetStatusToolBar.h */,
 				F0FFF2F71BDA0969004BB1BF /* CJRetweetStatusToolBar.m */,
 				F0FFF2F81BDA0969004BB1BF /* CJStatusToolBar.h */,
@@ -4778,6 +4783,7 @@
 				F015294B1BD7CAD400EE0024 /* CJStatusTopView.m in Sources */,
 				F088116E1BA2C74800A05B49 /* CJNewfeatureViewController.m in Sources */,
 				F09735FF1BA286750046A288 /* UIBarButtonItem+CJ.m in Sources */,
+				F0FFF3061BDA606F004BB1BF /* CJStatusDetailTopToolBar.m in Sources */,
 				F026A4531BD6755800CEE8CA /* AFURLResponseSerialization.m in Sources */,
 				F05348581BA7A2460063CB6C /* NSDate+MJ.m in Sources */,
 				F026A4501BD6755800CEE8CA /* AFSecurityPolicy.m in Sources */,
