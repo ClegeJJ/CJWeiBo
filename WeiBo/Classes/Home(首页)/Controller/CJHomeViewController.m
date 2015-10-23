@@ -412,8 +412,11 @@
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
     CJDetailViewController *detail = [[CJDetailViewController alloc] init];
-    detail.statusF = self.statusFrames[indexPath.row];
-    detail.view.backgroundColor = self.tableView.backgroundColor;
+
+    CJStatusFrame *stausF = self.statusFrames[indexPath.row];
+    stausF.status.retweeted_status.detail = YES;
+    detail.status = stausF.status;
+    
     [self.navigationController pushViewController:detail animated:YES];
 }
 @end

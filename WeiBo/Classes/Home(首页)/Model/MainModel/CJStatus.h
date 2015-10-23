@@ -65,6 +65,10 @@
  *  被转发的微博的正文
  */
 @property (nonatomic, copy) NSAttributedString *retweetedAttributedSting;
+/** 
+ 这个数据是否展示在微博正文页面
+ */
+@property (nonatomic, assign, getter = isDetail) BOOL detail;
 
 @end
 /*

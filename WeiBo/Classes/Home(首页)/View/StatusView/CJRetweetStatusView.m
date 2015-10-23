@@ -41,8 +41,8 @@
     if (self = [super initWithFrame:frame]) {
         self.userInteractionEnabled = YES;
         // 设置背景图片
-        self.image = [UIImage resizedImageWithName:@"timeline_retweet_background" left:0.9 top:0.5];
-
+//        self.image = [UIImage resizedImageWithName:@"timeline_retweet_background" left:0.9 top:0.5];
+        self.backgroundColor = CJColor(245, 245, 245);
         
         /**  被转发微博的正文 */
         CJStatusLabelTextView *retweetContentLabel = [[CJStatusLabelTextView alloc] init];
@@ -83,8 +83,16 @@
     }
     
     // 3.工具条
-    self.retweetToolBar.frame = statusFrame.retweetToolBarF;
-    self.retweetToolBar.status = retReetStatus;
+    if (retReetStatus.isDetail) {
+        self.retweetToolBar.frame = statusFrame.retweetToolBarF;
+//        NSLog(@"%@",self.retweetToolBar.frame);
+        self.retweetToolBar.status = retReetStatus;
+        self.retweetToolBar.hidden = NO;
+    }else{
+        self.retweetToolBar.hidden = YES;
+    }
+        
+
 }
 
 

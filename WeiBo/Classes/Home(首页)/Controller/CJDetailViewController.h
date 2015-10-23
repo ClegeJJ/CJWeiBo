@@ -7,12 +7,12 @@
 //  微博详情控制器
 
 #import <UIKit/UIKit.h>
-@class CJStatusFrame;
-@interface CJDetailViewController : UITableViewController
+@class CJStatus;
+@interface CJDetailViewController : UIViewController
 
 /**
  *  微博模型
  */
-@property (nonatomic, strong) CJStatusFrame *statusF;
+@property (nonatomic, strong) CJStatus *status;
 
 @end

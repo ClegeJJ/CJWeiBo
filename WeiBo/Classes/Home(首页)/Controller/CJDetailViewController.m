@@ -12,7 +12,11 @@
 #import "CJStatusTopView.h"
 #import "CJDetailCell.h"
 #import "CJDetailCommentTool.h"
-@interface CJDetailViewController ()
+#import "CJStatusDetailBottomToolBar.h"
+#import "CJStatusToolBar.h"
+@interface CJDetailViewController () <UITableViewDelegate,UITableViewDataSource>
+@property (nonatomic, weak) UITableView *tableView;
+@property (nonatomic, weak) CJStatusToolBar *bottomBar;
 
 @property (nonatomic, strong) NSMutableArray *groups;
 @property (nonatomic, strong) NSArray *statusGroup;
@@ -21,27 +25,15 @@
 
 @implementation CJDetailViewController
 
-- (id)initWithStyle:(UITableViewStyle)style
-{
-    return [super initWithStyle:UITableViewStyleGrouped];
-}
-
-- (id)init
-{
-    return [super initWithStyle:UITableViewStyleGrouped];
-}
-
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.tableView.backgroundView = nil;
-    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     
-    self.tableView.sectionHeaderHeight = 10;
-    self.tableView.sectionFooterHeight = 0;
-    self.tableView.contentInset = UIEdgeInsetsMake(-25, 0, 0, 0);
+    self.title = @"微博正文";
     
-    [self.groups addObject:self.statusGroup];
+    [self setUpTableView];
 
+    [self setUpBottomToolBar];
+    
     [self setUpCommentsData];
     
 }
@@ -56,7 +48,9 @@
 - (NSArray *)statusGroup
 {
     if (_statusGroup == nil) {
-        _statusGroup = @[self.statusF];
+        CJStatusFrame *statusF = [[CJStatusFrame alloc] init];
+        statusF.status = self.status;
+        _statusGroup = @[statusF];
     }
     return _statusGroup;
 }
@@ -68,10 +62,35 @@
     return _commentGroup;
 }
 
+- (void)setUpTableView
+{
+    UITableView *tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, self.view.width, self.view.height - 49) style:UITableViewStyleGrouped];
+    [self.view addSubview:tableView];
+    self.tableView = tableView;
+    self.tableView.delegate = self;
+    self.tableView.dataSource = self;
+    self.tableView.backgroundView = nil;
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    self.tableView.backgroundColor = CJGlobelBackgroundColor;
+    self.tableView.sectionHeaderHeight = 10;
+    self.tableView.sectionFooterHeight = 0;
+    self.tableView.contentInset = UIEdgeInsetsMake(-25, 0, 0, 0);
+    
+    [self.groups addObject:self.statusGroup];
+}
+
+- (void)setUpBottomToolBar
+{
+    CJStatusToolBar *bottomBar = [[CJStatusToolBar alloc] init];
+    bottomBar.frame = CGRectMake(0, CGRectGetMaxY(self.tableView.frame), self.view.width, self.view.height - self.tableView.height);
+    [self.view addSubview:bottomBar];
+    self.bottomBar = bottomBar;
+}
+
 - (void)setUpCommentsData
 {
     CJDetailCommentParam *param = [CJDetailCommentParam parma];
-    param.ID = [NSNumber numberWithLongLong:[self.statusF.status.idstr longLongValue]];
+    param.ID = [NSNumber numberWithLongLong:[self.status.idstr longLongValue]];
     [CJDetailCommentTool detailCommentWithParam:param success:^(CJDetailCommentResult *result) {
         NSLog(@"成功");
     } failure:^(NSError *error) {

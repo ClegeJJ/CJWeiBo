@@ -764,6 +764,7 @@
 		F0FFF2FB1BDA0969004BB1BF /* CJStatusToolBar.m in Sources */ = {isa = PBXBuildFile; fileRef = F0FFF2F91BDA0969004BB1BF /* CJStatusToolBar.m */; };
 		F0FFF2FE1BDA097B004BB1BF /* CJBaseToolBar.m in Sources */ = {isa = PBXBuildFile; fileRef = F0FFF2FD1BDA097B004BB1BF /* CJBaseToolBar.m */; };
 		F0FFF3001BDA14E0004BB1BF /* Status_toolBar_background@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F0FFF2FF1BDA14E0004BB1BF /* Status_toolBar_background@2x.png */; };
+		F0FFF3031BDA4D0A004BB1BF /* CJStatusDetailBottomToolBar.m in Sources */ = {isa = PBXBuildFile; fileRef = F0FFF3021BDA4D0A004BB1BF /* CJStatusDetailBottomToolBar.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -1657,6 +1658,8 @@
 		F0FFF2FC1BDA097B004BB1BF /* CJBaseToolBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CJBaseToolBar.h; sourceTree = "<group>"; };
 		F0FFF2FD1BDA097B004BB1BF /* CJBaseToolBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CJBaseToolBar.m; sourceTree = "<group>"; };
 		F0FFF2FF1BDA14E0004BB1BF /* Status_toolBar_background@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Status_toolBar_background@2x.png"; sourceTree = "<group>"; };
+		F0FFF3011BDA4D0A004BB1BF /* CJStatusDetailBottomToolBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CJStatusDetailBottomToolBar.h; sourceTree = "<group>"; };
+		F0FFF3021BDA4D0A004BB1BF /* CJStatusDetailBottomToolBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CJStatusDetailBottomToolBar.m; sourceTree = "<group>"; };
 		FE2310932B1E6441EE643473 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -3900,6 +3903,8 @@
 				F0FFF2F91BDA0969004BB1BF /* CJStatusToolBar.m */,
 				F0FFF2FC1BDA097B004BB1BF /* CJBaseToolBar.h */,
 				F0FFF2FD1BDA097B004BB1BF /* CJBaseToolBar.m */,
+				F0FFF3011BDA4D0A004BB1BF /* CJStatusDetailBottomToolBar.h */,
+				F0FFF3021BDA4D0A004BB1BF /* CJStatusDetailBottomToolBar.m */,
 			);
 			path = ToolBar;
 			sourceTree = "<group>";
@@ -4739,6 +4744,7 @@
 				F008AE4B1BB037B20098C157 /* CJUnreadCountResult.m in Sources */,
 				F095A3AE1BA92B5300696D9D /* UIViewExt.m in Sources */,
 				F0DC0B851BB41BD900B71D7B /* CJEmotionPopView.m in Sources */,
+				F0FFF3031BDA4D0A004BB1BF /* CJStatusDetailBottomToolBar.m in Sources */,
 				F05228761BB0EF4500F4E059 /* CJEmotionListView.m in Sources */,
 				F01529471BD7CAD400EE0024 /* CJStatusLabelTextView.m in Sources */,
 				F0D778391BB3906B0082ED64 /* CJEmotionPageView.m in Sources */,

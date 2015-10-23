@@ -11,11 +11,7 @@
 #import "CJStatus.h"
 
 @interface CJStatusToolBar()
-
-
 @property (nonatomic ,strong) NSMutableArray *dividers; // 所有分割线
-
-
 @end
 
 @implementation CJStatusToolBar

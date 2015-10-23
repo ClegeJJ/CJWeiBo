@@ -53,6 +53,7 @@
         UITextView *textView = [[UITextView alloc] init];
         // 设置TextView不能跟用户交互
         textView.userInteractionEnabled = NO;
+        textView.backgroundColor = [UIColor clearColor];
         [self addSubview:textView];
         self.textView = textView;
 
@@ -63,6 +64,7 @@
         // 容器边距  默认为 {8,0,8,0};
         // 默认左右有间距 但是值为0 ;
         self.textView.textContainerInset = UIEdgeInsetsMake(0, -5, 0, -5);
+
         self.backgroundColor = [UIColor clearColor];
     }
     return self;
