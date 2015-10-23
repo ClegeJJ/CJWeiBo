@@ -101,7 +101,7 @@
         
         /**  微博的正文 */
         CJStatusLabelTextView *contentLabel = [[CJStatusLabelTextView alloc] init];
-        contentLabel.textColor = CJColor(39, 39, 39);
+//        contentLabel.textColor = CJColor(39, 39, 39);
         [self addSubview:contentLabel];
         self.contentLabel = contentLabel;
         

@@ -47,7 +47,7 @@
         
         /**  被转发微博的正文 */
         CJStatusLabelTextView *retweetContentLabel = [[CJStatusLabelTextView alloc] init];
-        retweetContentLabel.textColor = CJColor(90, 90, 90);
+//        retweetContentLabel.textColor = CJColor(90, 90, 90);
         [self addSubview:retweetContentLabel];
         self.retweetContentLabel = retweetContentLabel;
         

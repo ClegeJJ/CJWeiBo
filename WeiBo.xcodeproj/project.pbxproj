@@ -760,6 +760,7 @@
 		F0DC0B871BB41BF300B71D7B /* CJEmotionPopView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F0DC0B861BB41BF300B71D7B /* CJEmotionPopView.xib */; };
 		F0DC0B8A1BB4217300B71D7B /* UIView+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = F0DC0B891BB4217300B71D7B /* UIView+Extension.m */; };
 		F0FFBC601BA17CC80059BFD3 /* CJBadegButton.m in Sources */ = {isa = PBXBuildFile; fileRef = F0FFBC5F1BA17CC80059BFD3 /* CJBadegButton.m */; };
+		F0FFF2F11BD9CABE004BB1BF /* CJCopyLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = F0FFF2F01BD9CABE004BB1BF /* CJCopyLabel.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -1646,6 +1647,8 @@
 		F0DC0B891BB4217300B71D7B /* UIView+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Extension.m"; sourceTree = "<group>"; };
 		F0FFBC5E1BA17CC80059BFD3 /* CJBadegButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CJBadegButton.h; sourceTree = "<group>"; };
 		F0FFBC5F1BA17CC80059BFD3 /* CJBadegButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CJBadegButton.m; sourceTree = "<group>"; };
+		F0FFF2EF1BD9CABE004BB1BF /* CJCopyLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CJCopyLabel.h; sourceTree = "<group>"; };
+		F0FFF2F01BD9CABE004BB1BF /* CJCopyLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CJCopyLabel.m; sourceTree = "<group>"; };
 		FE2310932B1E6441EE643473 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -1792,6 +1795,8 @@
 				F01529421BD7CAD400EE0024 /* CJStatusToolBar.m */,
 				F01529431BD7CAD400EE0024 /* CJStatusTopView.h */,
 				F01529441BD7CAD400EE0024 /* CJStatusTopView.m */,
+				F0FFF2EF1BD9CABE004BB1BF /* CJCopyLabel.h */,
+				F0FFF2F01BD9CABE004BB1BF /* CJCopyLabel.m */,
 			);
 			path = StatusView;
 			sourceTree = "<group>";
@@ -4690,6 +4695,7 @@
 				F008AE2B1BB0270A0098C157 /* CJUserInfoResult.m in Sources */,
 				F052289F1BB1654F00F4E059 /* CJEmotion.m in Sources */,
 				F026A4511BD6755800CEE8CA /* AFURLConnectionOperation.m in Sources */,
+				F0FFF2F11BD9CABE004BB1BF /* CJCopyLabel.m in Sources */,
 				F06128281BAD4F95009BC72A /* CJFarmData.m in Sources */,
 				F0403AB31BC25F370005A801 /* CJGeneralViewController.m in Sources */,
 				F033A6891BA0374A00417D4D /* CJTabBarController.m in Sources */,

@@ -8,8 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-@interface CJStatusLabelTextView : UITextView
-
+@interface CJStatusLabelTextView : UIView
+/** 富文本 */
+@property (nonatomic, strong) NSAttributedString *attributedText;
 /**
  *  特殊文字所在的矩形框
  */
