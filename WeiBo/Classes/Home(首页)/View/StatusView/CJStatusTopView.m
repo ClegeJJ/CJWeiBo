@@ -124,6 +124,7 @@
 - (void)setStatusFrame:(CJStatusFrame *)statusFrame
 {
     _statusFrame = statusFrame;
+    
     CJStatus *status = self.statusFrame.status;
     CJUser *user = status.user;
     

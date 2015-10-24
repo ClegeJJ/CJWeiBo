@@ -15,75 +15,69 @@
 #import "CJStatusDetailBottomToolBar.h"
 #import "CJStatusToolBar.h"
 #import "CJStatusDetailTopToolBar.h"
-@interface CJDetailViewController () <UITableViewDelegate,UITableViewDataSource>
+@interface CJDetailViewController () <UITableViewDelegate,UITableViewDataSource,CJStatusDetailTopToolBarDelegate>
 @property (nonatomic, weak) UITableView *tableView;
-
-@property (nonatomic, strong) NSMutableArray *groups;
-@property (nonatomic, strong) NSArray *statusGroup;
-@property (nonatomic, strong) NSMutableArray *commentGroup;
+@property (nonatomic, strong) NSMutableArray *comments;
 @property (nonatomic, strong) CJStatusDetailTopToolBar *topToolBar;
 
 @end
 
 @implementation CJDetailViewController
-
+- (NSMutableArray *)comments
+{
+    if (_comments == nil) {
+        _comments = [NSMutableArray array];
+    }
+    return _comments;
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
     
     self.title = @"微博正文";
-    
     [self setUpTableView];
 
+    [self setupDetailView];
+    
     [self setUpBottomToolBar];
     
     [self setUpTopToolBar];
     
-    [self setUpCommentsData];
-    
+//    [self setUpCommentsData];
 }
 
-- (NSMutableArray *)groups
+/**
+ *  创建微博详情控件
+ */
+- (void)setupDetailView
 {
-    if (_groups == nil) {
-        _groups = [NSMutableArray array];
-    }
-    return _groups;
-}
-- (NSArray *)statusGroup
-{
-    if (_statusGroup == nil) {
-        CJStatusFrame *statusF = [[CJStatusFrame alloc] init];
-        statusF.status = self.status;
-        _statusGroup = @[statusF];
-    }
-    return _statusGroup;
-}
-- (NSMutableArray *)commentGroup
-{
-    if (_commentGroup == nil) {
-        _commentGroup = [NSMutableArray array];
-    }
-    return _commentGroup;
+    // 创建微博详情控件
+    CJStatusTopView *topStatusView = [[CJStatusTopView alloc] init];
+    // 创建frame对象
+    CJStatusFrame *topStatusFrame = [[CJStatusFrame alloc] init];
+    topStatusFrame.status = self.status;
+    // 传递frame数据
+    topStatusView.statusFrame = topStatusFrame;
+    // 设置微博详情的高度
+    topStatusView.height = topStatusFrame.topViewF.size.height;
+    topStatusView.backgroundColor = [UIColor whiteColor];
+    self.tableView.tableHeaderView = topStatusView;
 }
 
+
+/**
+ *  初始化tableView
+ */
 - (void)setUpTableView
 {
-    UITableView *tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 100, self.view.width, self.view.height - 49) style:UITableViewStyleGrouped];
+    UITableView *tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, self.view.width, self.view.height - 49)];
     [self.view addSubview:tableView];
+
     self.tableView = tableView;
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     self.tableView.backgroundView = nil;
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     self.tableView.backgroundColor = CJGlobelBackgroundColor;
-    self.tableView.sectionHeaderHeight = 10;
-    self.tableView.sectionFooterHeight = 0;
-    self.tableView.contentInset = UIEdgeInsetsMake(-25, 0, 0, 0);
-    
-    [self.groups addObject:self.statusGroup];
-    NSArray *array = @[@"aa",@"aa",@"aa",@"aa",@"aa",@"aa",@"aa",@"aa",@"aa",@"aa",@"aa",@"aa",@"aa",@"aa",@"aa",@"aa"];
-    
-    [self.groups addObject:array];
 }
 
 - (void)setUpBottomToolBar
@@ -95,8 +89,10 @@
 - (void)setUpTopToolBar
 {
     self.topToolBar = [[CJStatusDetailTopToolBar alloc] init];
-    self.topToolBar.backgroundColor = [UIColor redColor];
+    self.topToolBar.delegate = self;
 }
+
+
 
 - (void)setUpCommentsData
 {
@@ -111,70 +107,66 @@
 
 
 
-#pragma mark - tableView代理方法
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+#pragma mark - CJStatusDetailTopToolBar代理方法
+- (void)statusDetailTopToolBar:(CJStatusDetailTopToolBar *)toolBar didClickButton:(CJStatusDetailTopToolBarButtonType)type
 {
-    
-    return self.groups.count;
-    
+    switch (type) {
+        case CJStatusDetailTopToolBarButtonTypeReposts:
+            [self loadReposts];
+            break;
+        case CJStatusDetailTopToolBarButtonTypeComment:
+            [self loadCommentData];
+            break;
+        case CJStatusDetailTopToolBarButtonTypeAttitude:
+            NSLog(@"Attitude");
+    }
 }
 
+- (void)loadReposts
+{
+    NSLog(@"Reposts");
+}
+- (void)loadCommentData
+{
+    NSLog(@"Comment");
+}
+
+
+#pragma mark - tableView代理方法
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    NSArray *group = self.groups[section];
-    return group.count;
+    return 20;
 }
-
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (indexPath.section == 0) {
-        CJDetailCell *cell = [CJDetailCell cellWithTableView:tableView];
+    static NSString *ID = @"contacts";
+    
+    UITableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:ID];
+    
+    if (cell == nil) {
         
-        NSArray *group = self.groups[indexPath.section];
-        
-        cell.statusFrame = group[indexPath.row];
-        
-        return cell;
-    }else{
-        UITableViewCell *cell = [[UITableViewCell alloc] init];
-        
-        NSArray *group = self.groups[indexPath.section];
-        cell.textLabel.text = group[indexPath.row];
-        return cell;
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:ID];
     }
     
+    cell.textLabel.text = [NSString stringWithFormat:@"text--%ld",indexPath.row];
+    
+    return cell;
 }
-
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     
-    NSArray *group = self.groups[indexPath.section];
-    if (indexPath.section == 0) {
-        CJStatusFrame *statusFrame = group[indexPath.row];
-        
-        return statusFrame.topViewF.size.height;
-    }else {
-        return 44;
-    }
+    return 44;
     
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
-    if (section == 1) {
-        return self.topToolBar;
-        
-    }else{
-        return nil;
-    }
+    return self.topToolBar;
 }
+
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
-    if (section == 1) {
-        return 45;
-    }else{
-        return 0;
-    }
+    return 45;
 }
 
 @end

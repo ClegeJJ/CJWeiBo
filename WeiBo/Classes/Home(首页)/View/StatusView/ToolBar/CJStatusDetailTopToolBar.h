@@ -7,7 +7,26 @@
 //
 
 #import <UIKit/UIKit.h>
+/**
+ *  按钮类型枚举
+ */
+typedef enum{
+    
+    CJStatusDetailTopToolBarButtonTypeReposts,
+    CJStatusDetailTopToolBarButtonTypeComment,
+    CJStatusDetailTopToolBarButtonTypeAttitude
+    
+} CJStatusDetailTopToolBarButtonType;
 
+@class CJStatusDetailTopToolBar;
+
+@protocol CJStatusDetailTopToolBarDelegate <NSObject>
+
+@optional
+
+- (void)statusDetailTopToolBar:(CJStatusDetailTopToolBar *)toolBar didClickButton:(CJStatusDetailTopToolBarButtonType)type;
+
+@end
 @interface CJStatusDetailTopToolBar : UIView
-
+@property (nonatomic, weak) id <CJStatusDetailTopToolBarDelegate> delegate;
 @end

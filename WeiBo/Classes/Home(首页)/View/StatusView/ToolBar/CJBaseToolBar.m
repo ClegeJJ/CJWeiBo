@@ -147,7 +147,7 @@
 {
     [super layoutSubviews];
     CGFloat Y = 0;
-    CGFloat H = self.frame.size.height;
+    CGFloat H = self.frame.size.height + 2;
     CGFloat btnW = self.width / self.btns.count;
     // 调整按钮位置
     for (int index = 0; index < self.btns.count; index ++) {

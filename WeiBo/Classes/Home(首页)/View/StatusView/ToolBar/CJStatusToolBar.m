@@ -63,7 +63,7 @@
     // 设置分割线的frame
     for (int i = 0; i<dividerCount; i++) {
         UIImageView *divider = self.dividers[i];
-        divider.width = 3;
+        divider.width = 1;
         divider.height = dividerH;
         divider.centerX = (i + 1) * dividerFirstX;
         divider.centerY = dividerH * 0.5;
