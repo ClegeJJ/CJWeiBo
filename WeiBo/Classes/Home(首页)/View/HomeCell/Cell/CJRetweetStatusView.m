@@ -14,6 +14,7 @@
 #import "CJStatusLabelTextView.h"
 #import "UIImageView+WebCache.h"
 #import "CJRetweetStatusToolBar.h"
+#import "CJDetailViewController.h"
 @interface CJRetweetStatusView()
 /**
  *  被转发用户的昵称
@@ -62,6 +63,21 @@
     return self;
 }
 
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
+{
+#warning 小tips -- 不发通知给控制器跳转
+    // 获取根控制器
+    UITabBarController *tabBarVc = (UITabBarController *)[UIApplication sharedApplication].keyWindow.rootViewController;
+    UINavigationController *nav = (UINavigationController *)tabBarVc.selectedViewController;
+    
+    // 跳转控制器
+    CJDetailViewController *detailVc = [[CJDetailViewController alloc] init];
+    
+    detailVc.status = self.statusFrame.status.retweeted_status;
+    
+    [nav pushViewController:detailVc animated:YES];
+}
+
 - (void)setStatusFrame:(CJStatusFrame *)statusFrame
 {
     _statusFrame = statusFrame;
@@ -91,8 +107,6 @@
     }else{
         self.retweetToolBar.hidden = YES;
     }
-        
-
 }
 
 

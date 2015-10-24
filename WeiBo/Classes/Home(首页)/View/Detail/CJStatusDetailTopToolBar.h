@@ -12,13 +12,13 @@
  */
 typedef enum{
     
-    CJStatusDetailTopToolBarButtonTypeReposts,
-    CJStatusDetailTopToolBarButtonTypeComment,
-    CJStatusDetailTopToolBarButtonTypeAttitude
+    CJStatusDetailTopToolBarButtonTypeReposts, // 转发
+    CJStatusDetailTopToolBarButtonTypeComment,  // 评论
+    CJStatusDetailTopToolBarButtonTypeAttitude // 赞
     
 } CJStatusDetailTopToolBarButtonType;
 
-@class CJStatusDetailTopToolBar;
+@class CJStatusDetailTopToolBar,CJStatus;
 
 @protocol CJStatusDetailTopToolBarDelegate <NSObject>
 
@@ -28,5 +28,11 @@ typedef enum{
 
 @end
 @interface CJStatusDetailTopToolBar : UIView
+
+@property (nonatomic, strong) CJStatus *status;
 @property (nonatomic, weak) id <CJStatusDetailTopToolBarDelegate> delegate;
+/**
+ *  被选中的按钮类型
+ */
+@property (nonatomic, assign) CJStatusDetailTopToolBarButtonType selectedButtonType;
 @end

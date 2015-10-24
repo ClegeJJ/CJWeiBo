@@ -8,12 +8,12 @@
 
 #import "CJDetailCommentResult.h"
 #import "MJExtension.h"
-#import "CJDetail.h"
+#import "CJComment.h"
 @implementation CJDetailCommentResult
 + (NSDictionary *)objectClassInArray
 {
     
-    return @{@"comments" : [CJDetail class]};
+    return @{@"comments" : [CJComment class]};
     
 }
 @end

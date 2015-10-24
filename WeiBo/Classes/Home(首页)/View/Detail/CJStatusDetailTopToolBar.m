@@ -7,7 +7,7 @@
 //
 
 #import "CJStatusDetailTopToolBar.h"
-
+#import "CJStatus.h"
 @interface CJStatusDetailTopToolBar()
 
 @property (nonatomic, weak) UIButton *repostsBtn;
@@ -28,13 +28,13 @@
         // 2. 设置bar的背景颜色
         self.backgroundColor = CJGlobelBackgroundColor;
         // 3. 设置子控件
-        self.repostsBtn = [self title:@"转发 1000"];
+        self.repostsBtn = [self title:@"转发 0"];
         self.repostsBtn.tag = CJStatusDetailTopToolBarButtonTypeReposts;
         
-        self.commentsBtn =  [self title:@"评论 999"];
+        self.commentsBtn =  [self title:@"评论 0"];
         self.commentsBtn.tag = CJStatusDetailTopToolBarButtonTypeComment;
         
-        self.attitudesBtn = [self title:@"赞 10212"];
+        self.attitudesBtn = [self title:@"赞 0"];
         self.attitudesBtn.tag = CJStatusDetailTopToolBarButtonTypeAttitude;
         
         UIImageView *arrowView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"statusdetail_comment_top_arrow"]];
@@ -61,6 +61,7 @@
     [btn setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
     [btn setTitleColor:[UIColor blackColor] forState:UIControlStateSelected];
     btn.titleLabel.font = [UIFont boldSystemFontOfSize:12];   // 字体
+    btn.adjustsImageWhenHighlighted = NO;
     [btn addTarget:self action:@selector(buttonClick:) forControlEvents:UIControlEventTouchUpInside];
     // 设置间距
     btn.titleEdgeInsets = UIEdgeInsetsMake(0, 5, 0, 5);
@@ -76,6 +77,7 @@
     self.selectedBtn.selected = NO;
     self.selectedBtn = button;
     self.selectedBtn.selected = YES;
+    self.selectedButtonType = (int)button.tag;
     
     [UIView animateWithDuration:0.25 animations:^{
         self.arrowView.centerX = button.centerX;
@@ -84,6 +86,7 @@
     if ([self.delegate respondsToSelector:@selector(statusDetailTopToolBar:didClickButton:)]) {
         [self.delegate statusDetailTopToolBar:self didClickButton:(int)button.tag];
     }
+
 }
 - (void)setDelegate:(id<CJStatusDetailTopToolBarDelegate>)delegate
 {
@@ -92,6 +95,15 @@
     // 默认选中了评论按钮
     [self buttonClick:self.commentsBtn];
 }
+- (void)setStatus:(CJStatus *)status
+{
+    _status = status;
+
+    [self setupButton:self.repostsBtn count:status.reposts_count originalTitle:@"转发"];
+    [self setupButton:self.commentsBtn count:status.comments_count originalTitle:@"评论"];
+    [self setupButton:self.attitudesBtn count:status.attitudes_count originalTitle:@"赞"];
+}
+
 /**
  *  给工具条内子控件传输模型数据
  *
@@ -107,21 +119,21 @@
         
         if (count < 10000) { // 评论数小于一万
             
-            title = [NSString stringWithFormat:@"%d",count];
+            title = [NSString stringWithFormat:@"%@ %d",originalTitle,count];
             
         } else { // 评论数大于一万
             
             double number = count / 10000.0;
-            title = [NSString stringWithFormat:@"%.1f万",number];
+            title = [NSString stringWithFormat:@"%@ %.1f万",originalTitle,number];
             title = [title stringByReplacingOccurrencesOfString:@".0" withString:@""];
         }
         
     }else{ // 评论为0
-        title = originalTitle;
+        title = [NSString stringWithFormat:@"%@ 0",originalTitle];
     }
     
     [button setTitle:title forState:UIControlStateNormal];
-    
+    [button setTitle:title forState:UIControlStateSelected];
 }
 
 /**

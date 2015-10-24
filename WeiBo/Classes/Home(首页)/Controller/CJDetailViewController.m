@@ -11,13 +11,15 @@
 #import "CJStatus.h"
 #import "CJStatusTopView.h"
 #import "CJDetailCell.h"
-#import "CJDetailCommentTool.h"
+#import "CJDetailTool.h"
 #import "CJStatusDetailBottomToolBar.h"
 #import "CJStatusToolBar.h"
+#import "CJComment.h"
 #import "CJStatusDetailTopToolBar.h"
 @interface CJDetailViewController () <UITableViewDelegate,UITableViewDataSource,CJStatusDetailTopToolBarDelegate>
 @property (nonatomic, weak) UITableView *tableView;
 @property (nonatomic, strong) NSMutableArray *comments;
+@property (nonatomic, strong) NSMutableArray *reposts;
 @property (nonatomic, strong) CJStatusDetailTopToolBar *topToolBar;
 
 @end
@@ -30,6 +32,13 @@
     }
     return _comments;
 }
+- (NSMutableArray *)reposts
+{
+    if (_reposts == nil) {
+        _reposts = [NSMutableArray array];
+    }
+    return _reposts;
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
     
@@ -41,8 +50,6 @@
     [self setUpBottomToolBar];
     
     [self setUpTopToolBar];
-    
-//    [self setUpCommentsData];
 }
 
 /**
@@ -54,6 +61,7 @@
     CJStatusTopView *topStatusView = [[CJStatusTopView alloc] init];
     // 创建frame对象
     CJStatusFrame *topStatusFrame = [[CJStatusFrame alloc] init];
+    self.status.retweeted_status.detail = YES;
     topStatusFrame.status = self.status;
     // 传递frame数据
     topStatusView.statusFrame = topStatusFrame;
@@ -89,27 +97,15 @@
 - (void)setUpTopToolBar
 {
     self.topToolBar = [[CJStatusDetailTopToolBar alloc] init];
+    self.topToolBar.status = self.status;
     self.topToolBar.delegate = self;
 }
-
-
-
-- (void)setUpCommentsData
-{
-    CJDetailCommentParam *param = [CJDetailCommentParam parma];
-    param.id = [NSNumber numberWithLongLong:[self.status.idstr longLongValue]];
-    [CJDetailCommentTool detailCommentWithParam:param success:^(CJDetailCommentResult *result) {
-        NSLog(@"成功");
-    } failure:^(NSError *error) {
-        NSLog(@"失败");
-    }];
-}
-
-
 
 #pragma mark - CJStatusDetailTopToolBar代理方法
 - (void)statusDetailTopToolBar:(CJStatusDetailTopToolBar *)toolBar didClickButton:(CJStatusDetailTopToolBarButtonType)type
 {
+    [self.tableView reloadData];
+    
     switch (type) {
         case CJStatusDetailTopToolBarButtonTypeReposts:
             [self loadReposts];
@@ -124,18 +120,61 @@
 
 - (void)loadReposts
 {
-    NSLog(@"Reposts");
+    CJDetailRepostParma *param = [CJDetailRepostParma parma];
+    param.id = self.status.idstr;
+//    CJStatus *repost = [self.reposts firstObject];
+//    param.since_id = repost.idstr;
+    
+    [CJDetailTool detailRepostWithParam:param success:^(CJDetailRepostResult *result) {
+        // 获取最新评论总数
+        self.status.reposts_count = result.total_number;
+        self.topToolBar.status = self.status;
+        
+        NSIndexSet *set = [NSIndexSet indexSetWithIndexesInRange:NSMakeRange(0, result.reposts.count)];
+        [self.reposts insertObjects:result.reposts atIndexes:set];
+        [self.tableView reloadData];
+        
+    } failure:^(NSError *error) {
+     NSLog(@"loadReposts失败");
+    }];
+    
 }
+
 - (void)loadCommentData
 {
-    NSLog(@"Comment");
+    CJDetailCommentParam *param = [CJDetailCommentParam parma];
+    CJComment *comment = [self.comments firstObject];
+    param.id = self.status.idstr;
+    param.since_id = comment.idstr;
+    
+    [CJDetailTool detailCommentWithParam:param success:^(CJDetailCommentResult *result) {
+        // 获取最新评论总数
+        self.status.comments_count = result.total_number;
+        self.topToolBar.status = self.status;
+        
+        // 累加前面的评论
+        NSIndexSet *set = [NSIndexSet indexSetWithIndexesInRange:NSMakeRange(0, result.comments.count)];
+        [self.comments insertObjects:result.comments atIndexes:set];
+        [self.tableView reloadData];
+    } failure:^(NSError *error) {
+        NSLog(@"loadCommentData失败");
+    }];
 }
 
 
 #pragma mark - tableView代理方法
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 20;
+    if (self.topToolBar.selectedButtonType == CJStatusDetailTopToolBarButtonTypeComment) {
+        return self.comments.count;
+    } else if (self.topToolBar.selectedButtonType == CJStatusDetailTopToolBarButtonTypeReposts){
+//        return self.reposts.count;
+        return 10;
+    } else {
+        return 0;
+    }
+    
+    
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -148,8 +187,13 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:ID];
     }
     
-    cell.textLabel.text = [NSString stringWithFormat:@"text--%ld",indexPath.row];
-    
+    if (self.topToolBar.selectedButtonType == CJStatusDetailTopToolBarButtonTypeComment) {
+        CJComment *cmt = self.comments[indexPath.row];
+        cell.textLabel.text = cmt.text;
+    }else if (self.topToolBar.selectedButtonType == CJStatusDetailTopToolBarButtonTypeReposts){
+//        CJStatus *status = self.reposts[indexPath.row];
+        cell.textLabel.text = @"特么的接口被屏蔽了";
+    }
     return cell;
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath

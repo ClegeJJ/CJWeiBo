@@ -60,6 +60,13 @@
 //    [nav setBackgroundImage:[UIImage imageNamed:@"NavBar64"] forBarMetrics:UIBarMetricsDefault];
 }
 
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+    
+#warning 自定义了左上角右上角的按钮 必须清空pop手势的代理,才有右划弹出功能
+    self.interactivePopGestureRecognizer.delegate = nil;
+}
 /**
  *  拦截所有的Push操作
  */
@@ -70,7 +77,6 @@
         
         viewController.navigationItem.leftBarButtonItem = [UIBarButtonItem itemWithImage:@"navigationbar_back" highImage:@"navigationbar_back_highlighted" target:self action:@selector(back)];
         viewController.navigationItem.rightBarButtonItem = [UIBarButtonItem itemWithImage:@"navigationbar_more" highImage:@"navigationbar_more_highlighted" target:self action:@selector(more)];
-        
     }
     [super pushViewController:viewController animated:animated];
 

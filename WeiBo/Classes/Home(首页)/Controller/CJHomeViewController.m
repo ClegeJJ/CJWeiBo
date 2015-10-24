@@ -175,10 +175,6 @@
         
         [_statusFrames addObjectsFromArray:statusFrameArray];
         
-        for (int i = 0; i < _statusFrames.count; i++) {
-            CJStatusFrame *statusF = _statusFrames[i];
-        }
-        
         // 结束刷新
         [self.tableView.footer endRefreshing];
         
@@ -421,7 +417,6 @@
     CJDetailViewController *detail = [[CJDetailViewController alloc] init];
 
     CJStatusFrame *stausF = self.statusFrames[indexPath.row];
-    stausF.status.retweeted_status.detail = YES;
     detail.status = stausF.status;
     
     [self.navigationController pushViewController:detail animated:YES];

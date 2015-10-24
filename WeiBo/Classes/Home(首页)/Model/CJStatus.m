@@ -95,20 +95,31 @@
             special.range = NSMakeRange(loc, lenth);
             [specialTexts addObject:special];
         }else { // 普通文字
+            
             subStr = [[NSMutableAttributedString alloc] initWithString:part.text attributes:@{
                                                                                                          NSForegroundColorAttributeName :
                                                                                                              [UIColor colorWithWhite:0.098 alpha:1.000]
-                                                                                                         }];
+                                                                                                            }];
         }
-        // 拼接属性自负
+        // 拼接属性字符
         [attributedString  appendAttributedString:subStr];
     }
     //设置属性文字字体
     NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init];
     paragraphStyle.lineSpacing = 5;// 字体的行间距
     [attributedString addAttribute:NSFontAttributeName value:CJStatusContentFont range:NSMakeRange(0, attributedString.length)];
+
     [attributedString addAttribute:NSParagraphStyleAttributeName value:paragraphStyle range:NSMakeRange(0, attributedString.length)];
+#warning emoji---Bug!!!!
+#warning emoji---Bug!!!!
+#warning emoji---Bug!!!!
+#warning emoji---Bug!!!!
+#warning emoji---Bug!!!!
+#warning emoji---Bug!!!!
+#warning emoji---Bug!!!!
+#warning emoji---Bug!!!!
     [attributedString addAttribute:@"special" value:specialTexts range:NSMakeRange(0, 1)];
+
     
     return attributedString;
 }
@@ -148,13 +159,13 @@
  */
 - (NSString *)created_at
 {
-    // 1.获得微博的发送时间
-
     //    fmt.timeZone = [NSTimeZone timeZoneWithName:@"Asia/beijing"];
-
+    // 1.获得微博的发送时间
     NSDateFormatter *fmt = [[NSDateFormatter alloc] init];
     
     fmt.dateFormat = @"EEE MMM dd HH:mm:ss z yyyy";
+    
+#warning 真机上必须加这句 不然显示不出来时间 原因---要告诉手机时间格式为en_US 
     [fmt setLocale:[[NSLocale alloc] initWithLocaleIdentifier:@"en_US"]];
     NSDate *createdDate = [fmt dateFromString:_created_at];
 

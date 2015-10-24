@@ -6,8 +6,8 @@
 //  Copyright (c) 2015年 mac527. All rights reserved.
 //
 
-#import "CJDetail.h"
+#import "CJComment.h"
 
-@implementation CJDetail
+@implementation CJComment
 
 @end

@@ -62,6 +62,8 @@
 
 - (void)layoutSubviews
 {
+    
+    
     CGFloat Y = 0;
     CGFloat W = kWidth / self.subviews.count;
     CGFloat H = self.frame.size.height;
