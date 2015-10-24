@@ -97,7 +97,7 @@
 - (void)setUpCommentsData
 {
     CJDetailCommentParam *param = [CJDetailCommentParam parma];
-    param.ID = [NSNumber numberWithLongLong:[self.status.idstr longLongValue]];
+    param.id = [NSNumber numberWithLongLong:[self.status.idstr longLongValue]];
     [CJDetailCommentTool detailCommentWithParam:param success:^(CJDetailCommentResult *result) {
         NSLog(@"成功");
     } failure:^(NSError *error) {

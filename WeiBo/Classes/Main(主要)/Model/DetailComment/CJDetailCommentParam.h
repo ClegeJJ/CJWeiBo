@@ -9,7 +9,7 @@
 #import "CJBaseParma.h"
 @interface CJDetailCommentParam : CJBaseParma
 /** id	true	int64	需要查询的微博ID。*/
-@property (nonatomic, copy) NSString *id;
+@property (nonatomic, copy) NSNumber *id;
 
 /**	false	int64	若指定此参数，则返回ID比since_id大的微博（即比since_id时间晚的微博），默认为0。*/
 @property (nonatomic, copy) NSString *since_id;
