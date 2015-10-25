@@ -222,18 +222,35 @@
         
         // 弹出信息提醒
         NSString *title = nil;
-        if (statusFrameArray.count) { // 有新微博数据
-            
+        
+        if (result.isDisk) {
+            [self.tableView reloadData];
+            return;
+        }else if (statusFrameArray.count){
             title = [NSString stringWithFormat:@"%lu 条新微博",statusFrameArray.count];
-            
-        }else { // 无新微博数据
+        }else {
             title = @"没有新的微博";
         }
+        // 提醒刷新信息
         [self showMessageForRefreshDataWithTitle:title];
-        
         // 刷新tableView
         [self.tableView reloadData];
         self.tabBarItem.badgeValue = @"";
+//        if (statusFrameArray.count) { // 有新微博数据
+//            
+//            if (result.isDisk) {
+//                
+//            }
+//            title = [NSString stringWithFormat:@"%lu 条新微博",statusFrameArray.count];
+//            
+//        }else { // 无新微博数据
+//            title = @"没有新的微博";
+//        }
+//        [self showMessageForRefreshDataWithTitle:title];
+//        
+//        // 刷新tableView
+//        [self.tableView reloadData];
+//        self.tabBarItem.badgeValue = @"";
         
     } failure:^(NSError *error) {
         [self showMessageForRefreshDataWithTitle:@"用户请求超时"];

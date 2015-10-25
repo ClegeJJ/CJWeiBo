@@ -12,6 +12,7 @@
 //"total_number": 81655
 @interface CJHomeStatusesResult : NSObject
 
+@property (nonatomic, assign ,getter=isDisk) BOOL disk;
 
 @property (nonatomic ,strong) NSArray *statuses;
 

@@ -26,6 +26,8 @@
             
             result.statuses = [CJStatus objectArrayWithKeyValuesArray:dictArray];
             
+            result.disk = YES;
+            
             success(result);
         }
     } else{
