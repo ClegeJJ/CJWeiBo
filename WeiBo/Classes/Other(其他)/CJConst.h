@@ -25,5 +25,8 @@ extern NSString * const CJEmotionKeyboardDidSelectedNotification;
 extern NSString * const CJPhotoDidTapNotification;
 
 extern NSString * const CJDidTapSpecialTextNotification;
-// 3.删除按钮点击通知
+// 删除按钮点击通知
 extern NSString * const CJEmitionkeyboardDidDeletedNotification;
+
+// 3.参数
+extern NSInteger const CJLoadNewStatusCount;

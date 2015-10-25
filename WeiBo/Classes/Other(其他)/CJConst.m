@@ -24,6 +24,9 @@ NSString * const CJEmotionKeyboardDidSelectedNotification = @"emotionKeyboardDid
 NSString * const CJPhotoDidTapNotification = @"photoDidTapNotification";
 
 NSString * const CJDidTapSpecialTextNotification = @"didTapSpecialTextNotification";
-
 // 删除按钮点击通知
 NSString * const CJEmitionkeyboardDidDeletedNotification = @"deletedNotification";
+
+
+// 3.参数
+NSInteger const CJLoadNewStatusCount = 30;

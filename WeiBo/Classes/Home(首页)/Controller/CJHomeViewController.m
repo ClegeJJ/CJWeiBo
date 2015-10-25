@@ -65,7 +65,9 @@
     // 获得当前用户数据
     [self setupUserData];
     
+    // 监听微博图片被点击通知
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(photoDidTap:) name:CJPhotoDidTapNotification object:nil];
+    // 监听特殊文字被点击通知
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(specialTextDidTap:) name:CJDidTapSpecialTextNotification object:nil];
     
 }
@@ -117,6 +119,9 @@
     }
     return nil;
 }
+
+
+#pragma mark - 初始化操作
 /**
  *  懒加载
  */
@@ -127,8 +132,6 @@
     }
     return _statusFrames;
 }
-
-
 /**
  *  集成刷新控件
  */
@@ -144,6 +147,66 @@
     
 }
 /**
+ *  设置导航栏内容
+ */
+- (void)setupNavBar
+{
+    // 设置左边按钮
+    self.navigationItem.leftBarButtonItem = [UIBarButtonItem itemWithImage:@"navigationbar_friendsearch" highImage:@"navigationbar_friendsearch_highlighted" target:self action:@selector(findFriend)];
+    // 设置右边按钮
+    self.navigationItem.rightBarButtonItem = [UIBarButtonItem itemWithImage:@"navigationbar_pop" highImage:@"navigationbar_pop_highlighted" target:self action:@selector(pop)];
+    
+    // 设置中间按钮
+    CJTitleButton *titleButton = [CJTitleButton buttonWithType:UIButtonTypeCustom];
+    
+    // 设置箭头图片
+    [titleButton setImage:[UIImage imageWithName:@"navigationbar_arrow_down"] forState:UIControlStateNormal];
+    
+    // 设置选中图片
+    [titleButton setImage:[UIImage imageWithName:@"navigationbar_arrow_up"] forState:UIControlStateSelected];
+    
+    // 设置宽高
+    titleButton.bounds = CGRectMake(0, 0, 0, 40);
+    
+    // 设置标题
+    if ([CJAccountTool account].name) {
+        [titleButton setTitle:[CJAccountTool account].name forState:UIControlStateNormal];
+    }else {
+        [titleButton setTitle:@"首页" forState:UIControlStateNormal];
+    }
+    
+    // 添加点击事件
+    [titleButton addTarget:self action:@selector(titleButtonClick:) forControlEvents:UIControlEventTouchUpInside];
+    self.navigationItem.titleView = titleButton;
+    self.titleButton = titleButton;
+    // 分割线样式
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+}
+
+/**
+ *  加载用户数据  归档用户昵称 方便下次使用时直接获取
+ */
+- (void)setupUserData
+{
+    
+    // 1.封装请求参数
+    CJUserInfoParma *parma = [CJUserInfoParma parma];
+    parma.uid = @([CJAccountTool account].uid);
+    
+    // 2.发送GET请求 获取微博数据
+    [CJUserInfoTool UserInfoWithParameters:parma success:^(CJUserInfoResult *result) {
+        [self.titleButton setTitle:result.name forState:UIControlStateNormal];
+        
+        // 保存昵称
+        CJAccount *account = [CJAccountTool account];
+        account.name = result.name;
+        [CJAccountTool saveAccount:account];
+    } failure:^(NSError *error) {
+        
+    }];
+}
+
+/**
  *  上拉tableView就会调用
  */
 - (void)refreshMoreData
@@ -156,7 +219,6 @@
         CJStatusFrame *lastStatus = [self.statusFrames lastObject];
         long long maxID = [lastStatus.status.idstr longLongValue] - 1;
         param.max_id = @(maxID);
-        NSLog(@"%lld",maxID);
     }
     // 2.发送GET请求 获取微博数据
     [CJHomeStatusTool HomeStatusWithParameters:param success:^(CJHomeStatusesResult *result)  {
@@ -185,6 +247,8 @@
     }];
 }
 
+
+#pragma mark - 事件方法
 /**
  *  下拉tableView就会调用
  */
@@ -197,7 +261,7 @@
         CJStatusFrame *statusFrame = self.statusFrames[0];
         param.since_id = @([statusFrame.status.idstr longLongValue]);
     }
-    param.count = @10;
+    param.count = [NSNumber numberWithInteger:CJLoadNewStatusCount];
         // 2.发送GET请求 获取微博数据
     [CJHomeStatusTool HomeStatusWithParameters:param success:^(CJHomeStatusesResult *result) {
         // 将字典数组转为模型数组(里面放的就是CJStatus模型)
@@ -211,12 +275,17 @@
             [statusFrameArray addObject:statusFrame];
             
         }
-        // 中间临时数组 用于拼接旧微博数据和新微博数据
-        NSMutableArray *tempArray = [NSMutableArray array];
-        [tempArray addObjectsFromArray:statusFrameArray];
-        [tempArray addObjectsFromArray:_statusFrames];
-        _statusFrames = tempArray;
-        
+#warning 通过badgeValue 来判断新是否要拼接旧微博数据
+        NSInteger badge = [self.tabBarItem.badgeValue integerValue];
+        if (badge > CJLoadNewStatusCount) {
+            _statusFrames = statusFrameArray;
+        }else {
+            // 中间临时数组 用于拼接旧微博数据和新微博数据
+            NSMutableArray *tempArray = [NSMutableArray array];
+            [tempArray addObjectsFromArray:statusFrameArray];
+            [tempArray addObjectsFromArray:_statusFrames];
+            _statusFrames = tempArray;
+        }
         // 结束刷新
         [self.tableView.header endRefreshing];
         
@@ -236,22 +305,6 @@
         // 刷新tableView
         [self.tableView reloadData];
         self.tabBarItem.badgeValue = @"";
-//        if (statusFrameArray.count) { // 有新微博数据
-//            
-//            if (result.isDisk) {
-//                
-//            }
-//            title = [NSString stringWithFormat:@"%lu 条新微博",statusFrameArray.count];
-//            
-//        }else { // 无新微博数据
-//            title = @"没有新的微博";
-//        }
-//        [self showMessageForRefreshDataWithTitle:title];
-//        
-//        // 刷新tableView
-//        [self.tableView reloadData];
-//        self.tabBarItem.badgeValue = @"";
-        
     } failure:^(NSError *error) {
         [self showMessageForRefreshDataWithTitle:@"用户请求超时"];
         [self.tableView.header endRefreshing];
@@ -296,65 +349,6 @@
     }];
 }
 
-/**
- *  设置导航栏内容
- */
-- (void)setupNavBar
-{
-    // 设置左边按钮
-    self.navigationItem.leftBarButtonItem = [UIBarButtonItem itemWithImage:@"navigationbar_friendsearch" highImage:@"navigationbar_friendsearch_highlighted" target:self action:@selector(findFriend)];
-    // 设置右边按钮
-    self.navigationItem.rightBarButtonItem = [UIBarButtonItem itemWithImage:@"navigationbar_pop" highImage:@"navigationbar_pop_highlighted" target:self action:@selector(pop)];
-    
-    // 设置中间按钮
-    CJTitleButton *titleButton = [CJTitleButton buttonWithType:UIButtonTypeCustom];
-
-    // 设置箭头图片
-    [titleButton setImage:[UIImage imageWithName:@"navigationbar_arrow_down"] forState:UIControlStateNormal];
-    
-    // 设置选中图片
-    [titleButton setImage:[UIImage imageWithName:@"navigationbar_arrow_up"] forState:UIControlStateSelected];
-    
-    // 设置宽高
-    titleButton.bounds = CGRectMake(0, 0, 0, 40);
-    
-    // 设置标题
-    if ([CJAccountTool account].name) {
-        [titleButton setTitle:[CJAccountTool account].name forState:UIControlStateNormal];
-    }else {
-        [titleButton setTitle:@"首页" forState:UIControlStateNormal];
-    }
-   
-    // 添加点击事件
-    [titleButton addTarget:self action:@selector(titleButtonClick:) forControlEvents:UIControlEventTouchUpInside];
-    self.navigationItem.titleView = titleButton;
-    self.titleButton = titleButton;
-    // 分割线样式
-    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-}
-
-/**
- *  加载用户数据  归档用户昵称 方便下次使用时直接获取
- */
-- (void)setupUserData
-{
-    
-    // 1.封装请求参数
-    CJUserInfoParma *parma = [CJUserInfoParma parma];
-    parma.uid = @([CJAccountTool account].uid);
-
-    // 2.发送GET请求 获取微博数据
-    [CJUserInfoTool UserInfoWithParameters:parma success:^(CJUserInfoResult *result) {
-        [self.titleButton setTitle:result.name forState:UIControlStateNormal];
-
-        // 保存昵称
-        CJAccount *account = [CJAccountTool account];
-        account.name = result.name;
-        [CJAccountTool saveAccount:account];
-    } failure:^(NSError *error) {
-        
-    }];
-}
 
 /**
  *  导航栏左边按钮点击时调用
@@ -395,8 +389,8 @@
     }
 }
 
-#pragma mark - Table view data source
 
+#pragma mark - Table view data source
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return self.statusFrames.count;
 }
@@ -424,6 +418,7 @@
 
 }
 
+#pragma mark - Table View delegate
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
