@@ -10,7 +10,7 @@
 #import "MJExtension.h"
 #import "CJStatus.h"
 @implementation CJDetailRepostResult
-- (NSDictionary *)objectClassInArray
++ (NSDictionary *)objectClassInArray
 {
     return @{@"reposts" : [CJStatus class]};
 }

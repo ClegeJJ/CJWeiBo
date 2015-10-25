@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface CJEmotion : NSObject
+@interface CJEmotion : NSObject <NSCoding>
 /** 表情的文字描述 */
 @property (nonatomic, copy) NSString *chs;
 /** 表情的png图片名 */

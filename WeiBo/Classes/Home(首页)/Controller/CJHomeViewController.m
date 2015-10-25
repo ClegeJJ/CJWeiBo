@@ -170,9 +170,6 @@
             statusFrame.status = status;
             [statusFrameArray addObject:statusFrame];
         }
-        
-
-        
         [_statusFrames addObjectsFromArray:statusFrameArray];
         
         // 结束刷新

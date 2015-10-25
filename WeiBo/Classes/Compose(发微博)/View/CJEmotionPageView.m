@@ -12,6 +12,7 @@
 #import "CJEmotion.h"
 #import "CJEmotionButton.h"
 #import "CJEmotionPopView.h"
+#import "CJEmotionTool.h"
 
 @interface CJEmotionPageView()
 
@@ -119,10 +120,8 @@
             
             [self.popView removeFromSuperview];
             if (selectedBtn) {
-                CJEmotion *emotion = selectedBtn.emotion;
-                NSMutableDictionary *dict = [NSMutableDictionary dictionary];
-                dict[CJselectedEmotionKey] = emotion;
-                [[NSNotificationCenter defaultCenter] postNotificationName:CJEmotionKeyboardDidSelectedNotification object:nil userInfo:dict];
+                // 发出通知
+                [self selectedEomtion:selectedBtn.emotion];
             }
             
             
@@ -145,17 +144,26 @@
 {
     [self.popView showPopViewWithBtn:btn];
     
-    CJEmotion *emotion = btn.emotion;
-    NSMutableDictionary *dict = [NSMutableDictionary dictionary];
-    dict[CJselectedEmotionKey] = emotion;
-    [[NSNotificationCenter defaultCenter] postNotificationName:CJEmotionKeyboardDidSelectedNotification object:nil userInfo:dict];
-    
+    // 发出通知
+    [self selectedEomtion:btn.emotion];
     // 移除
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.25 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         
         [self.popView removeFromSuperview];
         
     });
+}
+
+- (void)selectedEomtion:(CJEmotion *)emotion
+{
+   
+    // 添加表情到本地
+    [CJEmotionTool addRecentEmotion:emotion];
+    
+    NSMutableDictionary *dict = [NSMutableDictionary dictionary];
+    dict[CJselectedEmotionKey] = emotion;
+    [[NSNotificationCenter defaultCenter] postNotificationName:CJEmotionKeyboardDidSelectedNotification object:nil userInfo:dict];
+
 }
 
 /**

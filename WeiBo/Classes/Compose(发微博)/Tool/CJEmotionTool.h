@@ -18,4 +18,8 @@
 + (NSArray *)emojiEmotion;
 
 + (UIImage *)emotionWithChs:(NSString *)chs;
+
++ (NSMutableArray *)recentEmotions;
+
++ (void)addRecentEmotion:(CJEmotion *)emotion;
 @end

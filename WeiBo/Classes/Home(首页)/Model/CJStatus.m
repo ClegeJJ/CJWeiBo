@@ -104,21 +104,19 @@
         // 拼接属性字符
         [attributedString  appendAttributedString:subStr];
     }
+    // 拼接一个空格 用于放 special 附件
+    [attributedString appendAttributedString:[[NSMutableAttributedString alloc] initWithString:@" "]];
+    
+    
     //设置属性文字字体
     NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init];
     paragraphStyle.lineSpacing = 5;// 字体的行间距
     [attributedString addAttribute:NSFontAttributeName value:CJStatusContentFont range:NSMakeRange(0, attributedString.length)];
 
     [attributedString addAttribute:NSParagraphStyleAttributeName value:paragraphStyle range:NSMakeRange(0, attributedString.length)];
-#warning emoji---Bug!!!!
-#warning emoji---Bug!!!!
-#warning emoji---Bug!!!!
-#warning emoji---Bug!!!!
-#warning emoji---Bug!!!!
-#warning emoji---Bug!!!!
-#warning emoji---Bug!!!!
-#warning emoji---Bug!!!!
-    [attributedString addAttribute:@"special" value:specialTexts range:NSMakeRange(0, 1)];
+    
+    
+    [attributedString addAttribute:@"special" value:specialTexts range:NSMakeRange(attributedString.length - 1, 1)];
 
     
     return attributedString;

@@ -75,29 +75,31 @@
 
 - (void)emotionTabBar:(CJEmotionTabBar *)tabBar didSelectedButton:(CJEmotionTabBarButtonType)buttonType
 {
-    
+    // 移除当前显示的ListView
     [self.showingListView removeFromSuperview];
     
-    
     switch (buttonType) {
-        case CJEmotionTabBarButtonTypeRecent: // 最近
+        case CJEmotionTabBarButtonTypeRecent: {// 最近
+            self.recentView.emotions = [CJEmotionTool recentEmotions];
             [self addSubview:self.recentView];
             break;
-        case CJEmotionTabBarButtonTypeDefault:{ // 默认
-            [self addSubview:self.defaultView];
         }
+        case CJEmotionTabBarButtonTypeDefault: {// 默认
+            [self addSubview:self.defaultView];
             break;
+        }
         case CJEmotionTabBarButtonTypeEmoji:{ // Emoji
             [self addSubview:self.emojiView];
-        }
             break;
+        }
         case CJEmotionTabBarButtonTypeLXH:{ // 浪小花
             [self addSubview:self.lxhView];
-    }
             break;
+        }
         default:
             break;
     }
+    // 显示当前要展示的表情ListView
     self.showingListView = [self.subviews lastObject];
     [self setNeedsLayout];
 }

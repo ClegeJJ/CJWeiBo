@@ -19,7 +19,7 @@
 {
     if (!_speicalRects) {
         _speicalRects = [NSMutableArray array];
-        NSArray *specials = [self.textView.attributedText attribute:@"special" atIndex:0 effectiveRange:NULL];
+        NSArray *specials = [self.textView.attributedText attribute:@"special" atIndex:self.textView.attributedText.length - 1 effectiveRange:NULL];
         NSMutableArray *allRects = [NSMutableArray array];
         for (CJSpecialText *special in specials) {
             self.textView.selectedRange = special.range;

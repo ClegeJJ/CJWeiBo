@@ -122,8 +122,8 @@
 {
     CJDetailRepostParma *param = [CJDetailRepostParma parma];
     param.id = self.status.idstr;
-//    CJStatus *repost = [self.reposts firstObject];
-//    param.since_id = repost.idstr;
+    CJStatus *repost = [self.reposts firstObject];
+    param.since_id = repost.idstr;
     
     [CJDetailTool detailRepostWithParam:param success:^(CJDetailRepostResult *result) {
         // 获取最新评论总数
@@ -168,8 +168,8 @@
     if (self.topToolBar.selectedButtonType == CJStatusDetailTopToolBarButtonTypeComment) {
         return self.comments.count;
     } else if (self.topToolBar.selectedButtonType == CJStatusDetailTopToolBarButtonTypeReposts){
-//        return self.reposts.count;
-        return 10;
+        return self.reposts.count;
+//        return 10;
     } else {
         return 0;
     }
@@ -191,8 +191,9 @@
         CJComment *cmt = self.comments[indexPath.row];
         cell.textLabel.text = cmt.text;
     }else if (self.topToolBar.selectedButtonType == CJStatusDetailTopToolBarButtonTypeReposts){
-//        CJStatus *status = self.reposts[indexPath.row];
-        cell.textLabel.text = @"特么的接口被屏蔽了";
+        CJStatus *status = self.reposts[indexPath.row];
+//        cell.textLabel.text = @"特么的接口被屏蔽了";
+        cell.textLabel.text = status.text;
     }
     return cell;
 }
