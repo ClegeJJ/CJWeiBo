@@ -62,9 +62,7 @@
     dict[NSFontAttributeName] = self.font;
     CGSize size = [placeholder boundingRectWithSize:CGSizeMake(maxW, maxH) options:0 attributes:dict context:nil].size;
     self.placeholderLabel.frame = CGRectMake(X, Y, size.width, size.height);
-    
 }
-
 
 
 

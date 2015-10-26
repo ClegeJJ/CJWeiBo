@@ -465,49 +465,16 @@
 		F05228DD1BB193A700F4E059 /* Contents.json in Resources */ = {isa = PBXBuildFile; fileRef = F05228C51BB193A700F4E059 /* Contents.json */; };
 		F05228DE1BB193A700F4E059 /* emoticon_keyboard_magnifier@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F05228C61BB193A700F4E059 /* emoticon_keyboard_magnifier@2x.png */; };
 		F05348581BA7A2460063CB6C /* NSDate+MJ.m in Sources */ = {isa = PBXBuildFile; fileRef = F05348571BA7A2460063CB6C /* NSDate+MJ.m */; };
-		F057F14B1BD628DC0058FB2B /* ImageError.png in Resources */ = {isa = PBXBuildFile; fileRef = F057F1141BD628DC0058FB2B /* ImageError.png */; };
-		F057F14C1BD628DC0058FB2B /* ImageError@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F057F1151BD628DC0058FB2B /* ImageError@2x.png */; };
-		F057F14D1BD628DC0058FB2B /* ImageError@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = F057F1161BD628DC0058FB2B /* ImageError@3x.png */; };
-		F057F14E1BD628DC0058FB2B /* ImageSelectedOff.png in Resources */ = {isa = PBXBuildFile; fileRef = F057F1171BD628DC0058FB2B /* ImageSelectedOff.png */; };
-		F057F14F1BD628DC0058FB2B /* ImageSelectedOff@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F057F1181BD628DC0058FB2B /* ImageSelectedOff@2x.png */; };
-		F057F1501BD628DC0058FB2B /* ImageSelectedOff@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = F057F1191BD628DC0058FB2B /* ImageSelectedOff@3x.png */; };
-		F057F1511BD628DC0058FB2B /* ImageSelectedOn.png in Resources */ = {isa = PBXBuildFile; fileRef = F057F11A1BD628DC0058FB2B /* ImageSelectedOn.png */; };
-		F057F1521BD628DC0058FB2B /* ImageSelectedOn@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F057F11B1BD628DC0058FB2B /* ImageSelectedOn@2x.png */; };
-		F057F1531BD628DC0058FB2B /* ImageSelectedOn@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = F057F11C1BD628DC0058FB2B /* ImageSelectedOn@3x.png */; };
-		F057F1541BD628DC0058FB2B /* ImageSelectedSmallOff.png in Resources */ = {isa = PBXBuildFile; fileRef = F057F11D1BD628DC0058FB2B /* ImageSelectedSmallOff.png */; };
-		F057F1551BD628DC0058FB2B /* ImageSelectedSmallOff@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F057F11E1BD628DC0058FB2B /* ImageSelectedSmallOff@2x.png */; };
-		F057F1561BD628DC0058FB2B /* ImageSelectedSmallOff@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = F057F11F1BD628DC0058FB2B /* ImageSelectedSmallOff@3x.png */; };
-		F057F1571BD628DC0058FB2B /* ImageSelectedSmallOn.png in Resources */ = {isa = PBXBuildFile; fileRef = F057F1201BD628DC0058FB2B /* ImageSelectedSmallOn.png */; };
-		F057F1581BD628DC0058FB2B /* ImageSelectedSmallOn@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F057F1211BD628DC0058FB2B /* ImageSelectedSmallOn@2x.png */; };
-		F057F1591BD628DC0058FB2B /* ImageSelectedSmallOn@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = F057F1221BD628DC0058FB2B /* ImageSelectedSmallOn@3x.png */; };
-		F057F15A1BD628DC0058FB2B /* PlayButtonOverlayLarge.png in Resources */ = {isa = PBXBuildFile; fileRef = F057F1231BD628DC0058FB2B /* PlayButtonOverlayLarge.png */; };
-		F057F15B1BD628DC0058FB2B /* PlayButtonOverlayLarge@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F057F1241BD628DC0058FB2B /* PlayButtonOverlayLarge@2x.png */; };
-		F057F15C1BD628DC0058FB2B /* PlayButtonOverlayLarge@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = F057F1251BD628DC0058FB2B /* PlayButtonOverlayLarge@3x.png */; };
-		F057F15D1BD628DC0058FB2B /* PlayButtonOverlayLargeTap.png in Resources */ = {isa = PBXBuildFile; fileRef = F057F1261BD628DC0058FB2B /* PlayButtonOverlayLargeTap.png */; };
-		F057F15E1BD628DC0058FB2B /* PlayButtonOverlayLargeTap@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F057F1271BD628DC0058FB2B /* PlayButtonOverlayLargeTap@2x.png */; };
-		F057F15F1BD628DC0058FB2B /* PlayButtonOverlayLargeTap@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = F057F1281BD628DC0058FB2B /* PlayButtonOverlayLargeTap@3x.png */; };
-		F057F1601BD628DC0058FB2B /* UIBarButtonItemArrowLeft.png in Resources */ = {isa = PBXBuildFile; fileRef = F057F1291BD628DC0058FB2B /* UIBarButtonItemArrowLeft.png */; };
-		F057F1611BD628DC0058FB2B /* UIBarButtonItemArrowLeft@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F057F12A1BD628DC0058FB2B /* UIBarButtonItemArrowLeft@2x.png */; };
-		F057F1621BD628DC0058FB2B /* UIBarButtonItemArrowLeft@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = F057F12B1BD628DC0058FB2B /* UIBarButtonItemArrowLeft@3x.png */; };
-		F057F1631BD628DC0058FB2B /* UIBarButtonItemArrowRight.png in Resources */ = {isa = PBXBuildFile; fileRef = F057F12C1BD628DC0058FB2B /* UIBarButtonItemArrowRight.png */; };
-		F057F1641BD628DC0058FB2B /* UIBarButtonItemArrowRight@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F057F12D1BD628DC0058FB2B /* UIBarButtonItemArrowRight@2x.png */; };
-		F057F1651BD628DC0058FB2B /* UIBarButtonItemArrowRight@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = F057F12E1BD628DC0058FB2B /* UIBarButtonItemArrowRight@3x.png */; };
-		F057F1661BD628DC0058FB2B /* UIBarButtonItemGrid.png in Resources */ = {isa = PBXBuildFile; fileRef = F057F12F1BD628DC0058FB2B /* UIBarButtonItemGrid.png */; };
-		F057F1671BD628DC0058FB2B /* UIBarButtonItemGrid@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F057F1301BD628DC0058FB2B /* UIBarButtonItemGrid@2x.png */; };
-		F057F1681BD628DC0058FB2B /* UIBarButtonItemGrid@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = F057F1311BD628DC0058FB2B /* UIBarButtonItemGrid@3x.png */; };
-		F057F1691BD628DC0058FB2B /* VideoOverlay.png in Resources */ = {isa = PBXBuildFile; fileRef = F057F1321BD628DC0058FB2B /* VideoOverlay.png */; };
-		F057F16A1BD628DC0058FB2B /* VideoOverlay@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F057F1331BD628DC0058FB2B /* VideoOverlay@2x.png */; };
-		F057F16B1BD628DC0058FB2B /* VideoOverlay@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = F057F1341BD628DC0058FB2B /* VideoOverlay@3x.png */; };
-		F057F16C1BD628DC0058FB2B /* MWCaptionView.m in Sources */ = {isa = PBXBuildFile; fileRef = F057F1371BD628DC0058FB2B /* MWCaptionView.m */; };
-		F057F16D1BD628DC0058FB2B /* MWGridCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F057F13A1BD628DC0058FB2B /* MWGridCell.m */; };
-		F057F16E1BD628DC0058FB2B /* MWGridViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F057F13C1BD628DC0058FB2B /* MWGridViewController.m */; };
-		F057F16F1BD628DC0058FB2B /* MWPhoto.m in Sources */ = {isa = PBXBuildFile; fileRef = F057F13E1BD628DC0058FB2B /* MWPhoto.m */; };
-		F057F1701BD628DC0058FB2B /* MWPhotoBrowser.m in Sources */ = {isa = PBXBuildFile; fileRef = F057F1401BD628DC0058FB2B /* MWPhotoBrowser.m */; };
-		F057F1711BD628DC0058FB2B /* MWTapDetectingImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = F057F1441BD628DC0058FB2B /* MWTapDetectingImageView.m */; };
-		F057F1721BD628DC0058FB2B /* MWTapDetectingView.m in Sources */ = {isa = PBXBuildFile; fileRef = F057F1461BD628DC0058FB2B /* MWTapDetectingView.m */; };
-		F057F1731BD628DC0058FB2B /* MWZoomingScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = F057F1481BD628DC0058FB2B /* MWZoomingScrollView.m */; };
-		F057F1741BD628DC0058FB2B /* UIImage+MWPhotoBrowser.m in Sources */ = {isa = PBXBuildFile; fileRef = F057F14A1BD628DC0058FB2B /* UIImage+MWPhotoBrowser.m */; };
 		F059E3921BA10F6500BC1C25 /* CJTabBarButton.m in Sources */ = {isa = PBXBuildFile; fileRef = F059E3911BA10F6500BC1C25 /* CJTabBarButton.m */; };
+		F05E17FB1BDE4FA700A7D631 /* MJPhoto.m in Sources */ = {isa = PBXBuildFile; fileRef = F05E17ED1BDE4FA700A7D631 /* MJPhoto.m */; };
+		F05E17FC1BDE4FA700A7D631 /* MJPhotoBrowser.bundle in Resources */ = {isa = PBXBuildFile; fileRef = F05E17EE1BDE4FA700A7D631 /* MJPhotoBrowser.bundle */; };
+		F05E17FD1BDE4FA700A7D631 /* MJPhotoBrowser.m in Sources */ = {isa = PBXBuildFile; fileRef = F05E17F01BDE4FA700A7D631 /* MJPhotoBrowser.m */; };
+		F05E17FE1BDE4FA700A7D631 /* MJPhotoLoadingView.m in Sources */ = {isa = PBXBuildFile; fileRef = F05E17F21BDE4FA700A7D631 /* MJPhotoLoadingView.m */; };
+		F05E17FF1BDE4FA700A7D631 /* MJPhotoProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = F05E17F41BDE4FA700A7D631 /* MJPhotoProgressView.m */; };
+		F05E18001BDE4FA700A7D631 /* MJPhotoToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = F05E17F61BDE4FA700A7D631 /* MJPhotoToolbar.m */; };
+		F05E18011BDE4FA700A7D631 /* MJPhotoView.m in Sources */ = {isa = PBXBuildFile; fileRef = F05E17F81BDE4FA700A7D631 /* MJPhotoView.m */; };
+		F05E18021BDE4FA700A7D631 /* SDWebImageManager+MJ.m in Sources */ = {isa = PBXBuildFile; fileRef = F05E17FA1BDE4FA700A7D631 /* SDWebImageManager+MJ.m */; };
+		F05E184E1BDE5C6900A7D631 /* MJRefresh.bundle in Resources */ = {isa = PBXBuildFile; fileRef = F05E184D1BDE5C6900A7D631 /* MJRefresh.bundle */; };
 		F06128251BAD4052009BC72A /* CJNetTool.m in Sources */ = {isa = PBXBuildFile; fileRef = F06128241BAD4052009BC72A /* CJNetTool.m */; };
 		F06128281BAD4F95009BC72A /* CJFarmData.m in Sources */ = {isa = PBXBuildFile; fileRef = F06128271BAD4F95009BC72A /* CJFarmData.m */; };
 		F0615A711BD3A06F002C868D /* NSString+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = F0615A701BD3A06F002C868D /* NSString+Extension.m */; };
@@ -1283,62 +1250,24 @@
 		F05228C61BB193A700F4E059 /* emoticon_keyboard_magnifier@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "emoticon_keyboard_magnifier@2x.png"; sourceTree = "<group>"; };
 		F05348561BA7A2460063CB6C /* NSDate+MJ.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+MJ.h"; sourceTree = "<group>"; };
 		F05348571BA7A2460063CB6C /* NSDate+MJ.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+MJ.m"; sourceTree = "<group>"; };
-		F057F1141BD628DC0058FB2B /* ImageError.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ImageError.png; sourceTree = "<group>"; };
-		F057F1151BD628DC0058FB2B /* ImageError@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ImageError@2x.png"; sourceTree = "<group>"; };
-		F057F1161BD628DC0058FB2B /* ImageError@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ImageError@3x.png"; sourceTree = "<group>"; };
-		F057F1171BD628DC0058FB2B /* ImageSelectedOff.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ImageSelectedOff.png; sourceTree = "<group>"; };
-		F057F1181BD628DC0058FB2B /* ImageSelectedOff@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ImageSelectedOff@2x.png"; sourceTree = "<group>"; };
-		F057F1191BD628DC0058FB2B /* ImageSelectedOff@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ImageSelectedOff@3x.png"; sourceTree = "<group>"; };
-		F057F11A1BD628DC0058FB2B /* ImageSelectedOn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ImageSelectedOn.png; sourceTree = "<group>"; };
-		F057F11B1BD628DC0058FB2B /* ImageSelectedOn@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ImageSelectedOn@2x.png"; sourceTree = "<group>"; };
-		F057F11C1BD628DC0058FB2B /* ImageSelectedOn@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ImageSelectedOn@3x.png"; sourceTree = "<group>"; };
-		F057F11D1BD628DC0058FB2B /* ImageSelectedSmallOff.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ImageSelectedSmallOff.png; sourceTree = "<group>"; };
-		F057F11E1BD628DC0058FB2B /* ImageSelectedSmallOff@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ImageSelectedSmallOff@2x.png"; sourceTree = "<group>"; };
-		F057F11F1BD628DC0058FB2B /* ImageSelectedSmallOff@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ImageSelectedSmallOff@3x.png"; sourceTree = "<group>"; };
-		F057F1201BD628DC0058FB2B /* ImageSelectedSmallOn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ImageSelectedSmallOn.png; sourceTree = "<group>"; };
-		F057F1211BD628DC0058FB2B /* ImageSelectedSmallOn@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ImageSelectedSmallOn@2x.png"; sourceTree = "<group>"; };
-		F057F1221BD628DC0058FB2B /* ImageSelectedSmallOn@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ImageSelectedSmallOn@3x.png"; sourceTree = "<group>"; };
-		F057F1231BD628DC0058FB2B /* PlayButtonOverlayLarge.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PlayButtonOverlayLarge.png; sourceTree = "<group>"; };
-		F057F1241BD628DC0058FB2B /* PlayButtonOverlayLarge@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "PlayButtonOverlayLarge@2x.png"; sourceTree = "<group>"; };
-		F057F1251BD628DC0058FB2B /* PlayButtonOverlayLarge@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "PlayButtonOverlayLarge@3x.png"; sourceTree = "<group>"; };
-		F057F1261BD628DC0058FB2B /* PlayButtonOverlayLargeTap.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PlayButtonOverlayLargeTap.png; sourceTree = "<group>"; };
-		F057F1271BD628DC0058FB2B /* PlayButtonOverlayLargeTap@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "PlayButtonOverlayLargeTap@2x.png"; sourceTree = "<group>"; };
-		F057F1281BD628DC0058FB2B /* PlayButtonOverlayLargeTap@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "PlayButtonOverlayLargeTap@3x.png"; sourceTree = "<group>"; };
-		F057F1291BD628DC0058FB2B /* UIBarButtonItemArrowLeft.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = UIBarButtonItemArrowLeft.png; sourceTree = "<group>"; };
-		F057F12A1BD628DC0058FB2B /* UIBarButtonItemArrowLeft@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "UIBarButtonItemArrowLeft@2x.png"; sourceTree = "<group>"; };
-		F057F12B1BD628DC0058FB2B /* UIBarButtonItemArrowLeft@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "UIBarButtonItemArrowLeft@3x.png"; sourceTree = "<group>"; };
-		F057F12C1BD628DC0058FB2B /* UIBarButtonItemArrowRight.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = UIBarButtonItemArrowRight.png; sourceTree = "<group>"; };
-		F057F12D1BD628DC0058FB2B /* UIBarButtonItemArrowRight@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "UIBarButtonItemArrowRight@2x.png"; sourceTree = "<group>"; };
-		F057F12E1BD628DC0058FB2B /* UIBarButtonItemArrowRight@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "UIBarButtonItemArrowRight@3x.png"; sourceTree = "<group>"; };
-		F057F12F1BD628DC0058FB2B /* UIBarButtonItemGrid.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = UIBarButtonItemGrid.png; sourceTree = "<group>"; };
-		F057F1301BD628DC0058FB2B /* UIBarButtonItemGrid@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "UIBarButtonItemGrid@2x.png"; sourceTree = "<group>"; };
-		F057F1311BD628DC0058FB2B /* UIBarButtonItemGrid@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "UIBarButtonItemGrid@3x.png"; sourceTree = "<group>"; };
-		F057F1321BD628DC0058FB2B /* VideoOverlay.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = VideoOverlay.png; sourceTree = "<group>"; };
-		F057F1331BD628DC0058FB2B /* VideoOverlay@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "VideoOverlay@2x.png"; sourceTree = "<group>"; };
-		F057F1341BD628DC0058FB2B /* VideoOverlay@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "VideoOverlay@3x.png"; sourceTree = "<group>"; };
-		F057F1361BD628DC0058FB2B /* MWCaptionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MWCaptionView.h; sourceTree = "<group>"; };
-		F057F1371BD628DC0058FB2B /* MWCaptionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MWCaptionView.m; sourceTree = "<group>"; };
-		F057F1381BD628DC0058FB2B /* MWCommon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MWCommon.h; sourceTree = "<group>"; };
-		F057F1391BD628DC0058FB2B /* MWGridCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MWGridCell.h; sourceTree = "<group>"; };
-		F057F13A1BD628DC0058FB2B /* MWGridCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MWGridCell.m; sourceTree = "<group>"; };
-		F057F13B1BD628DC0058FB2B /* MWGridViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MWGridViewController.h; sourceTree = "<group>"; };
-		F057F13C1BD628DC0058FB2B /* MWGridViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MWGridViewController.m; sourceTree = "<group>"; };
-		F057F13D1BD628DC0058FB2B /* MWPhoto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MWPhoto.h; sourceTree = "<group>"; };
-		F057F13E1BD628DC0058FB2B /* MWPhoto.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MWPhoto.m; sourceTree = "<group>"; };
-		F057F13F1BD628DC0058FB2B /* MWPhotoBrowser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MWPhotoBrowser.h; sourceTree = "<group>"; };
-		F057F1401BD628DC0058FB2B /* MWPhotoBrowser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MWPhotoBrowser.m; sourceTree = "<group>"; };
-		F057F1411BD628DC0058FB2B /* MWPhotoBrowserPrivate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MWPhotoBrowserPrivate.h; sourceTree = "<group>"; };
-		F057F1421BD628DC0058FB2B /* MWPhotoProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MWPhotoProtocol.h; sourceTree = "<group>"; };
-		F057F1431BD628DC0058FB2B /* MWTapDetectingImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MWTapDetectingImageView.h; sourceTree = "<group>"; };
-		F057F1441BD628DC0058FB2B /* MWTapDetectingImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MWTapDetectingImageView.m; sourceTree = "<group>"; };
-		F057F1451BD628DC0058FB2B /* MWTapDetectingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MWTapDetectingView.h; sourceTree = "<group>"; };
-		F057F1461BD628DC0058FB2B /* MWTapDetectingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MWTapDetectingView.m; sourceTree = "<group>"; };
-		F057F1471BD628DC0058FB2B /* MWZoomingScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MWZoomingScrollView.h; sourceTree = "<group>"; };
-		F057F1481BD628DC0058FB2B /* MWZoomingScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MWZoomingScrollView.m; sourceTree = "<group>"; };
-		F057F1491BD628DC0058FB2B /* UIImage+MWPhotoBrowser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+MWPhotoBrowser.h"; sourceTree = "<group>"; };
-		F057F14A1BD628DC0058FB2B /* UIImage+MWPhotoBrowser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+MWPhotoBrowser.m"; sourceTree = "<group>"; };
 		F059E3901BA10F6500BC1C25 /* CJTabBarButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CJTabBarButton.h; sourceTree = "<group>"; };
 		F059E3911BA10F6500BC1C25 /* CJTabBarButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CJTabBarButton.m; sourceTree = "<group>"; };
+		F05E17EC1BDE4FA700A7D631 /* MJPhoto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJPhoto.h; sourceTree = "<group>"; };
+		F05E17ED1BDE4FA700A7D631 /* MJPhoto.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJPhoto.m; sourceTree = "<group>"; };
+		F05E17EE1BDE4FA700A7D631 /* MJPhotoBrowser.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = MJPhotoBrowser.bundle; sourceTree = "<group>"; };
+		F05E17EF1BDE4FA700A7D631 /* MJPhotoBrowser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJPhotoBrowser.h; sourceTree = "<group>"; };
+		F05E17F01BDE4FA700A7D631 /* MJPhotoBrowser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJPhotoBrowser.m; sourceTree = "<group>"; };
+		F05E17F11BDE4FA700A7D631 /* MJPhotoLoadingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJPhotoLoadingView.h; sourceTree = "<group>"; };
+		F05E17F21BDE4FA700A7D631 /* MJPhotoLoadingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJPhotoLoadingView.m; sourceTree = "<group>"; };
+		F05E17F31BDE4FA700A7D631 /* MJPhotoProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJPhotoProgressView.h; sourceTree = "<group>"; };
+		F05E17F41BDE4FA700A7D631 /* MJPhotoProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJPhotoProgressView.m; sourceTree = "<group>"; };
+		F05E17F51BDE4FA700A7D631 /* MJPhotoToolbar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJPhotoToolbar.h; sourceTree = "<group>"; };
+		F05E17F61BDE4FA700A7D631 /* MJPhotoToolbar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJPhotoToolbar.m; sourceTree = "<group>"; };
+		F05E17F71BDE4FA700A7D631 /* MJPhotoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJPhotoView.h; sourceTree = "<group>"; };
+		F05E17F81BDE4FA700A7D631 /* MJPhotoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJPhotoView.m; sourceTree = "<group>"; };
+		F05E17F91BDE4FA700A7D631 /* SDWebImageManager+MJ.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SDWebImageManager+MJ.h"; sourceTree = "<group>"; };
+		F05E17FA1BDE4FA700A7D631 /* SDWebImageManager+MJ.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "SDWebImageManager+MJ.m"; sourceTree = "<group>"; };
+		F05E184D1BDE5C6900A7D631 /* MJRefresh.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = MJRefresh.bundle; sourceTree = "<group>"; };
 		F06128231BAD4052009BC72A /* CJNetTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CJNetTool.h; sourceTree = "<group>"; };
 		F06128241BAD4052009BC72A /* CJNetTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CJNetTool.m; sourceTree = "<group>"; };
 		F06128261BAD4F95009BC72A /* CJFarmData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CJFarmData.h; sourceTree = "<group>"; };
@@ -2547,12 +2476,13 @@
 		F04C0E251BA3D3DD0029282B /* Lib */ = {
 			isa = PBXGroup;
 			children = (
+				F05E184D1BDE5C6900A7D631 /* MJRefresh.bundle */,
 				F09EF47A1BCE3DD0005D166B /* libicucore.dylib */,
 				F09A52C11BC11B4100C58225 /* libsqlite3.dylib */,
 				F095A3AC1BA92B5300696D9D /* UIViewExt.h */,
 				F095A3AD1BA92B5300696D9D /* UIViewExt.m */,
+				F05E17EB1BDE4FA700A7D631 /* MJPhotoBrowser-master */,
 				F026A4381BD6755800CEE8CA /* AFNetworking */,
-				F057F1121BD628DC0058FB2B /* MWPhotoBrowser2 */,
 			);
 			path = Lib;
 			sourceTree = "<group>";
@@ -2759,81 +2689,26 @@
 			path = emoticon_keyboard_magnifier.imageset;
 			sourceTree = "<group>";
 		};
-		F057F1121BD628DC0058FB2B /* MWPhotoBrowser2 */ = {
+		F05E17EB1BDE4FA700A7D631 /* MJPhotoBrowser-master */ = {
 			isa = PBXGroup;
 			children = (
-				F057F1131BD628DC0058FB2B /* Assets */,
-				F057F1351BD628DC0058FB2B /* Classes */,
+				F05E17EC1BDE4FA700A7D631 /* MJPhoto.h */,
+				F05E17ED1BDE4FA700A7D631 /* MJPhoto.m */,
+				F05E17EE1BDE4FA700A7D631 /* MJPhotoBrowser.bundle */,
+				F05E17EF1BDE4FA700A7D631 /* MJPhotoBrowser.h */,
+				F05E17F01BDE4FA700A7D631 /* MJPhotoBrowser.m */,
+				F05E17F11BDE4FA700A7D631 /* MJPhotoLoadingView.h */,
+				F05E17F21BDE4FA700A7D631 /* MJPhotoLoadingView.m */,
+				F05E17F31BDE4FA700A7D631 /* MJPhotoProgressView.h */,
+				F05E17F41BDE4FA700A7D631 /* MJPhotoProgressView.m */,
+				F05E17F51BDE4FA700A7D631 /* MJPhotoToolbar.h */,
+				F05E17F61BDE4FA700A7D631 /* MJPhotoToolbar.m */,
+				F05E17F71BDE4FA700A7D631 /* MJPhotoView.h */,
+				F05E17F81BDE4FA700A7D631 /* MJPhotoView.m */,
+				F05E17F91BDE4FA700A7D631 /* SDWebImageManager+MJ.h */,
+				F05E17FA1BDE4FA700A7D631 /* SDWebImageManager+MJ.m */,
 			);
-			path = MWPhotoBrowser2;
-			sourceTree = "<group>";
-		};
-		F057F1131BD628DC0058FB2B /* Assets */ = {
-			isa = PBXGroup;
-			children = (
-				F057F1141BD628DC0058FB2B /* ImageError.png */,
-				F057F1151BD628DC0058FB2B /* ImageError@2x.png */,
-				F057F1161BD628DC0058FB2B /* ImageError@3x.png */,
-				F057F1171BD628DC0058FB2B /* ImageSelectedOff.png */,
-				F057F1181BD628DC0058FB2B /* ImageSelectedOff@2x.png */,
-				F057F1191BD628DC0058FB2B /* ImageSelectedOff@3x.png */,
-				F057F11A1BD628DC0058FB2B /* ImageSelectedOn.png */,
-				F057F11B1BD628DC0058FB2B /* ImageSelectedOn@2x.png */,
-				F057F11C1BD628DC0058FB2B /* ImageSelectedOn@3x.png */,
-				F057F11D1BD628DC0058FB2B /* ImageSelectedSmallOff.png */,
-				F057F11E1BD628DC0058FB2B /* ImageSelectedSmallOff@2x.png */,
-				F057F11F1BD628DC0058FB2B /* ImageSelectedSmallOff@3x.png */,
-				F057F1201BD628DC0058FB2B /* ImageSelectedSmallOn.png */,
-				F057F1211BD628DC0058FB2B /* ImageSelectedSmallOn@2x.png */,
-				F057F1221BD628DC0058FB2B /* ImageSelectedSmallOn@3x.png */,
-				F057F1231BD628DC0058FB2B /* PlayButtonOverlayLarge.png */,
-				F057F1241BD628DC0058FB2B /* PlayButtonOverlayLarge@2x.png */,
-				F057F1251BD628DC0058FB2B /* PlayButtonOverlayLarge@3x.png */,
-				F057F1261BD628DC0058FB2B /* PlayButtonOverlayLargeTap.png */,
-				F057F1271BD628DC0058FB2B /* PlayButtonOverlayLargeTap@2x.png */,
-				F057F1281BD628DC0058FB2B /* PlayButtonOverlayLargeTap@3x.png */,
-				F057F1291BD628DC0058FB2B /* UIBarButtonItemArrowLeft.png */,
-				F057F12A1BD628DC0058FB2B /* UIBarButtonItemArrowLeft@2x.png */,
-				F057F12B1BD628DC0058FB2B /* UIBarButtonItemArrowLeft@3x.png */,
-				F057F12C1BD628DC0058FB2B /* UIBarButtonItemArrowRight.png */,
-				F057F12D1BD628DC0058FB2B /* UIBarButtonItemArrowRight@2x.png */,
-				F057F12E1BD628DC0058FB2B /* UIBarButtonItemArrowRight@3x.png */,
-				F057F12F1BD628DC0058FB2B /* UIBarButtonItemGrid.png */,
-				F057F1301BD628DC0058FB2B /* UIBarButtonItemGrid@2x.png */,
-				F057F1311BD628DC0058FB2B /* UIBarButtonItemGrid@3x.png */,
-				F057F1321BD628DC0058FB2B /* VideoOverlay.png */,
-				F057F1331BD628DC0058FB2B /* VideoOverlay@2x.png */,
-				F057F1341BD628DC0058FB2B /* VideoOverlay@3x.png */,
-			);
-			path = Assets;
-			sourceTree = "<group>";
-		};
-		F057F1351BD628DC0058FB2B /* Classes */ = {
-			isa = PBXGroup;
-			children = (
-				F057F1361BD628DC0058FB2B /* MWCaptionView.h */,
-				F057F1371BD628DC0058FB2B /* MWCaptionView.m */,
-				F057F1381BD628DC0058FB2B /* MWCommon.h */,
-				F057F1391BD628DC0058FB2B /* MWGridCell.h */,
-				F057F13A1BD628DC0058FB2B /* MWGridCell.m */,
-				F057F13B1BD628DC0058FB2B /* MWGridViewController.h */,
-				F057F13C1BD628DC0058FB2B /* MWGridViewController.m */,
-				F057F13D1BD628DC0058FB2B /* MWPhoto.h */,
-				F057F13E1BD628DC0058FB2B /* MWPhoto.m */,
-				F057F13F1BD628DC0058FB2B /* MWPhotoBrowser.h */,
-				F057F1401BD628DC0058FB2B /* MWPhotoBrowser.m */,
-				F057F1411BD628DC0058FB2B /* MWPhotoBrowserPrivate.h */,
-				F057F1421BD628DC0058FB2B /* MWPhotoProtocol.h */,
-				F057F1431BD628DC0058FB2B /* MWTapDetectingImageView.h */,
-				F057F1441BD628DC0058FB2B /* MWTapDetectingImageView.m */,
-				F057F1451BD628DC0058FB2B /* MWTapDetectingView.h */,
-				F057F1461BD628DC0058FB2B /* MWTapDetectingView.m */,
-				F057F1471BD628DC0058FB2B /* MWZoomingScrollView.h */,
-				F057F1481BD628DC0058FB2B /* MWZoomingScrollView.m */,
-				F057F1491BD628DC0058FB2B /* UIImage+MWPhotoBrowser.h */,
-				F057F14A1BD628DC0058FB2B /* UIImage+MWPhotoBrowser.m */,
-			);
-			path = Classes;
+			path = "MJPhotoBrowser-master";
 			sourceTree = "<group>";
 		};
 		F06128221BAD4001009BC72A /* Tool */ = {
@@ -4090,7 +3965,6 @@
 				F033A7D51BA0554D00417D4D /* navigationbar_more_highlighted_os7@2x.png in Resources */,
 				F07714D41BA6B917001ECEA3 /* Contents.json in Resources */,
 				F03C51231BB3CB7100D4A8CC /* lxh_leiliumanmian.png in Resources */,
-				F057F16A1BD628DC0058FB2B /* VideoOverlay@2x.png in Resources */,
 				F033A7AF1BA0554D00417D4D /* navigationbar_arrow_down@2x.png in Resources */,
 				F03C51501BB3CB7100D4A8CC /* lxh_xiudada@2x.png in Resources */,
 				F03C50951BB3CB7100D4A8CC /* d_hehe@2x.png in Resources */,
@@ -4159,13 +4033,11 @@
 				F033A7C91BA0554D00417D4D /* navigationbar_filter_background_highlighted@2x.png in Resources */,
 				F05228941BB118A800F4E059 /* compose_emotion_table_mid_normal@2x.png in Resources */,
 				F07714ED1BA6B917001ECEA3 /* Contents.json in Resources */,
-				F057F15A1BD628DC0058FB2B /* PlayButtonOverlayLarge.png in Resources */,
 				F03C510E1BB3CB7100D4A8CC /* lxh_holdzhu.png in Resources */,
 				F033A8361BA0554D00417D4D /* tabbar_message_center_selected_os7@2x.png in Resources */,
 				F03C50C71BB3CB7100D4A8CC /* f_xi@2x.png in Resources */,
 				F033A82B1BA0554D00417D4D /* tabbar_home.png in Resources */,
 				F06326951BABA9F100FEA8A4 /* Contents.json in Resources */,
-				F057F1591BD628DC0058FB2B /* ImageSelectedSmallOn@3x.png in Resources */,
 				F063266E1BABA9F100FEA8A4 /* compose_camerabutton_background.png in Resources */,
 				F03C51121BB3CB7100D4A8CC /* lxh_jiekexun@2x.png in Resources */,
 				F03C511B1BB3CB7100D4A8CC /* lxh_koubishi@2x.png in Resources */,
@@ -4184,7 +4056,6 @@
 				F05228D01BB193A700F4E059 /* Contents.json in Resources */,
 				F03C50A11BB3CB7100D4A8CC /* d_nanhaier@2x.png in Resources */,
 				F03C50A91BB3CB7100D4A8CC /* d_shiwang@2x.png in Resources */,
-				F057F15E1BD628DC0058FB2B /* PlayButtonOverlayLargeTap@2x.png in Resources */,
 				F03C50C91BB3CB7100D4A8CC /* h_buyao@2x.png in Resources */,
 				F095A3E01BA94DBE00696D9D /* Contents.json in Resources */,
 				F033A7E91BA0554D00417D4D /* new_feature_background-568h@2x.png in Resources */,
@@ -4205,6 +4076,7 @@
 				F03C50F41BB3CB7100D4A8CC /* lxh_biefanwo@2x.png in Resources */,
 				F06326941BABA9F100FEA8A4 /* compose_pic_add_os7@2x.png in Resources */,
 				F07714E61BA6B917001ECEA3 /* Contents.json in Resources */,
+				F05E184E1BDE5C6900A7D631 /* MJRefresh.bundle in Resources */,
 				F033A7B91BA0554D00417D4D /* navigationbar_back_os7@2x.png in Resources */,
 				F03C50E61BB3CB7100D4A8CC /* w_yueliang@2x.png in Resources */,
 				F07714D01BA6B917001ECEA3 /* timeline_card_middlebottom_highlighted_os7@2x.png in Resources */,
@@ -4218,10 +4090,8 @@
 				F07715021BA6B917001ECEA3 /* timeline_retweet_background_os7@2x.png in Resources */,
 				F03C51221BB3CB7100D4A8CC /* lxh_leiliumanmian.gif in Resources */,
 				F07714C91BA6B917001ECEA3 /* timeline_card_leftbottom_highlighted@2x.png in Resources */,
-				F057F1621BD628DC0058FB2B /* UIBarButtonItemArrowLeft@3x.png in Resources */,
 				F03C50AB1BB3CB7100D4A8CC /* d_shuijiao@2x.png in Resources */,
 				F03C51011BB3CB7100D4A8CC /* lxh_haoaio.gif in Resources */,
-				F057F1611BD628DC0058FB2B /* UIBarButtonItemArrowLeft@2x.png in Resources */,
 				F03C50B91BB3CB7100D4A8CC /* d_youhengheng@2x.png in Resources */,
 				F03C510A1BB3CB7100D4A8CC /* lxh_haoxihuan.gif in Resources */,
 				F06326A21BABA9F100FEA8A4 /* Contents.json in Resources */,
@@ -4231,7 +4101,6 @@
 				F033A7CF1BA0554D00417D4D /* navigationbar_friendsearch_highlighted_os7@2x.png in Resources */,
 				F05228D51BB193A700F4E059 /* compose_emotion_table_right_selected@2x.png in Resources */,
 				F03C509A1BB3CB7100D4A8CC /* d_keai@2x.png in Resources */,
-				F057F1671BD628DC0058FB2B /* UIBarButtonItemGrid@2x.png in Resources */,
 				F07714DB1BA6B917001ECEA3 /* Contents.json in Resources */,
 				F095A3F41BA94DBE00696D9D /* Contents.json in Resources */,
 				F03C50881BB3CB7100D4A8CC /* d_bizui@2x.png in Resources */,
@@ -4251,8 +4120,6 @@
 				F06326991BABA9F100FEA8A4 /* compose_toolbar_background_os7@2x.png in Resources */,
 				F03C511A1BB3CB7100D4A8CC /* lxh_koubishi.png in Resources */,
 				F03C51481BB3CB7100D4A8CC /* lxh_xiangyixiang.gif in Resources */,
-				F057F1681BD628DC0058FB2B /* UIBarButtonItemGrid@3x.png in Resources */,
-				F057F1581BD628DC0058FB2B /* ImageSelectedSmallOn@2x.png in Resources */,
 				F052288A1BB106B200F4E059 /* compose_keyboardbutton_background_highlighted@2x.png in Resources */,
 				F07715261BA6D0D5001ECEA3 /* Contents.json in Resources */,
 				F06326891BABA9F100FEA8A4 /* Contents.json in Resources */,
@@ -4269,7 +4136,6 @@
 				F03C511E1BB3CB7100D4A8CC /* lxh_kunsile@2x.png in Resources */,
 				F033A7D41BA0554D00417D4D /* navigationbar_more_highlighted@2x.png in Resources */,
 				F07714FE1BA6B917001ECEA3 /* Contents.json in Resources */,
-				F057F1601BD628DC0058FB2B /* UIBarButtonItemArrowLeft.png in Resources */,
 				F063268B1BABA9F100FEA8A4 /* Contents.json in Resources */,
 				F033A7861BA0554D00417D4D /* common_button_red_highlighted.png in Resources */,
 				F03C50DF1BB3CB7100D4A8CC /* o_zhong@2x.png in Resources */,
@@ -4291,7 +4157,6 @@
 				F063267C1BABA9F100FEA8A4 /* compose_emoticonbutton_background_highlighted@2x.png in Resources */,
 				F03C50CD1BB3CB7100D4A8CC /* h_ok@2x.png in Resources */,
 				F07714BD1BA6B917001ECEA3 /* Contents.json in Resources */,
-				F057F14E1BD628DC0058FB2B /* ImageSelectedOff.png in Resources */,
 				F033A82C1BA0554D00417D4D /* tabbar_home@2x.png in Resources */,
 				F07714C41BA6B917001ECEA3 /* timeline_card_bottom_line@2x.png in Resources */,
 				F033A8141BA0554D00417D4D /* main_badge.png in Resources */,
@@ -4303,12 +4168,10 @@
 				F03C50E41BB3CB7100D4A8CC /* w_xianhua@2x.png in Resources */,
 				F03C510C1BB3CB7100D4A8CC /* lxh_haoxihuan@2x.png in Resources */,
 				F07714E01BA6B917001ECEA3 /* Contents.json in Resources */,
-				F057F1561BD628DC0058FB2B /* ImageSelectedSmallOff@3x.png in Resources */,
 				F07714D81BA6B917001ECEA3 /* timeline_card_top_background@2x.png in Resources */,
 				F03C51261BB3CB7100D4A8CC /* lxh_meigui.png in Resources */,
 				F03C513A1BB3CB7100D4A8CC /* lxh_quntiweiguan.png in Resources */,
 				F05228951BB118A800F4E059 /* Contents.json in Resources */,
-				F057F1501BD628DC0058FB2B /* ImageSelectedOff@3x.png in Resources */,
 				F03C50D51BB3CB7100D4A8CC /* o_feiji@2x.png in Resources */,
 				F095A3EB1BA94DBE00696D9D /* avatar_vgirl.png in Resources */,
 				F07714DF1BA6B917001ECEA3 /* timeline_icon_comment_os7@2x.png in Resources */,
@@ -4321,7 +4184,6 @@
 				F033A7AB1BA0554D00417D4D /* recommend@2x.png in Resources */,
 				F033A7D21BA0554D00417D4D /* navigationbar_more@2x.png in Resources */,
 				F03C51311BB3CB7100D4A8CC /* lxh_qiaoqiao.png in Resources */,
-				F057F16B1BD628DC0058FB2B /* VideoOverlay@3x.png in Resources */,
 				F03C50A21BB3CB7100D4A8CC /* d_nu@2x.png in Resources */,
 				F03C50DC1BB3CB7100D4A8CC /* o_weiguan@2x.png in Resources */,
 				F03C50831BB3CB7100D4A8CC /* d_aini@2x.png in Resources */,
@@ -4350,7 +4212,6 @@
 				F033A7C71BA0554D00417D4D /* navigationbar_button_send_background_pushed@2x.png in Resources */,
 				F06326871BABA9F100FEA8A4 /* Contents.json in Resources */,
 				F033A7741BA0554D00417D4D /* NoNetwork_TR.htm in Resources */,
-				F057F1541BD628DC0058FB2B /* ImageSelectedSmallOff.png in Resources */,
 				F03C515A1BB3CB7100D4A8CC /* lxh_zaokuangzheng.gif in Resources */,
 				F03C50861BB3CB7100D4A8CC /* d_beishang@2x.png in Resources */,
 				F05228961BB118A800F4E059 /* compose_emotion_table_mid_selected@2x.png in Resources */,
@@ -4363,12 +4224,10 @@
 				F03C50E21BB3CB7100D4A8CC /* w_taiyang@2x.png in Resources */,
 				F07715331BA6D0D5001ECEA3 /* common_icon_membership_level4.png in Resources */,
 				F07714F51BA6B917001ECEA3 /* timeline_image_gif.png in Resources */,
-				F057F14B1BD628DC0058FB2B /* ImageError.png in Resources */,
 				F033A7F41BA0554D00417D4D /* new_feature_share_false.png in Resources */,
 				F03C50B51BB3CB7100D4A8CC /* d_xixi@2x.png in Resources */,
 				F06326731BABA9F100FEA8A4 /* Contents.json in Resources */,
 				F03C50C01BB3CB7100D4A8CC /* default.plist in Resources */,
-				F057F15C1BD628DC0058FB2B /* PlayButtonOverlayLarge@3x.png in Resources */,
 				F03C51151BB3CB7100D4A8CC /* lxh_jiujie@2x.png in Resources */,
 				F05228D71BB193A700F4E059 /* compose_keyboard_dot_normal@2x.png in Resources */,
 				F03C50DB1BB3CB7100D4A8CC /* o_weibo@2x.png in Resources */,
@@ -4458,7 +4317,6 @@
 				F06326AD1BABA9F100FEA8A4 /* compose_trendbutton_background_os7@2x.png in Resources */,
 				F033A7D71BA0554D00417D4D /* navigationbar_pop.png in Resources */,
 				F095A3E81BA94DBE00696D9D /* Contents.json in Resources */,
-				F057F15B1BD628DC0058FB2B /* PlayButtonOverlayLarge@2x.png in Resources */,
 				F07714C31BA6B917001ECEA3 /* timeline_card_bottom_line.png in Resources */,
 				F033A7DF1BA0554D00417D4D /* new_dot_os7@2x.png in Resources */,
 				F033A8281BA0554D00417D4D /* tabbar_discover_selected.png in Resources */,
@@ -4485,10 +4343,8 @@
 				F03C50FB1BB3CB7100D4A8CC /* lxh_deyidexiao.gif in Resources */,
 				F07714F21BA6B917001ECEA3 /* Contents.json in Resources */,
 				F033A77A1BA0554D00417D4D /* common_button_big_red_disable.png in Resources */,
-				F057F1531BD628DC0058FB2B /* ImageSelectedOn@3x.png in Resources */,
-				F057F14F1BD628DC0058FB2B /* ImageSelectedOff@2x.png in Resources */,
+				F05E17FC1BDE4FA700A7D631 /* MJPhotoBrowser.bundle in Resources */,
 				F06326751BABA9F100FEA8A4 /* Contents.json in Resources */,
-				F057F1651BD628DC0058FB2B /* UIBarButtonItemArrowRight@3x.png in Resources */,
 				F03C50911BB3CB7100D4A8CC /* d_guzhang@2x.png in Resources */,
 				F03C50E01BB3CB7100D4A8CC /* w_fuyun@2x.png in Resources */,
 				F03C51561BB3CB7100D4A8CC /* lxh_youyali@2x.png in Resources */,
@@ -4506,7 +4362,6 @@
 				F06326931BABA9F100FEA8A4 /* Contents.json in Resources */,
 				F03C50991BB3CB7100D4A8CC /* d_jiyan@2x.png in Resources */,
 				F06326831BABA9F100FEA8A4 /* compose_mentionbutton_background@2x.png in Resources */,
-				F057F1511BD628DC0058FB2B /* ImageSelectedOn.png in Resources */,
 				F033A8311BA0554D00417D4D /* tabbar_message_center.png in Resources */,
 				F03C50AD1BB3CB7100D4A8CC /* d_taikaixin@2x.png in Resources */,
 				F033A7A91BA0554D00417D4D /* news@2x.png in Resources */,
@@ -4514,8 +4369,6 @@
 				F07714C61BA6B917001ECEA3 /* timeline_card_bottom_line_os7@2x.png in Resources */,
 				F052288C1BB106B200F4E059 /* compose_keyboardbutton_background@2x.png in Resources */,
 				F033A77B1BA0554D00417D4D /* common_button_big_red_disable@2x.png in Resources */,
-				F057F1641BD628DC0058FB2B /* UIBarButtonItemArrowRight@2x.png in Resources */,
-				F057F14D1BD628DC0058FB2B /* ImageError@3x.png in Resources */,
 				F06326A91BABA9F100FEA8A4 /* compose_trendbutton_background_highlighted@2x.png in Resources */,
 				F03C51081BB3CB7100D4A8CC /* lxh_haojiong.png in Resources */,
 				F033A83C1BA0554D00417D4D /* tabbar_profile_selected_os7@2x.png in Resources */,
@@ -4544,7 +4397,6 @@
 				F03C51341BB3CB7100D4A8CC /* lxh_qiubite.png in Resources */,
 				F033A8291BA0554D00417D4D /* tabbar_discover_selected@2x.png in Resources */,
 				F03C509C1BB3CB7100D4A8CC /* d_ku@2x.png in Resources */,
-				F057F15D1BD628DC0058FB2B /* PlayButtonOverlayLargeTap.png in Resources */,
 				F07715301BA6D0D5001ECEA3 /* common_icon_membership_level3.png in Resources */,
 				F063269D1BABA9F100FEA8A4 /* Contents.json in Resources */,
 				F07714FF1BA6B917001ECEA3 /* timeline_retweet_background.png in Resources */,
@@ -4553,10 +4405,8 @@
 				F03C50C41BB3CB7100D4A8CC /* f_meng@2x.png in Resources */,
 				F03C50CA1BB3CB7100D4A8CC /* h_good@2x.png in Resources */,
 				F033A81F1BA0554D00417D4D /* tabbar_compose_icon_add.png in Resources */,
-				F057F1521BD628DC0058FB2B /* ImageSelectedOn@2x.png in Resources */,
 				F033A7BC1BA0554D00417D4D /* navigationbar_button_background.png in Resources */,
 				F03C51021BB3CB7100D4A8CC /* lxh_haoaio.png in Resources */,
-				F057F1551BD628DC0058FB2B /* ImageSelectedSmallOff@2x.png in Resources */,
 				F03C50941BB3CB7100D4A8CC /* d_han@2x.png in Resources */,
 				F03C50EA1BB3CB7100D4A8CC /* lxh_beicui.png in Resources */,
 				F033A7B61BA0554D00417D4D /* navigationbar_back_highlighted.png in Resources */,
@@ -4577,12 +4427,10 @@
 				F033A7831BA0554D00417D4D /* common_button_red_disable.png in Resources */,
 				F03C50CE1BB3CB7100D4A8CC /* h_ruo@2x.png in Resources */,
 				F033A83B1BA0554D00417D4D /* tabbar_profile_selected@2x.png in Resources */,
-				F057F1691BD628DC0058FB2B /* VideoOverlay.png in Resources */,
 				F033A7DB1BA0554D00417D4D /* navigationbar_pop_highlighted_os7@2x.png in Resources */,
 				F052288B1BB106B200F4E059 /* Contents.json in Resources */,
 				F03C51591BB3CB7100D4A8CC /* lxh_zana@2x.png in Resources */,
 				F05228D21BB193A700F4E059 /* Contents.json in Resources */,
-				F057F14C1BD628DC0058FB2B /* ImageError@2x.png in Resources */,
 				F033A7B81BA0554D00417D4D /* navigationbar_back_highlighted_os7@2x.png in Resources */,
 				F033A7F21BA0554D00417D4D /* new_feature_pagecontrol_point.png in Resources */,
 				F077152D1BA6D0D5001ECEA3 /* common_icon_membership_level2.png in Resources */,
@@ -4593,7 +4441,6 @@
 				F03C50FA1BB3CB7100D4A8CC /* lxh_buxiangshangban@2x.png in Resources */,
 				F03C50F11BB3CB7100D4A8CC /* lxh_bengkui@2x.png in Resources */,
 				F033A8251BA0554D00417D4D /* tabbar_discover.png in Resources */,
-				F057F15F1BD628DC0058FB2B /* PlayButtonOverlayLargeTap@3x.png in Resources */,
 				F03C50C21BB3CB7100D4A8CC /* f_hufen@2x.png in Resources */,
 				F05228C91BB193A700F4E059 /* compose_emotion_delete_highlighted@2x.png in Resources */,
 				F033A7AD1BA0554D00417D4D /* tour@2x.png in Resources */,
@@ -4615,18 +4462,15 @@
 				F06326861BABA9F100FEA8A4 /* compose_mentionbutton_background_highlighted@2x.png in Resources */,
 				F033A7881BA0554D00417D4D /* common_button_red_highlighted_os7@2x.png in Resources */,
 				F03C50A41BB3CB7100D4A8CC /* d_nvhaier@2x.png in Resources */,
-				F057F1571BD628DC0058FB2B /* ImageSelectedSmallOn.png in Resources */,
 				F033A7BA1BA0554D00417D4D /* navigationbar_background.png in Resources */,
 				F03C50FC1BB3CB7100D4A8CC /* lxh_deyidexiao.png in Resources */,
 				F07714CC1BA6B917001ECEA3 /* Contents.json in Resources */,
 				F03C50B71BB3CB7100D4A8CC /* d_yinxian@2x.png in Resources */,
 				F03C513D1BB3CB7100D4A8CC /* lxh_shuaishuaishou.png in Resources */,
-				F057F1661BD628DC0058FB2B /* UIBarButtonItemGrid.png in Resources */,
 				F03C50DE1BB3CB7100D4A8CC /* o_zhaoxiangji@2x.png in Resources */,
 				F05228C81BB193A700F4E059 /* Contents.json in Resources */,
 				F03C51361BB3CB7100D4A8CC /* lxh_qiuguanzhu.gif in Resources */,
 				F07714D21BA6B917001ECEA3 /* timeline_card_rightbottom_highlighted.png in Resources */,
-				F057F1631BD628DC0058FB2B /* UIBarButtonItemArrowRight.png in Resources */,
 				F033A8331BA0554D00417D4D /* tabbar_message_center_os7@2x.png in Resources */,
 				F03C50E71BB3CB7100D4A8CC /* emoji.plist in Resources */,
 				F077152A1BA6D0D5001ECEA3 /* common_icon_membership_level1.png in Resources */,
@@ -4778,6 +4622,7 @@
 				F026A44D1BD6755800CEE8CA /* AFHTTPRequestOperationManager.m in Sources */,
 				F068FCC21BDB333C00110D45 /* CJSettingSwitchItem.m in Sources */,
 				F068FCFE1BDB35DB00110D45 /* CJStatusContentPart.m in Sources */,
+				F05E17FD1BDE4FA700A7D631 /* MJPhotoBrowser.m in Sources */,
 				F068FCB71BDB333C00110D45 /* CJDetailCommentResult.m in Sources */,
 				F0C90A841BB514EF0088298B /* CJEmotionTextView.m in Sources */,
 				F052289F1BB1654F00F4E059 /* CJEmotion.m in Sources */,
@@ -4789,18 +4634,18 @@
 				F068FD041BDB35DB00110D45 /* CJStatusDetailBottomToolBar.m in Sources */,
 				F068FD0D1BDB35DB00110D45 /* CJStatusToolBar.m in Sources */,
 				F033A6891BA0374A00417D4D /* CJTabBarController.m in Sources */,
+				F05E18021BDE4FA700A7D631 /* SDWebImageManager+MJ.m in Sources */,
+				F05E17FB1BDE4FA700A7D631 /* MJPhoto.m in Sources */,
 				F033A6871BA0374A00417D4D /* CJDiscoverViewController.m in Sources */,
 				F068FCB81BDB333C00110D45 /* CJHomeStatusesParam.m in Sources */,
 				F06326111BABA6EF00FEA8A4 /* CJComposeToolBar.m in Sources */,
 				F008AE121BAF8CD20098C157 /* CJHomeStatusTool.m in Sources */,
-				F057F1711BD628DC0058FB2B /* MWTapDetectingImageView.m in Sources */,
 				F04C0E521BA448DD0029282B /* CJAccountTool.m in Sources */,
 				F068FCB31BDB333C00110D45 /* CJBaseParma.m in Sources */,
 				F068FD0C1BDB35DB00110D45 /* CJRetweetStatusToolBar.m in Sources */,
 				F04C0E481BA3D4750029282B /* CJOAuthViewController.m in Sources */,
-				F057F1731BD628DC0058FB2B /* MWZoomingScrollView.m in Sources */,
+				F05E18011BDE4FA700A7D631 /* MJPhotoView.m in Sources */,
 				F0D4D3241BD8CCDB0086BACC /* CJSettingTableViewCell.m in Sources */,
-				F057F16C1BD628DC0058FB2B /* MWCaptionView.m in Sources */,
 				F095A3AE1BA92B5300696D9D /* UIViewExt.m in Sources */,
 				F0DC0B851BB41BD900B71D7B /* CJEmotionPopView.m in Sources */,
 				F05228761BB0EF4500F4E059 /* CJEmotionListView.m in Sources */,
@@ -4811,27 +4656,26 @@
 				F068FCBE1BDB333C00110D45 /* CJSettingArrowItem.m in Sources */,
 				F015291E1BD7B96F00EE0024 /* CJDetailViewController.m in Sources */,
 				F068FD171BDB87CE00110D45 /* CJDetailRepostParma.m in Sources */,
+				F05E17FE1BDE4FA700A7D631 /* MJPhotoLoadingView.m in Sources */,
 				F052289A1BB11D7900F4E059 /* CJEmotionTabBarButton.m in Sources */,
 				F026A4541BD6755800CEE8CA /* AFURLSessionManager.m in Sources */,
 				F0B5CA2E1BA8174C00351F02 /* CJLaunchTool.m in Sources */,
 				F09CF13E1BAAF21A00923788 /* CJTextView.m in Sources */,
 				F033A68E1BA0374A00417D4D /* CJMessageViewController.m in Sources */,
 				F0FFBC601BA17CC80059BFD3 /* CJBadegButton.m in Sources */,
+				F05E17FF1BDE4FA700A7D631 /* MJPhotoProgressView.m in Sources */,
 				F0A96BA61BCFC46E00786A0E /* CJEmotionTool.m in Sources */,
 				F068FCB61BDB333C00110D45 /* CJDetailCommentParam.m in Sources */,
-				F057F16D1BD628DC0058FB2B /* MWGridCell.m in Sources */,
 				F068FD061BDB35DB00110D45 /* CJIconView.m in Sources */,
 				F033A68D1BA0374A00417D4D /* CJMeViewController.m in Sources */,
 				F0D4D3661BD8E3450086BACC /* main.m in Sources */,
 				F0403B1D1BC2A5FF0005A801 /* CJConst.m in Sources */,
 				F0D4D3211BD8CB060086BACC /* CJSettingViewController.m in Sources */,
-				F057F1741BD628DC0058FB2B /* UIImage+MWPhotoBrowser.m in Sources */,
 				F068FCFC1BDB35DB00110D45 /* CJPhoto.m in Sources */,
 				F026A44C1BD6755800CEE8CA /* AFHTTPRequestOperation.m in Sources */,
 				F09CF13B1BAABF5F00923788 /* CJComposeViewController.m in Sources */,
 				F068FD011BDB35DB00110D45 /* CJDetailCell.m in Sources */,
 				F068FD141BDB87AD00110D45 /* CJDetailRepostResult.m in Sources */,
-				F057F16F1BD628DC0058FB2B /* MWPhoto.m in Sources */,
 				F068FCF81BDB35DB00110D45 /* CJComment.m in Sources */,
 				F026A4521BD6755800CEE8CA /* AFURLRequestSerialization.m in Sources */,
 				F088116E1BA2C74800A05B49 /* CJNewfeatureViewController.m in Sources */,
@@ -4839,6 +4683,7 @@
 				F068FCF91BDB35DB00110D45 /* CJStatus.m in Sources */,
 				F068FD0B1BDB35DB00110D45 /* CJStatusTopView.m in Sources */,
 				F026A4531BD6755800CEE8CA /* AFURLResponseSerialization.m in Sources */,
+				F05E18001BDE4FA700A7D631 /* MJPhotoToolbar.m in Sources */,
 				F05348581BA7A2460063CB6C /* NSDate+MJ.m in Sources */,
 				F068FD031BDB35DB00110D45 /* CJTitleButton.m in Sources */,
 				F068FCFF1BDB35DB00110D45 /* CJBaseToolBar.m in Sources */,
@@ -4849,7 +4694,6 @@
 				F068FCBA1BDB333C00110D45 /* CJUserInfoParma.m in Sources */,
 				F068FCBC1BDB333C00110D45 /* CJOAuthParma.m in Sources */,
 				F068FCBD1BDB333C00110D45 /* CJOAuthResult.m in Sources */,
-				F057F16E1BD628DC0058FB2B /* MWGridViewController.m in Sources */,
 				F068FCC11BDB333C00110D45 /* CJSettingLabelItem.m in Sources */,
 				F09736021BA297C20046A288 /* CJSearchBar.m in Sources */,
 				F033A6941BA04CD800417D4D /* CJTabBar.m in Sources */,
@@ -4865,10 +4709,8 @@
 				F068FD091BDB35DB00110D45 /* CJStatusPhotosView.m in Sources */,
 				F068FD051BDB35DB00110D45 /* CJStatusDetailTopToolBar.m in Sources */,
 				F068FCFA1BDB35DB00110D45 /* CJStatusFrame.m in Sources */,
-				F057F1721BD628DC0058FB2B /* MWTapDetectingView.m in Sources */,
 				F068FCBB1BDB333C00110D45 /* CJUserInfoResult.m in Sources */,
 				F068FD001BDB35DB00110D45 /* CJCopyLabel.m in Sources */,
-				F057F1701BD628DC0058FB2B /* MWPhotoBrowser.m in Sources */,
 				F008AE321BB02C4F0098C157 /* CJComposeTool.m in Sources */,
 				F068FCBF1BDB333C00110D45 /* CJSettingGroup.m in Sources */,
 			);

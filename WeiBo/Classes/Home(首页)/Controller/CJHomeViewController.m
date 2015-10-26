@@ -5,6 +5,7 @@
 //  Created by mac527 on 15/9/9.
 //  Copyright (c) 2015年 mac527. All rights reserved.
 //
+#import <AVFoundation/AVFoundation.h>
 
 #import "CJHomeViewController.h"
 
@@ -34,16 +35,22 @@
 
 #import "MJRefresh.h"
 
-#import "MWPhotoBrowser.h"
-
 #import "CJDetailViewController.h"
-@interface CJHomeViewController () <MWPhotoBrowserDelegate>
-
+@interface CJHomeViewController ()
+{
+    SystemSoundID _normalId;
+    SystemSoundID _pullId;
+    SystemSoundID _refreshingId;
+    SystemSoundID _endRefreshId;
+    
+}
 @property (nonatomic ,strong) NSMutableArray *statusFrames; // 所有微博Frame
 
 @property (nonatomic, strong) NSArray *allWMPhotos;
 
 @property (nonatomic ,strong) CJTitleButton *titleButton;
+
+@property (nonatomic ,assign ,getter=isPull) BOOL Pull;
 
 @end
 
@@ -65,10 +72,12 @@
     // 获得当前用户数据
     [self setupUserData];
     
-    // 监听微博图片被点击通知
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(photoDidTap:) name:CJPhotoDidTapNotification object:nil];
+    [self loadSound];
+    
     // 监听特殊文字被点击通知
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(specialTextDidTap:) name:CJDidTapSpecialTextNotification object:nil];
+    
+    [self addObserver:self forKeyPath:@"Pull" options:NSKeyValueObservingOptionNew context:nil];
     
 }
 
@@ -77,47 +86,10 @@
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
-#pragma mark - Notification
-- (void)photoDidTap:(NSNotification *)notification
-{
-    self.allWMPhotos = notification.userInfo[CJShowPhotoBrowserKey];
-    NSInteger index = [notification.userInfo[CJPhotoIndexKey] integerValue];
-    // Create browser
-    MWPhotoBrowser *browser = [[MWPhotoBrowser alloc] initWithDelegate:self];
-    browser.displayActionButton = YES;
-    browser.displayNavArrows = YES;
-    browser.displaySelectionButtons = NO;
-    browser.alwaysShowControls = NO;
-    browser.zoomPhotosToFill = YES;
-    browser.enableGrid = NO;
-    browser.startOnGrid = NO;
-    browser.enableSwipeToDismiss = NO;
-    browser.autoPlayOnAppear = NO;
-    [browser setCurrentPhotoIndex:index];
-    [browser showNextPhotoAnimated:YES];
-    [browser showPreviousPhotoAnimated:YES];
-    UINavigationController *nv = [[UINavigationController alloc] initWithRootViewController:browser];
-    nv.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
-    [self presentViewController:nv animated:YES completion:nil];
-}
 - (void)specialTextDidTap:(NSNotification *)notification
 {
     NSString *specialText = notification.userInfo[CJDidTapSpecialTextKey];
     NSLog(@"%@",specialText);
-}
-
-#pragma mark - MWPhotoBrowserDelegate
-- (NSUInteger)numberOfPhotosInPhotoBrowser:(MWPhotoBrowser *)photoBrowser
-{
-    return self.allWMPhotos.count;
-}
-
-- (id <MWPhoto>)photoBrowser:(MWPhotoBrowser *)photoBrowser photoAtIndex:(NSUInteger)index
-{
-    if (index < self.allWMPhotos.count) {
-        return [self.allWMPhotos objectAtIndex:index];
-    }
-    return nil;
 }
 
 
@@ -206,6 +178,14 @@
     }];
 }
 
+- (void)loadSound
+{
+    _pullId = [self loadId:@"pull.wav"];
+    _normalId = [self loadId:@"normal.wav"];
+    _refreshingId = [self loadId:@"refreshing.wav"];
+    _endRefreshId = [self loadId:@"end_refreshing.wav"];
+}
+
 /**
  *  上拉tableView就会调用
  */
@@ -254,6 +234,8 @@
  */
 - (void)refreshNewData
 {
+    [self playRefreshingRefreshSound];
+    
     // 1.封装请求参数
     CJHomeStatusesParam *param = [CJHomeStatusesParam parma];
     // 是否为第一次加载数据
@@ -288,7 +270,7 @@
         }
         // 结束刷新
         [self.tableView.header endRefreshing];
-        
+        [self playEndRefreshSound];
         // 弹出信息提醒
         NSString *title = nil;
         
@@ -304,6 +286,8 @@
         [self showMessageForRefreshDataWithTitle:title];
         // 刷新tableView
         [self.tableView reloadData];
+        
+        
         self.tabBarItem.badgeValue = @"";
     } failure:^(NSError *error) {
         [self showMessageForRefreshDataWithTitle:@"用户请求超时"];
@@ -388,7 +372,32 @@
         
     }
 }
+- (void)playNormalRefreshSound
+{
+    AudioServicesPlaySystemSound(_normalId);
+}
+- (void)playPullSound
+{
+    AudioServicesPlaySystemSound(_pullId);
+}
+- (void)playRefreshingRefreshSound
+{
+    AudioServicesPlaySystemSound(_refreshingId);
+}
+- (void)playEndRefreshSound
+{
+    AudioServicesPlaySystemSound(_endRefreshId);
+}
 
+- (SystemSoundID)loadId:(NSString *)filename
+{
+    SystemSoundID ID;
+    NSBundle *bundle = [NSBundle mainBundle];
+    
+    NSURL *url = [bundle URLForResource:[@"MJRefresh.bundle" stringByAppendingPathComponent:filename] withExtension:nil];
+    AudioServicesCreateSystemSoundID((__bridge CFURLRef)(url), &ID);
+    return ID;
+}
 
 #pragma mark - Table view data source
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -429,5 +438,14 @@
     detail.status = stausF.status;
     
     [self.navigationController pushViewController:detail animated:YES];
+}
+
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView
+{
+    self.Pull = scrollView.contentOffset.y < -125 ? YES : NO;
+}
+
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
+{
 }
 @end
