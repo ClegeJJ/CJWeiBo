@@ -1,5 +1,4 @@
 PODS:
-  - DACircularProgress (2.3.1)
   - DateTools (1.7.0)
   - FMDB (2.5):
     - FMDB/standard (= 2.5)
@@ -15,7 +14,6 @@ PODS:
   - SDWebImage/Core (3.7.3)
 
 DEPENDENCIES:
-  - DACircularProgress (= 2.3.1)
   - DateTools (= 1.7.0)
   - FMDB (= 2.5)
   - MBProgressHUD (= 0.9.1)
@@ -25,7 +23,6 @@ DEPENDENCIES:
   - SDWebImage (= 3.7.3)
 
 SPEC CHECKSUMS:
-  DACircularProgress: 4dd437c0fc3da5161cb289e07ac449493d41db71
   DateTools: 53288ee8b905fdc75897a1e6b5cc0144b14cba60
   FMDB: 96e8f1bcc1329e269330f99770ad4285d9003e52
   MBProgressHUD: c47f2c166c126cf2ce36498d80f33e754d4e93ad

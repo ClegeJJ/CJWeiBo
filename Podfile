@@ -1,4 +1,4 @@
-pod 'DACircularProgress', '2.3.1'
+
 pod 'MBProgressHUD', '0.9.1’
 pod 'SDWebImage', '3.7.3'
 pod 'FMDB', '2.5'
