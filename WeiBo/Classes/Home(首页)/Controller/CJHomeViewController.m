@@ -52,6 +52,8 @@
 
 @property (nonatomic ,assign ,getter=isPull) BOOL Pull;
 
+@property (nonatomic, assign) BOOL oldValue;
+
 @end
 
 @implementation CJHomeViewController
@@ -76,9 +78,6 @@
     
     // 监听特殊文字被点击通知
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(specialTextDidTap:) name:CJDidTapSpecialTextNotification object:nil];
-    
-    [self addObserver:self forKeyPath:@"Pull" options:NSKeyValueObservingOptionNew context:nil];
-    
 }
 
 - (void)dealloc
@@ -443,9 +442,16 @@
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
     self.Pull = scrollView.contentOffset.y < -125 ? YES : NO;
+    
+    if (self.oldValue != self.Pull ) {
+        self.oldValue = self.Pull;
+        if (self.oldValue == 1) {
+            [self playPullSound];
+        }else {
+            [self playNormalRefreshSound];
+        }
+    }
+    
 }
 
-- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
-{
-}
 @end
